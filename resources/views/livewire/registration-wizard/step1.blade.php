@@ -86,7 +86,7 @@
     </div>
 
     <div class="mt-8 flex justify-end">
-        <x-premium-button wire:click="nextStep" variant="orange" size="lg">
+        <x-premium-button wire:click.prevent="nextStep" variant="orange" size="lg">
             <span>Lanjutkan</span>
             <i class="ph ph-arrow-right text-lg"></i>
         </x-premium-button>
