@@ -135,18 +135,10 @@ class RegistrationWizard extends Component
 
     public function nextStep()
     {
-        \Log::info('nextStep called', ['currentStep' => $this->currentStep]);
-
-        try {
-            if ($this->validateStep($this->currentStep)) {
-                if ($this->currentStep < 4) {
-                    $this->currentStep++;
-                    \Log::info('Step incremented', ['newStep' => $this->currentStep]);
-                }
+        if ($this->validateStep($this->currentStep)) {
+            if ($this->currentStep < 4) {
+                $this->currentStep++;
             }
-        } catch (\Exception $e) {
-            \Log::error('nextStep error: ' . $e->getMessage());
-            $this->addError('step', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
 
