@@ -82,15 +82,10 @@
     @endif
 
     <div class="mt-8 flex justify-between">
-        <x-premium-button wire:click="previousStep" variant="secondary" size="lg">
+        <x-premium-button wire:click.prevent="previousStep" variant="secondary" size="lg">
             Kembali
         </x-premium-button>
-        <x-premium-button 
-            wire:click="submit" 
-            variant="orange" 
-            size="lg"
-            :disabled="$isSubmitting"
-        >
+        <x-premium-button wire:click.prevent="submit" variant="orange" size="lg" :disabled="$isSubmitting">
             @if($isSubmitting)
                 <div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 <span>Mengirim...</span>
@@ -101,4 +96,3 @@
         </x-premium-button>
     </div>
 </x-glass-card>
-
