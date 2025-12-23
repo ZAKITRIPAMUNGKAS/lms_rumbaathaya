@@ -86,10 +86,9 @@
     </div>
 
     <div class="mt-8 flex justify-end">
-        <button type="button" wire:click.prevent="nextStep"
-            class="inline-flex items-center justify-center gap-2 font-bold rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 focus:ring-orange-500 shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 hover:scale-105 active:scale-95 px-8 py-4 text-lg">
+        <x-premium-button wire:click.prevent="nextStep" variant="orange" size="lg">
             <span>Lanjutkan</span>
             <i class="ph ph-arrow-right text-lg"></i>
-        </button>
+        </x-premium-button>
     </div>
 </x-glass-card>
