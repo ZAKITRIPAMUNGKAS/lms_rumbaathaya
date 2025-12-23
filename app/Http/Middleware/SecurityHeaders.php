@@ -28,17 +28,17 @@ class SecurityHeaders
         // Allow CDN for Phosphor Icons and other external resources
         $csp = [
             "default-src 'self'",
-            // Script sources: Allow Alpine.js (needs unsafe-eval for dynamic expressions), inline scripts, and local scripts
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com",
-            "script-src-elem 'self' 'unsafe-inline' https://unpkg.com",
-            // Style sources: Allow Google Fonts and inline styles
-            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-            "style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com",
-            // Font sources
-            "font-src 'self' https://fonts.gstatic.com data:",
+            // Script sources: Allow Alpine.js (needs unsafe-eval for dynamic expressions), inline scripts, and CDN
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdn.jsdelivr.net",
+            "script-src-elem 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net",
+            // Style sources: Allow Google Fonts, CDN, and inline styles
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
+            "style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
+            // Font sources: Allow Google Fonts and CDN
+            "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:",
             // Image sources: Allow all HTTPS images (for storage and external images)
             "img-src 'self' data: https: blob:",
-            // Connect sources: Allow API calls to same origin and Google Fonts
+            // Connect sources: Allow API calls to same origin and external CDN
             "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com",
             "frame-ancestors 'self'",
             "base-uri 'self'",
