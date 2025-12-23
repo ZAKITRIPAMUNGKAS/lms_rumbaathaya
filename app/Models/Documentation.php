@@ -79,7 +79,7 @@ class Documentation extends Model
             return $this->thumbnail;
         }
 
-        return asset('storage/' . $this->thumbnail);
+        return asset('uploads/' . $this->thumbnail);
     }
 
     /**
@@ -93,7 +93,7 @@ class Documentation extends Model
 
         // Extract YouTube video ID from various URL formats
         preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/', $this->video_url, $matches);
-        
+
         return $matches[1] ?? null;
     }
 }

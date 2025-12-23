@@ -117,17 +117,17 @@ class User extends Authenticatable implements FilamentUser
         if ($panel->getId() === 'admin') {
             return $this->role === 'admin';
         }
-        
+
         // Tutor can only access tutor panel
         if ($panel->getId() === 'tutor') {
             return $this->role === 'tutor';
         }
-        
+
         // Student can only access student panel
         if ($panel->getId() === 'student') {
             return $this->role === 'student';
         }
-        
+
         return false;
     }
 
@@ -139,7 +139,7 @@ class User extends Authenticatable implements FilamentUser
     {
         // Get original value from database (not modified)
         $originalValue = $this->attributes['avatar_url'] ?? $value;
-        
+
         if (!$originalValue) {
             return null;
         }
@@ -150,8 +150,8 @@ class User extends Authenticatable implements FilamentUser
         }
 
         // Filament stores path as 'avatars/filename.png'
-        // We need to prepend 'storage/' to make it accessible via public/storage symlink
-        return asset('storage/' . $originalValue);
+        // We need to prepend 'uploads/' to make it accessible via public/uploads
+        return asset('uploads/' . $originalValue);
     }
 
     /**
