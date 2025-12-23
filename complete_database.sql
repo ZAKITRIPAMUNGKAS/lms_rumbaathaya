@@ -148,6 +148,86 @@ INSERT INTO `schedules` (`id`, `tutor_id`, `student_id`, `subject_id`, `day_of_w
 (5, 2, 3, 1, 'Friday', '13:00:00', '14:30:00', 1, NOW(), NOW());
 
 -- ============================================
+-- Table: attendances
+-- ============================================
+CREATE TABLE IF NOT EXISTS `attendances` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `schedule_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `tutor_id` bigint(20) UNSIGNED NOT NULL,
+  `student_id` bigint(20) UNSIGNED NOT NULL,
+  `date` date NOT NULL,
+  `topic_taught` text NOT NULL,
+  `student_progress_note` text DEFAULT NULL,
+  `photo_evidence_path` varchar(255) DEFAULT NULL,
+  `status` enum('present','absent','permission','sick') DEFAULT 'present',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `attendances_schedule_id_foreign` (`schedule_id`),
+  KEY `attendances_tutor_id_index` (`tutor_id`),
+  KEY `attendances_student_id_index` (`student_id`),
+  KEY `attendances_date_index` (`date`),
+  CONSTRAINT `attendances_schedule_id_foreign` FOREIGN KEY (`schedule_id`) REFERENCES `schedules` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `attendances_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `attendances_tutor_id_foreign` FOREIGN KEY (`tutor_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `attendances` (`id`, `schedule_id`, `tutor_id`, `student_id`, `date`, `topic_taught`, `student_progress_note`, `photo_evidence_path`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, 1, '2024-12-20', 'Perkalian dan Pembagian', 'Siswa memahami materi dengan baik', NULL, 'present', NOW(), NOW()),
+(2, 2, 2, 1, '2024-12-18', 'Sistem Tata Surya', 'Siswa antusias belajar tentang planet', NULL, 'present', NOW(), NOW()),
+(3, 3, 2, 2, '2024-12-19', 'Aljabar Dasar', 'Perlu latihan lebih banyak', NULL, 'present', NOW(), NOW());
+
+-- ============================================
+-- Table: bimbel_journals
+-- ============================================
+CREATE TABLE IF NOT EXISTS `bimbel_journals` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `tutor_id` bigint(20) UNSIGNED NOT NULL,
+  `schedule_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `material` text NOT NULL,
+  `documentation_path` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `bimbel_journals_tutor_id_foreign` (`tutor_id`),
+  KEY `bimbel_journals_schedule_id_foreign` (`schedule_id`),
+  CONSTRAINT `bimbel_journals_schedule_id_foreign` FOREIGN KEY (`schedule_id`) REFERENCES `schedules` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `bimbel_journals_tutor_id_foreign` FOREIGN KEY (`tutor_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `bimbel_journals` (`id`, `tutor_id`, `schedule_id`, `date`, `time`, `material`, `documentation_path`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, '2024-12-20', '13:00:00', 'Materi Perkalian Bab 1', NULL, NOW(), NOW()),
+(2, 2, 2, '2024-12-18', '15:00:00', 'Materi Tata Surya Bab 2', NULL, NOW(), NOW());
+
+-- ============================================
+-- Table: student_reports
+-- ============================================
+CREATE TABLE IF NOT EXISTS `student_reports` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `student_id` bigint(20) UNSIGNED NOT NULL,
+  `subject_id` bigint(20) UNSIGNED NOT NULL,
+  `score` int(11) NOT NULL DEFAULT 0,
+  `attendance_count` int(11) DEFAULT NULL,
+  `notes` text DEFAULT NULL,
+  `period` varchar(255) NOT NULL,
+  `report_date` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_reports_student_id_index` (`student_id`),
+  KEY `student_reports_subject_id_index` (`subject_id`),
+  KEY `student_reports_report_date_index` (`report_date`),
+  CONSTRAINT `student_reports_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `student_reports_subject_id_foreign` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `student_reports` (`id`, `student_id`, `subject_id`, `score`, `attendance_count`, `notes`, `period`, `report_date`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 85, 8, 'Perkembangan baik, perlu latihan lebih banyak', 'Desember 2024', '2024-12-20', NOW(), NOW()),
+(2, 2, 1, 90, 10, 'Siswa sangat aktif dan memahami materi dengan cepat', 'Desember 2024', '2024-12-20', NOW(), NOW());
+
+-- ============================================
 -- Table: materials
 -- ============================================
 CREATE TABLE IF NOT EXISTS `materials` (
@@ -388,13 +468,16 @@ COMMIT;
 -- ============================================
 -- SUMMARY
 -- ============================================
--- Tables Created: 18
+-- Tables Created: 21 (ALL COMPLETE)
 -- Sample Data Inserted:
 -- - Users: 2 (1 Admin, 1 Tutor)
 -- - Class Levels: 14
 -- - Subjects: 5
 -- - Students: 5
 -- - Schedules: 5
+-- - Attendances: 3 ✅ NEW
+-- - Bimbel Journals: 2 ✅ NEW
+-- - Student Reports: 2 ✅ NEW
 -- - Materials: 3
 -- - Posts: 6
 -- - Documentations: 5
