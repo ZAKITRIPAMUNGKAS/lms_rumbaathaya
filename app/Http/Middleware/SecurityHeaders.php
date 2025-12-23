@@ -25,12 +25,12 @@ class SecurityHeaders
         $response->headers->set('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
 
         // Content Security Policy (CSP)
-        // Allow CDN for Phosphor Icons and other external resources
+        // Allow CDN for Phosphor Icons, jQuery, Summernote and other external resources
         $csp = [
             "default-src 'self'",
-            // Script sources: Allow Alpine.js (needs unsafe-eval for dynamic expressions), inline scripts, and CDN
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdn.jsdelivr.net",
-            "script-src-elem 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net",
+            // Script sources: Allow Alpine.js, jQuery, and CDN
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdn.jsdelivr.net https://code.jquery.com",
+            "script-src-elem 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://code.jquery.com",
             // Style sources: Allow Google Fonts, CDN, and inline styles
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
             "style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
@@ -38,8 +38,8 @@ class SecurityHeaders
             "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:",
             // Image sources: Allow all HTTPS images (for storage and external images)
             "img-src 'self' data: https: blob:",
-            // Connect sources: Allow API calls to same origin and external CDN
-            "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com",
+            // Connect sources: Allow API calls to CDN for source maps
+            "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net",
             "frame-ancestors 'self'",
             "base-uri 'self'",
             "form-action 'self'",
