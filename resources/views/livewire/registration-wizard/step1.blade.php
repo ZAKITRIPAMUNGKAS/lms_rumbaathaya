@@ -35,7 +35,8 @@
             <label class="block text-sm font-semibold text-slate-700 mb-2">
                 Tanggal Lahir <span class="text-red-500">*</span>
             </label>
-            :error="$errors->first('dateOfBirth')" icon='<i class="ph ph-calendar text-lg"></i>' />
+            <x-premium-input type="date" wire:model.blur="dateOfBirth" :error="$errors->first('dateOfBirth')"
+                icon='<i class="ph ph-calendar text-lg"></i>' />
         </div>
 
         <!-- Email -->
