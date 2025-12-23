@@ -23,14 +23,14 @@ class SecurityHeaders
         $response->headers->set('X-XSS-Protection', '1; mode=block');
         $response->headers->set('Referrer-Policy', 'strict-origin-when-cross-origin');
         $response->headers->set('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
-        
+
         // Content Security Policy (CSP)
-        // All scripts and styles are now local (no CDN required)
+        // Allow CDN for Phosphor Icons and other external resources
         $csp = [
             "default-src 'self'",
             // Script sources: Allow Alpine.js (needs unsafe-eval for dynamic expressions), inline scripts, and local scripts
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-            "script-src-elem 'self' 'unsafe-inline'",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com",
+            "script-src-elem 'self' 'unsafe-inline' https://unpkg.com",
             // Style sources: Allow Google Fonts and inline styles
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
             "style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com",
@@ -44,9 +44,9 @@ class SecurityHeaders
             "base-uri 'self'",
             "form-action 'self'",
         ];
-        
+
         $response->headers->set('Content-Security-Policy', implode('; ', $csp));
-        
+
         // HSTS (if using HTTPS)
         if ($request->secure()) {
             $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
