@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear Cache - Rumba Athaya</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #F59E0B;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #D97706;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+        .error {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Clear Cache & Service Worker</h1>
+        <p>Gunakan tombol di bawah untuk membersihkan cache browser dan unregister service worker.</p>
+        
+        <button onclick="clearServiceWorker()">Unregister Service Worker</button>
+        <button onclick="clearAllCaches()">Clear All Caches</button>
+        <button onclick="clearEverything()">Clear Everything</button>
+        
+        <div id="status" class="status"></div>
+    </div>
+
+    <script>
+        async function clearServiceWorker() {
+            const status = document.getElementById('status');
+            try {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                for (let registration of registrations) {
+                    await registration.unregister();
+                }
+                status.textContent = `✓ Unregistered ${registrations.length} service worker(s)`;
+                status.className = 'status success';
+                status.style.display = 'block';
+            } catch (error) {
+                status.textContent = 'Error: ' + error.message;
+                status.className = 'status error';
+                status.style.display = 'block';
+            }
+        }
+
+        async function clearAllCaches() {
+            const status = document.getElementById('status');
+            try {
+                const cacheNames = await caches.keys();
+                await Promise.all(cacheNames.map(name => caches.delete(name)));
+                status.textContent = `✓ Cleared ${cacheNames.length} cache(s)`;
+                status.className = 'status success';
+                status.style.display = 'block';
+            } catch (error) {
+                status.textContent = 'Error: ' + error.message;
+                status.className = 'status error';
+                status.style.display = 'block';
+            }
+        }
+
+        async function clearEverything() {
+            await clearServiceWorker();
+            await clearAllCaches();
+            const status = document.getElementById('status');
+            status.textContent = '✓ All caches and service workers cleared! Please refresh the page.';
+            status.className = 'status success';
+            status.style.display = 'block';
+            
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

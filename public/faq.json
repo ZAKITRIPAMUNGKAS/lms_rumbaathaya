@@ -1,0 +1,95 @@
+{
+  "faq": [
+    {
+      "id": 1,
+      "question": "Apa itu Rumba Athaya?",
+      "answer": "Rumba Athaya (Rumah Belajar Athaya) adalah bimbingan belajar yang berkomitmen menciptakan suasana belajar yang menyenangkan, efektif, dan inspiratif. Berdiri sejak 6 Maret 2023 dengan tagline 'Belajar Asyik, Prestasi Terbaik'.",
+      "keywords": ["rumba athaya", "apa itu", "tentang", "bimbel", "bimbingan belajar"]
+    },
+    {
+      "id": 2,
+      "question": "Apa saja program yang tersedia?",
+      "answer": "Rumba Athaya menyediakan 5 program utama: 1) Calistung TK - Khusus TK agar cepat membaca, menulis, menghitung. 2) Calistung Kelas 1-3 SD - Fondasi agar jadi juara sekolah. 3) Kelas 4-5-6 SD - Persiapan masuk SMP Favorit. 4) Kelas 7-8-9 SMP - Persiapan masuk SMA Favorit + Try Out Apps. 5) Kelas Tahfidz - Program khusus hafalan dan tahsin.",
+      "keywords": ["program", "paket", "kelas", "calistung", "tahfidz", "sd", "smp"]
+    },
+    {
+      "id": 3,
+      "question": "Apa itu Formula 3B?",
+      "answer": "Formula 3B adalah metode belajar Rumba Athaya yang terdiri dari: 1) BELAJAR - Suasana interaktif, mudah dipahami, tidak membosankan. 2) BERLATIH - Latihan soal terstruktur dan terukur. 3) BERPRESTASI - Peningkatan nilai dan pencapaian akademik terbaik.",
+      "keywords": ["formula 3b", "metode", "cara belajar", "belajar", "berlatih", "berprestasi"]
+    },
+    {
+      "id": 4,
+      "question": "Bagaimana cara mendaftar?",
+      "answer": "Anda bisa mendaftar dengan cara: 1) Klik tombol 'Daftar Sekarang' di website, 2) Atau hubungi WhatsApp kami di +62 812-3456-7890, 3) Atau datang langsung ke lokasi Rumba Athaya. Kami akan membantu proses pendaftaran dan konsultasi program yang sesuai.",
+      "keywords": ["daftar", "pendaftaran", "cara daftar", "registrasi", "cara mendaftar"]
+    },
+    {
+      "id": 5,
+      "question": "Berapa biaya bimbel?",
+      "answer": "Biaya bimbel bervariasi sesuai program yang dipilih. Untuk informasi lengkap mengenai biaya, silakan hubungi kami melalui WhatsApp di +62 812-3456-7890 atau datang langsung ke lokasi untuk konsultasi gratis. Kami akan memberikan informasi detail sesuai program yang Anda pilih.",
+      "keywords": ["biaya", "harga", "tarif", "biaya bimbel", "berapa harga", "berapa biaya"]
+    },
+    {
+      "id": 6,
+      "question": "Apakah ada konsultasi gratis?",
+      "answer": "Ya, Rumba Athaya menyediakan konsultasi gratis untuk membantu Anda memilih program yang sesuai dengan kebutuhan anak. Anda bisa menghubungi kami melalui WhatsApp atau datang langsung ke lokasi.",
+      "keywords": ["konsultasi", "gratis", "konsultasi gratis", "tanya", "bertanya"]
+    },
+    {
+      "id": 7,
+      "question": "Siapa saja tutornya?",
+      "answer": "Tutor Rumba Athaya adalah tutor berpengalaman dari berbagai PTN (Perguruan Tinggi Negeri) yang memotivasi dan memantau perkembangan siswa. Mereka memiliki kemampuan mengajar yang baik dan sabar dalam membimbing siswa.",
+      "keywords": ["tutor", "pengajar", "guru", "siapa tutor", "tutor berpengalaman"]
+    },
+    {
+      "id": 8,
+      "question": "Apakah jadwalnya fleksibel?",
+      "answer": "Ya, jadwal bisa disesuaikan dengan kesibukan siswa dan ketersediaan tutor. Silakan diskusikan dengan admin untuk penyesuaian jadwal yang paling sesuai dengan kebutuhan Anda.",
+      "keywords": ["jadwal", "fleksibel", "waktu", "jam", "kapan"]
+    },
+    {
+      "id": 9,
+      "question": "Bagaimana cara memantau perkembangan anak?",
+      "answer": "Rumba Athaya menyediakan sistem monitoring digital. Orang tua bisa login ke sistem untuk melihat absensi harian, nilai tryout, dan download laporan progress dalam format PDF setiap bulan. Sistem ini memudahkan orang tua memantau perkembangan belajar anak secara real-time.",
+      "keywords": ["monitoring", "pantau", "laporan", "progress", "perkembangan", "rapor"]
+    },
+    {
+      "id": 10,
+      "question": "Apakah bisa ganti tutor jika tidak cocok?",
+      "answer": "Tentu, kami mengutamakan kenyamanan siswa. Hubungi admin untuk penyesuaian tutor yang lebih sesuai dengan karakter belajar anak Anda. Kami akan membantu mencari tutor yang tepat.",
+      "keywords": ["ganti tutor", "tidak cocok", "ganti pengajar", "ubah tutor"]
+    },
+    {
+      "id": 11,
+      "question": "Apakah ada biaya pendaftaran?",
+      "answer": "Tidak ada biaya pendaftaran. Hanya membayar biaya bulanan sesuai paket yang dipilih. Konsultasi pertama juga gratis!",
+      "keywords": ["biaya pendaftaran", "uang pendaftaran", "biaya daftar", "biaya registrasi"]
+    },
+    {
+      "id": 12,
+      "question": "Apakah materi bisa diakses kapan saja?",
+      "answer": "Ya, setelah mendaftar, siswa mendapatkan akses ke platform LMS yang berisi ribuan bank soal, modul rangkuman, dan video pembahasan yang bisa diakses 24/7 dari HP atau Laptop di mana saja.",
+      "keywords": ["materi", "akses", "lms", "bank soal", "modul", "video"]
+    },
+    {
+      "id": 13,
+      "question": "Program Calistung TK untuk usia berapa?",
+      "answer": "Program Calistung TK dirancang khusus untuk anak TK (Taman Kanak-kanak) agar cepat membaca, menulis, dan menghitung. Program ini mempersiapkan anak TK masuk SD dengan kemampuan dasar yang kuat.",
+      "keywords": ["calistung tk", "tk", "taman kanak", "usia tk", "anak tk"]
+    },
+    {
+      "id": 14,
+      "question": "Apa itu Sahabat RA?",
+      "answer": "Sahabat RA adalah mading online Rumba Athaya yang menampilkan kabar terbaru, karya siswa, dan informasi penting. Anda bisa melihat postingan terbaru di website Rumba Athaya.",
+      "keywords": ["sahabat ra", "mading", "kabar", "berita", "karya siswa"]
+    },
+    {
+      "id": 15,
+      "question": "Dimana lokasi Rumba Athaya?",
+      "answer": "Untuk informasi lengkap mengenai lokasi Rumba Athaya, silakan hubungi kami melalui WhatsApp di +62 812-3456-7890 atau email info@rumbaathaya.com. Kami akan memberikan alamat lengkap dan petunjuk arah.",
+      "keywords": ["lokasi", "alamat", "dimana", "dimana lokasi", "tempat"]
+    }
+  ]
+}
+

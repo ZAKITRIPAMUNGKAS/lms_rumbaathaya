@@ -1,0 +1,9 @@
+@extends('layouts.app')
+
+@section('page-title', 'Dashboard Tutor')
+@section('page-description', 'Selamat datang di portal tutor')
+
+@section('content')
+    @livewire('tutor-dashboard')
+@endsection
+

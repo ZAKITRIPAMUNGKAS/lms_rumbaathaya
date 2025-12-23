@@ -1,0 +1,1 @@
+@include('pages.admin.posts.create')

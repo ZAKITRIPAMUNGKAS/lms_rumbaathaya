@@ -1,0 +1,9 @@
+@extends('layouts.app')
+
+@section('page-title', 'Dashboard Siswa')
+@section('page-description', 'Selamat datang di portal siswa')
+
+@section('content')
+    @livewire('student-dashboard')
+@endsection
+

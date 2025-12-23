@@ -1,0 +1,82 @@
+# ============================================
+# LARAVEL ROOT .htaccess
+# ============================================
+# File ini harus ada di root directory untuk:
+# 1. Memblokir directory listing
+# 2. Redirect ke public/ jika Document Root belum di-set
+# 3. Proteksi file sensitif
+
+# Disable directory browsing
+Options -Indexes
+
+# ============================================
+# SECURITY PROTECTIONS
+# ============================================
+
+# Protect sensitive files and directories
+<FilesMatch "^(\.env|\.git|composer\.(json|lock)|package(-lock)?\.json|\.htaccess|\.htpasswd|\.DS_Store|\.gitignore|\.gitattributes|artisan|phpunit\.xml|\.php_cs|\.editorconfig|DEPLOY\.md|README\.md)$">
+    Require all denied
+</FilesMatch>
+
+# Allow .well-known directory (for SSL verification, etc.) - Must come first
+<FilesMatch "^\.well-known">
+    Require all granted
+</FilesMatch>
+
+# Block access to hidden files (except .well-known which is handled above)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Block access to backup and temporary files
+<FilesMatch "\.(bak|backup|old|tmp|temp|log|sql|swp|swo)$">
+    Require all denied
+</FilesMatch>
+
+# Block access to version control files
+<FilesMatch "^(\.git|\.svn|\.hg)">
+    Require all denied
+</FilesMatch>
+
+# Block access to sensitive directories
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Block direct access to sensitive directories
+    RewriteRule ^(app|bootstrap|config|database|resources|routes|storage|tests|vendor|node_modules)/ - [F,L]
+    
+    # If Document Root is NOT set to public/, redirect all requests to public/
+    # Aktifkan ini jika Document Root masih di root directory
+    # Skip if already in public/ directory
+    RewriteCond %{REQUEST_URI} !^/public/
+    # Skip if file exists in root (for files that should be accessible from root)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # Skip if directory exists in root
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Redirect everything else to public/
+    RewriteRule ^(.*)$ /public/$1 [L]
+    
+    # If accessing root directory, redirect to public/
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^(.*)$ /public/ [L]
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    # X-Content-Type-Options: Prevent MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+    
+    # X-Frame-Options: Prevent clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # X-XSS-Protection: Enable XSS filtering
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # Referrer-Policy: Control referrer information
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Remove server signature
+    Header unset Server
+    Header unset X-Powered-By
+</IfModule>
+

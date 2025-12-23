@@ -1,0 +1,30 @@
+{
+  "name": "Rumba Athaya",
+  "short_name": "Rumba",
+  "description": "Platform Bimbel Terpadu Rumba Athaya. Belajar lebih seru, prestasi lebih maju.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#F59E0B",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/Logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "learning"],
+  "lang": "id",
+  "dir": "ltr",
+  "prefer_related_applications": false
+}
+
