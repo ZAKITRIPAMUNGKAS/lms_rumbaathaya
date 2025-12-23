@@ -40,8 +40,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => public_path('uploads'),  // Changed from storage_path('app/public') to avoid symlink issues
+            'url' => env('APP_URL') . '/uploads',  // Changed from /storage to /uploads
             'visibility' => 'public',
             'throw' => false,
             'report' => false,
