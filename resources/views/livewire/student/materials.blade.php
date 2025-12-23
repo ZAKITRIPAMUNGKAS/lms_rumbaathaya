@@ -92,7 +92,7 @@
                             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                                 {{ $material->subject->name ?? 'Mapel' }}
                             </span>
-                            <a href="{{ $material->file_path ? asset('storage/' . $material->file_path) : '#' }}"
+                            <a href="{{ $material->file_path ? asset('uploads/' . $material->file_path) : '#' }}"
                                 target="_blank"
                                 class="inline-flex items-center gap-1 text-xs font-bold text-indigo-600 hover:bg-indigo-50 px-3 py-1.5 rounded-lg transition-colors">
                                 <i class="ph ph-download-simple text-sm"></i>

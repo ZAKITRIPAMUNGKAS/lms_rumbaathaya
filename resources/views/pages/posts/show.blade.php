@@ -32,7 +32,7 @@
                     class="bg-white/80 backdrop-blur-xl rounded-[2.5rem] border border-white/60 shadow-2xl overflow-hidden">
                     @if(!empty($post->thumbnail))
                         <div class="relative h-64 sm:h-80 md:h-96 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                            <img src="{{ asset('storage/' . $post->thumbnail) }}" 
+                            <img src="{{ asset('uploads/' . $post->thumbnail) }}" 
                                  alt="{{ $post->title }}" 
                                  class="w-full h-full object-cover"
                                  onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center\'><div class=\'text-white text-center p-8\'><i class=\'ph-bold ph-image text-6xl mb-4 opacity-50\'></i><p class=\'text-lg font-semibold opacity-75\'>Gambar tidak tersedia</p></div></div>';">
@@ -161,7 +161,7 @@
                                     class="h-full bg-white/80 backdrop-blur-xl rounded-2xl border border-white/60 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
                                     @if(!empty($related->thumbnail))
                                         <div class="relative h-48 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                                            <img src="{{ asset('storage/' . $related->thumbnail) }}" 
+                                            <img src="{{ asset('uploads/' . $related->thumbnail) }}" 
                                                  alt="{{ $related->title }}"
                                                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                                  onerror="this.style.display='none'; this.parentElement.classList.add('bg-gradient-to-br', 'from-indigo-400', 'to-purple-500', 'flex', 'items-center', 'justify-center'); this.parentElement.innerHTML='<i class=\'ph-bold ph-image text-5xl text-white opacity-50\'></i>';">
