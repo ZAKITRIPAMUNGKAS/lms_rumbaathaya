@@ -325,6 +325,7 @@ CREATE TABLE `testimonials` (
   `rating` tinyint(3) UNSIGNED NOT NULL DEFAULT 5,
   `avatar` varchar(255) DEFAULT NULL,
   `is_featured` tinyint(1) NOT NULL DEFAULT 0,
+  `is_published` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
