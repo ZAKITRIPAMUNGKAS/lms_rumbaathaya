@@ -38,9 +38,9 @@ class RegistrationWizard extends Component
     public $currentStep = 1;
 
     // State
-    public $errors = [];
     public $isSubmitting = false;
     public $isSuccess = false;
+    public $submitError = null; // Changed from $errors to avoid conflict with Laravel's ViewErrorBag
 
     public const PROGRAMS = [
         'calistung-tk' => ['name' => 'Calistung TK', 'icon' => '📚', 'description' => 'Baca Tulis Hitung'],
@@ -81,7 +81,6 @@ class RegistrationWizard extends Component
     public function validateStep($step)
     {
         $this->resetValidation();
-        $this->errors = [];
 
         if ($step === 1) {
             $this->validate([
@@ -237,7 +236,7 @@ class RegistrationWizard extends Component
 
         } catch (\Exception $e) {
             \Log::error('Registration error: ' . $e->getMessage());
-            $this->errors['submit'] = 'Terjadi kesalahan saat mendaftar. Silakan coba lagi.';
+            $this->submitError = 'Terjadi kesalahan saat mendaftar. Silakan coba lagi.';
             $this->isSubmitting = false;
         }
     }
