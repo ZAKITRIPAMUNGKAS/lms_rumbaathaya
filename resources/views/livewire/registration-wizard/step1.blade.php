@@ -18,7 +18,7 @@
                 Nama Lengkap <span class="text-red-500">*</span>
             </label>
             <x-premium-input type="text" wire:model.blur="name" placeholder="Masukkan nama lengkap"
-                :error="$errors['name'][0] ?? null" icon='<i class="ph ph-user text-lg"></i>' />
+                :error="$errors->first('name')" icon='<i class="ph ph-user text-lg"></i>' />
         </div>
 
         <!-- Nama Panggilan -->
@@ -27,7 +27,7 @@
                 Nama Panggilan <span class="text-red-500">*</span>
             </label>
             <x-premium-input type="text" wire:model.blur="nickname" placeholder="Masukkan nama panggilan"
-                :error="$errors['nickname'][0] ?? null" icon='<i class="ph ph-smiley text-lg"></i>' />
+                :error="$errors->first('nickname')" icon='<i class="ph ph-smiley text-lg"></i>' />
         </div>
 
         <!-- Tanggal Lahir -->
@@ -35,8 +35,7 @@
             <label class="block text-sm font-semibold text-slate-700 mb-2">
                 Tanggal Lahir <span class="text-red-500">*</span>
             </label>
-            <x-premium-input type="date" wire:model.blur="dateOfBirth" :error="$errors['dateOfBirth'][0] ?? null"
-                icon='<i class="ph ph-calendar text-lg"></i>' />
+            :error="$errors->first('dateOfBirth')" icon='<i class="ph ph-calendar text-lg"></i>' />
         </div>
 
         <!-- Email -->
@@ -45,7 +44,7 @@
                 Email <span class="text-red-500">*</span>
             </label>
             <x-premium-input type="email" wire:model.blur="email" placeholder="nama@example.com"
-                :error="$errors['email'][0] ?? null" icon='<i class="ph ph-envelope text-lg"></i>' />
+                :error="$errors->first('email')" icon='<i class="ph ph-envelope text-lg"></i>' />
         </div>
 
         <!-- Password -->
@@ -54,7 +53,7 @@
                 Password <span class="text-red-500">*</span>
             </label>
             <x-premium-input type="password" wire:model.blur="password" placeholder="Minimal 8 karakter"
-                :error="$errors['password'][0] ?? null" icon='<i class="ph ph-lock text-lg"></i>' />
+                :error="$errors->first('password')" icon='<i class="ph ph-lock text-lg"></i>' />
         </div>
 
         <!-- Konfirmasi Password -->
@@ -63,7 +62,7 @@
                 Konfirmasi Password <span class="text-red-500">*</span>
             </label>
             <x-premium-input type="password" wire:model.blur="password_confirmation" placeholder="Ulangi password"
-                :error="$errors['password_confirmation'][0] ?? null" icon='<i class="ph ph-lock-key text-lg"></i>' />
+                :error="$errors->first('password_confirmation')" icon='<i class="ph ph-lock-key text-lg"></i>' />
         </div>
 
         <!-- Nomor WhatsApp (Opsional) -->
@@ -81,7 +80,7 @@
                 Nomor Orang Tua/Wali <span class="text-red-500">*</span>
             </label>
             <x-premium-input type="tel" wire:model.blur="parent_phone" placeholder="08xxxxxxxxxx"
-                :error="$errors['parent_phone'][0] ?? null" icon='<i class="ph ph-phone text-lg"></i>' />
+                :error="$errors->first('parent_phone')" icon='<i class="ph ph-phone text-lg"></i>' />
         </div>
     </div>
 

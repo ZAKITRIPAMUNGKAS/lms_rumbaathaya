@@ -74,10 +74,10 @@
         @endif
     </div>
 
-    @if(isset($errors['submit']))
+    @if($submitError)
         <div class="mb-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm flex items-center gap-2">
             <i class="ph ph-warning text-lg"></i>
-            <span>{{ $errors['submit'] }}</span>
+            <span>{{ $submitError }}</span>
         </div>
     @endif
 
