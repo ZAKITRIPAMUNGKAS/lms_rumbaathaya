@@ -43,6 +43,6 @@ class Testimonial extends Model
             return $this->photo_path;
         }
 
-        return asset('storage/' . $this->photo_path);
+        return asset('uploads/' . $this->photo_path);
     }
 }

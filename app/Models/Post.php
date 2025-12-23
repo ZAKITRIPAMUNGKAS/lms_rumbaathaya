@@ -61,7 +61,7 @@ class Post extends Model
     {
         // Get the raw thumbnail value from attributes
         $thumbnail = $this->getAttribute('thumbnail');
-        
+
         if (!$thumbnail) {
             return null;
         }
@@ -72,7 +72,7 @@ class Post extends Model
         }
 
         // Filament stores path as 'posts/thumbnails/filename.png'
-        // We need to prepend 'storage/' to make it accessible via public/storage symlink
-        return asset('storage/' . $thumbnail);
+        // We need to prepend 'uploads/' to make it accessible via public/uploads
+        return asset('uploads/' . $thumbnail);
     }
 }
