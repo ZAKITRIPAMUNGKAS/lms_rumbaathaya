@@ -23,7 +23,7 @@ class TestimonialResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Testimoni';
 
-    protected static ?string $navigationGroup = 'Konten';
+    protected static ?string $navigationGroup = 'Publikasi';
 
     protected static ?int $navigationSort = 4;
 

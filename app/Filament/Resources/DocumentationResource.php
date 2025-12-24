@@ -22,7 +22,7 @@ class DocumentationResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Dokumentasi';
 
-    protected static ?string $navigationGroup = 'Konten';
+    protected static ?string $navigationGroup = 'Publikasi';
 
     protected static ?int $navigationSort = 5;
 
