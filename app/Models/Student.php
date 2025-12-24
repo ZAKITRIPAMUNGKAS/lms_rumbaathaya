@@ -74,4 +74,22 @@ class Student extends Model
     {
         return $this->user ? $this->user->name : $this->name;
     }
+
+    /**
+     * Get the profile photo URL attribute.
+     */
+    public function getProfilePhotoPathAttribute($value)
+    {
+        if (!$value) {
+            return null;
+        }
+
+        // If it's already a full URL, return as is
+        if (filter_var($value, FILTER_VALIDATE_URL)) {
+            return $value;
+        }
+
+        // Return asset URL pointing to uploads directory
+        return asset('uploads/' . $value);
+    }
 }
