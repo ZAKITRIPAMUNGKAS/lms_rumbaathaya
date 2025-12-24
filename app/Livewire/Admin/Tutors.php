@@ -141,7 +141,8 @@ class Tutors extends Component
                 if ($this->avatar) {
                     // Delete old avatar
                     if ($tutor->avatar_url) {
-                        Storage::disk('public')->delete($tutor->avatar_url);
+                        // Use getRawOriginal to bypass accessor and get the real path
+                        Storage::disk('public')->delete($tutor->getRawOriginal('avatar_url'));
                     }
                     $userData['avatar_url'] = $this->avatar->store('avatars', 'public');
                 }
@@ -202,7 +203,8 @@ class Tutors extends Component
         try {
             // Delete avatar
             if ($tutor->avatar_url) {
-                Storage::disk('public')->delete($tutor->avatar_url);
+                // Use getRawOriginal to bypass accessor and get the real path
+                Storage::disk('public')->delete($tutor->getRawOriginal('avatar_url'));
             }
 
             $tutor->delete();
