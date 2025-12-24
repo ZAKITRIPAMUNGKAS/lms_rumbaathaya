@@ -27,7 +27,7 @@
                 'icon' => 'ph-map-pin',
                 'title' => 'Alamat',
                 'value' => 'Karangentik, Dungbang, Ngadiluwih, Kec. Matesih, Kabupaten Karanganyar, Jawa Tengah',
-                'link' => 'https://maps.app.goo.gl/HCBPBDWPyHGuc0PFt',
+                'link' => 'https://maps.app.goo.gl/AXpton8eg2RdjmBe7',
                 'description' => 'Kunjungi lokasi kami',
                 'bgColor' => 'bg-brand-blue/10',
                 'iconColor' => 'text-brand-blue',
