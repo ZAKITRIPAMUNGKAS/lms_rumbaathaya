@@ -52,6 +52,18 @@ Route::middleware('auth')->group(function () {
 
         // Schedules Management
         Route::get('/schedules', \App\Livewire\Admin\Schedules::class)->name('schedules.index');
+
+        // Attendances Management
+        Route::get('/attendances', \App\Livewire\Admin\Attendances::class)->name('attendances.index');
+
+        // Journals Management
+        Route::get('/journals', \App\Livewire\Admin\Journals::class)->name('journals.index');
+
+        // Subjects Management
+        Route::get('/subjects', \App\Livewire\Admin\Subjects::class)->name('subjects.index');
+
+        // Class Levels Management
+        Route::get('/class-levels', \App\Livewire\Admin\ClassLevels::class)->name('class-levels.index');
     });
 
     // Tutor Routes
