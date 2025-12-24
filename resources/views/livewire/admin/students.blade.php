@@ -326,7 +326,7 @@
                                 <label
                                     class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Password
                                     {{ $editingId ? '(Opsional)' : '*' }}</label>
-                                <input type="password" wire:model="password"
+                                <input type="password" wire:model="password" autocomplete="new-password"
                                     class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-100 rounded-xl transition-all font-semibold placeholder-slate-400">
                             </div>
                         </div>
