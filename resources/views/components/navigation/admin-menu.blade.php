@@ -12,8 +12,8 @@
         ['icon' => 'stack', 'label' => 'Jenjang', 'route' => 'admin.class-levels.index'],
         ['icon' => 'bookmark', 'label' => 'Mapel', 'route' => 'admin.subjects.index'],
         ['icon' => 'newspaper', 'label' => 'Artikel', 'route' => 'admin.posts.index'],
-        ['icon' => 'chat-circle-text', 'label' => 'Testimoni', 'route' => 'filament.admin.resources.testimonials.testimonial-resource.index'],
-        ['icon' => 'images', 'label' => 'Dokumentasi', 'route' => 'filament.admin.resources.documentations.documentation-resource.index'],
+        ['icon' => 'chat-circle-text', 'label' => 'Testimoni', 'route' => 'admin.testimonials.index'],
+        ['icon' => 'images', 'label' => 'Dokumentasi', 'route' => 'admin.documentations.index'],
         ['icon' => 'gear', 'label' => 'Pengaturan', 'route' => 'admin.settings'],
     ];
 @endphp
