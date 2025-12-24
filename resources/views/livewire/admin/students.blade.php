@@ -168,7 +168,8 @@
                                     </div>
                                     <div>
                                         <div class="font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
-                                            {{ $student->name }}</div>
+                                            {{ $student->name }}
+                                        </div>
                                         @if($student->nickname)
                                             <div class="text-xs text-slate-500">{{ $student->nickname }}</div>
                                         @endif
@@ -179,7 +180,7 @@
                                 <div class="flex flex-col gap-1">
                                     <span class="text-xs font-semibold text-slate-600 flex items-center gap-1.5">
                                         <i class="ph-fill ph-envelope text-slate-400"></i>
-                                        {{ $student->user->email ?? '-' }}
+                                        {{ $student->user?->email ?? '-' }}
                                     </span>
                                     <span class="text-xs font-semibold text-slate-600 flex items-center gap-1.5">
                                         <i class="ph-fill ph-whatsapp-logo text-emerald-500"></i>
@@ -194,7 +195,7 @@
                                 <span
                                     class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold border border-amber-100/50">
                                     <i class="ph-fill ph-student text-amber-500"></i>
-                                    {{ $student->classLevel->name ?? '-' }}
+                                    {{ $student->classLevel?->name ?? '-' }}
                                 </span>
                             </td>
                             <td class="px-6 py-4">
@@ -250,7 +251,8 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-black text-slate-800 tracking-tight">
-                            {{ $editingId ? 'Edit Siswa' : 'Tambah Siswa' }}</h3>
+                            {{ $editingId ? 'Edit Siswa' : 'Tambah Siswa' }}
+                        </h3>
                     </div>
                 </div>
                 <button wire:click="closeModal"
