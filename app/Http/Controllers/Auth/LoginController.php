@@ -15,7 +15,11 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('auth.login');
+        return response()
+            ->view('auth.login')
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            ->header('Pragma', 'no-cache')
+            ->header('Expires', 'Sat, 01 Jan 2000 00:00:00 GMT');
     }
 
     /**
@@ -33,9 +37,9 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
-            
+
             $user = Auth::user();
-            
+
             // Redirect based on role to Laravel routes
             if ($user->role === 'admin') {
                 return redirect()->route('admin.dashboard');
@@ -44,7 +48,7 @@ class LoginController extends Controller
             } elseif ($user->role === 'student') {
                 return redirect()->route('student.dashboard');
             }
-            
+
             return redirect()->intended(route('home'));
         }
 
@@ -59,10 +63,10 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect()->route('login');
     }
 }
