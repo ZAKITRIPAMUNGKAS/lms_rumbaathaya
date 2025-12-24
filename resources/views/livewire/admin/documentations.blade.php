@@ -270,7 +270,7 @@
 
     <!-- Create/Edit Modal -->
     @if($showModal)
-        <div class="fixed inset-0 z-50 overflow-y-auto" x-data="{ show: @entangle('showModal') }" x-show="show"
+        <div class="fixed inset-0 z-50 overflow-y-auto" style="display: none;" x-data="{ show: @entangle('showModal') }" x-show="show"
             x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
@@ -431,7 +431,7 @@
 
     <!-- Delete Confirmation Modal -->
     @if($showDeleteModal)
-        <div class="fixed inset-0 z-50 overflow-y-auto" x-data="{ show: @entangle('showDeleteModal') }" x-show="show"
+        <div class="fixed inset-0 z-50 overflow-y-auto" style="display: none;" x-data="{ show: @entangle('showDeleteModal') }" x-show="show"
             x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">

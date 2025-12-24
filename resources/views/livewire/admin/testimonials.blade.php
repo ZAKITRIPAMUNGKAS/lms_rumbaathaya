@@ -174,7 +174,7 @@
                             <td class="px-6 py-4">
                                 <button wire:click="togglePublish({{ $testimonial->id }})"
                                     class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border transition-all
-                                                                {{ $testimonial->is_published ? 'bg-emerald-50 text-emerald-700 border-emerald-100/50 hover:bg-emerald-100' : 'bg-slate-50 text-slate-600 border-slate-100/50 hover:bg-slate-100' }}">
+                                                                    {{ $testimonial->is_published ? 'bg-emerald-50 text-emerald-700 border-emerald-100/50 hover:bg-emerald-100' : 'bg-slate-50 text-slate-600 border-slate-100/50 hover:bg-slate-100' }}">
                                     <i
                                         class="ph-fill {{ $testimonial->is_published ? 'ph-check-circle' : 'ph-eye-slash' }}"></i>
                                     {{ $testimonial->is_published ? 'Published' : 'Draft' }}
@@ -221,8 +221,8 @@
 
     <!-- Create/Edit Modal -->
     @if($showModal)
-        <div class="fixed inset-0 z-50 overflow-y-auto" x-data="{ show: @entangle('showModal') }" x-show="show"
-            x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
+        <div class="fixed inset-0 z-50 overflow-y-auto" style="display: none;" x-data="{ show: @entangle('showModal') }"
+            x-show="show" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
             <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
@@ -315,7 +315,8 @@
                                     class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all">
                                 @if($photo)
                                     <p class="mt-2 text-sm text-emerald-600">✓ File dipilih:
-                                        {{ $photo->getClientOriginalName() }}</p>
+                                        {{ $photo->getClientOriginalName() }}
+                                    </p>
                                 @elseif($photo_path)
                                     <p class="mt-2 text-sm text-slate-600">File saat ini: {{ basename($photo_path) }}</p>
                                 @endif
@@ -355,7 +356,8 @@
 
     <!-- Delete Confirmation Modal -->
     @if($showDeleteModal)
-        <div class="fixed inset-0 z-50 overflow-y-auto" x-data="{ show: @entangle('showDeleteModal') }" x-show="show"
+        <div class="fixed inset-0 z-50 overflow-y-auto" style="display: none;"
+            x-data="{ show: @entangle('showDeleteModal') }" x-show="show"
             x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
