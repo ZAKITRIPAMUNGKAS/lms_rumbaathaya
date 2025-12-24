@@ -45,14 +45,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Self-Healing: Remove 'hot' file if it exists in production
-        // This fixes the issue where assets try to load from localhost
-        if (app()->environment('production') && file_exists(public_path('hot'))) {
-            try {
-                unlink(public_path('hot'));
-            } catch (\Exception $e) {
-                // Silent fail
+        // Self-Healing: Remove 'hot' file if it exists and we are not on localhost
+        // This is critical to fix the Vite dev server issue in production
+        // conditions: file exists AND (production OR request host is not localhost)
+        try {
+            if (file_exists(public_path('hot'))) {
+                $isLocalhost = in_array(request()->getHost(), ['localhost', '127.0.0.1', '::1']);
+                if (app()->environment('production') || !$isLocalhost) {
+                    unlink(public_path('hot'));
+                }
             }
+        } catch (\Exception $e) {
+            // Start of life is tough
         }
 
         // Register policies
