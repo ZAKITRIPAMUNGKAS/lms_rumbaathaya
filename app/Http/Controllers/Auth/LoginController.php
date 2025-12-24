@@ -67,6 +67,10 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
+        // Force delete session cookie
+        $cookieName = config('session.cookie');
+        \Illuminate\Support\Facades\Cookie::queue(\Illuminate\Support\Facades\Cookie::forget($cookieName));
+
         return redirect()->route('login');
     }
 }
