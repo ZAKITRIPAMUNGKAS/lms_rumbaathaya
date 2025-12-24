@@ -33,7 +33,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(asset('Logo.png'))
             ->brandLogoHeight('3rem')
             ->favicon(asset('Logo.png'))
-            
+
             // 2. SKEMA WARNA (Modern & Fun - Amber/Orange)
             ->colors([
                 'primary' => Color::Amber, // Warna Orens (Ceria/Semangat)
@@ -43,15 +43,15 @@ class AdminPanelProvider extends PanelProvider
                 'success' => Color::Emerald,
                 'warning' => Color::Orange,
             ])
-            
+
             // 3. TYPOGRAPHY (Font yang enak dibaca)
             ->font('Outfit') // Font modern, download via Google Fonts otomatis oleh Filament
-            
+
             // 4. UX IMPROVEMENTS
             ->sidebarCollapsibleOnDesktop() // Sidebar bisa dilipat biar lega
             ->maxContentWidth('full') // Pakai lebar layar penuh
             ->globalSearchKeyBindings(['command+k', 'ctrl+k']) // Shortcut search keren
-            
+
             // 5. NAVIGASI (Grouping biar rapi)
             ->navigationGroups([
                 'Akademik', // Siswa, Materi, Jadwal
@@ -92,7 +92,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->renderHook(
                 \Filament\View\PanelsRenderHook::HEAD_END,
-                fn () => view('filament.admin.custom-styles')
+                fn() => view('filament.admin.custom-styles')
             );
     }
 }

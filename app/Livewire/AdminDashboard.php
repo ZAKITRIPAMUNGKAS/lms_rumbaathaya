@@ -200,29 +200,29 @@ class AdminDashboard extends Component
                 $dateStr = $date->format('Y-m-d');
 
                 $weeklyRegistrations[] = [
-                    'day' => $getDayName($date),
+                    'label' => $getDayName($date),
                     'value' => Student::whereDate('created_at', $dateStr)->count(),
                 ];
 
                 $weeklyMaterials[] = [
-                    'day' => $getDayName($date),
+                    'label' => $getDayName($date),
                     'value' => Material::whereDate('created_at', $dateStr)->count(),
                 ];
 
                 $weeklySchedules[] = [
-                    'day' => $getDayName($date),
+                    'label' => $getDayName($date),
                     'value' => Schedule::whereDate('created_at', $dateStr)->count(),
                 ];
 
                 $weeklyPosts[] = [
-                    'day' => $getDayName($date),
+                    'label' => $getDayName($date),
                     'value' => Post::where('is_published', true)
                         ->whereDate('published_at', $dateStr)
                         ->count(),
                 ];
 
                 $weeklyAttendances[] = [
-                    'day' => $getDayName($date),
+                    'label' => $getDayName($date),
                     'value' => BimbelJournal::whereDate('date', $dateStr)->count(),
                 ];
             }
