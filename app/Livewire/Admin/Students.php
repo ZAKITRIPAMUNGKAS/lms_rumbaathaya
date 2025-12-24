@@ -192,7 +192,7 @@ class Students extends Component
                     'class_level_id' => $validated['class_level_id'],
                     'program_interest' => $this->program_interest ?: null,
                     'parent_phone' => $this->parent_phone ?: null,
-                    'profile_photo_path' => $this->profile_photo_path ?: $student->profile_photo_path,
+                    'profile_photo_path' => $this->profile_photo_path ?: $student->getRawOriginal('profile_photo_path'),
                 ]);
 
                 session()->flash('success', 'Data siswa berhasil diperbarui');
