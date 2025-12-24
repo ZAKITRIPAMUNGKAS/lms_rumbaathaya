@@ -45,11 +45,8 @@ Route::middleware('auth')->group(function () {
         // Testimonials Management
         Route::get('/testimonials', \App\Livewire\Admin\Testimonials::class)->name('testimonials.index');
 
-        // Documentations Management - Placeholder for now
-        Route::get('/documentations', function () {
-            $content = view('pages.admin.documentations-placeholder')->render();
-            return view('layouts.admin', ['slot' => $content]);
-        })->name('documentations.index');
+        // Documentations Management
+        Route::get('/documentations', \App\Livewire\Admin\Documentations::class)->name('documentations.index');
 
         // Schedules Management
         Route::get('/schedules', \App\Livewire\Admin\Schedules::class)->name('schedules.index');
