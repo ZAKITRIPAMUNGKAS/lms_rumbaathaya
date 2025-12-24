@@ -154,7 +154,7 @@
                                 <div class="flex items-center gap-4">
                                     <div class="relative">
                                         @if($student->profile_photo_path)
-                                            <img src="{{ Storage::url($student->profile_photo_path) }}"
+                                            <img src="{{ $student->profile_photo_path }}?v={{ time() }}"
                                                 class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm">
                                         @else
                                             <div
@@ -371,7 +371,7 @@
                                         <img src="{{ $profile_photo->temporaryUrl() }}"
                                             class="w-24 h-24 rounded-2xl object-cover border-4 border-white shadow-md">
                                     @elseif($profile_photo_path)
-                                        <img src="{{ Storage::url($profile_photo_path) }}"
+                                        <img src="{{ Storage::url($profile_photo_path) }}?v={{ time() }}"
                                             class="w-24 h-24 rounded-2xl object-cover border-4 border-white shadow-md">
                                     @else
                                         <div
