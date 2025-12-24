@@ -31,12 +31,12 @@ class AppServiceProvider extends ServiceProvider
     {
         // Bind repository interfaces to implementations
         $this->app->bind(PostRepositoryInterface::class, PostRepository::class);
-        
+
         // Bind services (they will auto-resolve their dependencies)
         $this->app->singleton(PostService::class, function ($app) {
             return new PostService($app->make(PostRepositoryInterface::class));
         });
-        
+
         $this->app->singleton(MaterialService::class);
     }
 
@@ -45,10 +45,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Self-Healing: Remove 'hot' file if it exists in production
+        // This fixes the issue where assets try to load from localhost
+        if (app()->environment('production') && file_exists(public_path('hot'))) {
+            try {
+                unlink(public_path('hot'));
+            } catch (\Exception $e) {
+                // Silent fail
+            }
+        }
+
         // Register policies
         Gate::policy(Attendance::class, AttendancePolicy::class);
         Gate::policy(Material::class, MaterialPolicy::class);
-        
+
         // Register observers for cache invalidation
         Post::observe(PostObserver::class);
         User::observe(UserObserver::class);
