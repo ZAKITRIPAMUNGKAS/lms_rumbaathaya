@@ -328,6 +328,9 @@
                                     {{ $editingId ? '(Opsional)' : '*' }}</label>
                                 <input type="password" wire:model="password" autocomplete="new-password"
                                     class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-100 rounded-xl transition-all font-semibold placeholder-slate-400">
+                                @error('password') <span
+                                    class="text-xs text-rose-500 font-bold mt-1">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="space-y-4">
@@ -342,6 +345,8 @@
                                         Asal <span class="text-rose-500">*</span></label>
                                     <input type="text" wire:model="school_origin"
                                         class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100 rounded-xl transition-all font-semibold placeholder-slate-400">
+                                    @error('school_origin') <span
+                                    class="text-xs text-rose-500 font-bold mt-1">{{ $message }}</span> @enderror
                                 </div>
                                 <div>
                                     <label
@@ -354,6 +359,8 @@
                                             <option value="{{ $classLevel->id }}">{{ $classLevel->name }}</option>
                                         @endforeach
                                     </select>
+                                    @error('class_level_id') <span
+                                    class="text-xs text-rose-500 font-bold mt-1">{{ $message }}</span> @enderror
                                 </div>
                             </div>
                         </div>
