@@ -61,6 +61,11 @@ class AdminPanelProvider extends PanelProvider
                 'Pengaturan', // User Management
             ])
             ->darkMode(false)
+            // Explicit Resources
+            ->resources([
+                \App\Filament\Resources\Testimonials\TestimonialResource::class,
+                \App\Filament\Resources\Documentations\DocumentationResource::class,
+            ])
             // Optimasi: Disable discovery untuk performa lebih cepat (jika resources sudah diketahui)
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
