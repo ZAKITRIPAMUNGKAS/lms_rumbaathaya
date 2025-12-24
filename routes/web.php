@@ -42,15 +42,11 @@ Route::middleware('auth')->group(function () {
         // Materials Management
         Route::get('/materials', \App\Livewire\Admin\Materials::class)->name('materials.index');
 
-        // Testimonials Management - Using Filament
-        Route::get('/testimonials', function () {
-            return redirect('/admin/testimonials');
-        })->name('testimonials.index');
+        // Testimonials Management
+        Route::get('/testimonials', \App\Livewire\Admin\Testimonials::class)->name('testimonials.index');
 
-        // Documentations Management - Using Filament
-        Route::get('/documentations', function () {
-            return redirect('/admin/documentations');
-        })->name('documentations.index');
+        // Documentations Management
+        Route::get('/documentations', \App\Livewire\Admin\Documentations::class)->name('documentations.index');
 
         // Schedules Management
         Route::get('/schedules', \App\Livewire\Admin\Schedules::class)->name('schedules.index');
