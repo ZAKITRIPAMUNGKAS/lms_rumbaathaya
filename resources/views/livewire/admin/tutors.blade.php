@@ -139,7 +139,7 @@
                                 <div class="flex items-center gap-4">
                                     <div class="relative">
                                         @if($tutor->avatar_url)
-                                            <img src="{{ Storage::url($tutor->avatar_url) }}"
+                                            <img src="{{ $tutor->avatar_url }}"
                                                 class="w-12 h-12 rounded-2xl object-cover border-2 border-white shadow-sm">
                                         @else
                                             <div
@@ -153,7 +153,8 @@
                                     </div>
                                     <div>
                                         <div class="font-bold text-slate-800 group-hover:text-amber-600 transition-colors">
-                                            {{ $tutor->name }}</div>
+                                            {{ $tutor->name }}
+                                        </div>
                                         <div class="text-xs text-slate-500">{{ $tutor->email }}</div>
                                     </div>
                                 </div>
@@ -226,7 +227,8 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-black text-slate-800 tracking-tight">
-                            {{ $editingId ? 'Edit Tutor' : 'Tambah Tutor' }}</h3>
+                            {{ $editingId ? 'Edit Tutor' : 'Tambah Tutor' }}
+                        </h3>
                     </div>
                 </div>
                 <button wire:click="closeModal"
@@ -290,7 +292,7 @@
                                         <img src="{{ $avatar->temporaryUrl() }}"
                                             class="w-24 h-24 rounded-2xl object-cover border-4 border-white shadow-md">
                                     @elseif($avatar_url)
-                                        <img src="{{ Storage::url($avatar_url) }}"
+                                        <img src="{{ $avatar_url }}"
                                             class="w-24 h-24 rounded-2xl object-cover border-4 border-white shadow-md">
                                     @else
                                         <div
