@@ -37,7 +37,11 @@
     @yield('meta')
 
     <title>@yield('title', 'Beranda') - {{ config('app.name', 'Rumba Athaya') }}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
     <link rel="icon" href="{{ asset('Logo.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('Logo.png') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
