@@ -4,7 +4,7 @@
 
 @section('content')
 @php
-    $documentations = \App\Models\Documentation::orderBy('event_date', 'desc')->get();
+    $documentations = \App\Models\Documentation::where('is_published', true)->orderBy('event_date', 'desc')->get();
     $photos = $documentations->where('type', 'photo');
     $videos = $documentations->where('type', 'video');
 @endphp
