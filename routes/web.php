@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
 
         // Documentations Management - Placeholder for now
         Route::get('/documentations', function () {
-            return view('pages.admin.documentations-placeholder');
+            return view('pages.admin.documentations-placeholder')->layout('layouts.admin');
         })->name('documentations.index');
 
         // Schedules Management
