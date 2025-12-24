@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Documentations\Pages;
 
 use App\Filament\Resources\Documentations\DocumentationResource;
-use Filament\Actions\CreateAction;
+use Filament\Pages\Actions\CreateAction;
 use Filament\Resources\Pages\ManageRecords;
 
 class ManageDocumentations extends ManageRecords
@@ -13,10 +13,7 @@ class ManageDocumentations extends ManageRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make()
-                ->label('Tambah Dokumentasi')
-                ->icon('heroicon-o-plus'),
+            CreateAction::make(),
         ];
     }
 }
-
