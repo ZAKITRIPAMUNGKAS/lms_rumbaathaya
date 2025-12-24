@@ -5,6 +5,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="@yield('description', 'Bimbel Rumba Athaya - Belajar Asyik, Prestasi Terbaik. Program bimbingan belajar untuk TK, SD, dan SMP dengan metode pembelajaran yang menyenangkan.')">
+    <meta name="keywords"
+        content="bimbel, les privat, bimbingan belajar, rumba athaya, calistung, tahfidz, SD, SMP, TK">
+    <meta name="author" content="Rumba Athaya">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('title', 'Beranda') - {{ config('app.name', 'Rumba Athaya') }}">
+    <meta property="og:description"
+        content="@yield('description', 'Bimbel Rumba Athaya - Belajar Asyik, Prestasi Terbaik. Program bimbingan belajar untuk TK, SD, dan SMP.')">
+    <meta property="og:image" content="@yield('og_image', asset('Logo.png'))">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="{{ config('app.name', 'Rumba Athaya') }}">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ url()->current() }}">
+    <meta name="twitter:title" content="@yield('title', 'Beranda') - {{ config('app.name', 'Rumba Athaya') }}">
+    <meta name="twitter:description"
+        content="@yield('description', 'Bimbel Rumba Athaya - Belajar Asyik, Prestasi Terbaik')">
+    <meta name="twitter:image" content="@yield('og_image', asset('Logo.png'))">
+
+    <!-- Additional Meta Tags -->
+    @yield('meta')
+
     <title>@yield('title', 'Beranda') - {{ config('app.name', 'Rumba Athaya') }}</title>
     <link rel="icon" href="{{ asset('Logo.png') }}" type="image/png">
 
@@ -80,16 +111,16 @@
                         <ul class="space-y-2 text-gray-400">
                             <li class="flex items-center gap-2">
                                 <i class="ph ph-whatsapp-logo"></i>
-                                <a href="https://wa.me/62812345678" target="_blank" rel="noopener noreferrer"
+                                <a href="https://wa.me/6282313509532" target="_blank" rel="noopener noreferrer"
                                     class="hover:text-white transition">
-                                    +62 812-3456-7890
+                                    +6282-3135-09532
                                 </a>
                             </li>
                             <li class="flex items-center gap-2">
                                 <i class="ph ph-instagram-logo"></i>
                                 <a href="https://linktr.ee/RumbaAthaya" target="_blank" rel="noopener noreferrer"
                                     class="hover:text-white transition">
-                                    @rumba.athaya
+                                    @hidayah.irfan
                                 </a>
                             </li>
                             <li class="flex items-center gap-2">

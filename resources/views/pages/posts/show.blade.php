@@ -1,6 +1,47 @@
 @extends('layouts.landing')
 
+@section('meta')
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ $post->title }}">
+    <meta property="og:description" content="{{ $post->excerpt ?? Str::limit(strip_tags($post->content), 200) }}">
+    @if($post->thumbnail)
+        <meta property="og:image" content="{{ asset('uploads/' . $post->thumbnail) }}">
+        <meta property="og:image:secure_url" content="{{ asset('uploads/' . $post->thumbnail) }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="{{ $post->title }}">
+        <meta property="og:image:type" content="image/jpeg">
+    @endif
+    @if($post->published_at)
+        <meta property="article:published_time" content="{{ $post->published_at->toIso8601String() }}">
+    @endif
+    @if($post->updated_at)
+        <meta property="article:modified_time" content="{{ $post->updated_at->toIso8601String() }}">
+    @endif
+    @if($post->category)
+        <meta property="article:section" content="{{ $post->category }}">
+        <meta property="article:tag" content="{{ $post->category }}">
+    @endif
+    <meta property="article:author" content="Rumba Athaya">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $post->title }}">
+    <meta name="twitter:description" content="{{ $post->excerpt ?? Str::limit(strip_tags($post->content), 200) }}">
+    @if($post->thumbnail)
+        <meta name="twitter:image" content="{{ asset('uploads/' . $post->thumbnail) }}">
+        <meta name="twitter:image:alt" content="{{ $post->title }}">
+    @endif
+@endsection
+
 @section('title', $post->title)
+@section('description', $post->excerpt ?? Str::limit(strip_tags($post->content), 200))
+@section('og_type', 'article')
+@if($post->thumbnail)
+    @section('og_image', asset('uploads/' . $post->thumbnail))
+@endif
 
 @section('content')
     <div class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">

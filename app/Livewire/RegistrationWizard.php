@@ -216,6 +216,9 @@ class RegistrationWizard extends Component
             // Auto-login
             Auth::login($user);
 
+            // Regenerate session to prevent session fixation attacks
+            session()->regenerate();
+
             // Success
             $this->isSuccess = true;
             $this->isSubmitting = false;

@@ -158,8 +158,8 @@
                             ✅
                         </div>
                         <div class="text-white">
-                            <p class="text-xs font-medium opacity-90">Lulus PTN</p>
-                            <p class="font-extrabold text-2xl">100%</p>
+                            <p class="text-xs font-medium opacity-90">Prestasi</p>
+                            <p class="font-extrabold text-2xl">Terbaik</p>
                         </div>
                     </div>
                 </div>

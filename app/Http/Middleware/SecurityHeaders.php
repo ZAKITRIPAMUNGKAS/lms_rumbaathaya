@@ -28,18 +28,18 @@ class SecurityHeaders
         // Allow CDN for Phosphor Icons, jQuery, Summernote and other external resources
         $csp = [
             "default-src 'self'",
-            // Script sources: Allow Alpine.js, jQuery, and CDN
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdn.jsdelivr.net https://code.jquery.com",
-            "script-src-elem 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://code.jquery.com",
-            // Style sources: Allow Google Fonts, CDN, and inline styles
-            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
-            "style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
+            // Script sources: Allow Alpine.js, jQuery, CDN, and Vite dev server
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdn.jsdelivr.net https://code.jquery.com http://localhost:5173 http://[::1]:5173",
+            "script-src-elem 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://code.jquery.com http://localhost:5173 http://[::1]:5173",
+            // Style sources: Allow Google Fonts, CDN, inline styles, and Vite dev server
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net http://localhost:5173 http://[::1]:5173",
+            "style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net http://localhost:5173 http://[::1]:5173",
             // Font sources: Allow Google Fonts and CDN
             "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:",
             // Image sources: Allow all HTTPS images (for storage and external images)
             "img-src 'self' data: https: blob:",
-            // Connect sources: Allow API calls to CDN for source maps
-            "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net",
+            // Connect sources: Allow API calls to CDN and Vite dev server
+            "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net http://localhost:5173 http://[::1]:5173 ws://localhost:5173 ws://[::1]:5173",
             "frame-ancestors 'self'",
             "base-uri 'self'",
             "form-action 'self'",
