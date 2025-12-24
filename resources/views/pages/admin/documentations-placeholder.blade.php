@@ -1,5 +1,3 @@
-@extends('layouts.admin')
-
 <div class="relative min-h-screen space-y-8 p-4 sm:p-8">
     <div class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl rounded-[2.5rem] p-8 text-center">
         <div
