@@ -45,9 +45,9 @@ Route::middleware('auth')->group(function () {
         // Testimonials Management
         Route::get('/testimonials', \App\Livewire\Admin\Testimonials::class)->name('testimonials.index');
 
-        // Documentations Management - Using Filament resource
+        // Documentations Management - Placeholder for now
         Route::get('/documentations', function () {
-            return redirect('/admin/documentations');
+            return view('pages.admin.documentations-placeholder');
         })->name('documentations.index');
 
         // Schedules Management
