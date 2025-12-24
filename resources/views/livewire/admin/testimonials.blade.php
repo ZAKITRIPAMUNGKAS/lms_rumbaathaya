@@ -174,7 +174,7 @@
                             <td class="px-6 py-4">
                                 <button wire:click="togglePublish({{ $testimonial->id }})"
                                     class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border transition-all
-                                                            {{ $testimonial->is_published ? 'bg-emerald-50 text-emerald-700 border-emerald-100/50 hover:bg-emerald-100' : 'bg-slate-50 text-slate-600 border-slate-100/50 hover:bg-slate-100' }}">
+                                                                {{ $testimonial->is_published ? 'bg-emerald-50 text-emerald-700 border-emerald-100/50 hover:bg-emerald-100' : 'bg-slate-50 text-slate-600 border-slate-100/50 hover:bg-slate-100' }}">
                                     <i
                                         class="ph-fill {{ $testimonial->is_published ? 'ph-check-circle' : 'ph-eye-slash' }}"></i>
                                     {{ $testimonial->is_published ? 'Published' : 'Draft' }}
@@ -218,7 +218,178 @@
         @endif
     </div>
 
-    {{-- Modals will be added here --}}
+
+    <!-- Create/Edit Modal -->
+    @if($showModal)
+        <div class="fixed inset-0 z-50 overflow-y-auto" x-data="{ show: @entangle('showModal') }" x-show="show"
+            x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+            <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75 backdrop-blur-sm"
+                    @click="$wire.closeModal()"></div>
+
+                <div
+                    class="inline-block w-full max-w-2xl my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-2xl rounded-3xl">
+                    <!-- Modal Header -->
+                    <div
+                        class="bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-4 flex items-center justify-between">
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="ph-fill ph-{{ $editingId ? 'pencil' : 'plus-circle' }} text-2xl"></i>
+                            {{ $editingId ? 'Edit Testimoni' : 'Tambah Testimoni' }}
+                        </h3>
+                        <button wire:click="closeModal"
+                            class="text-white hover:bg-white/20 rounded-full p-2 transition-colors">
+                            <i class="ph-bold ph-x text-xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <form wire:submit.prevent="save" class="p-6">
+                        <div class="space-y-4">
+                            <!-- Name -->
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">
+                                    Nama <span class="text-rose-500">*</span>
+                                </label>
+                                <input type="text" wire:model="name"
+                                    class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all"
+                                    placeholder="Nama pemberi testimoni">
+                                @error('name')
+                                    <p class="mt-1 text-sm text-rose-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <!-- Role -->
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Peran/Jabatan</label>
+                                <input type="text" wire:model="role"
+                                    class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all"
+                                    placeholder="Contoh: Siswa, Orang Tua, Alumni">
+                            </div>
+
+                            <!-- Content -->
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">
+                                    Isi Testimoni <span class="text-rose-500">*</span>
+                                </label>
+                                <textarea wire:model="content" rows="4"
+                                    class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all"
+                                    placeholder="Tulis testimoni di sini..."></textarea>
+                                @error('content')
+                                    <p class="mt-1 text-sm text-rose-600">{{ $message }}</p>
+                                @enderror
+                                <p class="mt-1 text-xs text-slate-500">Maksimal 1000 karakter</p>
+                            </div>
+
+                            <!-- Rating & Photo -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-700 mb-2">
+                                        Rating <span class="text-rose-500">*</span>
+                                    </label>
+                                    <select wire:model="rating"
+                                        class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all">
+                                        <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                                        <option value="4">⭐⭐⭐⭐ (4)</option>
+                                        <option value="3">⭐⭐⭐ (3)</option>
+                                        <option value="2">⭐⭐ (2)</option>
+                                        <option value="1">⭐ (1)</option>
+                                    </select>
+                                    @error('rating')
+                                        <p class="mt-1 text-sm text-rose-600">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-700 mb-2">Urutan Tampil</label>
+                                    <input type="number" wire:model="sort_order"
+                                        class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all"
+                                        placeholder="0">
+                                </div>
+                            </div>
+
+                            <!-- Photo Upload -->
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Foto (Opsional)</label>
+                                <input type="file" wire:model="photo" accept="image/*"
+                                    class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all">
+                                @if($photo)
+                                    <p class="mt-2 text-sm text-emerald-600">✓ File dipilih:
+                                        {{ $photo->getClientOriginalName() }}</p>
+                                @elseif($photo_path)
+                                    <p class="mt-2 text-sm text-slate-600">File saat ini: {{ basename($photo_path) }}</p>
+                                @endif
+                                @error('photo')
+                                    <p class="mt-1 text-sm text-rose-600">{{ $message }}</p>
+                                @enderror
+                                <p class="mt-1 text-xs text-slate-500">Format: JPG, PNG, WEBP. Maksimal 2MB</p>
+                            </div>
+
+                            <!-- Publish Toggle -->
+                            <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
+                                <input type="checkbox" wire:model="is_published" id="is_published_testi"
+                                    class="w-5 h-5 text-violet-600 border-slate-300 rounded focus:ring-violet-500">
+                                <label for="is_published_testi" class="text-sm font-bold text-slate-700 cursor-pointer">
+                                    Publikasikan testimoni
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Modal Footer -->
+                        <div class="flex items-center justify-end gap-3 mt-6 pt-6 border-t border-slate-200">
+                            <button type="button" wire:click="closeModal"
+                                class="px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-bold hover:bg-slate-200 transition-colors">
+                                Batal
+                            </button>
+                            <button type="submit"
+                                class="px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white rounded-xl font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                                <i class="ph-bold ph-check-circle"></i>
+                                {{ $editingId ? 'Update' : 'Simpan' }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    <!-- Delete Confirmation Modal -->
+    @if($showDeleteModal)
+        <div class="fixed inset-0 z-50 overflow-y-auto" x-data="{ show: @entangle('showDeleteModal') }" x-show="show"
+            x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+            <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75 backdrop-blur-sm"
+                    @click="$wire.closeDeleteModal()"></div>
+
+                <div
+                    class="inline-block w-full max-w-md my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-2xl rounded-3xl">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-rose-100 rounded-full">
+                            <i class="ph-fill ph-warning text-3xl text-rose-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center text-slate-900 mb-2">Hapus Testimoni?</h3>
+                        <p class="text-center text-slate-600 mb-6">
+                            Data yang dihapus tidak dapat dikembalikan. Apakah Anda yakin?
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <button wire:click="closeDeleteModal"
+                                class="flex-1 px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-bold hover:bg-slate-200 transition-colors">
+                                Batal
+                            </button>
+                            <button wire:click="delete"
+                                class="flex-1 px-6 py-3 bg-rose-600 text-white rounded-xl font-bold hover:bg-rose-700 transition-colors flex items-center justify-center gap-2">
+                                <i class="ph-bold ph-trash"></i>
+                                Hapus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 
     <style>
         @keyframes blob {
