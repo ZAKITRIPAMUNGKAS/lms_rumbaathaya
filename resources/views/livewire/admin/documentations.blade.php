@@ -2,19 +2,19 @@
     <!-- Animated Background Blobs -->
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10 bg-[#F0F4F8]">
         <div
-            class="absolute top-0 left-1/4 w-96 h-96 bg-violet-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob">
+            class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob">
         </div>
         <div
             class="absolute top-0 right-1/4 w-96 h-96 bg-purple-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000">
         </div>
         <div
-            class="absolute -bottom-32 left-1/3 w-96 h-96 bg-fuchsia-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000">
+            class="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000">
         </div>
     </div>
 
     <!-- Hero Section -->
     <div
-        class="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-violet-600 to-fuchsia-600 p-8 sm:p-12 text-white shadow-2xl shadow-violet-500/20 group">
+        class="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-indigo-600 to-purple-600 p-8 sm:p-12 text-white shadow-2xl shadow-indigo-500/20 group">
         <div
             class="absolute right-0 bottom-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-16 -mb-16 group-hover:bg-white/20 transition-all duration-500">
         </div>
@@ -26,84 +26,71 @@
             class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             <div class="flex-1">
                 <div
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-xs font-bold text-violet-100 mb-6 shadow-sm cursor-default">
-                    <i class="ph-fill ph-images text-lg"></i>
-                    <span>Manajemen Dokumentasi</span>
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-xs font-bold text-indigo-100 mb-6 shadow-sm cursor-default">
+                    <i class="ph-fill ph-image text-lg"></i>
+                    <span>Galeri & Dokumentasi</span>
                 </div>
                 <h1
                     class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight drop-shadow-sm">
-                    Data Dokumentasi
+                    Manajemen Dokumentasi
                 </h1>
-                <p class="text-violet-100 font-medium max-w-2xl text-sm sm:text-lg leading-relaxed mx-auto md:mx-0">
-                    Kelola dokumentasi foto, video, dan quotes untuk ditampilkan di website.
+                <p class="text-indigo-100 font-medium max-w-2xl text-sm sm:text-lg leading-relaxed mx-auto md:mx-0">
+                    Kelola foto, video, dan dokumentasi kegiatan pembelajaran dan event.
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- Quick Stats -->
+    <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-violet-500/10 rounded-[2rem] p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
-            <div
-                class="absolute right-0 top-0 w-32 h-32 bg-violet-100/50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-violet-200/50 transition-colors">
-            </div>
-            <div class="relative z-10 flex items-center gap-4">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-indigo-500/10 rounded-[2rem] p-6">
+            <div class="flex items-center gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-violet-100 text-violet-600 flex items-center justify-center text-2xl shadow-sm">
-                    <i class="ph-fill ph-images"></i>
+                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg">
+                    <i class="ph-fill ph-files text-2xl"></i>
                 </div>
                 <div>
-                    <h3 class="text-3xl font-black text-slate-800">{{ $this->stats['total'] }}</h3>
-                    <p class="text-sm font-bold text-slate-500">Total</p>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">Total</p>
+                    <p class="text-2xl font-black text-slate-800">{{ $this->stats['total'] }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-sky-500/10 rounded-[2rem] p-6">
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-white shadow-lg">
+                    <i class="ph-fill ph-image text-2xl"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">Foto</p>
+                    <p class="text-2xl font-black text-slate-800">{{ $this->stats['photos'] }}</p>
                 </div>
             </div>
         </div>
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-emerald-500/10 rounded-[2rem] p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
-            <div
-                class="absolute right-0 top-0 w-32 h-32 bg-emerald-100/50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-emerald-200/50 transition-colors">
-            </div>
-            <div class="relative z-10 flex items-center gap-4">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-rose-500/10 rounded-[2rem] p-6">
+            <div class="flex items-center gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl shadow-sm">
-                    <i class="ph-fill ph-image"></i>
+                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center text-white shadow-lg">
+                    <i class="ph-fill ph-film-strip text-2xl"></i>
                 </div>
                 <div>
-                    <h3 class="text-3xl font-black text-slate-800">{{ $this->stats['photos'] }}</h3>
-                    <p class="text-sm font-bold text-slate-500">Foto</p>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">Video</p>
+                    <p class="text-2xl font-black text-slate-800">{{ $this->stats['videos'] }}</p>
                 </div>
             </div>
         </div>
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-rose-500/10 rounded-[2rem] p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
-            <div
-                class="absolute right-0 top-0 w-32 h-32 bg-rose-100/50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-rose-200/50 transition-colors">
-            </div>
-            <div class="relative z-10 flex items-center gap-4">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-amber-500/10 rounded-[2rem] p-6">
+            <div class="flex items-center gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl shadow-sm">
-                    <i class="ph-fill ph-video-camera"></i>
+                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white shadow-lg">
+                    <i class="ph-fill ph-quotes text-2xl"></i>
                 </div>
                 <div>
-                    <h3 class="text-3xl font-black text-slate-800">{{ $this->stats['videos'] }}</h3>
-                    <p class="text-sm font-bold text-slate-500">Video</p>
-                </div>
-            </div>
-        </div>
-        <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-amber-500/10 rounded-[2rem] p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
-            <div
-                class="absolute right-0 top-0 w-32 h-32 bg-amber-100/50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-amber-200/50 transition-colors">
-            </div>
-            <div class="relative z-10 flex items-center gap-4">
-                <div
-                    class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl shadow-sm">
-                    <i class="ph-fill ph-quotes"></i>
-                </div>
-                <div>
-                    <h3 class="text-3xl font-black text-slate-800">{{ $this->stats['quotes'] }}</h3>
-                    <p class="text-sm font-bold text-slate-500">Quotes</p>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">Quotes</p>
+                    <p class="text-2xl font-black text-slate-800">{{ $this->stats['quotes'] }}</p>
                 </div>
             </div>
         </div>
@@ -111,153 +98,137 @@
 
     <!-- Main Content Card -->
     <div
-        class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-violet-500/10 rounded-[2.5rem] p-6 md:p-8 relative overflow-hidden">
+        class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-indigo-500/10 rounded-[2.5rem] p-6 md:p-8 relative overflow-hidden">
 
         <!-- Header -->
         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8">
             <div>
                 <h2 class="text-2xl font-black text-slate-800">Daftar Dokumentasi</h2>
-                <p class="text-slate-500 font-medium">Semua dokumentasi yang tersimpan.</p>
+                <p class="text-slate-500 font-medium">Semua dokumentasi kegiatan dan event.</p>
             </div>
             <button wire:click="openCreateModal"
-                class="group flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-bold shadow-lg shadow-violet-500/30 hover:shadow-xl hover:-translate-y-1 hover:shadow-violet-500/40 transition-all duration-300">
+                class="group flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:-translate-y-1 hover:shadow-indigo-500/40 transition-all duration-300">
                 <i class="ph-bold ph-plus text-xl group-hover:rotate-90 transition-transform duration-300"></i>
                 <span>Tambah Dokumentasi</span>
             </button>
         </div>
 
         <!-- Filters -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div class="relative">
+        <div class="flex flex-col md:flex-row gap-4 mb-6">
+            <div class="relative flex-1">
                 <i
-                    class="ph-bold ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-violet-500 text-lg"></i>
+                    class="ph-bold ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-indigo-500 text-lg"></i>
                 <input type="text" wire:model.live.debounce.300ms="search" placeholder="Cari judul atau deskripsi..."
-                    class="w-full pl-11 pr-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-violet-400 rounded-xl transition-all font-semibold text-slate-700 placeholder-slate-400">
+                    class="w-full pl-11 pr-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-indigo-400 rounded-xl transition-all font-semibold text-slate-700 placeholder-slate-400">
             </div>
-            <div class="relative">
-                <i class="ph-bold ph-funnel absolute left-4 top-1/2 -translate-y-1/2 text-violet-500 text-lg"></i>
+            <div class="relative md:w-48">
                 <select wire:model.live="typeFilter"
-                    class="w-full pl-11 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-violet-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
-                    <option value="">Semua Tipe</option>
-                    <option value="photo">Foto</option>
-                    <option value="video">Video</option>
-                    <option value="quotes">Quotes</option>
+                    class="w-full px-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-indigo-400 rounded-xl transition-all font-semibold text-slate-700 cursor-pointer">
+                    <option value="">📂 Semua Tipe</option>
+                    <option value="photo">📷 Foto</option>
+                    <option value="video">🎥 Video</option>
+                    <option value="quotes">💬 Quotes</option>
                 </select>
-                <i
-                    class="ph-bold ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
             </div>
-            <div class="relative">
-                <i class="ph-bold ph-tag absolute left-4 top-1/2 -translate-y-1/2 text-violet-500 text-lg"></i>
+            <div class="relative md:w-48">
                 <select wire:model.live="categoryFilter"
-                    class="w-full pl-11 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-violet-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
-                    <option value="">Semua Kategori</option>
-                    <option value="kegiatan_belajar">Kegiatan Belajar</option>
-                    <option value="event">Event</option>
-                    <option value="prestasi">Prestasi</option>
-                    <option value="fasilitas">Fasilitas</option>
-                    <option value="lainnya">Lainnya</option>
+                    class="w-full px-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-indigo-400 rounded-xl transition-all font-semibold text-slate-700 cursor-pointer">
+                    <option value="">🏷️ Semua Kategori</option>
+                    <option value="Kegiatan Belajar">Kegiatan Belajar</option>
+                    <option value="Event">Event</option>
+                    <option value="Prestasi">Prestasi</option>
+                    <option value="Fasilitas">Fasilitas</option>
+                    <option value="Lainnya">Lainnya</option>
                 </select>
-                <i
-                    class="ph-bold ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
             </div>
         </div>
 
-        <!-- Table -->
-        <div class="overflow-x-auto rounded-3xl border border-white/60 bg-white/30 backdrop-blur-sm">
-            <table class="w-full text-left border-collapse">
-                <thead>
-                    <tr
-                        class="bg-violet-50/50 border-b border-violet-100/50 text-violet-900 uppercase text-xs font-bold tracking-wider">
-                        <th class="px-6 py-4 rounded-tl-3xl">Preview</th>
-                        <th class="px-6 py-4">Judul</th>
-                        <th class="px-6 py-4">Tipe</th>
-                        <th class="px-6 py-4">Kategori</th>
-                        <th class="px-6 py-4">Status</th>
-                        <th class="px-6 py-4 rounded-tr-3xl text-center">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-violet-50/50">
-                    @forelse($documentations as $doc)
-                        <tr class="hover:bg-white/60 transition-colors group">
-                            <td class="px-6 py-4">
-                                @if($doc->type === 'photo' && $doc->file_path)
-                                    <img src="{{ Storage::url($doc->file_path) }}"
-                                        class="w-16 h-16 rounded-xl object-cover border-2 border-white shadow-sm">
-                                @elseif($doc->type === 'video')
-                                    <div
-                                        class="w-16 h-16 rounded-xl bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center border-2 border-white shadow-sm">
-                                        <i class="ph-fill ph-video-camera text-2xl text-white"></i>
-                                    </div>
-                                @else
-                                    <div
-                                        class="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center border-2 border-white shadow-sm">
-                                        <i class="ph-fill ph-quotes text-2xl text-white"></i>
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="font-bold text-slate-800 group-hover:text-violet-600 transition-colors">
-                                    {{ $doc->title }}
-                                </div>
-                                @if($doc->description)
-                                    <div class="text-xs text-slate-500 line-clamp-1">{{ $doc->description }}</div>
-                                @endif
-                            </td>
-                            <td class="px-6 py-4">
-                                <span
-                                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border
-                                            {{ $doc->type === 'photo' ? 'bg-emerald-50 text-emerald-700 border-emerald-100/50' : '' }}
-                                            {{ $doc->type === 'video' ? 'bg-rose-50 text-rose-700 border-rose-100/50' : '' }}
-                                            {{ $doc->type === 'quotes' ? 'bg-amber-50 text-amber-700 border-amber-100/50' : '' }}">
-                                    {{ ucfirst($doc->type) }}
-                                </span>
-                            </td>
-                            <td class="px-6 py-4">
-                                @if($doc->category)
-                                    <span class="text-sm text-slate-600">
-                                        {{ str_replace('_', ' ', ucwords($doc->category, '_')) }}
-                                    </span>
-                                @else
-                                    <span class="text-sm text-slate-400">-</span>
-                                @endif
-                            </td>
-                            <td class="px-6 py-4">
-                                <button wire:click="togglePublish({{ $doc->id }})"
-                                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border transition-all
-                                            {{ $doc->is_published ? 'bg-emerald-50 text-emerald-700 border-emerald-100/50 hover:bg-emerald-100' : 'bg-slate-50 text-slate-600 border-slate-100/50 hover:bg-slate-100' }}">
-                                    <i class="ph-fill {{ $doc->is_published ? 'ph-check-circle' : 'ph-eye-slash' }}"></i>
-                                    {{ $doc->is_published ? 'Published' : 'Draft' }}
-                                </button>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center justify-center gap-2">
-                                    <button wire:click="openEditModal({{ $doc->id }})"
-                                        class="w-8 h-8 rounded-full bg-amber-50 text-amber-600 hover:bg-amber-500 hover:text-white transition-all flex items-center justify-center shadow-sm hover:shadow-amber-500/30 group/btn"
-                                        title="Edit">
-                                        <i
-                                            class="ph-bold ph-pencil-simple transition-transform group-hover/btn:rotate-12"></i>
-                                    </button>
-                                    <button wire:click="openDeleteModal({{ $doc->id }})"
-                                        class="w-8 h-8 rounded-full bg-rose-50 text-rose-600 hover:bg-rose-500 hover:text-white transition-all flex items-center justify-center shadow-sm hover:shadow-rose-500/30 group/btn"
-                                        title="Hapus">
-                                        <i class="ph-bold ph-trash transition-transform group-hover/btn:rotate-12"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="6" class="px-6 py-12 text-center text-slate-500">
-                                <div
-                                    class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <i class="ph-duotone ph-images text-3xl text-slate-400"></i>
-                                </div>
-                                <p class="font-bold text-slate-600">Belum ada dokumentasi</p>
-                            </td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @forelse($documentations as $doc)
+                <div
+                    class="group relative bg-white/50 border border-white/60 hover:bg-white/80 transition-all duration-300 rounded-[2rem] p-5 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1 flex flex-col h-full">
+                    <!-- Media Section -->
+                    <div class="relative mb-4 shrink-0 overflow-hidden rounded-2xl aspect-video bg-slate-100">
+                        @if($doc->type === 'video' && $doc->video_url)
+                            <!-- You would typically embed or show a thumbnail for video here. For simplicity, showing an icon or thumbnail if available -->
+                            <div
+                                class="w-full h-full flex items-center justify-center bg-slate-900 text-white group-hover:scale-105 transition-transform duration-500">
+                                <i class="ph-fill ph-youtube-logo text-5xl text-red-500"></i>
+                            </div>
+                        @elseif($doc->file_path)
+                            <img src="{{ Storage::url($doc->file_path) }}" alt="{{ $doc->title }}"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        @else
+                            <div class="w-full h-full flex items-center justify-center bg-slate-200 text-slate-400">
+                                <i class="ph-fill ph-image text-4xl"></i>
+                            </div>
+                        @endif
+
+                        <!-- Type Badge -->
+                        <div
+                            class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-white/90 backdrop-blur-sm text-xs font-bold uppercase tracking-wider shadow-sm flex items-center gap-1.5
+                                {{ $doc->type === 'video' ? 'text-rose-600' : ($doc->type === 'quotes' ? 'text-amber-600' : 'text-sky-600') }}">
+                            <i
+                                class="ph-bold {{ $doc->type === 'video' ? 'ph-film-strip' : ($doc->type === 'quotes' ? 'ph-quotes' : 'ph-image') }}"></i>
+                            {{ ucfirst($doc->type) }}
+                        </div>
+                    </div>
+
+                    <!-- Info -->
+                    <div class="flex-1 flex flex-col mb-4">
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <span class="text-xs font-bold text-slate-400">
+                                <i class="ph-bold ph-calendar-blank mr-1"></i>
+                                {{ $doc->event_date ? \Carbon\Carbon::parse($doc->event_date)->translatedFormat('d M Y') : '-' }}
+                            </span>
+                            <span
+                                class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-indigo-50 text-indigo-600 text-[10px] font-bold uppercase tracking-wider border border-indigo-100">
+                                {{ $doc->category ?? 'Lainnya' }}
+                            </span>
+                        </div>
+                        <h3
+                            class="font-extrabold text-slate-800 text-lg mb-2 leading-tight group-hover:text-indigo-600 transition-colors line-clamp-2">
+                            {{ $doc->title }}
+                        </h3>
+                        @if($doc->description)
+                            <p class="text-xs font-medium text-slate-500 line-clamp-2 leading-relaxed">
+                                {{ $doc->description }}
+                            </p>
+                        @endif
+                    </div>
+
+                    <!-- Footer & Actions -->
+                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                        <button wire:click="togglePublish({{ $doc->id }})"
+                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all {{ $doc->is_published ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200' : 'bg-slate-100 text-slate-600 hover:bg-slate-200' }}">
+                            <i class="ph-fill {{ $doc->is_published ? 'ph-check-circle' : 'ph-clock' }}"></i>
+                            {{ $doc->is_published ? 'Publik' : 'Draft' }}
+                        </button>
+
+                        <div class="flex items-center gap-1">
+                            <button wire:click="openEditModal({{ $doc->id }})"
+                                class="w-8 h-8 rounded-lg text-slate-400 hover:bg-amber-50 hover:text-amber-500 transition-all flex items-center justify-center"
+                                title="Edit">
+                                <i class="ph-bold ph-pencil-simple"></i>
+                            </button>
+                            <button wire:click="openDeleteModal({{ $doc->id }})"
+                                class="w-8 h-8 rounded-lg text-slate-400 hover:bg-rose-50 hover:text-rose-500 transition-all flex items-center justify-center"
+                                title="Hapus">
+                                <i class="ph-bold ph-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <div class="col-span-full py-12 text-center text-slate-500">
+                    <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="ph-duotone ph-image text-3xl text-slate-400"></i>
+                    </div>
+                    <p class="font-bold text-slate-600">Belum ada dokumentasi</p>
+                    <p class="text-sm text-slate-400">Tambahkan dokumentasi kegiatan sekarang!</p>
+                </div>
+            @endforelse
         </div>
 
         @if($documentations->hasPages())
@@ -267,205 +238,190 @@
         @endif
     </div>
 
-
     <!-- Create/Edit Modal -->
-    @if($showModal)
-        <div class="fixed inset-0 z-50 overflow-y-auto" style="display: none;" x-data="{ show: @entangle('showModal') }" x-show="show"
-            x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
-            x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
-            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-            <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-                <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75 backdrop-blur-sm"
-                    @click="$wire.closeModal()"></div>
+    <div x-data="{ show: @entangle('showModal') }" x-show="show" x-transition
+        class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6" style="display: none;">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" @click="show = false"></div>
+        <div
+            class="relative bg-white/90 backdrop-blur-2xl border border-white/50 shadow-2xl rounded-[2.5rem] w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
 
-                <div
-                    class="inline-block w-full max-w-3xl my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-2xl rounded-3xl">
-                    <!-- Modal Header -->
+            <!-- Header -->
+            <div
+                class="flex items-center justify-between p-6 border-b border-slate-100 bg-white/50 backdrop-blur-md z-10">
+                <div class="flex items-center gap-4">
                     <div
-                        class="bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-4 flex items-center justify-between">
-                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                            <i class="ph-fill ph-{{ $editingId ? 'pencil' : 'plus-circle' }} text-2xl"></i>
-                            {{ $editingId ? 'Edit Dokumentasi' : 'Tambah Dokumentasi' }}
-                        </h3>
-                        <button wire:click="closeModal"
-                            class="text-white hover:bg-white/20 rounded-full p-2 transition-colors">
-                            <i class="ph-bold ph-x text-xl"></i>
+                        class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/20">
+                        <i class="ph-fill ph-image text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-black text-slate-800 tracking-tight">
+                            {{ $editingId ? 'Edit Dokumentasi' : 'Tambah Dokumentasi' }}</h3>
+                    </div>
+                </div>
+                <button wire:click="closeModal"
+                    class="w-10 h-10 rounded-xl bg-slate-100 text-slate-500 hover:bg-rose-100 hover:text-rose-600 transition-all flex items-center justify-center">
+                    <i class="ph-bold ph-x text-lg"></i>
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-6 md:p-8">
+                <form wire:submit.prevent="save" class="space-y-6">
+                    <!-- Title -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">
+                            Judul <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="text" wire:model="title"
+                            class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 rounded-xl transition-all font-semibold placeholder-slate-400"
+                            placeholder="Judul dokumentasi...">
+                        @error('title') <span class="text-xs text-rose-500 font-bold mt-1">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <!-- Type & Category -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">
+                                Tipe <span class="text-rose-500">*</span>
+                            </label>
+                            <select wire:model.live="type"
+                                class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 rounded-xl transition-all font-semibold text-slate-700">
+                                <option value="photo">📷 Foto</option>
+                                <option value="video">🎥 Video (Youtube)</option>
+                                <option value="quotes">💬 Quotes</option>
+                            </select>
+                            @error('type') <span class="text-xs text-rose-500 font-bold mt-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">
+                                Kategori <span class="text-rose-500">*</span>
+                            </label>
+                            <select wire:model="category"
+                                class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 rounded-xl transition-all font-semibold text-slate-700">
+                                <option value="">Pilih Kategori</option>
+                                <option value="Kegiatan Belajar">Kegiatan Belajar</option>
+                                <option value="Event">Event</option>
+                                <option value="Prestasi">Prestasi</option>
+                                <option value="Fasilitas">Fasilitas</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                            @error('category') <span class="text-xs text-rose-500 font-bold mt-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <!-- Specific Fields based on Type -->
+                    @if($type === 'video')
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">
+                                Link Video Youtube <span class="text-rose-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <i
+                                    class="ph-fill ph-youtube-logo absolute left-4 top-1/2 -translate-y-1/2 text-red-500 text-xl"></i>
+                                <input type="url" wire:model="video_url"
+                                    class="w-full pl-12 pr-5 py-3 bg-white/70 border border-slate-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 rounded-xl transition-all font-semibold placeholder-slate-400"
+                                    placeholder="https://youtube.com/watch?v=...">
+                            </div>
+                            @error('video_url') <span class="text-xs text-rose-500 font-bold mt-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    @else
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">
+                                Upload File ({{ $type === 'quotes' ? 'Foto/Gambar Background' : 'Foto' }})
+                            </label>
+                            <input type="file" wire:model="file" accept="image/*"
+                                class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 rounded-xl transition-all">
+                            @if($file)
+                                <p class="mt-2 text-sm text-emerald-600">✓ File dipilih: {{ $file->getClientOriginalName() }}
+                                </p>
+                            @elseif($file_path)
+                                <p class="mt-2 text-sm text-slate-600">File saat ini: <a href="{{ Storage::url($file_path) }}"
+                                        target="_blank" class="text-indigo-500 hover:underline">Lihat</a></p>
+                            @endif
+                            @error('file') <span class="text-xs text-rose-500 font-bold mt-1">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    @endif
+
+                    <!-- Date & Description -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">
+                                Tanggal Event
+                            </label>
+                            <input type="date" wire:model="event_date"
+                                class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 rounded-xl transition-all font-semibold text-slate-700">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">
+                                Urutan Tampil
+                            </label>
+                            <input type="number" wire:model="sort_order"
+                                class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 rounded-xl transition-all font-semibold"
+                                placeholder="0">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">
+                            Deskripsi
+                        </label>
+                        <textarea wire:model="description" rows="3"
+                            class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 rounded-xl transition-all font-semibold placeholder-slate-400"
+                            placeholder="Deskripsi singkat..."></textarea>
+                    </div>
+
+                    <!-- Publish Toggle -->
+                    <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
+                        <input type="checkbox" wire:model="is_published" id="is_published_doc"
+                            class="w-5 h-5 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500">
+                        <label for="is_published_doc" class="text-sm font-bold text-slate-700 cursor-pointer">
+                            Publikasikan dokumentasi
+                        </label>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="flex flex-col-reverse sm:flex-row justify-end gap-3 pt-6 border-t border-slate-200">
+                        <button type="button" wire:click="closeModal"
+                            class="px-6 py-3 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-slate-200 transition-all">
+                            Batal
+                        </button>
+                        <button type="submit" wire:loading.attr="disabled" wire:target="save"
+                            class="px-8 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:-translate-y-1 hover:shadow-indigo-500/40 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2">
+                            <span wire:loading.remove
+                                wire:target="save">{{ $editingId ? 'Simpan Perubahan' : 'Tambah Dokumentasi' }}</span>
+                            <span wire:loading wire:target="save"><i class="ph-bold ph-spinner animate-spin"></i>
+                                Menyimpan...</span>
                         </button>
                     </div>
-
-                    <!-- Modal Body -->
-                    <form wire:submit.prevent="save" class="p-6">
-                        <div class="space-y-4">
-                            <!-- Title -->
-                            <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">
-                                    Judul <span class="text-rose-500">*</span>
-                                </label>
-                                <input type="text" wire:model="title"
-                                    class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all"
-                                    placeholder="Judul dokumentasi">
-                                @error('title')
-                                    <p class="mt-1 text-sm text-rose-600">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                            <!-- Type & Category -->
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-bold text-slate-700 mb-2">
-                                        Tipe <span class="text-rose-500">*</span>
-                                    </label>
-                                    <select wire:model.live="type"
-                                        class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all">
-                                        <option value="photo">Foto</option>
-                                        <option value="video">Video</option>
-                                        <option value="quotes">Quotes</option>
-                                    </select>
-                                    @error('type')
-                                        <p class="mt-1 text-sm text-rose-600">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-bold text-slate-700 mb-2">Kategori</label>
-                                    <select wire:model="category"
-                                        class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all">
-                                        <option value="">Pilih Kategori</option>
-                                        <option value="kegiatan_belajar">Kegiatan Belajar</option>
-                                        <option value="event">Event</option>
-                                        <option value="prestasi">Prestasi</option>
-                                        <option value="fasilitas">Fasilitas</option>
-                                        <option value="lainnya">Lainnya</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- File Upload (for photo/quotes) -->
-                            @if($type === 'photo' || $type === 'quotes')
-                                <div>
-                                    <label class="block text-sm font-bold text-slate-700 mb-2">
-                                        Upload Foto/File @if(!$editingId)<span class="text-rose-500">*</span>@endif
-                                    </label>
-                                    <input type="file" wire:model="file" accept="image/*"
-                                        class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all">
-                                    @if($file)
-                                        <p class="mt-2 text-sm text-emerald-600">✓ File dipilih:
-                                            {{ $file->getClientOriginalName() }}</p>
-                                    @elseif($file_path)
-                                        <p class="mt-2 text-sm text-slate-600">File saat ini: {{ basename($file_path) }}</p>
-                                    @endif
-                                    @error('file')
-                                        <p class="mt-1 text-sm text-rose-600">{{ $message }}</p>
-                                    @enderror
-                                    <p class="mt-1 text-xs text-slate-500">Format: JPG, PNG, WEBP. Maksimal 5MB</p>
-                                </div>
-                            @endif
-
-                            <!-- Video URL (for video) -->
-                            @if($type === 'video')
-                                <div>
-                                    <label class="block text-sm font-bold text-slate-700 mb-2">
-                                        URL Video YouTube <span class="text-rose-500">*</span>
-                                    </label>
-                                    <input type="url" wire:model="video_url"
-                                        class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all"
-                                        placeholder="https://www.youtube.com/watch?v=...">
-                                    @error('video_url')
-                                        <p class="mt-1 text-sm text-rose-600">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                            @endif
-
-                            <!-- Description -->
-                            <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">Deskripsi</label>
-                                <textarea wire:model="description" rows="3"
-                                    class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all"
-                                    placeholder="Deskripsi singkat..."></textarea>
-                                @error('description')
-                                    <p class="mt-1 text-sm text-rose-600">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                            <!-- Event Date & Sort Order -->
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-bold text-slate-700 mb-2">Tanggal Event</label>
-                                    <input type="date" wire:model="event_date"
-                                        class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-bold text-slate-700 mb-2">Urutan Tampil</label>
-                                    <input type="number" wire:model="sort_order"
-                                        class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all"
-                                        placeholder="0">
-                                </div>
-                            </div>
-
-                            <!-- Publish Toggle -->
-                            <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl">
-                                <input type="checkbox" wire:model="is_published" id="is_published"
-                                    class="w-5 h-5 text-violet-600 border-slate-300 rounded focus:ring-violet-500">
-                                <label for="is_published" class="text-sm font-bold text-slate-700 cursor-pointer">
-                                    Publikasikan dokumentasi
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Modal Footer -->
-                        <div class="flex items-center justify-end gap-3 mt-6 pt-6 border-t border-slate-200">
-                            <button type="button" wire:click="closeModal"
-                                class="px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-bold hover:bg-slate-200 transition-colors">
-                                Batal
-                            </button>
-                            <button type="submit"
-                                class="px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white rounded-xl font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all flex items-center gap-2">
-                                <i class="ph-bold ph-check-circle"></i>
-                                {{ $editingId ? 'Update' : 'Simpan' }}
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
-    @endif
+    </div>
 
     <!-- Delete Confirmation Modal -->
-    @if($showDeleteModal)
-        <div class="fixed inset-0 z-50 overflow-y-auto" style="display: none;" x-data="{ show: @entangle('showDeleteModal') }" x-show="show"
-            x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
-            x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
-            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-            <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-                <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75 backdrop-blur-sm"
-                    @click="$wire.closeDeleteModal()"></div>
-
-                <div
-                    class="inline-block w-full max-w-md my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-2xl rounded-3xl">
-                    <div class="p-6">
-                        <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-rose-100 rounded-full">
-                            <i class="ph-fill ph-warning text-3xl text-rose-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-center text-slate-900 mb-2">Hapus Dokumentasi?</h3>
-                        <p class="text-center text-slate-600 mb-6">
-                            Data yang dihapus tidak dapat dikembalikan. Apakah Anda yakin?
-                        </p>
-                        <div class="flex items-center gap-3">
-                            <button wire:click="closeDeleteModal"
-                                class="flex-1 px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-bold hover:bg-slate-200 transition-colors">
-                                Batal
-                            </button>
-                            <button wire:click="delete"
-                                class="flex-1 px-6 py-3 bg-rose-600 text-white rounded-xl font-bold hover:bg-rose-700 transition-colors flex items-center justify-center gap-2">
-                                <i class="ph-bold ph-trash"></i>
-                                Hapus
-                            </button>
-                        </div>
-                    </div>
-                </div>
+    <div x-data="{ show: @entangle('showDeleteModal') }" x-show="show" style="display: none;"
+        class="fixed inset-0 z-50 flex items-center justify-center px-4">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" @click="show = false"></div>
+        <div
+            class="relative bg-white/90 backdrop-blur-2xl border border-white/60 shadow-2xl rounded-[2.5rem] p-10 max-w-sm w-full text-center">
+            <div
+                class="mx-auto flex items-center justify-center w-20 h-20 rounded-3xl bg-rose-50 text-rose-500 mb-6 shadow-sm">
+                <i class="ph-duotone ph-trash text-4xl"></i>
+            </div>
+            <h3 class="text-2xl font-black text-slate-800 mb-2">Hapus Dokumentasi?</h3>
+            <p class="text-slate-500 font-medium mb-8">Data yang dihapus tidak dapat dikembalikan.</p>
+            <div class="flex gap-3">
+                <button wire:click="closeDeleteModal"
+                    class="flex-1 px-5 py-3 rounded-xl border border-slate-200 text-slate-700 font-bold hover:bg-slate-50 transition-all">Batal</button>
+                <button wire:click="delete"
+                    class="flex-1 px-5 py-3 rounded-xl bg-rose-500 text-white font-bold shadow-lg shadow-rose-500/30 hover:bg-rose-600 transition-all">Hapus</button>
             </div>
         </div>
-    @endif
-
+    </div>
 
     <style>
         @keyframes blob {
