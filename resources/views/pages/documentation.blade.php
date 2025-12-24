@@ -80,7 +80,7 @@
                                  x-transition:enter-start="opacity-0 scale-90"
                                  x-transition:enter-end="opacity-1 scale-100"
                                  style="transition-delay: {{ $index * 0.05 }}s">
-                                <img src="{{ $photo->file_path ? asset('uploads/' . $photo->file_path) : '' }}" 
+                                <img src="{{ $photo->file_path ? \Storage::url($photo->file_path) : '' }}" 
                                      alt="{{ $photo->title }}"
                                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -126,7 +126,7 @@
                                 
                                 <div class="bg-white rounded-2xl overflow-hidden shadow-2xl">
                                     <div class="relative aspect-video bg-gray-900">
-                                        <img x-bind:src="selectedPhoto ? '{{ asset('uploads/') }}/' + selectedPhoto.file_path : ''"
+                                        <img x-bind:src="selectedPhoto ? '{{ \Storage::url('') }}' + selectedPhoto.file_path : ''"
                                              x-bind:alt="selectedPhoto?.title"
                                              class="w-full h-full object-contain">
                                     </div>

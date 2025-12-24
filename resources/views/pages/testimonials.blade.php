@@ -54,8 +54,8 @@
                         @endphp
                         <x-animated-card delay="{{ $index * 0.1 }}" class="bg-white rounded-[2rem] p-8 shadow-lg shadow-gray-200/50 border border-gray-100">
                             <div class="flex items-center gap-4 mb-4">
-                                @if($testimonial->photo_url)
-                                    <img src="{{ $testimonial->photo_url }}" 
+                                @if($testimonial->photo_path)
+                                    <img src="{{ \Storage::url($testimonial->photo_path) }}" 
                                          alt="{{ $testimonial->name }}" 
                                          class="w-16 h-16 rounded-[2rem] object-cover border-2 border-white shadow-lg transition-transform duration-300 hover:scale-110"
                                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
