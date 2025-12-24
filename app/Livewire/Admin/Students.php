@@ -175,7 +175,8 @@ class Students extends Component
                 if ($this->profile_photo) {
                     // Delete old photo
                     if ($student->profile_photo_path) {
-                        Storage::disk('public')->delete($student->profile_photo_path);
+                        // Use getRawOriginal to bypass accessor
+                        Storage::disk('public')->delete($student->getRawOriginal('profile_photo_path'));
                     }
                     $this->profile_photo_path = $this->profile_photo->store('student-photos', 'public');
                 }
@@ -271,7 +272,8 @@ class Students extends Component
         try {
             // Delete profile photo
             if ($student->profile_photo_path) {
-                Storage::disk('public')->delete($student->profile_photo_path);
+                // Use getRawOriginal to bypass accessor
+                Storage::disk('public')->delete($student->getRawOriginal('profile_photo_path'));
             }
 
             $userId = $student->user_id;
@@ -282,7 +284,8 @@ class Students extends Component
                 $user = User::find($userId);
                 if ($user) {
                     if ($user->avatar_url) {
-                        Storage::disk('public')->delete($user->avatar_url);
+                        // Use getRawOriginal to bypass accessor
+                        Storage::disk('public')->delete($user->getRawOriginal('avatar_url'));
                     }
                     $user->delete();
                 }
