@@ -42,30 +42,16 @@ Route::middleware('auth')->group(function () {
         // Materials Management
         Route::get('/materials', \App\Livewire\Admin\Materials::class)->name('materials.index');
 
-        // Documentations Management - Using Livewire if available, otherwise view
+        // Testimonials Management
+        Route::get('/testimonials', \App\Livewire\Admin\Testimonials::class)->name('testimonials.index');
+
+        // Documentations Management - Using Filament resource
         Route::get('/documentations', function () {
-            return view('pages.admin.documentations.index');
+            return redirect('/admin/documentations');
         })->name('documentations.index');
 
         // Schedules Management
         Route::get('/schedules', \App\Livewire\Admin\Schedules::class)->name('schedules.index');
-
-        // Attendances Management
-        Route::get('/attendances', \App\Livewire\Admin\Attendances::class)->name('attendances.index');
-
-        // Journals Management
-        Route::get('/journals', \App\Livewire\Admin\Journals::class)->name('journals.index');
-
-        // Subjects Management
-        Route::get('/subjects', \App\Livewire\Admin\Subjects::class)->name('subjects.index');
-
-        // Class Levels Management
-        Route::get('/class-levels', \App\Livewire\Admin\ClassLevels::class)->name('class-levels.index');
-
-        // Testimonials Management - Using view for now
-        Route::get('/testimonials', function () {
-            return view('pages.admin.testimonials.index');
-        })->name('testimonials.index');
     });
 
     // Tutor Routes
