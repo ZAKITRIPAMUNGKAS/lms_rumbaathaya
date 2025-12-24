@@ -139,7 +139,7 @@
                                 <div class="flex items-center gap-4">
                                     <div class="relative">
                                         @if($tutor->avatar_url)
-                                            <img src="{{ $tutor->avatar_url }}"
+                                            <img src="{{ $tutor->avatar_url }}?v={{ time() }}"
                                                 class="w-12 h-12 rounded-2xl object-cover border-2 border-white shadow-sm">
                                         @else
                                             <div
@@ -292,7 +292,7 @@
                                         <img src="{{ $avatar->temporaryUrl() }}"
                                             class="w-24 h-24 rounded-2xl object-cover border-4 border-white shadow-md">
                                     @elseif($avatar_url)
-                                        <img src="{{ $avatar_url }}"
+                                        <img src="{{ $avatar_url }}?v={{ time() }}"
                                             class="w-24 h-24 rounded-2xl object-cover border-4 border-white shadow-md">
                                     @else
                                         <div
