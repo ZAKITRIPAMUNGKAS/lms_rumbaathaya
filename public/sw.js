@@ -11,8 +11,6 @@ const PRECACHE_ASSETS = [
     '/',
     '/Logo.png',
     '/manifest.json',
-    '/css/app.css',
-    '/js/app.js',
 ];
 
 // Install event - cache assets
