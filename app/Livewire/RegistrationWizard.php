@@ -160,6 +160,8 @@ class RegistrationWizard extends Component
         $this->resetValidation();
 
         try {
+            \Illuminate\Support\Facades\DB::beginTransaction();
+
             // Create user
             $user = User::create([
                 'name' => $this->name,
@@ -177,6 +179,29 @@ class RegistrationWizard extends Component
             // Get class_level_id based on program (default to first class level if not found)
             $classLevelId = \App\Models\ClassLevel::first()?->id ?? 1;
 
+            // Program mapping for registration & students
+            $selectedProgramName = self::PROGRAMS[$this->selectedProgram]['name'] ?? $this->selectedProgram;
+            
+            $programMapping = [
+                'Calistung TK' => 'Calistung (TK-SD Kelas 1)',
+                'SD Kelas 1-3' => 'MAPEL SD',
+                'SD Kelas 4-6' => 'MAPEL SD',
+                'SMP Kelas 7-9' => 'MAPEL SMP',
+                'Kelas Tahfidz' => 'Tahfidz',
+            ];
+            
+            $dbProgram = $programMapping[$selectedProgramName] ?? 'Yang lain';
+            
+            $programInterestMapping = [
+                'Calistung (TK-SD Kelas 1)' => 'Calistung',
+                'MAPEL SD' => 'Mapel SD',
+                'MAPEL SMP' => 'Mapel SMP',
+                'MAPEL SMA' => 'Mapel SMA',
+                'Tahfidz' => 'Tahfidz',
+            ];
+            
+            $dbProgramInterest = $programInterestMapping[$dbProgram] ?? 'Calistung';
+
             // Create student profile
             $studentData = [
                 'user_id' => $user->id,
@@ -184,7 +209,7 @@ class RegistrationWizard extends Component
                 'nickname' => $this->nickname,
                 'date_of_birth' => $this->dateOfBirth,
                 'parent_phone' => $this->parent_phone,
-                'program_interest' => self::PROGRAMS[$this->selectedProgram]['name'] ?? $this->selectedProgram,
+                'program_interest' => $dbProgramInterest,
                 'class_level_id' => $classLevelId,
             ];
 
@@ -204,14 +229,20 @@ class RegistrationWizard extends Component
                 'user_id' => $user->id,
                 'full_name' => $this->name,
                 'nickname' => $this->nickname,
+                'birth_place' => '',
                 'birth_date' => $this->dateOfBirth,
+                'address' => '',
+                'school_name' => '',
+                'program' => $dbProgram,
+                'program_other' => $dbProgram === 'Yang lain' ? $selectedProgramName : null,
+                'photo' => $photoPath,
                 'email' => $this->email,
                 'phone' => $this->parent_phone,
                 'whatsapp_number' => $this->whatsapp_number,
-                'program' => self::PROGRAMS[$this->selectedProgram]['name'] ?? $this->selectedProgram,
-                'photo' => $photoPath,
                 'status' => 'approved', // Auto-approved since user is created
             ]);
+
+            \Illuminate\Support\Facades\DB::commit();
 
             // Auto-login
             Auth::login($user);
@@ -230,6 +261,7 @@ class RegistrationWizard extends Component
             $this->dispatch('redirect-to-dashboard');
 
         } catch (\Exception $e) {
+            \Illuminate\Support\Facades\DB::rollBack();
             \Log::error('Registration error: ' . $e->getMessage());
             $this->submitError = 'Terjadi kesalahan saat mendaftar. Silakan coba lagi.';
             $this->isSubmitting = false;

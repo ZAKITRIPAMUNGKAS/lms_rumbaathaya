@@ -50,6 +50,14 @@
         .note-editable:focus {
             background-color: #fefefe;
         }
+
+        .note-modal {
+            z-index: 1060 !important;
+        }
+
+        .note-modal-backdrop {
+            z-index: 1050 !important;
+        }
     </style>
 
     <script>
@@ -68,6 +76,7 @@
                 if ($('#summernote-editor').length) {
                     editor = $('#summernote-editor').summernote({
                         height: 300,
+                        dialogsInBody: true,
                         placeholder: 'Tulis konten artikel di sini...',
                         toolbar: [
                             ['style', ['style']],

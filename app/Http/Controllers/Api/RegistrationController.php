@@ -157,13 +157,22 @@ class RegistrationController extends Controller
 
             // Create student profile
             try {
+                $programInterestMapping = [
+                    'Calistung (TK-SD Kelas 1)' => 'Calistung',
+                    'MAPEL SD' => 'Mapel SD',
+                    'MAPEL SMP' => 'Mapel SMP',
+                    'MAPEL SMA' => 'Mapel SMA',
+                    'Tahfidz' => 'Tahfidz',
+                ];
+                $dbProgramInterest = $programInterestMapping[$programValue] ?? 'Calistung';
+
                 $student = Student::create([
                     'user_id' => $user->id,
                     'name' => $validated['full_name'],
                     'nickname' => $validated['nickname'],
-                'date_of_birth' => $validated['birth_date'],
-                'program_interest' => $programValue === 'Yang lain' && $programOther ? $programOther : $programValue,
-                'profile_photo_path' => $photoPath,
+                    'date_of_birth' => $validated['birth_date'],
+                    'program_interest' => $dbProgramInterest,
+                    'profile_photo_path' => $photoPath,
                     'parent_phone' => $validated['parent_phone'],
                     'class_level_id' => $defaultClassLevel->id,
                 ]);
