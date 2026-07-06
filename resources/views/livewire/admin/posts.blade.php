@@ -153,7 +153,7 @@
     <!-- Create/Edit Modal -->
     <div x-data="{ show: @entangle('showModal') }" x-show="show" x-transition class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6" style="display: none;">
         <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" @click="show = false"></div>
-        <div class="relative bg-white/90 backdrop-blur-2xl border border-white/50 shadow-2xl rounded-[2.5rem] w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col animate-modal-pop">
+        <div class="relative bg-white/90 backdrop-blur-2xl border border-white/50 shadow-2xl rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col animate-modal-pop">
             <!-- Modal Header -->
             <div class="flex items-center justify-between p-6 border-b border-slate-100 bg-white/50 backdrop-blur-md z-10">
                 <div class="flex items-center gap-4">
@@ -241,7 +241,7 @@
             </div>
 
             <!-- Modal Footer (Fixed at the bottom) -->
-            <div class="flex justify-end gap-3 p-6 border-t border-slate-100 bg-white/50 backdrop-blur-md z-10 shrink-0">
+            <div class="flex justify-end gap-3 px-8 py-5 border-t border-slate-100 bg-white/50 backdrop-blur-md z-10 shrink-0">
                 <button type="button" wire:click="closeModal" class="px-6 py-3 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-slate-200 transition-all">Batal</button>
                 <button type="submit" form="articleForm" wire:loading.attr="disabled" class="px-8 py-3 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 text-white font-bold shadow-lg shadow-sky-500/30 hover:shadow-xl hover:-translate-y-1 transition-all flex items-center gap-2">
                     <span wire:loading.remove>{{ $editingId ? 'Simpan Perubahan' : 'Buat Artikel' }}</span>
