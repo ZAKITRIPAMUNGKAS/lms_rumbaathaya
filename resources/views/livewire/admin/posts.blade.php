@@ -198,8 +198,14 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Kategori</label>
-                                <input type="text" wire:model="category" class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-sky-400 focus:ring-4 focus:ring-sky-100 rounded-xl transition-all font-semibold placeholder-slate-400" placeholder="e.g. Berita, Tips">
+                                <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Kategori <span class="text-rose-500">*</span></label>
+                                <select wire:model="category" class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-sky-400 focus:ring-4 focus:ring-sky-100 rounded-xl transition-all font-semibold text-slate-600">
+                                    <option value="">Pilih Kategori</option>
+                                    <option value="Kabar Rumba">Kabar Rumba</option>
+                                    <option value="Karya Siswa">Karya Siswa</option>
+                                    <option value="Info">Info</option>
+                                </select>
+                                @error('category') <span class="text-xs text-rose-500 font-bold mt-1">{{ $message }}</span> @enderror
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Tanggal Publikasi</label>
