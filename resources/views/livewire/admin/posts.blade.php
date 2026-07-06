@@ -1,4 +1,4 @@
-<div class="relative min-h-screen space-y-8 p-4 sm:p-8 overflow-hidden font-sans">
+<div class="relative min-h-screen space-y-8 p-4 sm:p-8 font-sans">
     <!-- Animated Background Blobs -->
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10 bg-[#F0F4F8]">
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-sky-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
@@ -152,7 +152,7 @@
 
     <!-- Create/Edit Modal -->
     <div x-data="{ show: @entangle('showModal') }" x-show="show" x-transition class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6" style="display: none;">
-        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" @click="show = false"></div>
+        <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" @click="show = false"></div>
         <div class="relative bg-white/90 backdrop-blur-2xl border border-white/50 shadow-2xl rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col animate-modal-pop">
             <!-- Modal Header -->
             <div class="flex items-center justify-between p-6 border-b border-slate-100 bg-white/50 backdrop-blur-md z-10">
