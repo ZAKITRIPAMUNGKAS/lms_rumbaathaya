@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
 
         // Posts Management
         Route::get('/settings', \App\Livewire\Admin\Settings::class)->name('settings');
+        Route::post('/posts/upload-image', [PostController::class, 'uploadImage'])->name('posts.upload-image');
         Route::get('/posts', \App\Livewire\Admin\Posts::class)->name('posts.index');
 
         // Materials Management

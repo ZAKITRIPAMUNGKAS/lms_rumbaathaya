@@ -96,12 +96,41 @@
                             onChange: function (contents) {
                                 @this.set('content', contents);
                             },
+                            onImageUpload: function (files) {
+                                uploadEditorImage(files[0]);
+                            },
                             onInit: function () {
                                 console.log('Summernote initialized');
                             }
                         }
                     });
                 }
+            }
+
+            function uploadEditorImage(file) {
+                let data = new FormData();
+                data.append("image", file);
+                
+                $.ajax({
+                    url: '{{ route("admin.posts.upload-image") }}',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        if (response.url) {
+                            $('#summernote-editor').summernote('insertImage', response.url);
+                        }
+                    },
+                    error: function(data) {
+                        console.error('Image upload failed:', data);
+                        alert('Gagal mengupload gambar. Silakan coba lagi.');
+                    }
+                });
             }
 
             // Initialize on page load

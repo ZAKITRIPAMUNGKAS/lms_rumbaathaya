@@ -50,4 +50,26 @@ class PostController extends Controller
 
         return view('pages.posts.show', compact('post', 'relatedPosts'));
     }
+
+    /**
+     * Upload image for Summernote editor.
+     */
+    public function uploadImage(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120', // 5MB max
+        ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('posts/images', $filename, 'public');
+            
+            return response()->json([
+                'url' => \Illuminate\Support\Facades\Storage::url($path)
+            ]);
+        }
+
+        return response()->json(['error' => 'No file uploaded.'], 400);
+    }
 }
