@@ -171,6 +171,18 @@
                     <!-- Modal Body -->
             <div class="flex-1 overflow-y-auto p-6 md:p-8">
                 <form id="articleForm" wire:submit.prevent="save" class="space-y-6">
+                    @if (session()->has('error'))
+                        <div class="p-4 rounded-xl bg-rose-50 border border-rose-100 text-rose-600 text-sm font-bold flex items-center gap-2">
+                            <i class="ph-bold ph-warning-circle text-lg shrink-0"></i>
+                            <span>{{ session('error') }}</span>
+                        </div>
+                    @endif
+                    @if (session()->has('success'))
+                        <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-600 text-sm font-bold flex items-center gap-2">
+                            <i class="ph-bold ph-check-circle text-lg shrink-0"></i>
+                            <span>{{ session('success') }}</span>
+                        </div>
+                    @endif
                     <div class="space-y-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Judul Artikel <span class="text-rose-500">*</span></label>

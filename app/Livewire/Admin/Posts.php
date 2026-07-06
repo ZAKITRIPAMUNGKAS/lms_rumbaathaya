@@ -184,6 +184,8 @@ class Posts extends Component
                 session()->flash('success', 'Artikel berhasil ditambahkan');
             }
             $this->closeModal();
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            throw $e;
         } catch (\Exception $e) {
             session()->flash('error', 'Gagal menyimpan: ' . $e->getMessage());
         }
