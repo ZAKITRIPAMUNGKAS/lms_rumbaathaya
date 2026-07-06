@@ -168,10 +168,9 @@
                     <i class="ph-bold ph-x text-lg"></i>
                 </button>
             </div>
-            
-            <!-- Modal Body -->
+                    <!-- Modal Body -->
             <div class="flex-1 overflow-y-auto p-6 md:p-8">
-                <form wire:submit.prevent="save" class="space-y-6">
+                <form id="articleForm" wire:submit.prevent="save" class="space-y-6">
                     <div class="space-y-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Judul Artikel <span class="text-rose-500">*</span></label>
@@ -238,15 +237,16 @@
                             <label for="toggle" class="text-sm font-bold text-slate-700 cursor-pointer">Publikasikan Artikel Ini</label>
                         </div>
                     </div>
-
-                    <div class="flex justify-end gap-3 pt-4 border-t border-slate-200">
-                        <button type="button" wire:click="closeModal" class="px-6 py-3 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-slate-200 transition-all">Batal</button>
-                        <button type="submit" wire:loading.attr="disabled" class="px-8 py-3 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 text-white font-bold shadow-lg shadow-sky-500/30 hover:shadow-xl hover:-translate-y-1 transition-all flex items-center gap-2">
-                            <span wire:loading.remove>{{ $editingId ? 'Simpan Perubahan' : 'Buat Artikel' }}</span>
-                            <span wire:loading><i class="ph-bold ph-spinner animate-spin"></i> Menyimpan...</span>
-                        </button>
-                    </div>
                 </form>
+            </div>
+
+            <!-- Modal Footer (Fixed at the bottom) -->
+            <div class="flex justify-end gap-3 p-6 border-t border-slate-100 bg-white/50 backdrop-blur-md z-10 shrink-0">
+                <button type="button" wire:click="closeModal" class="px-6 py-3 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-slate-200 transition-all">Batal</button>
+                <button type="submit" form="articleForm" wire:loading.attr="disabled" class="px-8 py-3 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 text-white font-bold shadow-lg shadow-sky-500/30 hover:shadow-xl hover:-translate-y-1 transition-all flex items-center gap-2">
+                    <span wire:loading.remove>{{ $editingId ? 'Simpan Perubahan' : 'Buat Artikel' }}</span>
+                    <span wire:loading style="display: none;"><i class="ph-bold ph-spinner animate-spin animate-infinite"></i> Menyimpan...</span>
+                </button>
             </div>
         </div>
     </div>
