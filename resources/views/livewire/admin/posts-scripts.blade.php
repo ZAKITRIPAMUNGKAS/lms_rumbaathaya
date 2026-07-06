@@ -58,6 +58,129 @@
         .note-modal-backdrop {
             z-index: 1050 !important;
         }
+
+        /* Summernote Modal Styling */
+        .note-modal-content {
+            border: none !important;
+            border-radius: 1.5rem !important;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+            background-color: white !important;
+            overflow: hidden !important;
+            padding: 1.5rem !important;
+        }
+
+        .note-modal-header {
+            border-bottom: 1px solid #f1f5f9 !important;
+            padding: 0.5rem 0 1rem 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+        }
+
+        .note-modal-title {
+            font-size: 1.25rem !important;
+            font-weight: 800 !important;
+            color: #1e293b !important;
+            letter-spacing: -0.025em !important;
+        }
+
+        .note-modal-header .close {
+            background: none !important;
+            border: none !important;
+            font-size: 1.5rem !important;
+            color: #94a3b8 !important;
+            cursor: pointer !important;
+            transition: color 0.2s !important;
+        }
+
+        .note-modal-header .close:hover {
+            color: #ef4444 !important;
+        }
+
+        .note-modal-body {
+            padding: 1.5rem 0 !important;
+        }
+
+        .note-form-group {
+            margin-bottom: 1.25rem !important;
+        }
+
+        .note-form-label {
+            font-size: 0.75rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.05em !important;
+            color: #475569 !important;
+            margin-bottom: 0.5rem !important;
+            display: block !important;
+        }
+
+        .note-input {
+            width: 100% !important;
+            padding: 0.75rem 1.25rem !important;
+            background-color: #f8fafc !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 0.75rem !important;
+            font-size: 0.875rem !important;
+            font-weight: 600 !important;
+            color: #1e293b !important;
+            transition: all 0.2s !important;
+        }
+
+        .note-input:focus {
+            background-color: white !important;
+            border-color: #38bdf8 !important;
+            outline: none !important;
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1) !important;
+        }
+
+        .note-modal-footer {
+            border-top: 1px solid #f1f5f9 !important;
+            padding: 1rem 0 0 0 !important;
+            display: flex !important;
+            justify-content: flex-end !important;
+            gap: 0.75rem !important;
+        }
+
+        /* Summernote Modal Buttons */
+        .note-modal-footer .note-btn {
+            padding: 0.75rem 1.5rem !important;
+            font-weight: 700 !important;
+            font-size: 0.875rem !important;
+            border-radius: 0.75rem !important;
+            transition: all 0.2s !important;
+            border: none !important;
+            cursor: pointer !important;
+        }
+
+        /* Primary button (e.g. Insert Image) */
+        .note-modal-footer .note-btn-primary {
+            background: linear-gradient(to right, #0284c7, #2563eb) !important;
+            color: white !important;
+            box-shadow: 0 10px 15px -3px rgba(3, 105, 161, 0.3) !important;
+        }
+
+        .note-modal-footer .note-btn-primary:hover {
+            box-shadow: 0 20px 25px -5px rgba(3, 105, 161, 0.4) !important;
+            transform: translateY(-1px) !important;
+        }
+
+        .note-modal-footer .note-btn-primary:disabled {
+            opacity: 0.6 !important;
+            cursor: not-allowed !important;
+            transform: none !important;
+        }
+
+        /* Cancel button */
+        .note-modal-footer .note-btn:not(.note-btn-primary) {
+            background-color: #f1f5f9 !important;
+            color: #475569 !important;
+        }
+
+        .note-modal-footer .note-btn:not(.note-btn-primary):hover {
+            background-color: #e2e8f0 !important;
+            color: #1e293b !important;
+        }
     </style>
 
     <script>

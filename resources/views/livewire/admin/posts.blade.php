@@ -259,7 +259,7 @@
             </div>
 
             <!-- Modal Footer (Fixed at the bottom) -->
-            <div class="flex justify-end gap-3 px-8 py-5 border-t border-slate-100 bg-white/50 backdrop-blur-md z-10 shrink-0">
+            <div class="flex justify-end gap-3 px-10 py-6 border-t border-slate-100 bg-white/50 backdrop-blur-md z-10 shrink-0">
                 <button type="button" wire:click="closeModal" class="px-6 py-3 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-slate-200 transition-all">Batal</button>
                 <button type="submit" form="articleForm" wire:loading.attr="disabled" class="px-8 py-3 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 text-white font-bold shadow-lg shadow-sky-500/30 hover:shadow-xl hover:-translate-y-1 transition-all flex items-center gap-2">
                     <span wire:loading.remove>{{ $editingId ? 'Simpan Perubahan' : 'Buat Artikel' }}</span>
