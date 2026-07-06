@@ -99,6 +99,17 @@
                             onImageUpload: function (files) {
                                 uploadEditorImage(files[0]);
                             },
+                            onPaste: function (e) {
+                                var clipboardData = e.originalEvent.clipboardData;
+                                if (clipboardData && clipboardData.items && clipboardData.items.length) {
+                                    var item = clipboardData.items[0];
+                                    if (item.kind === 'file' && item.type.indexOf('image/') !== -1) {
+                                        e.preventDefault();
+                                        var file = item.getAsFile();
+                                        uploadEditorImage(file);
+                                    }
+                                }
+                            },
                             onInit: function () {
                                 console.log('Summernote initialized');
                             }

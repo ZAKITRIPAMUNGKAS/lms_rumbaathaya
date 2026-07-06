@@ -144,13 +144,15 @@ class Posts extends Component
         }
 
         try {
+            $processedContent = $this->processBase64Images($this->content);
+
             if ($this->editingId) {
                 $post = Post::find($this->editingId);
                 $updateData = [
                     'title' => $this->title,
                     'slug' => $this->slug,
                     'category' => $this->category ?: null,
-                    'content' => $this->content ?: null,
+                    'content' => $processedContent ?: null,
                     'is_published' => $this->is_published,
                     'published_at' => $this->published_at ? now()->parse($this->published_at) : null,
                 ];
@@ -174,7 +176,7 @@ class Posts extends Component
                     'title' => $this->title,
                     'slug' => $this->slug,
                     'category' => $this->category ?: null,
-                    'content' => $this->content ?: null,
+                    'content' => $processedContent ?: null,
                     'thumbnail' => $thumbnailPath,
                     'is_published' => $this->is_published,
                     'published_at' => $this->published_at ? now()->parse($this->published_at) : null,
@@ -185,6 +187,38 @@ class Posts extends Component
         } catch (\Exception $e) {
             session()->flash('error', 'Gagal menyimpan: ' . $e->getMessage());
         }
+    }
+
+    /**
+     * Process any Base64 encoded images in the content, save them as physical files,
+     * and replace the Base64 src attribute with the stored file URL.
+     */
+    private function processBase64Images($content)
+    {
+        if (empty($content)) {
+            return $content;
+        }
+
+        // Handle both double quotes and single quotes for data urls
+        return preg_replace_callback('/src=["\']data:image\/(\w+);base64,([^"\']+)["\']/', function ($matches) {
+            $imageType = strtolower($matches[1]);
+            $base64Data = $matches[2];
+            $data = base64_decode($base64Data);
+
+            if ($data !== false) {
+                $filename = time() . '_' . uniqid() . '.' . $imageType;
+                $path = 'posts/images/' . $filename;
+                
+                // Save to storage
+                Storage::disk('public')->put($path, $data);
+                
+                // Return replacement src attribute with double quotes
+                $url = Storage::url($path);
+                return 'src="' . $url . '"';
+            }
+
+            return $matches[0];
+        }, $content);
     }
 
     public function delete()
