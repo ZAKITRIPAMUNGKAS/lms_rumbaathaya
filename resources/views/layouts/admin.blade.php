@@ -164,11 +164,51 @@
                 </div>
             </header>
 
-            <main class="h-full overflow-y-auto">
+            <main class="h-full overflow-y-auto mobile-content-wrapper pb-20">
                 {{ $slot }}
             </main>
         </div>
     </div>
+
+    <!-- Mobile Bottom Navigation Bar (Visible on mobile, hidden on desktop) -->
+    @php $currentRoute = request()->route()->getName() ?? ''; @endphp
+    <nav class="mobile-bottom-nav md:hidden">
+        <a href="{{ route('admin.dashboard') }}"
+            class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'admin.dashboard') ? 'active' : '' }}">
+            <div class="nav-icon">
+                <i class="ph {{ str_starts_with($currentRoute, 'admin.dashboard') ? 'ph-fill' : '' }} ph-chart-bar"></i>
+            </div>
+            <span class="nav-label">Beranda</span>
+        </a>
+        <a href="{{ route('admin.students.index') }}"
+            class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'admin.students') ? 'active' : '' }}">
+            <div class="nav-icon">
+                <i class="ph {{ str_starts_with($currentRoute, 'admin.students') ? 'ph-fill' : '' }} ph-users"></i>
+            </div>
+            <span class="nav-label">Siswa</span>
+        </a>
+        <a href="{{ route('admin.attendances.index') }}"
+            class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'admin.attendances') ? 'active' : '' }}">
+            <div class="nav-icon">
+                <i class="ph {{ str_starts_with($currentRoute, 'admin.attendances') ? 'ph-fill' : '' }} ph-clipboard-text"></i>
+            </div>
+            <span class="nav-label">Absensi</span>
+        </a>
+        <a href="{{ route('admin.schedules.index') }}"
+            class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'admin.schedules') ? 'active' : '' }}">
+            <div class="nav-icon">
+                <i class="ph {{ str_starts_with($currentRoute, 'admin.schedules') ? 'ph-fill' : '' }} ph-calendar"></i>
+            </div>
+            <span class="nav-label">Jadwal</span>
+        </a>
+        <button @click="sidebarOpen = !sidebarOpen"
+            class="mobile-bottom-nav-item" :class="sidebarOpen ? 'active' : ''">
+            <div class="nav-icon">
+                <i class="ph ph-dots-three-outline-fill"></i>
+            </div>
+            <span class="nav-label">Lainnya</span>
+        </button>
+    </nav>
 
     @stack('modals')
     @livewireScripts
