@@ -54,6 +54,23 @@
 
     <!-- Phosphor Icons (Local) -->
     <script src="{{ asset('phosphor-icons/loader.js') }}" defer></script>
+
+    <!-- Capacitor Mobile App Styling Overrides -->
+    <style>
+        /* Hide navbar, footer, and promo banner inside the native app */
+        .capacitor-platform nav,
+        .capacitor-platform footer,
+        .capacitor-platform #app-promo-banner,
+        .capacitor-platform .app-promo-banner,
+        .capacitor-platform .web-only-layout {
+            display: none !important;
+        }
+
+        /* Show exclusive mobile app layout */
+        .capacitor-platform .app-only-layout {
+            display: block !important;
+        }
+    </style>
 </head>
 
 <body class="min-h-screen bg-[#F8FAFC] font-sans selection:bg-orange-100 overflow-x-hidden text-slate-900"

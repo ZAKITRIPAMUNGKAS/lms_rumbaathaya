@@ -23,7 +23,7 @@
     $latestStudents = \App\Models\Student::with('user')->latest()->take(3)->get();
 @endphp
 
-<div class="min-h-screen">
+<div class="web-only-layout min-h-screen">
     <!-- Hero Section - Enhanced & Vibrant -->
     <section id="home" class="relative pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-24 md:pb-28 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
         <!-- Animated Background Blobs -->
@@ -254,7 +254,7 @@
             </div>
 
             <!-- Mobile App Promotion Banner -->
-            <div class="mt-16 relative overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-950 text-white p-8 md:p-12 shadow-2xl border border-slate-800">
+            <div id="app-promo-banner" class="mt-16 relative overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-950 text-white p-8 md:p-12 shadow-2xl border border-slate-800">
                 <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(245,158,11,0.08),transparent_50%)]"></div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
                     <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
@@ -943,5 +943,107 @@
             </div>
         </div>
     </section>
+</div>
+
+{{-- ── EXCLUSIVE MOBILE APP WELCOME ONBOARDING ── --}}
+<div class="app-only-layout hidden min-h-screen bg-slate-50 relative overflow-hidden">
+    {{-- Animated Background Blobs --}}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-orange-100/50 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-100/40 rounded-full blur-3xl"></div>
+    </div>
+
+    @auth
+        {{-- Loader while redirecting logged-in user --}}
+        <div class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6">
+            <div class="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center mb-6 border border-slate-100">
+                <i class="ph ph-spinner text-3xl text-orange-500 animate-spin"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800">Menghubungkan ke Akun...</h3>
+            <p class="text-xs text-slate-400 mt-1">Mengalihkan Anda ke Dashboard LMS</p>
+        </div>
+
+        <script>
+            (function() {
+                // Instantly redirect to dashboard inside the Capacitor app
+                var checkApp = setInterval(function() {
+                    if (window.Capacitor || document.documentElement.classList.contains('capacitor-platform')) {
+                        clearInterval(checkApp);
+                        window.location.href = "{{ auth()->user()->role == 'admin' ? route('admin.dashboard') : (auth()->user()->role == 'tutor' ? route('tutor.dashboard') : route('student.dashboard')) }}";
+                    }
+                }, 50);
+                // Timeout after 1.5s as fallback
+                setTimeout(function() { clearInterval(checkApp); }, 1500);
+            })();
+        </script>
+    @else
+        {{-- Welcome & Onboarding View --}}
+        <div class="relative z-10 flex flex-col min-h-screen justify-between py-12 px-6">
+            
+            {{-- Header/Logo --}}
+            <div class="flex flex-col items-center text-center mt-6">
+                <div class="w-20 h-20 rounded-3xl bg-white shadow-xl shadow-orange-500/10 border border-slate-100 flex items-center justify-center p-2 mb-4">
+                    <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-full h-full object-contain">
+                </div>
+                <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">Rumba Athaya</h1>
+                <p class="text-[11px] text-orange-600 font-bold uppercase tracking-widest mt-1">Learning Management System</p>
+            </div>
+
+            {{-- Feature Slide List --}}
+            <div class="my-8 max-w-sm mx-auto w-full space-y-4">
+                
+                {{-- Card 1 --}}
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="ph ph-calendar-blank"></i>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-xs text-slate-800">Pantau Jadwal Belajar</h4>
+                        <p class="text-[10px] text-slate-400 mt-0.5 leading-relaxed">Jadwal kelas, jam les, dan tutor ter-update real-time.</p>
+                    </div>
+                </div>
+
+                {{-- Card 2 --}}
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="ph ph-book-open"></i>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-xs text-slate-800">Materi & Modul Praktis</h4>
+                        <p class="text-[10px] text-slate-400 mt-0.5 leading-relaxed">Unduh modul belajar langsung ke handphone Anda.</p>
+                    </div>
+                </div>
+
+                {{-- Card 3 --}}
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 rounded-xl bg-green-50 text-green-500 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="ph ph-check-circle"></i>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-xs text-slate-800">Absensi & Progress Nilai</h4>
+                        <p class="text-[10px] text-slate-400 mt-0.5 leading-relaxed">Pantau perkembangan belajar harian dengan transparan.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            {{-- Action Buttons --}}
+            <div class="max-w-sm mx-auto w-full space-y-3">
+                <a href="{{ route('login') }}" 
+                   class="flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-bold text-sm text-white shadow-lg shadow-orange-500/25 active:scale-98 transition-all hover:opacity-95"
+                   style="background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%)">
+                    <i class="ph ph-sign-in text-base"></i> Masuk Ke Akun
+                </a>
+
+                <a href="{{ route('register') }}" 
+                   class="flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-bold text-sm text-slate-700 bg-white border border-slate-200 shadow-sm active:scale-98 transition-all hover:bg-slate-50">
+                    <i class="ph ph-user-plus text-base"></i> Pendaftaran Siswa Baru
+                </a>
+                
+                <p class="text-[10px] text-slate-400 text-center mt-4">Rumah Belajar Athaya © {{ date('Y') }}</p>
+            </div>
+
+        </div>
+    @endauth
 </div>
 @endsection
