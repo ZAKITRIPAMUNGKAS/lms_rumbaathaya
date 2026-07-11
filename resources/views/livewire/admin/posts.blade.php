@@ -67,7 +67,7 @@
             </div>
             <div class="relative md:w-56">
                 <select wire:model.live="categoryFilter" class="w-full px-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-sky-400 rounded-xl transition-all font-semibold text-slate-700 cursor-pointer">
-                    <option value="">📂 Semua Kategori</option>
+                    <option value="">Semua Kategori</option>
                     @foreach($categories as $category)
                         <option value="{{ $category }}">{{ $category }}</option>
                     @endforeach
@@ -75,7 +75,7 @@
             </div>
             <div class="relative md:w-56">
                 <select wire:model.live="statusFilter" class="w-full px-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-sky-400 rounded-xl transition-all font-semibold text-slate-700 cursor-pointer">
-                    <option value="">⚡ Semua Status</option>
+                    <option value="">Semua Status</option>
                     <option value="1">Published</option>
                     <option value="0">Draft</option>
                 </select>

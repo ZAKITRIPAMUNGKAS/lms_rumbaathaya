@@ -52,7 +52,7 @@
             
             <div class="relative md:w-64">
                 <select wire:model.live="tutorFilter" class="w-full px-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-rose-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
-                    <option value="">👨‍🏫 Semua Tutor</option>
+                    <option value="">Semua Tutor</option>
                     @foreach($tutors as $tutor)
                         <option value="{{ $tutor->id }}">{{ $tutor->name }}</option>
                     @endforeach

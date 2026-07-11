@@ -26,11 +26,12 @@
             <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 h-full">
                 <div>
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-xs font-bold text-white mb-6 shadow-sm hover:scale-105 transition-transform origin-left cursor-default">
-                        <span class="text-lg">👋</span>
+                        <i class="ph-bold ph-hand-waving text-base text-amber-200"></i>
                         <span>Admin Dashboard</span>
                     </div>
-                    <h1 class="text-3xl sm:text-4xl font-extrabold mb-4 tracking-tight leading-tight drop-shadow-sm">
-                        Halo, {{ explode(' ', auth()->user()->name)[0] ?? 'Admin' }}! <span class="animate-pulse inline-block">🚀</span>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold mb-4 tracking-tight leading-tight drop-shadow-sm flex items-center gap-2">
+                        <span>Halo, {{ explode(' ', auth()->user()->name)[0] ?? 'Admin' }}!</span> 
+                        <i class="ph-fill ph-rocket text-2xl text-amber-300 animate-bounce"></i>
                     </h1>
                     <p class="text-violet-100 font-medium max-w-md text-sm sm:text-base leading-relaxed">
                         Pantau semua aktivitas sekolah dan kelola data operasional dengan mudah dan menyenangkan.
@@ -38,7 +39,7 @@
                 </div>
                 <!-- Floating Illustration -->
                 <div class="hidden md:flex w-32 h-32 bg-white/10 backdrop-blur-md rounded-full border-2 border-white/30 items-center justify-center shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:rotate-6 transition-transform duration-300">
-                    <span class="text-6xl filter drop-shadow-lg">📊</span>
+                    <i class="ph-fill ph-chart-bar text-6xl text-white drop-shadow-md"></i>
                 </div>
             </div>
         </div>
@@ -72,7 +73,7 @@
     </div>
 
     <!-- Stats Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         <!-- Total Siswa -->
         <div class="group relative overflow-hidden p-6 rounded-[2.5rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-lg hover:shadow-2xl hover:bg-white/80 transition-all duration-300 hover:-translate-y-1">
              <div class="absolute top-0 right-0 w-24 h-24 bg-blue-100/50 rounded-full blur-2xl -mr-8 -mt-8 group-hover:bg-blue-200/50 transition-colors"></div>

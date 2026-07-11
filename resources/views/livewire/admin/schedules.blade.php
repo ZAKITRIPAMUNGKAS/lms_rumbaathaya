@@ -124,7 +124,7 @@
                 <div class="relative w-full">
                     <select wire:model.live="dayFilter"
                         class="w-full pl-4 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-violet-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
-                        <option value="">📅 Semua Hari</option>
+                        <option value="">Semua Hari</option>
                         @foreach($days as $key => $value)
                             <option value="{{ $key }}">{{ $value }}</option>
                         @endforeach
@@ -135,7 +135,7 @@
                 <div class="relative w-full">
                     <select wire:model.live="tutorFilter"
                         class="w-full pl-4 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-violet-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
-                        <option value="">👨‍🏫 Semua Tutor</option>
+                        <option value="">Semua Tutor</option>
                         @foreach($tutors as $tutor)
                             <option value="{{ $tutor->id }}">{{ $tutor->name }}</option>
                         @endforeach
@@ -146,7 +146,7 @@
                 <div class="relative w-full">
                     <select wire:model.live="studentFilter"
                         class="w-full pl-4 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-violet-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
-                        <option value="">👨‍🎓 Semua Siswa</option>
+                        <option value="">Semua Siswa</option>
                         @foreach($students as $student)
                             <option value="{{ $student->id }}">{{ $student->name }}</option>
                         @endforeach
@@ -157,7 +157,7 @@
                 <div class="relative w-full">
                     <select wire:model.live="isActiveFilter"
                         class="w-full pl-4 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-violet-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
-                        <option value="">⚡ Status</option>
+                        <option value="">Status</option>
                         <option value="1">Aktif</option>
                         <option value="0">Non-Aktif</option>
                     </select>

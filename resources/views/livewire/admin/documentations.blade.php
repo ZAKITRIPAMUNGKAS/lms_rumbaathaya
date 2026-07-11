@@ -124,16 +124,16 @@
             <div class="relative md:w-48">
                 <select wire:model.live="typeFilter"
                     class="w-full px-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-indigo-400 rounded-xl transition-all font-semibold text-slate-700 cursor-pointer">
-                    <option value="">📂 Semua Tipe</option>
-                    <option value="photo">📷 Foto</option>
-                    <option value="video">🎥 Video</option>
-                    <option value="quotes">💬 Quotes</option>
+                    <option value="">Semua Tipe</option>
+                    <option value="photo">Foto</option>
+                    <option value="video">Video</option>
+                    <option value="quotes">Quotes</option>
                 </select>
             </div>
             <div class="relative md:w-48">
                 <select wire:model.live="categoryFilter"
                     class="w-full px-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-indigo-400 rounded-xl transition-all font-semibold text-slate-700 cursor-pointer">
-                    <option value="">🏷️ Semua Kategori</option>
+                    <option value="">Semua Kategori</option>
                     <option value="Kegiatan Belajar">Kegiatan Belajar</option>
                     <option value="Event">Event</option>
                     <option value="Prestasi">Prestasi</option>
@@ -286,9 +286,9 @@
                             </label>
                             <select wire:model.live="type"
                                 class="w-full px-5 py-3 bg-white/70 border border-slate-200 focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 rounded-xl transition-all font-semibold text-slate-700">
-                                <option value="photo">📷 Foto</option>
-                                <option value="video">🎥 Video (Youtube)</option>
-                                <option value="quotes">💬 Quotes</option>
+                                <option value="photo">Foto</option>
+                                <option value="video">Video (Youtube)</option>
+                                <option value="quotes">Quotes</option>
                             </select>
                             @error('type') <span class="text-xs text-rose-500 font-bold mt-1">{{ $message }}</span>
                             @enderror

@@ -53,7 +53,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full xl:w-auto">
                 <div class="relative w-full">
                     <select wire:model.live="studentFilter" class="w-full pl-4 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-amber-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
-                        <option value="">👨‍🎓 Semua Siswa</option>
+                        <option value="">Semua Siswa</option>
                         @foreach($students as $student)
                             <option value="{{ $student->id }}">{{ $student->name }}</option>
                         @endforeach
@@ -63,7 +63,7 @@
 
                 <div class="relative w-full">
                     <select wire:model.live="tutorFilter" class="w-full pl-4 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-amber-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
-                        <option value="">👨‍🏫 Semua Tutor</option>
+                        <option value="">Semua Tutor</option>
                         @foreach($tutors as $tutor)
                             <option value="{{ $tutor->id }}">{{ $tutor->name }}</option>
                         @endforeach
@@ -73,7 +73,7 @@
 
                 <div class="relative w-full">
                     <select wire:model.live="statusFilter" class="w-full pl-4 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-amber-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
-                         <option value="">📊 Semua Status</option>
+                         <option value="">Semua Status</option>
                         <option value="present">Hadir</option>
                         <option value="absent">Tidak Hadir</option>
                         <option value="late">Terlambat</option>
@@ -86,82 +86,85 @@
         <!-- Attendances List -->
         <div class="space-y-4">
             @forelse($attendances as $attendance)
-                <div class="group relative bg-white/50 border border-white/60 hover:bg-white/80 transition-all duration-300 rounded-[2rem] p-5 shadow-sm hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1">
-                    <div class="flex flex-col md:flex-row items-center gap-6">
-                         <!-- Date Badge -->
-                        <div class="flex-shrink-0 text-center">
-                            <div class="w-20 h-20 rounded-3xl bg-white border-2 border-slate-100 flex flex-col items-center justify-center group-hover:border-amber-200 transition-colors shadow-sm">
-                                <span class="text-2xl font-black text-slate-800">{{ $attendance->date->format('d') }}</span>
-                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ $attendance->date->format('M') }}</span>
-                            </div>
-                        </div>
+                <div class="group relative bg-white/50 border border-white/60 hover:bg-white/80 transition-all duration-300 rounded-2xl sm:rounded-[2rem] p-4 sm:p-5 shadow-sm hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-0.5">
+                    <div class="flex flex-row items-center gap-3 sm:gap-6 justify-between">
+                         
+                         <div class="flex flex-row items-center gap-3 sm:gap-6 min-w-0 flex-1">
+                             <!-- Date Badge -->
+                             <div class="flex-shrink-0 text-center">
+                                 <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl bg-white border border-slate-100 sm:border-2 flex flex-col items-center justify-center group-hover:border-amber-200 transition-colors shadow-sm">
+                                     <span class="text-xl sm:text-2xl font-black text-slate-800 leading-none">{{ $attendance->date->format('d') }}</span>
+                                     <span class="text-[8px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-wider sm:tracking-widest mt-0.5 sm:mt-1 leading-none">{{ $attendance->date->format('M') }}</span>
+                                 </div>
+                             </div>
 
-                        <!-- Info -->
-                        <div class="flex-1 w-full text-center md:text-left">
-                            <div class="flex flex-col md:flex-row items-center md:items-start gap-2 mb-2 justify-center md:justify-start">
-                                <h3 class="font-extrabold text-slate-800 text-lg group-hover:text-amber-600 transition-colors">
-                                    {{ $attendance->student->name ?? '-' }}
-                                </h3>
-                                 @php
-                                    $statusColors = [
-                                        'present' => 'bg-emerald-100 text-emerald-700 border-emerald-200',
-                                        'absent' => 'bg-rose-100 text-rose-700 border-rose-200',
-                                        'late' => 'bg-amber-100 text-amber-700 border-amber-200'
-                                    ];
-                                    $statusIcons = [
-                                        'present' => 'ph-check-circle',
-                                        'absent' => 'ph-x-circle',
-                                        'late' => 'ph-clock-countdown'
-                                    ];
-                                    $statusLabels = [
-                                        'present' => 'Hadir',
-                                        'absent' => 'Tidak Hadir',
-                                        'late' => 'Terlambat'
-                                    ];
-                                @endphp
-                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border {{ $statusColors[$attendance->status] ?? 'bg-slate-100' }}">
-                                    <i class="ph-fill {{ $statusIcons[$attendance->status] ?? 'ph-question' }}"></i>
-                                    {{ $statusLabels[$attendance->status] ?? 'Unknown' }}
-                                </span>
-                            </div>
-                            
-                            <div class="flex flex-col md:flex-row gap-4 text-xs font-semibold text-slate-500 justify-center md:justify-start items-center">
-                                 <span class="flex items-center gap-1.5 bg-white/60 px-2 py-1 rounded-lg">
-                                    <i class="ph-fill ph-chalkboard-teacher text-indigo-400"></i>
-                                    Tutor: <span class="text-slate-700">{{ $attendance->tutor->name ?? '-' }}</span>
-                                </span>
-                                @if($attendance->topic_taught)
-                                    <span class="flex items-center gap-1.5 bg-white/60 px-2 py-1 rounded-lg max-w-[200px] truncate">
-                                        <i class="ph-fill ph-book-bookmark text-pink-400"></i>
-                                        Topik: <span class="text-slate-700" title="{{ $attendance->topic_taught }}">{{ $attendance->topic_taught }}</span>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                             <!-- Info -->
+                             <div class="min-w-0 flex-1 text-left">
+                                 <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 mb-1.5">
+                                     <h3 class="font-extrabold text-slate-800 text-sm sm:text-lg group-hover:text-amber-600 transition-colors truncate">
+                                         {{ $attendance->student->name ?? '-' }}
+                                     </h3>
+                                      @php
+                                         $statusColors = [
+                                             'present' => 'bg-emerald-50 text-emerald-700 border-emerald-100',
+                                             'absent' => 'bg-rose-50 text-rose-700 border-rose-100',
+                                             'late' => 'bg-amber-50 text-amber-700 border-amber-100'
+                                         ];
+                                         $statusIcons = [
+                                             'present' => 'ph-check-circle',
+                                             'absent' => 'ph-x-circle',
+                                             'late' => 'ph-clock-countdown'
+                                         ];
+                                         $statusLabels = [
+                                             'present' => 'Hadir',
+                                             'absent' => 'Absen',
+                                             'late' => 'Terlambat'
+                                         ];
+                                     @endphp
+                                     <span class="inline-flex items-center gap-1 px-2 py-0.5 w-max rounded-full text-[10px] font-bold border {{ $statusColors[$attendance->status] ?? 'bg-slate-50 border-slate-100 text-slate-600' }}">
+                                         <i class="ph-fill {{ $statusIcons[$attendance->status] ?? 'ph-question' }} text-[11px]"></i>
+                                         {{ $statusLabels[$attendance->status] ?? 'Unknown' }}
+                                     </span>
+                                 </div>
+                                 
+                                 <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 text-[11px] font-semibold text-slate-500">
+                                      <span class="flex items-center gap-1 bg-white/60 px-1.5 py-0.5 rounded truncate">
+                                         <i class="ph-fill ph-chalkboard-teacher text-indigo-400 text-xs"></i>
+                                         <span class="text-slate-700 truncate">{{ $attendance->tutor->name ?? '-' }}</span>
+                                     </span>
+                                     @if($attendance->topic_taught)
+                                         <span class="flex items-center gap-1 bg-white/60 px-1.5 py-0.5 rounded truncate max-w-[150px] sm:max-w-[200px]">
+                                             <i class="ph-fill ph-book-bookmark text-pink-400 text-xs"></i>
+                                             <span class="text-slate-700 truncate" title="{{ $attendance->topic_taught }}">{{ $attendance->topic_taught }}</span>
+                                         </span>
+                                     @endif
+                                 </div>
+                             </div>
+                         </div>
                         
-                        <!-- Evidence / Actions -->
-                         <div class="flex items-center gap-3 flex-shrink-0 w-full md:w-auto justify-center border-t md:border-t-0 border-slate-100 pt-4 md:pt-0">
-                            @if($attendance->photo_evidence_path)
-                                <a href="{{ Storage::url($attendance->photo_evidence_path) }}" target="_blank" 
-                                    class="w-12 h-12 rounded-2xl bg-white hover:bg-white hover:scale-110 text-slate-400 hover:text-amber-500 transition-all border border-transparent hover:border-amber-200 shadow-sm hover:shadow-md flex items-center justify-center relative group/img overflow-hidden">
-                                    <img src="{{ Storage::url($attendance->photo_evidence_path) }}" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover/img:opacity-100">
-                                    <div class="absolute inset-0 flex items-center justify-center bg-black/10 group-hover/img:bg-transparent">
-                                         <i class="ph-bold ph-eye text-white drop-shadow-md"></i>
-                                    </div>
-                                </a>
-                            @endif
+                         <!-- Evidence / Actions -->
+                          <div class="flex items-center gap-2 flex-shrink-0">
+                             @if($attendance->photo_evidence_path)
+                                 <a href="{{ Storage::url($attendance->photo_evidence_path) }}" target="_blank" 
+                                     class="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white hover:bg-white hover:scale-110 text-slate-400 hover:text-amber-500 transition-all border border-slate-100 hover:border-amber-200 shadow-sm hover:shadow-md flex items-center justify-center relative group/img overflow-hidden">
+                                     <img src="{{ Storage::url($attendance->photo_evidence_path) }}" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover/img:opacity-100">
+                                     <div class="absolute inset-0 flex items-center justify-center bg-black/10 group-hover/img:bg-transparent">
+                                          <i class="ph-bold ph-eye text-white drop-shadow-md text-xs sm:text-sm"></i>
+                                     </div>
+                                 </a>
+                             @endif
 
-                            <div class="flex gap-2">
-                                 <button wire:click="openEditModal({{ $attendance->id }})" 
-                                    class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-300 flex items-center justify-center shadow-sm hover:shadow-indigo-500/30 group/btn" title="Edit">
-                                    <i class="ph-bold ph-pencil-simple text-lg transition-transform group-hover/btn:rotate-12"></i>
-                                </button>
-                                <button wire:click="openDeleteModal({{ $attendance->id }})" 
-                                    class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition-all duration-300 flex items-center justify-center shadow-sm hover:shadow-rose-500/30 group/btn" title="Hapus">
-                                    <i class="ph-bold ph-trash text-lg transition-transform group-hover/btn:rotate-12"></i>
-                                </button>
-                            </div>
-                        </div>
+                             <div class="flex gap-1.5">
+                                  <button wire:click="openEditModal({{ $attendance->id }})" 
+                                     class="w-9 h-9 rounded-lg sm:rounded-xl bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-300 flex items-center justify-center shadow-sm hover:shadow-indigo-500/30 group/btn" title="Edit">
+                                     <i class="ph-bold ph-pencil-simple text-sm sm:text-base transition-transform group-hover/btn:rotate-12"></i>
+                                 </button>
+                                 <button wire:click="openDeleteModal({{ $attendance->id }})" 
+                                     class="w-9 h-9 rounded-lg sm:rounded-xl bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition-all duration-300 flex items-center justify-center shadow-sm hover:shadow-rose-500/30 group/btn" title="Hapus">
+                                     <i class="ph-bold ph-trash text-sm sm:text-base transition-transform group-hover/btn:rotate-12"></i>
+                                 </button>
+                             </div>
+                         </div>
                     </div>
                 </div>
             @empty

@@ -51,7 +51,7 @@
             </div>
             <div class="relative md:w-64">
                 <select wire:model.live="subjectFilter" class="w-full px-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-indigo-400 rounded-xl transition-all font-semibold text-slate-700 cursor-pointer">
-                    <option value="">📚 Semua Mapel</option>
+                    <option value="">Semua Mapel</option>
                     @foreach($subjects as $subject)
                         <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                     @endforeach
@@ -59,7 +59,7 @@
             </div>
             <div class="relative md:w-64">
                 <select wire:model.live="classLevelFilter" class="w-full px-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-indigo-400 rounded-xl transition-all font-semibold text-slate-700 cursor-pointer">
-                    <option value="">🎓 Semua Jenjang</option>
+                    <option value="">Semua Jenjang</option>
                     @foreach($classLevels as $classLevel)
                         <option value="{{ $classLevel->id }}">{{ $classLevel->name }}</option>
                     @endforeach
