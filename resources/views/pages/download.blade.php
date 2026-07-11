@@ -3,243 +3,298 @@
 @section('title', 'Unduh Aplikasi Mobile')
 
 @section('content')
-<div class="relative min-h-screen bg-slate-50 text-slate-800 pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-    <!-- Ambient background soft glows -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-orange-400/10 to-amber-300/10 rounded-full blur-3xl animate-blob"></div>
-        <div class="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-indigo-400/10 to-purple-400/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+{{-- ============================================================
+     DOWNLOAD PAGE — Rumba Athaya
+     Layout: Split Column (Left: Copy + Cards | Right: Mockup)
+     Responsive: Stack on mobile, Side-by-side on desktop
+     ============================================================ --}}
+<div class="relative min-h-screen bg-slate-50 overflow-hidden" style="padding-top: 5.5rem; padding-bottom: 5rem;">
+
+    {{-- Background decoration --}}
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-[32rem] h-[32rem] bg-orange-100/50 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -right-40 w-[40rem] h-[40rem] bg-indigo-100/40 rounded-full blur-3xl"></div>
     </div>
 
-    <!-- Fine grid pattern overlay -->
-    <div class="absolute inset-0 opacity-[0.015] pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #0f172a 1px, transparent 0); background-size: 32px 32px"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
 
-    <div class="max-w-6xl mx-auto relative z-10">
-        <!-- Main Layout: Split Column using Flexbox (Robust & Responsive) -->
-        <div class="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-12 lg:gap-16">
-            
-            <!-- Left Side: App Pitch & Action Cards (Takes 60% on desktop) -->
-            <div class="w-full lg:w-[58%] flex flex-col justify-between space-y-8 text-center lg:text-left">
-                
-                <div class="space-y-6">
-                    <!-- Badge -->
-                    <div class="inline-flex items-center gap-2.5 px-4 py-2 bg-orange-50 border border-orange-100 rounded-full text-xs font-bold text-orange-600 shadow-sm">
-                        <i class="ph ph-android-logo text-base"></i>
-                        <span>APLIKASI MOBILE ANDROID</span>
-                    </div>
+        {{-- ── HERO SECTION ─────────────────────────────────────── --}}
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
 
-                    <!-- Main Heading -->
-                    <div class="space-y-4">
-                        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-slate-900">
-                            Belajar Lebih Mudah <br class="hidden sm:inline"/>
-                            Dalam <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-amber-500 font-extrabold">Satu Genggaman</span>
-                        </h1>
-                        <p class="text-slate-655 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
-                            Pantau jadwal les, materi belajar, presensi harian, dan terima notifikasi kegiatan realtime langsung dari handphone Anda.
-                        </p>
-                    </div>
+            {{-- LEFT: Copy + Action Cards --}}
+            <div class="w-full lg:w-[54%] flex flex-col gap-8">
+
+                {{-- Badge --}}
+                <div class="flex justify-center lg:justify-start">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-orange-50 border border-orange-200 rounded-full text-[11px] font-bold uppercase tracking-widest text-orange-600">
+                        <i class="ph ph-android-logo"></i>
+                        Aplikasi Mobile Android
+                    </span>
                 </div>
 
-                <!-- Download Card Grid (Ensuring equal height) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 flex-1">
-                    <!-- Download Card -->
-                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/30 flex flex-col justify-between h-full">
-                        <div class="space-y-3">
-                            <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600">
-                                <i class="ph ph-download-simple text-xl"></i>
+                {{-- Headline --}}
+                <div class="text-center lg:text-left space-y-3">
+                    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight text-slate-900">
+                        Belajar Lebih Mudah<br>
+                        Dalam <span class="text-orange-500">Satu Genggaman</span>
+                    </h1>
+                    <p class="text-slate-500 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
+                        Pantau jadwal les, materi belajar, presensi harian, dan notifikasi kegiatan — langsung dari handphone Anda.
+                    </p>
+                </div>
+
+                {{-- ── ACTION CARDS ─────────────────────────────── --}}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                    {{-- Card 1: Direct Download --}}
+                    <div class="flex flex-col bg-white rounded-2xl border border-slate-100 shadow-md shadow-slate-200/50 p-6 gap-5">
+                        {{-- Icon + Title --}}
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500 flex-shrink-0">
+                                <i class="ph ph-device-mobile-camera text-xl"></i>
                             </div>
-                            <h3 class="font-extrabold text-base text-slate-800">Unduh Langsung APK</h3>
-                            <p class="text-xs text-slate-500 leading-relaxed">Unduh file instalasi mentah aplikasi Rumba Athaya langsung ke HP Anda.</p>
+                            <div>
+                                <h3 class="font-bold text-sm text-slate-800">Unduh Langsung</h3>
+                                <p class="text-xs text-slate-400 mt-0.5">File APK Android</p>
+                            </div>
                         </div>
-                        
-                        <div class="space-y-3 pt-6">
-                            <!-- Corrected the gradient color from 'to-amber-550' to 'to-amber-500' to prevent white washout -->
-                            <a href="{{ route('download') }}/../../apps/rumba-athaya.apk" download
-                               class="group flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-extrabold text-sm shadow-md shadow-orange-500/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 w-full">
-                                <i class="ph ph-download-simple text-base group-hover:animate-bounce"></i>
-                                <span>Unduh APK</span>
+
+                        {{-- Description --}}
+                        <p class="text-xs text-slate-500 leading-relaxed flex-1">
+                            Unduh file instalasi aplikasi Rumba Athaya dan pasang langsung di handphone Android Anda.
+                        </p>
+
+                        {{-- CTA Button --}}
+                        <div class="space-y-3">
+                            <a href="/apps/rumba-athaya.apk" download
+                               class="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl font-bold text-sm text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-500/25"
+                               style="background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%)">
+                                <i class="ph ph-download-simple text-base"></i>
+                                Unduh File APK
                             </a>
-                            <div class="flex justify-between text-[10px] text-slate-400 px-1 pt-1">
-                                <span>Ukuran: ~103 MB</span>
-                                <span>Versi: 1.0.0</span>
-                                <span>OS: Android 8.0+</span>
+
+                            {{-- Specs --}}
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="bg-slate-50 rounded-lg p-2 text-center">
+                                    <p class="text-[9px] text-slate-400 leading-none">Ukuran</p>
+                                    <p class="text-[10px] font-bold text-slate-700 mt-0.5">~103 MB</p>
+                                </div>
+                                <div class="bg-slate-50 rounded-lg p-2 text-center">
+                                    <p class="text-[9px] text-slate-400 leading-none">Versi</p>
+                                    <p class="text-[10px] font-bold text-slate-700 mt-0.5">1.0.0</p>
+                                </div>
+                                <div class="bg-slate-50 rounded-lg p-2 text-center">
+                                    <p class="text-[9px] text-slate-400 leading-none">Minimum</p>
+                                    <p class="text-[10px] font-bold text-slate-700 mt-0.5">Android 8</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- QR Code Card -->
-                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/30 flex flex-col justify-between h-full">
-                        <div class="space-y-3">
-                            <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-650">
+                    {{-- Card 2: QR Code --}}
+                    <div class="flex flex-col bg-white rounded-2xl border border-slate-100 shadow-md shadow-slate-200/50 p-6 gap-5">
+                        {{-- Icon + Title --}}
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-500 flex-shrink-0">
                                 <i class="ph ph-qr-code text-xl"></i>
                             </div>
-                            <h3 class="font-extrabold text-base text-slate-800">Pindai Kode QR</h3>
-                            <p class="text-xs text-slate-500 leading-relaxed">Arahkan kamera HP Anda ke kode QR untuk mengunduh instan.</p>
+                            <div>
+                                <h3 class="font-bold text-sm text-slate-800">Pindai Kode QR</h3>
+                                <p class="text-xs text-slate-400 mt-0.5">Dengan kamera HP</p>
+                            </div>
                         </div>
 
-                        <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100 pt-6">
-                            <div class="w-14 h-14 bg-white p-1.5 rounded-lg border border-slate-200 flex items-center justify-center flex-shrink-0">
-                                <svg class="w-full h-full text-slate-800" viewBox="0 0 100 100" fill="currentColor">
-                                    <path d="M0,0h40v40H0V0z M10,10v20h20V10H10z M60,0h40v40H60V0z M70,10v20h20V10H70z M0,60h40v40H0V60z M10,70v20h20V70H10z M50,50h10v10H50V50z M60,60h10v10H60V60z M70,50h10v10H70V50z M80,60h10v10H80V60z M50,70h10v10H50V70z M80,80h20v20H80V80z M60,90h20v10H60V90z" />
-                                    <rect x="15" y="15" width="10" height="10" />
-                                    <rect x="75" y="15" width="10" height="10" />
-                                    <rect x="15" y="75" width="10" height="10" />
+                        {{-- Description --}}
+                        <p class="text-xs text-slate-500 leading-relaxed flex-1">
+                            Arahkan kamera handphone Anda ke kode QR di bawah untuk mengunduh aplikasi secara instan.
+                        </p>
+
+                        {{-- QR Widget --}}
+                        <div class="flex items-center gap-4 bg-slate-50 border border-slate-100 rounded-xl p-3">
+                            <div class="w-16 h-16 bg-white rounded-lg border border-slate-200 p-2 flex-shrink-0 flex items-center justify-center">
+                                <svg viewBox="0 0 100 100" fill="#0f172a" class="w-full h-full">
+                                    <path d="M0,0h40v40H0V0z M10,10v20h20V10H10z M60,0h40v40H60V0z M70,10v20h20V10H70z M0,60h40v40H0V60z M10,70v20h20V70H10z M50,50h10v10H50V50z M60,60h10v10H60V60z M70,50h10v10H70V50z M80,60h10v10H80V60z M50,70h10v10H50V70z M80,80h20v20H80V80z M60,90h20v10H60V90z"/>
+                                    <rect x="15" y="15" width="10" height="10"/>
+                                    <rect x="75" y="15" width="10" height="10"/>
+                                    <rect x="15" y="75" width="10" height="10"/>
                                 </svg>
                             </div>
-                            <div class="text-left text-[10px] text-slate-500 leading-tight">
-                                <span class="font-bold text-slate-700 block mb-0.5">Scan Kamera</span>
-                                Pindai QR menggunakan aplikasi kamera HP Anda.
+                            <div class="text-left">
+                                <p class="text-xs font-bold text-slate-800">Cara Pakai</p>
+                                <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">Buka kamera → arahkan ke kode → ketuk tautan yang muncul</p>
                             </div>
                         </div>
                     </div>
+
                 </div>
+                {{-- ── END ACTION CARDS ─────────────────────────── --}}
 
             </div>
+            {{-- END LEFT --}}
 
-            <!-- Right Side: Phone Mockup Showcase (Takes 38% on desktop, hidden on mobile/tablet) -->
-            <div class="w-full lg:w-[38%] hidden lg:flex items-center justify-center flex-shrink-0">
-                <!-- Phone Wrapper (Absolute boundaries with padding) -->
-                <div class="relative py-6 px-4">
-                    
-                    <!-- Glow background -->
-                    <div class="absolute w-72 h-72 rounded-full bg-orange-500/10 blur-3xl opacity-75" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+            {{-- RIGHT: Phone Mockup (desktop only) --}}
+            <div class="hidden lg:flex w-full lg:w-[46%] justify-center items-center">
+                {{-- Outer Glow + Wrapper --}}
+                <div class="relative" style="width:320px; height:640px;">
+                    {{-- Background glow --}}
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-indigo-400/20 rounded-full blur-3xl scale-110 -z-10"></div>
 
-                    <!-- CSS Phone Frame -->
-                    <div class="shadow-2xl border-[10px] border-slate-900 bg-slate-950" 
-                         style="width: 280px; height: 560px; border-radius: 3rem; position: relative;">
-                        
-                        <!-- Notch -->
-                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-slate-900 rounded-b-xl z-50 flex items-center justify-center gap-1">
-                            <div class="w-10 h-0.5 bg-slate-700 rounded-full"></div>
-                            <div class="w-1.5 h-1.5 bg-slate-950 rounded-full"></div>
-                        </div>
+                    {{-- Phone Body --}}
+                    <div style="
+                        width: 300px;
+                        height: 620px;
+                        margin: 10px auto 0;
+                        border: 10px solid #1e293b;
+                        border-radius: 44px;
+                        background: #0f172a;
+                        position: relative;
+                        overflow: hidden;
+                        box-shadow: 0 40px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06);
+                    ">
+                        {{-- Dynamic Island / Notch --}}
+                        <div style="position:absolute; top:10px; left:50%; transform:translateX(-50%); width:90px; height:20px; background:#0f172a; border-radius:12px; z-index:100;"></div>
 
-                        <!-- Screen Contents -->
-                        <div class="w-full h-full bg-slate-900 text-white flex flex-col justify-between overflow-hidden relative" style="border-radius: 2.1rem;">
-                            
-                            <!-- Android Status Bar (More Realistic) -->
-                            <div class="absolute top-1.5 left-0 right-0 px-6 flex justify-between items-center text-[9px] text-white/70 font-semibold z-45">
-                                <span>09:41</span>
-                                <div class="flex items-center gap-1">
-                                    <i class="ph ph-wifi-high text-[10px]"></i>
-                                    <i class="ph ph-battery-full text-[11px]"></i>
+                        {{-- Screen --}}
+                        <div style="position:absolute; inset:0; background:#0f172a; border-radius:34px; overflow:hidden; display:flex; flex-direction:column;">
+
+                            {{-- Status Bar --}}
+                            <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 18px 0; font-size:9px; color:rgba(255,255,255,0.75); font-weight:600; flex-shrink:0; margin-top:14px;">
+                                <span>9:41</span>
+                                <div style="display:flex; align-items:center; gap:4px;">
+                                    <i class="ph ph-wifi-high" style="font-size:10px;"></i>
+                                    <i class="ph ph-battery-full" style="font-size:11px;"></i>
                                 </div>
                             </div>
 
-                            <!-- App Header (Added margin-top to clear status bar and notch) -->
-                            <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-4 pt-7 pb-4 text-left rounded-b-2xl shadow-lg mt-3.5">
-                                <div class="flex items-center gap-2">
-                                    <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-6 h-6 object-contain rounded-lg bg-white/20 p-0.5" onerror="this.style.display='none'">
-                                    <div>
-                                        <h4 class="text-[11px] font-extrabold leading-none text-white">Rumba Athaya</h4>
-                                        <span class="text-[7px] text-orange-100 font-medium">Learning Management</span>
+                            {{-- App Header Bar --}}
+                            <div style="background:linear-gradient(135deg,#f97316,#f59e0b); padding:10px 16px 12px; margin-top:8px; display:flex; align-items:center; gap:8px; flex-shrink:0;">
+                                <img src="{{ asset('Logo.png') }}" alt="Logo"
+                                     style="width:24px;height:24px;border-radius:8px;background:rgba(255,255,255,0.2);object-fit:contain;padding:2px;"
+                                     onerror="this.style.display='none'">
+                                <div>
+                                    <p style="font-size:11px;font-weight:800;color:#fff;line-height:1;">Rumba Athaya</p>
+                                    <p style="font-size:7.5px;color:rgba(255,255,255,0.8);margin-top:1px;">Learning Management</p>
+                                </div>
+                            </div>
+
+                            {{-- App Body --}}
+                            <div style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:20px 16px; gap:14px; text-align:center;">
+                                {{-- App Icon --}}
+                                <div style="width:54px;height:54px;border-radius:16px;background:rgba(249,115,22,0.15);display:flex;align-items:center;justify-content:center;font-size:26px;">
+                                    🎓
+                                </div>
+
+                                {{-- Greeting --}}
+                                <div>
+                                    <p style="font-size:12px;font-weight:800;color:#f1f5f9;line-height:1.3;">Portal Siswa & Tutor</p>
+                                    <p style="font-size:8.5px;color:#94a3b8;margin-top:4px;line-height:1.5;max-width:200px;">Masuk untuk melihat jadwal, absensi harian, jurnal, dan modul belajar.</p>
+                                </div>
+
+                                {{-- Fake Input Fields --}}
+                                <div style="width:100%;display:flex;flex-direction:column;gap:8px;">
+                                    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;height:34px;display:flex;align-items:center;padding:0 12px;font-size:9.5px;color:#64748b;text-align:left;">
+                                        <i class="ph ph-envelope" style="font-size:11px;margin-right:6px;opacity:0.6;"></i>
+                                        Email Pengguna
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;height:34px;display:flex;align-items:center;padding:0 12px;font-size:9.5px;color:#64748b;text-align:left;">
+                                        <i class="ph ph-lock" style="font-size:11px;margin-right:6px;opacity:0.6;"></i>
+                                        Kata Sandi
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Screen Mockup Inside -->
-                            <div class="flex-1 p-4 flex flex-col justify-center items-center space-y-4">
-                                <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-3xl shadow-inner animate-pulse">
-                                    🎓
-                                </div>
-                                <div class="text-center space-y-1 px-2">
-                                    <h5 class="text-xs font-bold text-white">Portal Siswa & Tutor</h5>
-                                    <p class="text-[9px] text-slate-400">Masuk untuk melihat jadwal kelas, absensi harian, jurnal, dan modul belajar secara praktis.</p>
-                                </div>
-                                <div class="w-full space-y-2 px-2">
-                                    <div class="w-full h-8 rounded-lg bg-white/5 border border-white/10 flex items-center px-3 text-[9px] text-slate-400 text-left">Email Pengguna</div>
-                                    <div class="w-full h-8 rounded-lg bg-white/5 border border-white/10 flex items-center px-3 text-[9px] text-slate-400 text-left">Kata Sandi</div>
+                            {{-- Login Button + Android Nav --}}
+                            <div style="flex-shrink:0;padding:0 16px 0;">
+                                <div style="background:linear-gradient(135deg,#f97316,#f59e0b);border-radius:12px;height:36px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;">
+                                    <i class="ph ph-sign-in" style="margin-right:5px;font-size:12px;"></i>
+                                    Login ke Aplikasi
                                 </div>
                             </div>
 
-                            <!-- App Button & Android Nav Bar -->
-                            <div class="bg-slate-950 border-t border-white/5 flex flex-col items-center">
-                                <div class="w-[90%] my-3 py-2 bg-gradient-to-r from-orange-50 to-orange-500 text-white rounded-lg text-[9px] font-bold text-center" style="background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%)">
-                                    Login Aplikasi
-                                </div>
-                                
-                                <!-- Android Navigation Bar (Home, Back, Recents) -->
-                                <div class="w-full h-6 flex justify-around items-center px-8 pb-1.5 opacity-40">
-                                    <i class="ph ph-caret-left text-[10px] text-white"></i>
-                                    <div class="w-2.5 h-2.5 rounded-full border-2 border-white"></div>
-                                    <div class="w-2.5 h-2.5 rounded-md border-2 border-white"></div>
-                                </div>
+                            {{-- Android Bottom Nav --}}
+                            <div style="height:32px;display:flex;align-items:center;justify-content:space-around;padding:0 40px;margin-top:10px;border-top:1px solid rgba(255,255,255,0.05);">
+                                <i class="ph ph-caret-left" style="font-size:12px;color:rgba(255,255,255,0.4);"></i>
+                                <div style="width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.4);"></div>
+                                <div style="width:12px;height:12px;border-radius:3px;border:1.5px solid rgba(255,255,255,0.4);"></div>
+                            </div>
+
+                        </div>
+                        {{-- END Screen --}}
+
+                    </div>
+                    {{-- END Phone Body --}}
+
+                    {{-- Floating Badge: Push Notif (left side, below notch) --}}
+                    <div class="absolute animate-float z-20" style="left:-70px; top:100px;">
+                        <div class="bg-white rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 px-3 py-2.5">
+                            <div class="w-8 h-8 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500 flex-shrink-0">
+                                <i class="ph ph-bell text-base"></i>
+                            </div>
+                            <div class="text-left leading-tight">
+                                <p class="text-[10px] font-extrabold text-slate-800">Push Notif</p>
+                                <p class="text-[8px] text-slate-400">Realtime & Cepat</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Floating Badge 1 (Top-Left) -->
-                    <div class="absolute bg-white text-slate-800 p-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-slate-100 animate-float z-20" style="top: 60px; left: -30px;">
-                        <div class="w-7 h-7 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500">
-                            <i class="ph ph-bell text-base"></i>
-                        </div>
-                        <div class="text-left text-[10px] leading-tight">
-                            <span class="font-extrabold block text-slate-800">Push Notif</span>
-                            <span class="text-slate-400 text-[8px]">Realtime & Cepat</span>
-                        </div>
-                    </div>
-
-                    <!-- Floating Badge 2 (Bottom-Right) -->
-                    <div class="absolute bg-white text-slate-800 p-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-slate-100 animate-float animation-delay-2000 z-20" style="bottom: 60px; right: -30px;">
-                        <div class="w-7 h-7 rounded-xl bg-green-50 flex items-center justify-center text-green-500">
-                            <i class="ph ph-circle-wavy-check text-base"></i>
-                        </div>
-                        <div class="text-left text-[10px] leading-tight">
-                            <span class="font-extrabold block text-slate-800">Akses Ringan</span>
-                            <span class="text-slate-400 text-[8px]">Hemat Kuota HP</span>
+                    {{-- Floating Badge: Akses Ringan (right side, above nav bar) --}}
+                    <div class="absolute animate-float animation-delay-2000 z-20" style="right:-70px; bottom:130px;">
+                        <div class="bg-white rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 px-3 py-2.5">
+                            <div class="w-8 h-8 rounded-xl bg-green-50 flex items-center justify-center text-green-500 flex-shrink-0">
+                                <i class="ph ph-circle-wavy-check text-base"></i>
+                            </div>
+                            <div class="text-left leading-tight">
+                                <p class="text-[10px] font-extrabold text-slate-800">Akses Ringan</p>
+                                <p class="text-[8px] text-slate-400">Hemat Kuota HP</p>
+                            </div>
                         </div>
                     </div>
 
                 </div>
             </div>
+            {{-- END RIGHT --}}
 
         </div>
+        {{-- END HERO SECTION --}}
 
-        <!-- Section 3: Installation Steps (Clean & Equal Width/Height Grid) -->
-        <div class="pt-16 border-t border-slate-200 max-w-4xl mx-auto space-y-12">
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 text-center">Panduan Pemasangan Aplikasi</h2>
-            
-            <!-- grid items stretch automatically to make widths and heights equal -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-                <!-- Step 1 -->
-                <div class="bg-white border border-slate-100 p-8 rounded-3xl text-center flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto text-lg font-extrabold shadow-sm">
-                            1
-                        </div>
-                        <h3 class="font-bold text-lg text-slate-800">Unduh APK</h3>
-                        <p class="text-sm text-slate-550 leading-relaxed">
-                            Ketuk tombol <span class="font-bold text-orange-600">"Unduh APK"</span> di atas untuk menyimpan file instalasi ke memori handphone Anda.
-                        </p>
+
+        {{-- ── INSTALLATION STEPS ───────────────────────────────── --}}
+        <div class="mt-24 pt-16 border-t border-slate-200">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Panduan Pemasangan Aplikasi</h2>
+                <p class="text-slate-500 text-sm mt-2">Ikuti 3 langkah mudah berikut untuk menggunakan aplikasi Rumba Athaya</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {{-- Step 1 --}}
+                <div class="bg-white border border-slate-100 rounded-2xl p-7 text-center shadow-sm hover:shadow-md transition-shadow flex flex-col items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-lg font-extrabold text-orange-500">1</div>
+                    <div>
+                        <h3 class="font-bold text-base text-slate-800 mb-2">Unduh APK</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Ketuk tombol <span class="font-bold text-orange-500">"Unduh File APK"</span> di atas untuk menyimpan file instalasi ke handphone Anda.</p>
                     </div>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="bg-white border border-slate-100 p-8 rounded-3xl text-center flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto text-lg font-extrabold shadow-sm">
-                            2
-                        </div>
-                        <h3 class="font-bold text-lg text-slate-800">Izinkan Pemasangan</h3>
-                        <p class="text-sm text-slate-550 leading-relaxed">
-                            Buka Pengaturan Keamanan HP, lalu aktifkan opsi <span class="font-bold text-slate-800">"Izinkan dari Sumber Tidak Dikenal"</span> jika diminta.
-                        </p>
+                {{-- Step 2 --}}
+                <div class="bg-white border border-slate-100 rounded-2xl p-7 text-center shadow-sm hover:shadow-md transition-shadow flex flex-col items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-lg font-extrabold text-orange-500">2</div>
+                    <div>
+                        <h3 class="font-bold text-base text-slate-800 mb-2">Izinkan Sumber</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Buka Pengaturan → Keamanan HP Anda, lalu aktifkan <span class="font-bold text-slate-700">"Izinkan dari Sumber Tidak Dikenal"</span> jika diminta.</p>
                     </div>
                 </div>
 
-                <!-- Step 3 -->
-                <div class="bg-white border border-slate-100 p-8 rounded-3xl text-center flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto text-lg font-extrabold shadow-sm">
-                            3
-                        </div>
-                        <h3 class="font-bold text-lg text-slate-800">Install & Jalankan</h3>
-                        <p class="text-sm text-slate-550 leading-relaxed">
-                            Buka File Manager, pilih <span class="font-bold text-slate-800">rumba-athaya.apk</span>, pasang aplikasi, lalu jalankan portal belajar Anda.
-                        </p>
+                {{-- Step 3 --}}
+                <div class="bg-white border border-slate-100 rounded-2xl p-7 text-center shadow-sm hover:shadow-md transition-shadow flex flex-col items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-lg font-extrabold text-orange-500">3</div>
+                    <div>
+                        <h3 class="font-bold text-base text-slate-800 mb-2">Install & Jalankan</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Buka File Manager, pilih file <span class="font-bold text-slate-700">rumba-athaya.apk</span>, klik Pasang, lalu masuk ke akun Anda.</p>
                     </div>
                 </div>
             </div>
         </div>
+        {{-- ── END INSTALLATION STEPS ───────────────────────────── --}}
 
     </div>
 </div>
