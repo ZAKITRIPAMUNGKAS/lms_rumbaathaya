@@ -201,10 +201,8 @@
                         class="text-sm font-bold text-violet-600 hover:text-violet-700 hover:bg-violet-50 px-4 py-2 rounded-xl transition-all">
                         Lihat Semua
                     </a>
-                </div>
-
-                @if($recentMaterials->count() > 0)
-                    <div class="space-y-4 relative z-10">
+                                @if($recentMaterials->count() > 0)
+                    <div class="divide-y divide-slate-100/80 relative z-10">
                         @foreach($recentMaterials as $material)
                             @php
                                 $colors = [
@@ -216,20 +214,19 @@
                                 $colorClass = $colors[$loop->index % 4];
                                 $subjectInitials = strtoupper(substr($material->subject->name ?? 'MT', 0, 2));
                             @endphp
-                            <a href="{{ route('student.materials.index') }}" class="group block">
-                                <div
-                                    class="p-4 rounded-[1.5rem] bg-white border border-slate-100/80 shadow-sm hover:shadow-md hover:border-violet-200 hover:bg-violet-50/30 transition-all duration-300 flex items-center justify-between">
-                                    <div class="flex items-center gap-5">
+                            <a href="{{ route('student.materials.index') }}" class="group block py-3.5 first:pt-0 last:pb-0">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-4">
                                         <div
-                                            class="w-14 h-14 rounded-2xl {{ $colorClass }} border-2 flex items-center justify-center font-black text-lg shadow-sm group-hover:scale-105 transition-transform">
+                                            class="w-12 h-12 rounded-xl {{ $colorClass }} border flex items-center justify-center font-extrabold text-sm shadow-sm group-hover:scale-105 transition-transform flex-shrink-0">
                                             {{ $subjectInitials }}
                                         </div>
-                                        <div>
+                                        <div class="min-w-0">
                                             <h4
-                                                class="font-bold text-slate-800 text-base mb-1 group-hover:text-violet-600 transition-colors line-clamp-1">
+                                                class="font-bold text-slate-800 text-sm sm:text-base mb-0.5 group-hover:text-violet-600 transition-colors line-clamp-1">
                                                 {{ $material->title }}
                                             </h4>
-                                            <div class="flex items-center gap-3 text-xs font-medium text-slate-500">
+                                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-500">
                                                 <span class="flex items-center gap-1">
                                                     <i class="ph-fill ph-bookmark-simple text-slate-400"></i>
                                                     {{ $material->subject->name ?? 'Materi' }}
@@ -242,9 +239,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div
-                                        class="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-400 group-hover:bg-violet-500 group-hover:text-white group-hover:border-violet-500 transition-all shadow-sm">
-                                        <i class="ph-bold ph-caret-right"></i>
+                                    <div class="text-slate-400 group-hover:text-violet-600 group-hover:translate-x-1 transition-all">
+                                        <i class="ph-bold ph-caret-right text-lg"></i>
                                     </div>
                                 </div>
                             </a>
@@ -350,15 +346,17 @@
                         </div>
                         <h4 class="font-bold text-slate-800 text-lg mb-1">Wah, Kosong!</h4>
                         <p class="text-slate-500 font-medium text-sm px-6">Tidak ada jadwal kelas untuk hari ini. Waktunya
-                            istirahat atau belajar mandiri!</p>
+                             istirahat atau belajar mandiri!</p>
                     </div>
                 @endif
 
                 <a href="{{ route('student.schedules.index') }}"
-                    class="w-full mt-auto py-4 rounded-xl border-2 border-dashed border-slate-200 text-sm font-bold text-slate-500 hover:text-violet-600 hover:border-violet-300 hover:bg-violet-50 transition-all block text-center">
-                    Lihat Jadwal Lengkap
+                    class="w-full mt-6 py-3.5 rounded-2xl bg-slate-100 hover:bg-violet-50 text-slate-600 hover:text-violet-700 font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 group shadow-sm hover:shadow-md">
+                    <span>Lihat Jadwal Lengkap</span>
+                    <i class="ph-bold ph-arrow-right group-hover:translate-x-0.5 transition-transform"></i>
                 </a>
             </div>
+        </div>iv>
         </div>
     </div>
 
