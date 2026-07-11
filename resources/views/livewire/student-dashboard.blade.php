@@ -359,7 +359,6 @@
                 </a>
             </div>
         </div>
-        </div>
     </div>
 
     <style>
