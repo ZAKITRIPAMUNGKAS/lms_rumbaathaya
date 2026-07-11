@@ -355,39 +355,53 @@
 @endsection
 
 @push('scripts')
-{{-- QRCode.js: lightweight, no dependencies, generates real scannable QR codes --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSE1FtWHERMM6j1FE1PYAUWA3FTvuZr3p6Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     (function () {
-        // URL that the QR code will point to — the direct APK download link
         var apkUrl = '{{ url("/apps/rumba-athaya.apk") }}';
 
-        var wrapper = document.getElementById('qr-canvas-wrapper');
-        var placeholder = document.getElementById('qr-placeholder');
+        function generateQR() {
+            var wrapper = document.getElementById('qr-canvas-wrapper');
+            var placeholder = document.getElementById('qr-placeholder');
 
-        if (wrapper && typeof QRCode !== 'undefined') {
-            // Remove spinner
-            if (placeholder) placeholder.remove();
+            if (!wrapper) return;
 
-            // Create QR code inside the wrapper div
-            new QRCode(wrapper, {
-                text: apkUrl,
-                width: 72,
-                height: 72,
-                colorDark: '#1e293b',
-                colorLight: '#ffffff',
-                correctLevel: QRCode.CorrectLevel.M
-            });
+            // Clear wrapper
+            wrapper.innerHTML = '';
 
-            // Make the generated canvas/img fill the wrapper neatly
-            var qrImg = wrapper.querySelector('img, canvas');
-            if (qrImg) {
-                qrImg.style.width = '100%';
-                qrImg.style.height = '100%';
-                qrImg.style.objectFit = 'contain';
-                qrImg.style.display = 'block';
+            try {
+                new QRCode(wrapper, {
+                    text: apkUrl,
+                    width: 76,
+                    height: 76,
+                    colorDark: '#1e293b',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+
+                // Let QRCode render first, then style the output element
+                setTimeout(function () {
+                    var el = wrapper.querySelector('img, canvas');
+                    if (el) {
+                        el.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block;border-radius:4px;';
+                    }
+                }, 100);
+            } catch (e) {
+                wrapper.innerHTML = '<p style="font-size:9px;color:#ef4444;text-align:center;">Gagal memuat QR</p>';
             }
         }
+
+        // Dynamically inject qrcode.js so we have an onload callback
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js';
+        script.onload = generateQR;
+        script.onerror = function () {
+            // Fallback to cdnjs if jsdelivr fails
+            var fallback = document.createElement('script');
+            fallback.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+            fallback.onload = generateQR;
+            document.head.appendChild(fallback);
+        };
+        document.head.appendChild(script);
     })();
 </script>
 @endpush
