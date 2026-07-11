@@ -134,35 +134,35 @@
         <a href="{{ route('tutor.dashboard') }}"
             class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'tutor.dashboard') ? 'active' : '' }}">
             <div class="nav-icon">
-                <i class="ph {{ str_starts_with($currentRoute, 'tutor.dashboard') ? 'ph-fill' : 'ph' }}-squares-four"></i>
+                <i class="ph ph-squares-four {{ str_starts_with($currentRoute, 'tutor.dashboard') ? 'ph-fill' : '' }}"></i>
             </div>
             <span class="nav-label">Beranda</span>
         </a>
         <a href="{{ route('tutor.attendance.index') }}"
             class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'tutor.attendance') ? 'active' : '' }}">
             <div class="nav-icon">
-                <i class="ph {{ str_starts_with($currentRoute, 'tutor.attendance') ? 'ph-fill' : 'ph' }}-clipboard-text"></i>
+                <i class="ph ph-clipboard-text {{ str_starts_with($currentRoute, 'tutor.attendance') ? 'ph-fill' : '' }}"></i>
             </div>
             <span class="nav-label">Absensi</span>
         </a>
         <a href="{{ route('tutor.schedules.index') }}"
             class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'tutor.schedules') ? 'active' : '' }}">
             <div class="nav-icon">
-                <i class="ph {{ str_starts_with($currentRoute, 'tutor.schedules') ? 'ph-fill' : 'ph' }}-calendar-check"></i>
+                <i class="ph ph-calendar-check {{ str_starts_with($currentRoute, 'tutor.schedules') ? 'ph-fill' : '' }}"></i>
             </div>
             <span class="nav-label">Jadwal</span>
         </a>
         <a href="{{ route('tutor.journals.index') }}"
             class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'tutor.journals') ? 'active' : '' }}">
             <div class="nav-icon">
-                <i class="ph {{ str_starts_with($currentRoute, 'tutor.journals') ? 'ph-fill' : 'ph' }}-notebook"></i>
+                <i class="ph ph-notebook {{ str_starts_with($currentRoute, 'tutor.journals') ? 'ph-fill' : '' }}"></i>
             </div>
             <span class="nav-label">Jurnal</span>
         </a>
         <a href="{{ route('tutor.settings') }}"
             class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'tutor.settings') ? 'active' : '' }}">
             <div class="nav-icon">
-                <i class="ph {{ str_starts_with($currentRoute, 'tutor.settings') ? 'ph-fill' : 'ph' }}-gear"></i>
+                <i class="ph ph-gear {{ str_starts_with($currentRoute, 'tutor.settings') ? 'ph-fill' : '' }}"></i>
             </div>
             <span class="nav-label">Profil</span>
         </a>

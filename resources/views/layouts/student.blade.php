@@ -141,35 +141,35 @@
         <a href="{{ route('student.dashboard') }}"
             class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'student.dashboard') ? 'active' : '' }}">
             <div class="nav-icon">
-                <i class="ph {{ str_starts_with($currentRoute, 'student.dashboard') ? 'ph-fill' : 'ph' }}-squares-four"></i>
+                <i class="ph ph-squares-four {{ str_starts_with($currentRoute, 'student.dashboard') ? 'ph-fill' : '' }}"></i>
             </div>
             <span class="nav-label">Beranda</span>
         </a>
         <a href="{{ route('student.schedules.index') }}"
             class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'student.schedules') ? 'active' : '' }}">
             <div class="nav-icon">
-                <i class="ph {{ str_starts_with($currentRoute, 'student.schedules') ? 'ph-fill' : 'ph' }}-calendar-check"></i>
+                <i class="ph ph-calendar-check {{ str_starts_with($currentRoute, 'student.schedules') ? 'ph-fill' : '' }}"></i>
             </div>
             <span class="nav-label">Jadwal</span>
         </a>
         <a href="{{ route('student.materials.index') }}"
             class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'student.materials') ? 'active' : '' }}">
             <div class="nav-icon">
-                <i class="ph {{ str_starts_with($currentRoute, 'student.materials') ? 'ph-fill' : 'ph' }}-book-open-text"></i>
+                <i class="ph ph-book-open-text {{ str_starts_with($currentRoute, 'student.materials') ? 'ph-fill' : '' }}"></i>
             </div>
             <span class="nav-label">Materi</span>
         </a>
         <a href="{{ route('student.achievements.index') }}"
             class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'student.achievements') ? 'active' : '' }}">
             <div class="nav-icon">
-                <i class="ph {{ str_starts_with($currentRoute, 'student.achievements') ? 'ph-fill' : 'ph' }}-trophy"></i>
+                <i class="ph ph-trophy {{ str_starts_with($currentRoute, 'student.achievements') ? 'ph-fill' : '' }}"></i>
             </div>
             <span class="nav-label">Prestasi</span>
         </a>
         <a href="{{ route('student.settings.index') }}"
             class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'student.settings') ? 'active' : '' }}">
             <div class="nav-icon">
-                <i class="ph {{ str_starts_with($currentRoute, 'student.settings') ? 'ph-fill' : 'ph' }}-gear"></i>
+                <i class="ph ph-gear {{ str_starts_with($currentRoute, 'student.settings') ? 'ph-fill' : '' }}"></i>
             </div>
             <span class="nav-label">Profil</span>
         </a>

@@ -201,7 +201,9 @@
                         class="text-sm font-bold text-violet-600 hover:text-violet-700 hover:bg-violet-50 px-4 py-2 rounded-xl transition-all">
                         Lihat Semua
                     </a>
-                                @if($recentMaterials->count() > 0)
+                </div>
+
+                @if($recentMaterials->count() > 0)
                     <div class="divide-y divide-slate-100/80 relative z-10">
                         @foreach($recentMaterials as $material)
                             @php
@@ -356,7 +358,7 @@
                     <i class="ph-bold ph-arrow-right group-hover:translate-x-0.5 transition-transform"></i>
                 </a>
             </div>
-        </div>iv>
+        </div>
         </div>
     </div>
 
