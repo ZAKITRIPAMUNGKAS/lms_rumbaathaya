@@ -109,19 +109,21 @@
                             Arahkan kamera handphone Anda ke kode QR di bawah untuk mengunduh aplikasi secara instan.
                         </p>
 
-                        {{-- QR Widget --}}
+                        {{-- QR Widget — real, scannable QR code --}}
                         <div class="flex items-center gap-4 bg-slate-50 border border-slate-100 rounded-xl p-3">
-                            <div class="w-16 h-16 bg-white rounded-lg border border-slate-200 p-2 flex-shrink-0 flex items-center justify-center">
-                                <svg viewBox="0 0 100 100" fill="#0f172a" class="w-full h-full">
-                                    <path d="M0,0h40v40H0V0z M10,10v20h20V10H10z M60,0h40v40H60V0z M70,10v20h20V10H70z M0,60h40v40H0V60z M10,70v20h20V70H10z M50,50h10v10H50V50z M60,60h10v10H60V60z M70,50h10v10H70V50z M80,60h10v10H80V60z M50,70h10v10H50V70z M80,80h20v20H80V80z M60,90h20v10H60V90z"/>
-                                    <rect x="15" y="15" width="10" height="10"/>
-                                    <rect x="75" y="15" width="10" height="10"/>
-                                    <rect x="15" y="75" width="10" height="10"/>
-                                </svg>
+                            {{-- Canvas will be filled by qrcode.js --}}
+                            <div id="qr-canvas-wrapper" class="w-20 h-20 bg-white rounded-lg border border-slate-200 flex-shrink-0 flex items-center justify-center overflow-hidden p-1.5">
+                                {{-- Placeholder spinner while library loads --}}
+                                <div id="qr-placeholder" class="w-full h-full flex items-center justify-center">
+                                    <i class="ph ph-spinner text-2xl text-slate-300 animate-spin"></i>
+                                </div>
                             </div>
                             <div class="text-left">
                                 <p class="text-xs font-bold text-slate-800">Cara Pakai</p>
-                                <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">Buka kamera → arahkan ke kode → ketuk tautan yang muncul</p>
+                                <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">Buka kamera HP → arahkan ke kode QR → ketuk tautan unduh yang muncul</p>
+                                <p class="text-[9px] text-orange-500 font-semibold mt-2 flex items-center gap-1">
+                                    <i class="ph ph-check-circle"></i> QR aktif & bisa dipindai
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -351,3 +353,41 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+{{-- QRCode.js: lightweight, no dependencies, generates real scannable QR codes --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSE1FtWHERMM6j1FE1PYAUWA3FTvuZr3p6Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    (function () {
+        // URL that the QR code will point to — the direct APK download link
+        var apkUrl = '{{ url("/apps/rumba-athaya.apk") }}';
+
+        var wrapper = document.getElementById('qr-canvas-wrapper');
+        var placeholder = document.getElementById('qr-placeholder');
+
+        if (wrapper && typeof QRCode !== 'undefined') {
+            // Remove spinner
+            if (placeholder) placeholder.remove();
+
+            // Create QR code inside the wrapper div
+            new QRCode(wrapper, {
+                text: apkUrl,
+                width: 72,
+                height: 72,
+                colorDark: '#1e293b',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.M
+            });
+
+            // Make the generated canvas/img fill the wrapper neatly
+            var qrImg = wrapper.querySelector('img, canvas');
+            if (qrImg) {
+                qrImg.style.width = '100%';
+                qrImg.style.height = '100%';
+                qrImg.style.objectFit = 'contain';
+                qrImg.style.display = 'block';
+            }
+        }
+    })();
+</script>
+@endpush
