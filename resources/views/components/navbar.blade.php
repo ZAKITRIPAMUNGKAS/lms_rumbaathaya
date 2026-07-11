@@ -151,82 +151,41 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Mobile Menu Toggle -->
-            <div class="lg:hidden flex items-center">
-                <button @click="isOpen = !isOpen"
-                    class="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors duration-150 focus:outline-none"
-                    aria-label="Toggle mobile menu" :aria-expanded="isOpen">
-                    <i class="ph text-xl transition-transform duration-200"
-                        :class="isOpen ? 'ph-x rotate-90' : 'ph-list'"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div x-show="isOpen" x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0 height-0" x-transition:enter-end="opacity-100 height-auto"
-            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 height-auto"
-            x-transition:leave-end="opacity-0 height-0"
-            class="lg:hidden bg-white border-t border-gray-200 shadow-lg overflow-hidden" style="display: none;">
-            <div class="px-4 py-4 space-y-1">
-                <a href="{{ route('home') }}"
-                    class="block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 {{ request()->routeIs('home') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' }}"
-                    @click="isOpen = false">
-                    Beranda
-                </a>
-                <a href="/produk"
-                    class="block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 {{ request()->is('produk*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' }}"
-                    @click="isOpen = false">
-                    Produk
-                </a>
-                <a href="/tentang-kami"
-                    class="block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 {{ request()->is('tentang-kami*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' }}"
-                    @click="isOpen = false">
-                    Tentang Kami
-                </a>
-                <a href="{{ route('posts.index') }}"
-                    class="block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 {{ request()->is('sahabat-ra*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' }}"
-                    @click="isOpen = false">
-                    Sahabat RA
-                </a>
-                <a href="/dokumentasi"
-                    class="block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 {{ request()->is('dokumentasi*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' }}"
-                    @click="isOpen = false">
-                    Dokumentasi
-                </a>
-                <a href="/testimoni"
-                    class="block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 {{ request()->is('testimoni*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' }}"
-                    @click="isOpen = false">
-                    Testimoni
-                </a>
-                <a href="{{ route('download') }}"
-                    class="block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 {{ request()->is('download*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' }}"
-                    @click="isOpen = false">
-                    Aplikasi HP
-                </a>
-                <a href="/kontak"
-                    class="block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 {{ request()->is('kontak*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' }}"
-                    @click="isOpen = false">
-                    Kontak
-                </a>
-                <div class="border-t border-gray-200 pt-3 mt-3 space-y-2">
-                    <a href="{{ route('register') }}"
-                        class="block w-full px-4 py-2.5 text-sm font-medium text-white bg-brand-orange rounded-lg hover:bg-orange-600 transition-colors duration-150 text-center shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2"
-                        @click="isOpen = false">
-                        <i class="ph ph-user-plus"></i>
-                        Daftar Baru
-                    </a>
-                    <a href="{{ route('login') }}"
-                        class="block w-full px-4 py-2.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-150 text-center flex items-center justify-center gap-2"
-                        @click="isOpen = false">
-                        <i class="ph ph-sign-in"></i>
-                        Login
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
 </nav>
-<!-- Spacer untuk fixed navbar -->
+
+<!-- Mobile Bottom Navigation Bar (Visible on mobile, replaces hamburger menu) -->
+<div class="lg:hidden fixed bottom-0 left-0 right-0 z-[99] bg-white/95 backdrop-blur-xl border-t border-gray-200/60 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
+    <div class="flex items-center justify-around h-16 px-2">
+        <a href="{{ route('home') }}" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->routeIs('home') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
+            <i class="ph {{ request()->routeIs('home') ? 'ph-house-fill' : 'ph-house' }} text-xl"></i>
+            <span class="text-[10px] font-bold tracking-wide">Beranda</span>
+        </a>
+        
+        <a href="/produk" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->is('produk*') || request()->is('program*') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
+            <i class="ph {{ request()->is('produk*') || request()->is('program*') ? 'ph-graduation-cap-fill' : 'ph-graduation-cap' }} text-xl"></i>
+            <span class="text-[10px] font-bold tracking-wide">Program</span>
+        </a>
+
+        <a href="{{ route('posts.index') }}" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->is('sahabat-ra*') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
+            <i class="ph {{ request()->is('sahabat-ra*') ? 'ph-newspaper-fill' : 'ph-newspaper' }} text-xl"></i>
+            <span class="text-[10px] font-bold tracking-wide">Sahabat RA</span>
+        </a>
+
+        <a href="{{ route('download') }}" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->is('download*') || request()->is('unduh*') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
+            <i class="ph {{ request()->is('download*') || request()->is('unduh*') ? 'ph-download-simple-fill' : 'ph-download-simple' }} text-xl"></i>
+            <span class="text-[10px] font-bold tracking-wide">Unduh App</span>
+        </a>
+
+        <a href="{{ route('login') }}" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->is('login*') || request()->is('register*') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
+            <i class="ph {{ request()->is('login*') || request()->is('register*') ? 'ph-user-fill' : 'ph-user' }} text-xl"></i>
+            <span class="text-[10px] font-bold tracking-wide">Masuk</span>
+        </a>
+    </div>
+</div>
+
+<!-- Spacer untuk fixed top header navbar -->
 <div class="h-14"></div>
+<!-- Spacer untuk mobile bottom navigation bar -->
+<div class="h-16 lg:hidden"></div>
