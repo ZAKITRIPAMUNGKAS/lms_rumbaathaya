@@ -82,7 +82,7 @@
 
         <!-- SIDEBAR -->
         <aside
-            class="fixed inset-y-0 left-0 z-50 w-72 bg-white/70 backdrop-blur-xl border-r border-white/60 p-6 flex flex-col transition-transform duration-300 md:translate-x-0 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] overflow-hidden"
+            class="-translate-x-full md:translate-x-0 fixed inset-y-0 left-0 z-50 w-72 bg-white/70 backdrop-blur-xl border-r border-white/60 p-6 flex flex-col transition-transform duration-300 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] overflow-hidden"
             :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'">
             <div class="flex items-center gap-3 mb-10 px-2 flex-shrink-0">
                 <div

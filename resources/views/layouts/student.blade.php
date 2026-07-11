@@ -45,7 +45,7 @@
 
         <!-- SIDEBAR -->
         <aside
-            class="fixed inset-y-0 left-0 z-50 w-72 bg-white/80 backdrop-blur-xl border-r border-white/50 p-6 flex flex-col transition-transform duration-300 md:translate-x-0 shadow-2xl md:shadow-none overflow-hidden"
+            class="-translate-x-full md:translate-x-0 fixed inset-y-0 left-0 z-50 w-72 bg-white/80 backdrop-blur-xl border-r border-white/50 p-6 flex flex-col transition-transform duration-300 shadow-2xl md:shadow-none overflow-hidden"
             :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'">
             <!-- Logo Area -->
             <div class="flex items-center gap-3 mb-10 px-2 flex-shrink-0">
