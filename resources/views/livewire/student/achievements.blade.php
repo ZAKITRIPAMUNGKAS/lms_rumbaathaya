@@ -1,12 +1,16 @@
 <div class="space-y-6 p-4 sm:p-8">
-    <!-- Header -->
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-        <div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight flex items-center gap-2">
-                <i class="ph ph-trophy text-indigo-600"></i>
-                Pencapaian & Prestasi
-            </h1>
-            <p class="text-sm text-slate-500 font-medium mt-1">Jejak prestasi dan kemajuan belajar Anda</p>
+    <!-- Header Card -->
+    <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-emerald-600 to-teal-600 p-6 sm:p-8 text-white shadow-lg shadow-emerald-500/20 mb-6 group">
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-500"></div>
+        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-teal-400/20 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-500"></div>
+        
+        <div class="relative z-10">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-xs font-bold border border-white/10 text-white mb-3">
+                <i class="ph ph-trophy"></i>
+                Kemajuan Belajar
+            </span>
+            <h1 class="text-2xl sm:text-3xl font-black tracking-tight">Pencapaian & Prestasi</h1>
+            <p class="text-emerald-100 text-xs sm:text-sm font-medium mt-1">Jejak prestasi dan kemajuan belajar Anda</p>
         </div>
     </div>
 

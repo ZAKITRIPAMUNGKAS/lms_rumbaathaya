@@ -1,18 +1,20 @@
 <div class="space-y-6 p-4 sm:p-8">
-    <!-- Header -->
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-        <div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight flex items-center gap-2">
-                <i class="ph ph-calendar-check text-indigo-600"></i>
-                Jadwal Belajar
-            </h1>
-            <p class="text-sm text-slate-500 font-medium mt-1">Pantau jadwal pembelajaran mingguan Anda</p>
-        </div>
-        <!-- Action / Time -->
-        <div class="hidden sm:flex items-center gap-3">
-            <div
-                class="px-4 py-2 bg-slate-50 rounded-xl border border-slate-200 text-sm font-bold text-slate-600 flex items-center gap-2">
-                <i class="ph ph-clock text-lg text-indigo-500"></i>
+    <!-- Header Card -->
+    <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-violet-600 to-fuchsia-600 p-6 sm:p-8 text-white shadow-lg shadow-violet-500/20 mb-6 group">
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-500"></div>
+        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-fuchsia-400/20 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-500"></div>
+        
+        <div class="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-xs font-bold border border-white/10 text-white mb-3">
+                    <i class="ph ph-calendar-check"></i>
+                    Jadwal Kelas
+                </span>
+                <h1 class="text-2xl sm:text-3xl font-black tracking-tight">Jadwal Belajar</h1>
+                <p class="text-indigo-100 text-xs sm:text-sm font-medium mt-1">Pantau jadwal pembelajaran mingguan Anda</p>
+            </div>
+            <div class="px-4 py-2 bg-white/15 backdrop-blur-md rounded-xl border border-white/15 text-xs sm:text-sm font-bold text-white flex items-center gap-2">
+                <i class="ph ph-clock text-lg"></i>
                 {{ now()->format('d M Y') }}
             </div>
         </div>

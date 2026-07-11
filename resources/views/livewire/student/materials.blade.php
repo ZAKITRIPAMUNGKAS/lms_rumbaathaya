@@ -1,21 +1,28 @@
 <div class="space-y-6 p-4 sm:p-8">
-    <!-- Page Header (Simplified for Main Layout) -->
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-        <div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight flex items-center gap-2">
-                <i class="ph ph-books text-indigo-600"></i>
-                Materi Belajar
-            </h1>
-            <p class="text-sm text-slate-500 font-medium mt-1">Akses semua modul dan bahan pembelajaran Anda</p>
-        </div>
-        <!-- Search Bar -->
-        <div class="relative w-full sm:w-72">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <i class="ph ph-magnifying-glass text-slate-400"></i>
+    <!-- Header Card -->
+    <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-indigo-600 to-blue-600 p-6 sm:p-8 text-white shadow-lg shadow-indigo-500/20 mb-6 group">
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-500"></div>
+        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-blue-400/20 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-500"></div>
+        
+        <div class="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 w-full">
+            <div>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-xs font-bold border border-white/10 text-white mb-3">
+                    <i class="ph ph-books"></i>
+                    Perpustakaan
+                </span>
+                <h1 class="text-2xl sm:text-3xl font-black tracking-tight">Materi Belajar</h1>
+                <p class="text-blue-100 text-xs sm:text-sm font-medium mt-1">Akses semua modul dan bahan pembelajaran Anda</p>
             </div>
-            <input wire:model.live.debounce.300ms="search" type="text"
-                class="block w-full pl-10 pr-3 py-2.5 bg-white border border-slate-200 rounded-xl text-sm placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all shadow-sm"
-                placeholder="Cari materi...">
+            
+            <!-- Search Bar inside Header -->
+            <div class="relative w-full sm:w-72 mt-2 sm:mt-0">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="ph ph-magnifying-glass text-white/80"></i>
+                </div>
+                <input wire:model.live.debounce.300ms="search" type="text"
+                    class="block w-full pl-10 pr-3 py-2.5 bg-white/15 border border-white/15 focus:bg-white focus:text-slate-800 focus:placeholder-slate-400 rounded-xl text-sm placeholder-white/70 text-white focus:outline-none focus:ring-1 focus:ring-white transition-all shadow-sm"
+                    placeholder="Cari materi...">
+            </div>
         </div>
     </div>
 
