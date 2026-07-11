@@ -159,27 +159,27 @@
 <div class="lg:hidden fixed bottom-0 left-0 right-0 z-[99] bg-white/95 backdrop-blur-xl border-t border-gray-200/60 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
     <div class="flex items-center justify-around h-16 px-2">
         <a href="{{ route('home') }}" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->routeIs('home') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
-            <i class="ph {{ request()->routeIs('home') ? 'ph-house-fill' : 'ph-house' }} text-xl"></i>
+            <i class="ph {{ request()->routeIs('home') ? 'ph-fill' : '' }} ph-house text-xl"></i>
             <span class="text-[10px] font-bold tracking-wide">Beranda</span>
         </a>
         
         <a href="/produk" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->is('produk*') || request()->is('program*') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
-            <i class="ph {{ request()->is('produk*') || request()->is('program*') ? 'ph-graduation-cap-fill' : 'ph-graduation-cap' }} text-xl"></i>
+            <i class="ph {{ request()->is('produk*') || request()->is('program*') ? 'ph-fill' : '' }} ph-graduation-cap text-xl"></i>
             <span class="text-[10px] font-bold tracking-wide">Program</span>
         </a>
 
         <a href="{{ route('posts.index') }}" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->is('sahabat-ra*') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
-            <i class="ph {{ request()->is('sahabat-ra*') ? 'ph-newspaper-fill' : 'ph-newspaper' }} text-xl"></i>
+            <i class="ph {{ request()->is('sahabat-ra*') ? 'ph-fill' : '' }} ph-newspaper text-xl"></i>
             <span class="text-[10px] font-bold tracking-wide">Sahabat RA</span>
         </a>
 
         <a href="{{ route('download') }}" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->is('download*') || request()->is('unduh*') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
-            <i class="ph {{ request()->is('download*') || request()->is('unduh*') ? 'ph-download-simple-fill' : 'ph-download-simple' }} text-xl"></i>
+            <i class="ph {{ request()->is('download*') || request()->is('unduh*') ? 'ph-fill' : '' }} ph-download-simple text-xl"></i>
             <span class="text-[10px] font-bold tracking-wide">Unduh App</span>
         </a>
 
         <a href="{{ route('login') }}" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->is('login*') || request()->is('register*') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
-            <i class="ph {{ request()->is('login*') || request()->is('register*') ? 'ph-user-fill' : 'ph-user' }} text-xl"></i>
+            <i class="ph {{ request()->is('login*') || request()->is('register*') ? 'ph-fill' : '' }} ph-user text-xl"></i>
             <span class="text-[10px] font-bold tracking-wide">Masuk</span>
         </a>
     </div>
