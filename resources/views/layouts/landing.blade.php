@@ -146,6 +146,54 @@
 
     @livewireScripts
 
+    <!-- Mobile Browser App Promo Pop-up -->
+    <div id="mobile-app-popup" class="fixed bottom-4 left-4 right-4 z-[9999] bg-slate-900 border border-slate-800 text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between gap-4 transition-all duration-300 translate-y-32 opacity-0 md:hidden">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-orange-500 flex items-center justify-center p-2 shadow-lg shadow-orange-500/20 flex-shrink-0">
+                <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+            </div>
+            <div>
+                <h4 class="font-extrabold text-sm leading-tight text-white">Gunakan Aplikasi HP</h4>
+                <p class="text-[10px] text-slate-400 mt-0.5 leading-none">Belajar lebih cepat & asyik di Android</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <button onclick="dismissMobileAppPopup()" class="px-2.5 py-2 text-slate-500 hover:text-white text-xs font-bold transition-colors">Nanti</button>
+            <a href="{{ route('download') }}" class="px-3.5 py-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-bold rounded-xl shadow-md shadow-orange-500/20 flex items-center gap-1">
+                Unduh
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function dismissMobileAppPopup() {
+            const popup = document.getElementById('mobile-app-popup');
+            if (popup) {
+                popup.style.transform = 'translateY(150px)';
+                popup.style.opacity = '0';
+                localStorage.setItem('mobile_app_promo_dismissed', 'true');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
+            const isDismissed = localStorage.getItem('mobile_app_promo_dismissed') === 'true';
+            
+            // Check if not running inside Capacitor (native webview) already
+            const isNativeApp = typeof window.Capacitor !== 'undefined' || window.location.search.includes('platform=android');
+
+            if (isMobileDevice && !isDismissed && !isNativeApp) {
+                setTimeout(() => {
+                    const popup = document.getElementById('mobile-app-popup');
+                    if (popup) {
+                        popup.classList.remove('translate-y-32', 'opacity-0');
+                        popup.classList.add('translate-y-0', 'opacity-100');
+                    }
+                }, 3000);
+            }
+        });
+    </script>
+
     <!-- Chatbot Widget -->
     <x-chatbot-widget />
 

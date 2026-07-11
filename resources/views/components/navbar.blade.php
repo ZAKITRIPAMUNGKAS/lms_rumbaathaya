@@ -94,6 +94,11 @@
                     Testimoni
                 </a>
 
+                <a href="{{ route('download') }}"
+                    class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 {{ request()->is('download*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-slate-900' }}">
+                    Aplikasi HP
+                </a>
+
                 <a href="/kontak"
                     class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 {{ request()->is('kontak*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-slate-900' }}">
                     Kontak
@@ -194,6 +199,11 @@
                     class="block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 {{ request()->is('testimoni*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' }}"
                     @click="isOpen = false">
                     Testimoni
+                </a>
+                <a href="{{ route('download') }}"
+                    class="block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 {{ request()->is('download*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' }}"
+                    @click="isOpen = false">
+                    Aplikasi HP
                 </a>
                 <a href="/kontak"
                     class="block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors duration-150 {{ request()->is('kontak*') ? 'bg-brand-orange/10 text-brand-orange font-semibold' : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900' }}"

@@ -269,3 +269,12 @@ Route::options('/storage/{path}', function () {
     return response('', 200, $headers);
 })->where('path', '.*');
 
+// Download App Route
+Route::get('/download', function () {
+    return view('pages.download');
+})->name('download');
+Route::get('/unduh', function () {
+    return view('pages.download');
+})->name('unduh');
+
+

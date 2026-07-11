@@ -252,6 +252,32 @@
                     </p>
                 </div>
             </div>
+
+            <!-- Mobile App Promotion Banner -->
+            <div class="mt-16 relative overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-950 text-white p-8 md:p-12 shadow-2xl border border-slate-800">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(245,158,11,0.08),transparent_50%)]"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 rounded-full text-xs font-bold text-orange-400 border border-white/10">
+                            <i class="ph ph-android-logo"></i>
+                            <span>Aplikasi Android Resmi</span>
+                        </div>
+                        <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                            Belajar Lebih Seru dari Handphone Anda! 📱
+                        </h3>
+                        <p class="text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
+                            Unduh aplikasi **Rumba Athaya** sekarang. Nikmati kemudahan akses modul belajar, jadwal les terbaru, dan progress belajar langsung dalam genggaman.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4 items-center justify-center lg:items-end">
+                        <a href="{{ route('download') }}" 
+                           class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-extrabold rounded-2xl text-center shadow-lg shadow-orange-500/20 hover:shadow-xl hover:-translate-y-0.5 hover:scale-105 transition-all duration-200">
+                            <i class="ph ph-download-simple text-lg mr-1"></i> Unduh Sekarang
+                        </a>
+                        <span class="text-xs text-slate-500">Ukuran file hanya ~5.2 MB</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
