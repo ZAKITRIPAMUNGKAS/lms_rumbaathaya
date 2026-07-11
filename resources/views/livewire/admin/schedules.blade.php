@@ -42,52 +42,52 @@
     </div>
 
     <!-- Quick Stats -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-3 gap-3 sm:gap-6">
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-violet-500/10 rounded-[2rem] p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-violet-500/10 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 relative overflow-hidden group hover:-translate-y-0.5 transition-all duration-300">
             <div
                 class="absolute right-0 top-0 w-32 h-32 bg-violet-100/50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-violet-200/50 transition-colors">
             </div>
-            <div class="relative z-10 flex items-center gap-4">
+            <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-violet-100 text-violet-600 flex items-center justify-center text-2xl shadow-sm">
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-violet-100 text-violet-600 flex items-center justify-center text-xl sm:text-2xl shadow-sm flex-shrink-0">
                     <i class="ph-fill ph-calendar-check"></i>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-black text-slate-800">{{ $this->stats['total'] }}</h3>
-                    <p class="text-sm font-bold text-slate-500">Total Jadwal</p>
+                <div class="min-w-0">
+                    <h3 class="text-xl sm:text-3xl font-black text-slate-800 leading-none">{{ $this->stats['total'] }}</h3>
+                    <p class="text-[10px] sm:text-sm font-bold text-slate-500 mt-1 leading-none">Total Jadwal</p>
                 </div>
             </div>
         </div>
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-fuchsia-500/10 rounded-[2rem] p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-fuchsia-500/10 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 relative overflow-hidden group hover:-translate-y-0.5 transition-all duration-300">
             <div
                 class="absolute right-0 top-0 w-32 h-32 bg-fuchsia-100/50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-fuchsia-200/50 transition-colors">
             </div>
-            <div class="relative z-10 flex items-center gap-4">
+            <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center text-2xl shadow-sm">
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center text-xl sm:text-2xl shadow-sm flex-shrink-0">
                     <i class="ph-fill ph-lightning"></i>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-black text-slate-800">{{ $this->stats['active'] }}</h3>
-                    <p class="text-sm font-bold text-slate-500">Jadwal Aktif</p>
+                <div class="min-w-0">
+                    <h3 class="text-xl sm:text-3xl font-black text-slate-800 leading-none">{{ $this->stats['active'] }}</h3>
+                    <p class="text-[10px] sm:text-sm font-bold text-slate-500 mt-1 leading-none">Jadwal Aktif</p>
                 </div>
             </div>
         </div>
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-purple-500/10 rounded-[2rem] p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-purple-500/10 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 relative overflow-hidden group hover:-translate-y-0.5 transition-all duration-300">
             <div
                 class="absolute right-0 top-0 w-32 h-32 bg-purple-100/50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-purple-200/50 transition-colors">
             </div>
-            <div class="relative z-10 flex items-center gap-4">
+            <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl shadow-sm">
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl sm:text-2xl shadow-sm flex-shrink-0">
                     <i class="ph-fill ph-sun"></i>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-black text-slate-800">{{ $this->stats['today'] }}</h3>
-                    <p class="text-sm font-bold text-slate-500">Kelas Hari Ini</p>
+                <div class="min-w-0">
+                    <h3 class="text-xl sm:text-3xl font-black text-slate-800 leading-none">{{ $this->stats['today'] }}</h3>
+                    <p class="text-[10px] sm:text-sm font-bold text-slate-500 mt-1 leading-none">Kelas Hari Ini</p>
                 </div>
             </div>
         </div>
@@ -120,7 +120,7 @@
                     class="w-full pl-11 pr-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-violet-400 rounded-xl transition-all font-semibold text-slate-700 placeholder-slate-400">
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 w-full xl:w-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 w-full xl:w-auto">
                 <div class="relative w-full">
                     <select wire:model.live="dayFilter"
                         class="w-full pl-4 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-violet-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
@@ -167,8 +167,8 @@
             </div>
         </div>
 
-        <!-- Table -->
-        <div class="overflow-x-auto rounded-3xl border border-white/60 bg-white/30 backdrop-blur-sm">
+        <!-- Table (Visible on Desktop, hidden on Mobile) -->
+        <div class="hidden md:block overflow-x-auto rounded-3xl border border-white/60 bg-white/30 backdrop-blur-sm">
             <table class="w-full text-left border-collapse">
                 <thead>
                     <tr
@@ -260,6 +260,80 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+
+        <!-- Mobile Card List View (Visible on Mobile, hidden on Desktop) -->
+        <div class="md:hidden space-y-4">
+            @forelse($schedules as $schedule)
+                <div class="group relative bg-white/50 border border-white/60 hover:bg-white/80 transition-all duration-300 rounded-2xl p-4 shadow-sm">
+                    <div class="flex items-center justify-between gap-3 mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-violet-100 text-violet-600 flex flex-col items-center justify-center shadow-sm">
+                                <span class="text-[9px] font-black uppercase tracking-wider leading-none">{{ strtoupper(substr($days[$schedule->day_of_week] ?? '', 0, 3)) }}</span>
+                            </div>
+                            <div>
+                                <div class="font-bold text-slate-800 text-sm">{{ $days[$schedule->day_of_week] ?? '-' }}</div>
+                                <div class="text-xs font-semibold text-slate-500 flex items-center gap-1 mt-0.5">
+                                    <i class="ph-fill ph-clock text-violet-500"></i>
+                                    {{ substr($schedule->time_start, 0, 5) }} - {{ substr($schedule->time_end, 0, 5) }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        @if($schedule->is_active)
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-100/50">
+                                AKTIF
+                            </span>
+                        @else
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-500 text-[10px] font-bold border border-slate-200">
+                                NON-AKTIF
+                            </span>
+                        @endif
+                    </div>
+                    
+                    <div class="h-px bg-slate-100/70 my-2"></div>
+                    
+                    <div class="flex justify-between items-center gap-4">
+                        <div class="space-y-1">
+                            <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wide">Mata Pelajaran</div>
+                            <div class="text-sm font-bold text-slate-700">{{ $schedule->subject->name ?? '-' }}</div>
+                        </div>
+                        <div class="space-y-1 text-right">
+                            <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wide">Partisipan</div>
+                            <div class="text-xs font-bold text-slate-700 flex items-center gap-1 justify-end">
+                                <i class="ph-fill ph-chalkboard-teacher text-indigo-400"></i>
+                                <span>{{ $schedule->tutor->name ?? '-' }}</span>
+                            </div>
+                            <div class="text-xs font-bold text-slate-700 flex items-center gap-1 justify-end mt-0.5">
+                                <i class="ph-fill ph-student text-fuchsia-400"></i>
+                                <span>{{ $schedule->student->name ?? '-' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="h-px bg-slate-100/70 my-2"></div>
+                    
+                    <div class="flex justify-end gap-2">
+                        <button wire:click="openEditModal({{ $schedule->id }})"
+                            class="w-9 h-9 rounded-lg bg-violet-50 text-violet-600 hover:bg-violet-500 hover:text-white transition-all flex items-center justify-center shadow-sm"
+                            title="Edit">
+                            <i class="ph-bold ph-pencil-simple text-sm"></i>
+                        </button>
+                        <button wire:click="openDeleteModal({{ $schedule->id }})"
+                            class="w-9 h-9 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-500 hover:text-white transition-all flex items-center justify-center shadow-sm"
+                            title="Hapus">
+                            <i class="ph-bold ph-trash text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            @empty
+                <div class="py-12 text-center text-slate-500 bg-white/50 border border-white/60 rounded-2xl">
+                    <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="ph-duotone ph-calendar-x text-3xl text-slate-400"></i>
+                    </div>
+                    <p class="font-bold text-slate-600">Jadwal tidak ditemukan</p>
+                </div>
+            @endforelse
         </div>
 
         @if($schedules->hasPages())
