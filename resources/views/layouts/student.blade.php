@@ -173,6 +173,15 @@
             </div>
             <span class="nav-label">Profil</span>
         </a>
+        <form method="POST" action="{{ route('logout') }}" class="mobile-bottom-nav-item p-0 min-h-0 flex flex-col items-center justify-center">
+            @csrf
+            <button type="submit" class="flex flex-col items-center justify-center gap-1 text-[#94a3b8] w-full h-full border-none bg-transparent outline-none cursor-pointer">
+                <div class="nav-icon">
+                    <i class="ph ph-sign-out"></i>
+                </div>
+                <span class="nav-label">Keluar</span>
+            </button>
+        </form>
     </nav>
 
     @stack('modals')
