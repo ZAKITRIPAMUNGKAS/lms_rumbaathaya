@@ -28,4 +28,9 @@ seeder.log
 error.txt
 error2.txt
 error3.txt
+
+# Android / Capacitor — jangan commit ke GitHub
+android/
+google-services.json
+
 debug_output.md
