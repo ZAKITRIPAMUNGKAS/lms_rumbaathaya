@@ -57,18 +57,24 @@
 
     <!-- Capacitor Mobile App Styling Overrides -->
     <style>
-        /* Hide navbar, footer, and promo banner inside the native app */
+        /*
+         * CAPACITOR (Android/iOS APK): Inside native app, hide website chrome
+         * and show the exclusive mobile welcome screen.
+         * .capacitor-platform class is added by mobile.js IMMEDIATELY when
+         * window.Capacitor is detected — before any async StatusBar calls.
+         */
         .capacitor-platform nav,
         .capacitor-platform footer,
         .capacitor-platform #app-promo-banner,
-        .capacitor-platform .app-promo-banner,
         .capacitor-platform .web-only-layout {
             display: none !important;
         }
 
-        /* Show exclusive mobile app layout */
+        /* Shows the exclusive Android onboarding layout.
+           !important overrides the inline style="display:none" on the element */
         .capacitor-platform .app-only-layout {
-            display: block !important;
+            display: flex !important;
+            flex-direction: column !important;
         }
     </style>
 </head>

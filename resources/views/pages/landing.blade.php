@@ -946,7 +946,7 @@
 </div>
 
 {{-- ── EXCLUSIVE MOBILE APP WELCOME ONBOARDING ── --}}
-<div class="app-only-layout hidden min-h-screen bg-slate-50 relative overflow-hidden">
+<div class="app-only-layout min-h-screen bg-slate-50 relative overflow-hidden" style="display:none">
     {{-- Animated Background Blobs --}}
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div class="absolute -top-40 -left-40 w-96 h-96 bg-orange-100/50 rounded-full blur-3xl"></div>
