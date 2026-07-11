@@ -175,22 +175,20 @@
         </footer>
     </div>
 
-    @livewireScripts
-
-    <!-- Mobile Browser App Promo Pop-up (Safari/Chrome Style Smart Banner at the Top) -->
-    <div id="mobile-app-popup" class="fixed top-16 left-4 right-4 z-[99] bg-slate-900 border border-slate-800 text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between gap-4 transition-all duration-300 -translate-y-32 opacity-0 md:hidden">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-orange-500 flex items-center justify-center p-2 shadow-lg shadow-orange-500/20 flex-shrink-0">
-                <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+    <!-- Mobile Browser App Promo Pop-up (Compact Card Floating Side-by-Side with Chatbot) -->
+    <div id="mobile-app-popup" class="fixed bottom-20 left-4 right-[92px] z-[99] bg-slate-900 border border-slate-800 text-white p-3 rounded-2xl shadow-2xl flex items-center justify-between gap-2.5 transition-all duration-300 translate-y-32 opacity-0 md:hidden">
+        <div class="flex items-center gap-2 min-w-0">
+            <div class="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center p-1.5 shadow-lg shadow-orange-500/20 flex-shrink-0">
+                <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-6 h-6 object-contain" onerror="this.style.display='none'">
             </div>
-            <div>
-                <h4 class="font-extrabold text-sm leading-tight text-white">Gunakan Aplikasi HP</h4>
-                <p class="text-[10px] text-slate-400 mt-0.5 leading-none">Belajar lebih cepat & asyik di Android</p>
+            <div class="min-w-0">
+                <h4 class="font-extrabold text-[11px] leading-tight text-white truncate">Aplikasi Rumba</h4>
+                <p class="text-[9px] text-slate-400 mt-0.5 leading-none truncate">Belajar lebih cepat di Android</p>
             </div>
         </div>
-        <div class="flex items-center gap-2">
-            <button onclick="dismissMobileAppPopup()" class="px-2.5 py-2 text-slate-500 hover:text-white text-xs font-bold transition-colors">Nanti</button>
-            <a href="{{ route('download') }}" class="px-3.5 py-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-bold rounded-xl shadow-md shadow-orange-500/20 flex items-center gap-1">
+        <div class="flex items-center gap-1.5 flex-shrink-0">
+            <button onclick="dismissMobileAppPopup()" class="px-1.5 py-1 text-slate-500 hover:text-white text-[10px] font-bold transition-colors">Nanti</button>
+            <a href="{{ route('download') }}" class="px-2.5 py-1 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-[10px] font-bold rounded-lg shadow-md shadow-orange-500/20 flex items-center gap-0.5">
                 Unduh
             </a>
         </div>
@@ -200,7 +198,7 @@
         function dismissMobileAppPopup() {
             const popup = document.getElementById('mobile-app-popup');
             if (popup) {
-                popup.style.transform = 'translateY(-150px)';
+                popup.style.transform = 'translateY(150px)';
                 popup.style.opacity = '0';
                 localStorage.setItem('mobile_app_promo_dismissed', 'true');
             }
@@ -219,7 +217,7 @@
                 setTimeout(() => {
                     const popup = document.getElementById('mobile-app-popup');
                     if (popup) {
-                        popup.classList.remove('-translate-y-32', 'opacity-0');
+                        popup.classList.remove('translate-y-32', 'opacity-0');
                         popup.classList.add('translate-y-0', 'opacity-100');
                     }
                 }, 3000);
