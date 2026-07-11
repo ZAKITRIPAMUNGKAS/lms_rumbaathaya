@@ -151,71 +151,123 @@
                         overflow: hidden;
                         box-shadow: 0 40px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06);
                     ">
-                        {{-- Dynamic Island / Notch --}}
-                        <div style="position:absolute; top:10px; left:50%; transform:translateX(-50%); width:90px; height:20px; background:#0f172a; border-radius:12px; z-index:100;"></div>
+                        {{-- Dynamic Island --}}
+                        <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:88px;height:22px;background:#0f172a;border-radius:14px;z-index:100;"></div>
 
                         {{-- Screen --}}
-                        <div style="position:absolute; inset:0; background:#0f172a; border-radius:34px; overflow:hidden; display:flex; flex-direction:column;">
+                        <div style="position:absolute;inset:0;background:#111827;border-radius:34px;overflow:hidden;display:flex;flex-direction:column;font-family:'Inter',sans-serif;">
 
                             {{-- Status Bar --}}
-                            <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 18px 0; font-size:9px; color:rgba(255,255,255,0.75); font-weight:600; flex-shrink:0; margin-top:14px;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 18px 0;font-size:9px;color:rgba(255,255,255,0.8);font-weight:700;flex-shrink:0;margin-top:14px;">
                                 <span>9:41</span>
-                                <div style="display:flex; align-items:center; gap:4px;">
-                                    <i class="ph ph-wifi-high" style="font-size:10px;"></i>
-                                    <i class="ph ph-battery-full" style="font-size:11px;"></i>
+                                <div style="display:flex;align-items:center;gap:5px;">
+                                    <svg width="11" height="8" viewBox="0 0 11 8" fill="white" opacity="0.8"><path d="M5.5 2C7.2 2 8.7 2.7 9.8 3.8L11 2.5C9.6 1 7.7 0 5.5 0S1.4 1 0 2.5L1.2 3.8C2.3 2.7 3.8 2 5.5 2Z"/><path d="M5.5 4.5C6.6 4.5 7.5 4.9 8.2 5.6L9.4 4.3C8.4 3.3 7 2.7 5.5 2.7S2.6 3.3 1.6 4.3L2.8 5.6C3.5 4.9 4.4 4.5 5.5 4.5Z"/><circle cx="5.5" cy="7" r="1.2"/></svg>
+                                    <svg width="22" height="9" viewBox="0 0 22 9" fill="none"><rect x="0.5" y="0.5" width="19" height="8" rx="2.5" stroke="white" stroke-opacity="0.5"/><rect x="1.5" y="1.5" width="14" height="6" rx="1.5" fill="white"/><path d="M21 3.5V5.5C21.8 5.2 21.8 3.8 21 3.5Z" fill="white" opacity="0.5"/></svg>
                                 </div>
                             </div>
 
-                            {{-- App Header Bar --}}
-                            <div style="background:linear-gradient(135deg,#f97316,#f59e0b); padding:10px 16px 12px; margin-top:8px; display:flex; align-items:center; gap:8px; flex-shrink:0;">
-                                <img src="{{ asset('Logo.png') }}" alt="Logo"
-                                     style="width:24px;height:24px;border-radius:8px;background:rgba(255,255,255,0.2);object-fit:contain;padding:2px;"
-                                     onerror="this.style.display='none'">
-                                <div>
-                                    <p style="font-size:11px;font-weight:800;color:#fff;line-height:1;">Rumba Athaya</p>
-                                    <p style="font-size:7.5px;color:rgba(255,255,255,0.8);margin-top:1px;">Learning Management</p>
-                                </div>
-                            </div>
+                            {{-- ── HERO GRADIENT HEADER ── --}}
+                            <div style="background:linear-gradient(135deg,#ea580c 0%,#f97316 40%,#f59e0b 100%);padding:14px 16px 20px;margin-top:6px;flex-shrink:0;position:relative;overflow:hidden;">
+                                {{-- decorative blobs --}}
+                                <div style="position:absolute;top:-12px;right:-12px;width:70px;height:70px;background:rgba(255,255,255,0.1);border-radius:50%;"></div>
+                                <div style="position:absolute;bottom:-20px;right:20px;width:50px;height:50px;background:rgba(255,255,255,0.07);border-radius:50%;"></div>
 
-                            {{-- App Body --}}
-                            <div style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:20px 16px; gap:14px; text-align:center;">
-                                {{-- App Icon --}}
-                                <div style="width:54px;height:54px;border-radius:16px;background:rgba(249,115,22,0.15);display:flex;align-items:center;justify-content:center;font-size:26px;">
-                                    🎓
-                                </div>
-
-                                {{-- Greeting --}}
-                                <div>
-                                    <p style="font-size:12px;font-weight:800;color:#f1f5f9;line-height:1.3;">Portal Siswa & Tutor</p>
-                                    <p style="font-size:8.5px;color:#94a3b8;margin-top:4px;line-height:1.5;max-width:200px;">Masuk untuk melihat jadwal, absensi harian, jurnal, dan modul belajar.</p>
-                                </div>
-
-                                {{-- Fake Input Fields --}}
-                                <div style="width:100%;display:flex;flex-direction:column;gap:8px;">
-                                    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;height:34px;display:flex;align-items:center;padding:0 12px;font-size:9.5px;color:#64748b;text-align:left;">
-                                        <i class="ph ph-envelope" style="font-size:11px;margin-right:6px;opacity:0.6;"></i>
-                                        Email Pengguna
+                                {{-- Greeting row --}}
+                                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;position:relative;z-index:1;">
+                                    <div>
+                                        <p style="font-size:8px;color:rgba(255,255,255,0.8);font-weight:500;margin-bottom:2px;">Selamat Datang 👋</p>
+                                        <p style="font-size:12px;font-weight:800;color:#fff;line-height:1.1;">Ahmad Fauzi</p>
+                                        <p style="font-size:7px;color:rgba(255,255,255,0.7);margin-top:1px;">Siswa Kelas IPA — Angkatan 2024</p>
                                     </div>
-                                    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;height:34px;display:flex;align-items:center;padding:0 12px;font-size:9.5px;color:#64748b;text-align:left;">
-                                        <i class="ph ph-lock" style="font-size:11px;margin-right:6px;opacity:0.6;"></i>
-                                        Kata Sandi
+                                    {{-- Avatar --}}
+                                    <div style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">
+                                        👤
                                     </div>
                                 </div>
-                            </div>
 
-                            {{-- Login Button + Android Nav --}}
-                            <div style="flex-shrink:0;padding:0 16px 0;">
-                                <div style="background:linear-gradient(135deg,#f97316,#f59e0b);border-radius:12px;height:36px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;">
-                                    <i class="ph ph-sign-in" style="margin-right:5px;font-size:12px;"></i>
-                                    Login ke Aplikasi
+                                {{-- Mini stat pills --}}
+                                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;position:relative;z-index:1;">
+                                    <div style="background:rgba(255,255,255,0.18);backdrop-filter:blur(6px);border-radius:10px;padding:6px 4px;text-align:center;">
+                                        <p style="font-size:13px;font-weight:800;color:#fff;line-height:1;">12</p>
+                                        <p style="font-size:6.5px;color:rgba(255,255,255,0.8);margin-top:1px;">Jadwal</p>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.18);backdrop-filter:blur(6px);border-radius:10px;padding:6px 4px;text-align:center;">
+                                        <p style="font-size:13px;font-weight:800;color:#fff;line-height:1;">95%</p>
+                                        <p style="font-size:6.5px;color:rgba(255,255,255,0.8);margin-top:1px;">Hadir</p>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.18);backdrop-filter:blur(6px);border-radius:10px;padding:6px 4px;text-align:center;">
+                                        <p style="font-size:13px;font-weight:800;color:#fff;line-height:1;">8</p>
+                                        <p style="font-size:6.5px;color:rgba(255,255,255,0.8);margin-top:1px;">Modul</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            {{-- Android Bottom Nav --}}
-                            <div style="height:32px;display:flex;align-items:center;justify-content:space-around;padding:0 40px;margin-top:10px;border-top:1px solid rgba(255,255,255,0.05);">
-                                <i class="ph ph-caret-left" style="font-size:12px;color:rgba(255,255,255,0.4);"></i>
-                                <div style="width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.4);"></div>
-                                <div style="width:12px;height:12px;border-radius:3px;border:1.5px solid rgba(255,255,255,0.4);"></div>
+                            {{-- ── SCROLLABLE BODY ── --}}
+                            <div style="flex:1;overflow:hidden;padding:12px 14px 0;display:flex;flex-direction:column;gap:10px;">
+
+                                {{-- Section: Jadwal Hari Ini --}}
+                                <div>
+                                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;">
+                                        <p style="font-size:9px;font-weight:700;color:#f1f5f9;">Jadwal Hari Ini</p>
+                                        <p style="font-size:7px;color:#f97316;font-weight:600;">Lihat Semua</p>
+                                    </div>
+
+                                    {{-- Schedule Item 1 --}}
+                                    <div style="background:#1e293b;border-radius:12px;padding:9px 11px;display:flex;align-items:center;gap:9px;margin-bottom:6px;border-left:3px solid #f97316;">
+                                        <div style="background:rgba(249,115,22,0.15);border-radius:8px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">📐</div>
+                                        <div style="flex:1;min-width:0;">
+                                            <p style="font-size:9px;font-weight:700;color:#f1f5f9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Matematika Lanjutan</p>
+                                            <p style="font-size:7.5px;color:#64748b;margin-top:1px;">Bu Sari · Ruang A-12</p>
+                                        </div>
+                                        <div style="text-align:right;flex-shrink:0;">
+                                            <p style="font-size:8px;font-weight:700;color:#f59e0b;">08:00</p>
+                                            <p style="font-size:6.5px;color:#475569;">2 jam</p>
+                                        </div>
+                                    </div>
+
+                                    {{-- Schedule Item 2 --}}
+                                    <div style="background:#1e293b;border-radius:12px;padding:9px 11px;display:flex;align-items:center;gap:9px;border-left:3px solid #6366f1;">
+                                        <div style="background:rgba(99,102,241,0.15);border-radius:8px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">🧪</div>
+                                        <div style="flex:1;min-width:0;">
+                                            <p style="font-size:9px;font-weight:700;color:#f1f5f9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Kimia — Lab Praktikum</p>
+                                            <p style="font-size:7.5px;color:#64748b;margin-top:1px;">Pak Arif · Lab Kimia</p>
+                                        </div>
+                                        <div style="text-align:right;flex-shrink:0;">
+                                            <p style="font-size:8px;font-weight:700;color:#6366f1;">10:30</p>
+                                            <p style="font-size:6.5px;color:#475569;">1.5 jam</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- Section: Notifikasi --}}
+                                <div>
+                                    <p style="font-size:9px;font-weight:700;color:#f1f5f9;margin-bottom:7px;">Notifikasi Terbaru</p>
+                                    <div style="background:#1e293b;border-radius:12px;padding:9px 11px;display:flex;align-items:center;gap:8px;">
+                                        <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;"></div>
+                                        <p style="font-size:7.5px;color:#94a3b8;line-height:1.4;flex:1;">Materi <span style="color:#f1f5f9;font-weight:600;">Fisika Bab 7</span> telah diunggah oleh Bu Dewi. Klik untuk unduh.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            {{-- ── BOTTOM NAVIGATION ── --}}
+                            <div style="flex-shrink:0;background:#1e293b;border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-around;padding:8px 0 12px;">
+                                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+                                    <i class="ph ph-house-simple-fill" style="font-size:16px;color:#f97316;"></i>
+                                    <p style="font-size:5.5px;color:#f97316;font-weight:700;">Beranda</p>
+                                </div>
+                                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+                                    <i class="ph ph-calendar-blank" style="font-size:16px;color:#475569;"></i>
+                                    <p style="font-size:5.5px;color:#475569;">Jadwal</p>
+                                </div>
+                                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+                                    <i class="ph ph-book-open" style="font-size:16px;color:#475569;"></i>
+                                    <p style="font-size:5.5px;color:#475569;">Materi</p>
+                                </div>
+                                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+                                    <i class="ph ph-user-circle" style="font-size:16px;color:#475569;"></i>
+                                    <p style="font-size:5.5px;color:#475569;">Profil</p>
+                                </div>
                             </div>
 
                         </div>
