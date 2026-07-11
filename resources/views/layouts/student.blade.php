@@ -3,11 +3,19 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="LMS Rumba">
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#F59E0B">
 
     <title>@yield('title', 'Student Dashboard') - {{ config('app.name', 'LMS Bimbel') }}</title>
     <link rel="icon" href="{{ asset('Logo.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('Logo.png') }}">
+    <link rel="manifest" href="/manifest.json">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -22,6 +30,14 @@
 </head>
 
 <body class="font-sans antialiased text-slate-900 bg-[#F8FAFC]">
+    <!-- Splash Screen (shown while page loads on mobile) -->
+    <div id="app-splash" class="md:hidden">
+        <img src="{{ asset('Logo.png') }}" alt="Logo" class="splash-logo" onerror="this.style.display='none'">
+        <div class="splash-title">Rumba Athaya</div>
+        <div class="splash-subtitle">Learning Management System</div>
+        <div class="splash-spinner"></div>
+    </div>
+
     <div class="min-h-screen flex overflow-hidden relative" x-data="{ sidebarOpen: false }">
 
         <!-- Ambient Background (Consolidated from views) -->
@@ -92,28 +108,72 @@
         <!-- MAIN CONTENT WRAPPER -->
         <div class="flex-1 flex flex-col min-w-0 md:pl-72 transition-all duration-300 relative z-10">
             <!-- Mobile Header -->
-            <header
-                class="md:hidden h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 flex items-center justify-between sticky top-0 z-30">
+            <header class="md:hidden bg-white/90 backdrop-blur-xl border-b border-slate-200/60 px-4 flex items-center justify-between sticky top-0 z-30 shadow-sm"
+                style="height: calc(60px + env(safe-area-inset-top)); padding-top: env(safe-area-inset-top);">
                 <div class="flex items-center gap-3">
-                    <button @click="sidebarOpen = true" class="p-2 -ml-2 text-slate-600">
+                    <button @click="sidebarOpen = true"
+                        class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 text-slate-600 transition-colors">
                         <i class="ph ph-list text-2xl"></i>
                     </button>
-                    <span class="font-bold text-slate-800">Menu</span>
+                    <div class="flex items-center gap-2">
+                        <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-7 h-7 object-contain rounded-lg" onerror="this.style.display='none'">
+                        <span class="font-extrabold text-slate-800 text-base tracking-tight">Rumba<span class="text-orange-500">.</span></span>
+                    </div>
                 </div>
-                <div
-                    class="w-8 h-8 rounded-full overflow-hidden border border-slate-200 shadow-sm cursor-pointer bg-indigo-100">
-                    <div
-                        class="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xs">
+                <div class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-indigo-500/30">
                         {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                     </div>
                 </div>
             </header>
 
-            <main class="h-full overflow-y-auto w-full">
+            <main class="h-full overflow-y-auto w-full mobile-content-wrapper">
                 {{ $slot }}
             </main>
         </div>
     </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    @php
+        $currentRoute = request()->route()->getName() ?? '';
+    @endphp
+    <nav class="mobile-bottom-nav md:hidden">
+        <a href="{{ route('student.dashboard') }}"
+            class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'student.dashboard') ? 'active' : '' }}">
+            <div class="nav-icon">
+                <i class="ph {{ str_starts_with($currentRoute, 'student.dashboard') ? 'ph-fill' : 'ph' }}-squares-four"></i>
+            </div>
+            <span class="nav-label">Beranda</span>
+        </a>
+        <a href="{{ route('student.schedules.index') }}"
+            class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'student.schedules') ? 'active' : '' }}">
+            <div class="nav-icon">
+                <i class="ph {{ str_starts_with($currentRoute, 'student.schedules') ? 'ph-fill' : 'ph' }}-calendar-check"></i>
+            </div>
+            <span class="nav-label">Jadwal</span>
+        </a>
+        <a href="{{ route('student.materials.index') }}"
+            class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'student.materials') ? 'active' : '' }}">
+            <div class="nav-icon">
+                <i class="ph {{ str_starts_with($currentRoute, 'student.materials') ? 'ph-fill' : 'ph' }}-book-open-text"></i>
+            </div>
+            <span class="nav-label">Materi</span>
+        </a>
+        <a href="{{ route('student.achievements.index') }}"
+            class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'student.achievements') ? 'active' : '' }}">
+            <div class="nav-icon">
+                <i class="ph {{ str_starts_with($currentRoute, 'student.achievements') ? 'ph-fill' : 'ph' }}-trophy"></i>
+            </div>
+            <span class="nav-label">Prestasi</span>
+        </a>
+        <a href="{{ route('student.settings.index') }}"
+            class="mobile-bottom-nav-item {{ str_starts_with($currentRoute, 'student.settings') ? 'active' : '' }}">
+            <div class="nav-icon">
+                <i class="ph {{ str_starts_with($currentRoute, 'student.settings') ? 'ph-fill' : 'ph' }}-gear"></i>
+            </div>
+            <span class="nav-label">Profil</span>
+        </a>
+    </nav>
 
     @stack('modals')
     @livewireScripts

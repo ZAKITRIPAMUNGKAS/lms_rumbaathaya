@@ -1,5 +1,6 @@
 import './bootstrap';
 import './premium';
+import './mobile';
 
 // Alpine.js is included by Livewire 3 automatically
 // We just need to add the Intersect plugin to Livewire's Alpine instance

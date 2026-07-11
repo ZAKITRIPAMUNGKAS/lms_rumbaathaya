@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\ProgramController;
 use App\Http\Controllers\Api\DocumentationController;
 use App\Http\Controllers\Api\TestimonialController;
 use App\Http\Controllers\ChatbotController;
+use App\Http\Controllers\Api\DeviceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,11 @@ Route::get('/health', function () {
         'timestamp' => now()->toIso8601String(),
     ]);
 })->name('api.health');
+
+// Mobile Device Registration (FCM Token) - requires auth session
+Route::middleware(['auth'])->group(function () {
+    Route::post('/device/register', [DeviceController::class, 'register'])->name('api.device.register');
+});
 
 // Public API routes (no authentication required)
 // Rate limiting: 60 requests per minute

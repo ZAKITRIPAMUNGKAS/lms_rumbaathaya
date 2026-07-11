@@ -7,7 +7,7 @@
     // Fetch data for landing page
     $posts = \App\Models\Post::where('is_published', true)
         ->orderBy('published_at', 'desc')
-        ->limit(3)
+        ->limit(6)
         ->get();
     
     $tutors = \App\Models\User::where('role', 'tutor')
@@ -510,95 +510,213 @@
         </div>
     </section>
 
-    <!-- Sahabat RA (Posts) Section -->
-    <section id="sahabatra" class="py-12 sm:py-16 md:py-20 bg-white relative overflow-hidden">
+    <!-- Sahabat RA (Posts) Section — REDESIGNED -->
+    <section id="sahabatra" class="py-16 sm:py-20 md:py-28 relative overflow-hidden">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-50 via-orange-50/40 to-amber-50/60 pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-orange-200/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-amber-200/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-10 md:mb-12 gap-4">
+
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-14 gap-6"
+                 x-data="{ loaded: false }" x-intersect.once="loaded = true"
+                 :class="loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+                 style="transition: all 0.6s cubic-bezier(0.4,0,0.2,1);">
                 <div>
-                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-orange-100 rounded-full shadow-sm mb-4">
-                        <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
-                        <span class="text-sm font-bold text-gray-600 tracking-wide uppercase">Mading Online</span>
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 bg-white border border-orange-200/80 rounded-full shadow-sm shadow-orange-100 mb-5">
+                        <span class="relative flex h-2.5 w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span>
+                        </span>
+                        <span class="text-xs font-bold text-orange-600 tracking-widest uppercase">📰 Mading Online</span>
                     </div>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 font-extrabold">Sahabat RA</span> <span class="text-slate-900">Mading</span>
+
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+                        Kabar dari <span class="relative">
+                            <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500">Sahabat RA</span>
+                            <svg class="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 5.5C50 1.5 100 7 150 3.5C175 1.5 190 4 199 3.5" stroke="url(#underlineGrad)" stroke-width="3" stroke-linecap="round"/>
+                                <defs><linearGradient id="underlineGrad" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#F97316"/><stop offset="0.5" stop-color="#F59E0B"/><stop offset="1" stop-color="#EF4444"/></linearGradient></defs>
+                            </svg>
+                        </span>
                     </h2>
-                    <p class="text-gray-500 mt-2 text-sm sm:text-base">
-                        Kabar terbaru, karya siswa, dan informasi pendidikan.
+                    <p class="text-slate-500 mt-3 text-base sm:text-lg font-medium max-w-xl">
+                        Kabar terbaru, karya siswa, dan inspirasi belajar dari keluarga besar Rumba Athaya.
                     </p>
                 </div>
-                <a href="{{ route('posts.index') }}" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange text-white rounded-xl font-semibold hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-200 hover:-translate-y-1">
-                    <span>Lihat Semua Berita</span>
-                    <i class="ph ph-arrow-right"></i>
+
+                <a href="{{ route('posts.index') }}"
+                   class="group flex-shrink-0 inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-2xl font-bold text-sm shadow-lg shadow-orange-400/30 hover:shadow-xl hover:shadow-orange-400/40 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+                    <i class="ph ph-newspaper text-lg"></i>
+                    <span>Lihat Semua Artikel</span>
+                    <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform duration-200"></i>
                 </a>
             </div>
 
             @if($posts->count() > 0)
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    @foreach($posts as $index => $post)
-                        <div class="group cursor-pointer bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 overflow-hidden hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 animate-fade-in-up"
-                             style="animation-delay: {{ $index * 100 }}ms">
-                            <a href="{{ route('posts.show', $post->slug) }}">
-                                <div class="relative overflow-hidden">
-                                    @if($post->thumbnail)
-                                        <div class="relative w-full h-52">
-                                            <img src="{{ $post->thumbnail_url }}" alt="{{ $post->title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                                        </div>
-                                    @else
-                                        <div class="w-full h-52 bg-gradient-to-br from-brand-orange/20 to-brand-blue/20 flex items-center justify-center">
-                                            <i class="ph ph-image text-5xl text-gray-400"></i>
-                                        </div>
-                                    @endif
-                                    @php
-                                        $categoryColors = [
-                                            'Kabar Rumba' => 'bg-blue-100 text-blue-700',
-                                            'Karya Siswa' => 'bg-brand-orange/90 text-white',
-                                            'default' => 'bg-green-100 text-green-700'
-                                        ];
-                                        $categoryColor = $categoryColors[$post->category ?? 'default'] ?? $categoryColors['default'];
-                                    @endphp
-                                    <div class="absolute top-4 left-4 backdrop-blur px-3 py-1 rounded-full text-xs font-bold {{ $categoryColor }}">
-                                        {{ $post->category ?? 'Artikel' }}
+                @php $featuredPost = $posts->first(); $otherPosts = $posts->skip(1); @endphp
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
+
+                    <!-- ===== FEATURED POST (Hero Card) ===== -->
+                    <div class="lg:col-span-3"
+                         x-data="{ loaded: false }" x-intersect.once="loaded = true"
+                         :class="loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
+                         style="transition: all 0.7s cubic-bezier(0.4,0,0.2,1);">
+                        <a href="{{ route('posts.show', $featuredPost->slug) }}"
+                           class="group block relative rounded-[2rem] overflow-hidden shadow-xl shadow-slate-200/60 hover:shadow-2xl hover:shadow-orange-200/40 hover:-translate-y-2 transition-all duration-500">
+
+                            <!-- Image -->
+                            <div class="relative h-72 sm:h-80 lg:h-[420px] overflow-hidden">
+                                @if($featuredPost->thumbnail)
+                                    <img src="{{ $featuredPost->thumbnail_url }}"
+                                         alt="{{ $featuredPost->title }}"
+                                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                                @else
+                                    <div class="w-full h-full bg-gradient-to-br from-orange-400 via-amber-400 to-rose-400 flex items-center justify-center">
+                                        <i class="ph ph-newspaper text-8xl text-white/30"></i>
                                     </div>
+                                @endif
+
+                                <!-- Gradient Overlay -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
+
+                                <!-- Category Badge -->
+                                @php
+                                    $catColors = ['Kabar Rumba' => 'from-blue-500 to-indigo-500', 'Karya Siswa' => 'from-orange-500 to-rose-500', 'Info' => 'from-emerald-500 to-teal-500'];
+                                    $catGrad = $catColors[$featuredPost->category] ?? 'from-slate-500 to-slate-600';
+                                @endphp
+                                <div class="absolute top-5 left-5">
+                                    <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-gradient-to-r {{ $catGrad }} text-white text-xs font-bold rounded-full shadow-lg backdrop-blur-sm">
+                                        <i class="ph ph-tag-simple"></i>
+                                        {{ $featuredPost->category ?? 'Artikel' }}
+                                    </span>
                                 </div>
-                                <div class="p-6">
-                                    <h3 class="text-xl font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-brand-orange transition">
-                                        {{ $post->title }}
+
+                                <!-- Featured Label -->
+                                <div class="absolute top-5 right-5">
+                                    <span class="inline-flex items-center gap-1 px-3 py-1.5 bg-white/20 backdrop-blur-md text-white text-xs font-bold rounded-full border border-white/30">
+                                        ⭐ Pilihan Editor
+                                    </span>
+                                </div>
+
+                                <!-- Content Overlay -->
+                                <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                                    <h3 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-3 leading-tight group-hover:text-amber-300 transition-colors duration-300 line-clamp-3">
+                                        {{ $featuredPost->title }}
                                     </h3>
-                                    <p class="text-gray-500 line-clamp-2 text-sm mb-4">
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($post->content ?? ''), 100) }}
-                                    </p>
-                                    <div class="flex items-center justify-between">
-                                        @if($post->published_at)
-                                            <span class="text-xs text-gray-500 flex items-center gap-1">
-                                                <i class="ph ph-calendar"></i>
-                                                {{ $post->published_at->format('d M Y') }}
-                                            </span>
-                                        @endif
-                                        <span class="text-brand-orange font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                                            Baca Selengkapnya
+                                    <div class="flex items-center justify-between gap-4">
+                                        <div class="flex items-center gap-2 text-white/70 text-sm">
+                                            @if($featuredPost->published_at)
+                                                <i class="ph ph-calendar text-orange-300"></i>
+                                                <span>{{ $featuredPost->published_at->format('d M Y') }}</span>
+                                            @endif
+                                        </div>
+                                        <span class="flex items-center gap-2 text-amber-300 font-bold text-sm group-hover:gap-3 transition-all duration-300">
+                                            Baca Artikel
                                             <i class="ph ph-arrow-right"></i>
                                         </span>
                                     </div>
                                 </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- ===== SIDE POST CARDS ===== -->
+                    <div class="lg:col-span-2 flex flex-col gap-6">
+                        @foreach($otherPosts as $index => $post)
+                            @php
+                                $catColorsSmall = ['Kabar Rumba' => 'bg-blue-100 text-blue-700 border-blue-200', 'Karya Siswa' => 'bg-orange-100 text-orange-700 border-orange-200', 'Info' => 'bg-emerald-100 text-emerald-700 border-emerald-200'];
+                                $catClass = $catColorsSmall[$post->category] ?? 'bg-slate-100 text-slate-600 border-slate-200';
+                            @endphp
+                            <div x-data="{ loaded: false }" x-intersect.once="loaded = true"
+                                 :class="loaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'"
+                                 style="transition: all 0.7s cubic-bezier(0.4,0,0.2,1); transition-delay: {{ ($index + 1) * 150 }}ms;">
+                                <a href="{{ route('posts.show', $post->slug) }}"
+                                   class="group flex gap-5 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:shadow-orange-100/50 hover:-translate-y-1 hover:border-orange-200/60 transition-all duration-300">
+                                    <!-- Thumbnail -->
+                                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-orange-100 to-amber-100">
+                                        @if($post->thumbnail)
+                                            <img src="{{ $post->thumbnail_url }}"
+                                                 alt="{{ $post->title }}"
+                                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                        @else
+                                            <div class="w-full h-full flex items-center justify-center">
+                                                <i class="ph ph-image text-3xl text-orange-300"></i>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!-- Text Content -->
+                                    <div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+                                        <div>
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border {{ $catClass }} mb-2">
+                                                {{ $post->category ?? 'Artikel' }}
+                                            </span>
+                                            <h3 class="font-bold text-slate-800 text-sm leading-snug line-clamp-2 group-hover:text-orange-500 transition-colors duration-200">
+                                                {{ $post->title }}
+                                            </h3>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-2">
+                                            @if($post->published_at)
+                                                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                                                    <i class="ph ph-calendar"></i>
+                                                    {{ $post->published_at->format('d M Y') }}
+                                                </span>
+                                            @endif
+                                            <span class="text-[11px] font-bold text-orange-500 flex items-center gap-0.5 group-hover:gap-1.5 transition-all">
+                                                Baca <i class="ph ph-arrow-right"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+
+                        <!-- CTA Mini Card -->
+                        <div x-data="{ loaded: false }" x-intersect.once="loaded = true"
+                             :class="loaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'"
+                             style="transition: all 0.7s cubic-bezier(0.4,0,0.2,1); transition-delay: 450ms;">
+                            <a href="{{ route('posts.index') }}"
+                               class="group flex items-center justify-between gap-4 p-5 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl shadow-lg shadow-orange-300/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                <div>
+                                    <p class="text-white/70 text-xs font-semibold uppercase tracking-widest">Mading Online</p>
+                                    <p class="text-white font-extrabold text-base leading-tight mt-0.5">Jelajahi Semua Artikel →</p>
+                                </div>
+                                <div class="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 group-hover:scale-110 transition-all duration-300">
+                                    <i class="ph ph-newspaper text-white text-2xl"></i>
+                                </div>
                             </a>
                         </div>
-                    @endforeach
+                    </div>
                 </div>
+
             @else
-                <div class="text-center py-16 bg-gray-50 rounded-2xl border border-gray-200">
-                    <i class="ph ph-newspaper text-6xl text-gray-400 mb-4"></i>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Belum Ada Postingan</h3>
-                    <p class="text-gray-600 mb-6">Kabar terbaru akan segera hadir!</p>
-                    <a href="{{ route('posts.index') }}" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange text-white rounded-xl font-semibold hover:bg-orange-600 hover:shadow-lg transition-all duration-200">
-                        <span>Kunjungi Halaman Sahabat RA</span>
-                        <i class="ph ph-arrow-right"></i>
+                <!-- Empty State -->
+                <div class="text-center py-20 bg-white/60 backdrop-blur-sm rounded-3xl border border-slate-100 shadow-sm"
+                     x-data="{ loaded: false }" x-intersect.once="loaded = true"
+                     :class="loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'"
+                     style="transition: all 0.6s ease;">
+                    <div class="w-20 h-20 bg-orange-100 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                        <i class="ph ph-newspaper text-4xl text-orange-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-slate-800 mb-2">Mading Segera Hadir!</h3>
+                    <p class="text-slate-500 mb-8 max-w-md mx-auto">Kabar terbaru dan karya siswa Rumba Athaya akan segera dipublikasikan di sini.</p>
+                    <a href="{{ route('posts.index') }}"
+                       class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-2xl font-bold shadow-lg shadow-orange-300/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <i class="ph ph-newspaper"></i>
+                        <span>Kunjungi Sahabat RA</span>
                     </a>
                 </div>
             @endif
         </div>
     </section>
 
+
     <!-- Tutors Section -->
+
     @if($tutors->count() > 0)
     <section class="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
