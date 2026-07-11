@@ -15,64 +15,68 @@
 
     <div class="max-w-6xl mx-auto relative z-10">
         <!-- Main Layout: Split Column using Flexbox (Robust & Responsive) -->
-        <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-16">
+        <div class="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-12 lg:gap-16">
             
             <!-- Left Side: App Pitch & Action Cards (Takes 60% on desktop) -->
-            <div class="w-full lg:w-[58%] space-y-8 text-center lg:text-left">
+            <div class="w-full lg:w-[58%] flex flex-col justify-between space-y-8 text-center lg:text-left">
                 
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-2.5 px-4 py-2 bg-orange-50 border border-orange-100 rounded-full text-xs font-bold text-orange-600 shadow-sm">
-                    <i class="ph ph-android-logo text-base"></i>
-                    <span>APLIKASI MOBILE ANDROID</span>
+                <div class="space-y-6">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 bg-orange-50 border border-orange-100 rounded-full text-xs font-bold text-orange-600 shadow-sm">
+                        <i class="ph ph-android-logo text-base"></i>
+                        <span>APLIKASI MOBILE ANDROID</span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <div class="space-y-4">
+                        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-slate-900">
+                            Belajar Lebih Mudah <br class="hidden sm:inline"/>
+                            Dalam <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-amber-500 font-extrabold">Satu Genggaman</span>
+                        </h1>
+                        <p class="text-slate-655 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
+                            Pantau jadwal les, materi belajar, presensi harian, dan terima notifikasi kegiatan realtime langsung dari handphone Anda.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Main Heading -->
-                <div class="space-y-4">
-                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-slate-900">
-                        Belajar Lebih Mudah <br class="hidden sm:inline"/>
-                        Dalam <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-amber-500 font-extrabold">Satu Genggaman</span>
-                    </h1>
-                    <p class="text-slate-650 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
-                        Pantau jadwal les, materi belajar, presensi harian, dan terima notifikasi kegiatan realtime langsung dari handphone Anda.
-                    </p>
-                </div>
-
-                <!-- Download Card Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                <!-- Download Card Grid (Ensuring equal height) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 flex-1">
                     <!-- Download Card -->
-                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/30 flex flex-col justify-between space-y-6">
-                        <div class="space-y-2">
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/30 flex flex-col justify-between h-full">
+                        <div class="space-y-3">
                             <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600">
                                 <i class="ph ph-download-simple text-xl"></i>
                             </div>
-                            <h3 class="font-bold text-base text-slate-800">Unduh Langsung APK</h3>
+                            <h3 class="font-extrabold text-base text-slate-800">Unduh Langsung APK</h3>
                             <p class="text-xs text-slate-500 leading-relaxed">Unduh file instalasi mentah aplikasi Rumba Athaya langsung ke HP Anda.</p>
                         </div>
                         
-                        <div class="space-y-3">
+                        <div class="space-y-3 pt-6">
+                            <!-- Corrected the gradient color from 'to-amber-550' to 'to-amber-500' to prevent white washout -->
                             <a href="{{ route('download') }}/../../apps/rumba-athaya.apk" download
-                               class="group flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-orange-500 to-amber-550 text-white rounded-xl font-bold text-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 w-full">
+                               class="group flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-extrabold text-sm shadow-md shadow-orange-500/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 w-full">
                                 <i class="ph ph-download-simple text-base group-hover:animate-bounce"></i>
                                 <span>Unduh APK</span>
                             </a>
-                            <div class="flex justify-between text-[10px] text-slate-400 px-1">
+                            <div class="flex justify-between text-[10px] text-slate-400 px-1 pt-1">
                                 <span>Ukuran: ~103 MB</span>
+                                <span>Versi: 1.0.0</span>
                                 <span>OS: Android 8.0+</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- QR Code Card -->
-                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/30 flex flex-col justify-between space-y-6">
-                        <div class="space-y-2">
+                    <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/30 flex flex-col justify-between h-full">
+                        <div class="space-y-3">
                             <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-650">
                                 <i class="ph ph-qr-code text-xl"></i>
                             </div>
-                            <h3 class="font-bold text-base text-slate-800">Pindai Kode QR</h3>
+                            <h3 class="font-extrabold text-base text-slate-800">Pindai Kode QR</h3>
                             <p class="text-xs text-slate-500 leading-relaxed">Arahkan kamera HP Anda ke kode QR untuk mengunduh instan.</p>
                         </div>
 
-                        <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                        <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100 pt-6">
                             <div class="w-14 h-14 bg-white p-1.5 rounded-lg border border-slate-200 flex items-center justify-center flex-shrink-0">
                                 <svg class="w-full h-full text-slate-800" viewBox="0 0 100 100" fill="currentColor">
                                     <path d="M0,0h40v40H0V0z M10,10v20h20V10H10z M60,0h40v40H60V0z M70,10v20h20V10H70z M0,60h40v40H0V60z M10,70v20h20V70H10z M50,50h10v10H50V50z M60,60h10v10H60V60z M70,50h10v10H70V50z M80,60h10v10H80V60z M50,70h10v10H50V70z M80,80h20v20H80V80z M60,90h20v10H60V90z" />
@@ -111,37 +115,54 @@
 
                         <!-- Screen Contents -->
                         <div class="w-full h-full bg-slate-900 text-white flex flex-col justify-between overflow-hidden relative" style="border-radius: 2.1rem;">
-                            <!-- App Header -->
-                            <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-4 pt-8 pb-4 text-left rounded-b-2xl shadow-lg">
+                            
+                            <!-- Android Status Bar (More Realistic) -->
+                            <div class="absolute top-1.5 left-0 right-0 px-6 flex justify-between items-center text-[9px] text-white/70 font-semibold z-45">
+                                <span>09:41</span>
+                                <div class="flex items-center gap-1">
+                                    <i class="ph ph-wifi-high text-[10px]"></i>
+                                    <i class="ph ph-battery-full text-[11px]"></i>
+                                </div>
+                            </div>
+
+                            <!-- App Header (Added margin-top to clear status bar and notch) -->
+                            <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-4 pt-7 pb-4 text-left rounded-b-2xl shadow-lg mt-3.5">
                                 <div class="flex items-center gap-2">
-                                    <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-7 h-7 object-contain rounded-lg" onerror="this.style.display='none'">
+                                    <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-6 h-6 object-contain rounded-lg bg-white/20 p-0.5" onerror="this.style.display='none'">
                                     <div>
-                                        <h4 class="text-xs font-bold leading-none">Rumba Athaya</h4>
-                                        <span class="text-[8px] text-orange-100 font-medium">Learning Management App</span>
+                                        <h4 class="text-[11px] font-extrabold leading-none text-white">Rumba Athaya</h4>
+                                        <span class="text-[7px] text-orange-100 font-medium">Learning Management</span>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Screen Mockup Inside -->
                             <div class="flex-1 p-4 flex flex-col justify-center items-center space-y-4">
-                                <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-3xl shadow-inner animate-pulse">
+                                <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-3xl shadow-inner animate-pulse">
                                     🎓
                                 </div>
                                 <div class="text-center space-y-1 px-2">
-                                    <h5 class="text-xs font-bold">Portal Siswa & Tutor</h5>
+                                    <h5 class="text-xs font-bold text-white">Portal Siswa & Tutor</h5>
                                     <p class="text-[9px] text-slate-400">Masuk untuk melihat jadwal kelas, absensi harian, jurnal, dan modul belajar secara praktis.</p>
                                 </div>
                                 <div class="w-full space-y-2 px-2">
-                                    <div class="w-full h-8 rounded-lg bg-white/5 border border-white/10 flex items-center px-3 text-[9px] text-slate-500 text-left">Email Pengguna</div>
-                                    <div class="w-full h-8 rounded-lg bg-white/5 border border-white/10 flex items-center px-3 text-[9px] text-slate-500 text-left">Kata Sandi</div>
+                                    <div class="w-full h-8 rounded-lg bg-white/5 border border-white/10 flex items-center px-3 text-[9px] text-slate-400 text-left">Email Pengguna</div>
+                                    <div class="w-full h-8 rounded-lg bg-white/5 border border-white/10 flex items-center px-3 text-[9px] text-slate-400 text-left">Kata Sandi</div>
                                 </div>
                             </div>
 
-                            <!-- App Button -->
-                            <div class="p-3 bg-slate-950 border-t border-white/5 flex justify-center items-center">
-                                <div class="w-full py-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg text-[9px] font-bold text-center">
+                            <!-- App Button & Android Nav Bar -->
+                            <div class="bg-slate-950 border-t border-white/5 flex flex-col items-center">
+                                <div class="w-[90%] my-3 py-2 bg-gradient-to-r from-orange-50 to-orange-500 text-white rounded-lg text-[9px] font-bold text-center" style="background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%)">
                                     Login Aplikasi
-                        </div>
+                                </div>
+                                
+                                <!-- Android Navigation Bar (Home, Back, Recents) -->
+                                <div class="w-full h-6 flex justify-around items-center px-8 pb-1.5 opacity-40">
+                                    <i class="ph ph-caret-left text-[10px] text-white"></i>
+                                    <div class="w-2.5 h-2.5 rounded-full border-2 border-white"></div>
+                                    <div class="w-2.5 h-2.5 rounded-md border-2 border-white"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -173,42 +194,49 @@
 
         </div>
 
-        <!-- Section 3: Installation Steps (Clean & Properly Spaced) -->
+        <!-- Section 3: Installation Steps (Clean & Equal Width/Height Grid) -->
         <div class="pt-16 border-t border-slate-200 max-w-4xl mx-auto space-y-12">
             <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 text-center">Panduan Pemasangan Aplikasi</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- grid items stretch automatically to make widths and heights equal -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                 <!-- Step 1 -->
-                <div class="bg-white border border-slate-100 p-8 rounded-3xl text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto text-lg font-extrabold shadow-sm">
-                        1
+                <div class="bg-white border border-slate-100 p-8 rounded-3xl text-center flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto text-lg font-extrabold shadow-sm">
+                            1
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800">Unduh APK</h3>
+                        <p class="text-sm text-slate-550 leading-relaxed">
+                            Ketuk tombol <span class="font-bold text-orange-600">"Unduh APK"</span> di atas untuk menyimpan file instalasi ke memori handphone Anda.
+                        </p>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800">Unduh APK</h3>
-                    <p class="text-sm text-slate-550 leading-relaxed">
-                        Ketuk tombol <span class="font-bold text-orange-600">"Unduh File APK"</span> di atas untuk menyimpan file instalasi ke memori handphone Anda.
-                    </p>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="bg-white border border-slate-100 p-8 rounded-3xl text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto text-lg font-extrabold shadow-sm">
-                        2
+                <div class="bg-white border border-slate-100 p-8 rounded-3xl text-center flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto text-lg font-extrabold shadow-sm">
+                            2
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800">Izinkan Pemasangan</h3>
+                        <p class="text-sm text-slate-550 leading-relaxed">
+                            Buka Pengaturan Keamanan HP, lalu aktifkan opsi <span class="font-bold text-slate-800">"Izinkan dari Sumber Tidak Dikenal"</span> jika diminta.
+                        </p>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800">Izinkan Sumber</h3>
-                    <p class="text-sm text-slate-550 leading-relaxed">
-                        Buka Pengaturan HP → Keamanan, lalu aktifkan opsi <span class="font-bold text-slate-800">"Izinkan Pemasangan dari Sumber Tidak Dikenal"</span> jika diminta.
-                    </p>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="bg-white border border-slate-100 p-8 rounded-3xl text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto text-lg font-extrabold shadow-sm">
-                        3
+                <div class="bg-white border border-slate-100 p-8 rounded-3xl text-center flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto text-lg font-extrabold shadow-sm">
+                            3
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800">Install & Jalankan</h3>
+                        <p class="text-sm text-slate-550 leading-relaxed">
+                            Buka File Manager, pilih <span class="font-bold text-slate-800">rumba-athaya.apk</span>, pasang aplikasi, lalu jalankan portal belajar Anda.
+                        </p>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800">Install & Jalankan</h3>
-                    <p class="text-sm text-slate-550 leading-relaxed">
-                        Buka File Manager, ketuk file <span class="font-bold text-slate-800">rumba-athaya.apk</span>, pilih <span class="font-bold text-indigo-600">Install / Pasang</span>, lalu buka aplikasinya.
-                    </p>
                 </div>
             </div>
         </div>
