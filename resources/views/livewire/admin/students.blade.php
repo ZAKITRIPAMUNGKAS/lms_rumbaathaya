@@ -42,53 +42,52 @@
     </div>
 
     <!-- Quick Stats -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-3 gap-3 sm:gap-6">
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-indigo-500/10 rounded-[2rem] p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-indigo-500/10 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 relative overflow-hidden group hover:-translate-y-0.5 transition-all duration-300">
             <div
                 class="absolute right-0 top-0 w-32 h-32 bg-indigo-100/50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-indigo-200/50 transition-colors">
             </div>
-            <div class="relative z-10 flex items-center gap-4">
+            <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-2xl shadow-sm">
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl sm:text-2xl shadow-sm flex-shrink-0">
                     <i class="ph-fill ph-student"></i>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-black text-slate-800">{{ $this->stats['total'] }}</h3>
-                    <p class="text-sm font-bold text-slate-500">Total Siswa</p>
+                <div class="min-w-0">
+                    <h3 class="text-xl sm:text-3xl font-black text-slate-800 leading-none">{{ $this->stats['total'] }}</h3>
+                    <p class="text-[10px] sm:text-sm font-bold text-slate-500 mt-1 leading-none">Total Siswa</p>
                 </div>
             </div>
         </div>
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-emerald-500/10 rounded-[2rem] p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-emerald-500/10 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 relative overflow-hidden group hover:-translate-y-0.5 transition-all duration-300">
             <div
                 class="absolute right-0 top-0 w-32 h-32 bg-emerald-100/50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-emerald-200/50 transition-colors">
             </div>
-            <div class="relative z-10 flex items-center gap-4">
+            <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl shadow-sm">
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl sm:text-2xl shadow-sm flex-shrink-0">
                     <i class="ph-fill ph-user-check"></i>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-black text-slate-800">{{ $this->stats['active'] ?: $this->stats['total'] }}
-                    </h3>
-                    <p class="text-sm font-bold text-slate-500">Siswa Aktif</p>
+                <div class="min-w-0">
+                    <h3 class="text-xl sm:text-3xl font-black text-slate-800 leading-none">{{ $this->stats['active'] ?: $this->stats['total'] }}</h3>
+                    <p class="text-[10px] sm:text-sm font-bold text-slate-500 mt-1 leading-none">Siswa Aktif</p>
                 </div>
             </div>
         </div>
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-amber-500/10 rounded-[2rem] p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg shadow-amber-500/10 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 relative overflow-hidden group hover:-translate-y-0.5 transition-all duration-300">
             <div
                 class="absolute right-0 top-0 w-32 h-32 bg-amber-100/50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-amber-200/50 transition-colors">
             </div>
-            <div class="relative z-10 flex items-center gap-4">
+            <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl shadow-sm">
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl sm:text-2xl shadow-sm flex-shrink-0">
                     <i class="ph-fill ph-sparkle"></i>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-black text-slate-800">{{ $this->stats['new'] }}</h3>
-                    <p class="text-sm font-bold text-slate-500">Siswa Baru</p>
+                <div class="min-w-0">
+                    <h3 class="text-xl sm:text-3xl font-black text-slate-800 leading-none">{{ $this->stats['new'] }}</h3>
+                    <p class="text-[10px] sm:text-sm font-bold text-slate-500 mt-1 leading-none">Siswa Baru</p>
                 </div>
             </div>
         </div>

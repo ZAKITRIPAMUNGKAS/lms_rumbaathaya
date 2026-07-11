@@ -1,11 +1,11 @@
+@import 'tailwindcss';
+@import './premium.css';
+@import './mobile.css';
+
 /* Alpine.js x-cloak - Prevent FOUC (Flash of Unstyled Content) */
 [x-cloak] { 
     display: none !important; 
 }
-
-@import 'tailwindcss';
-@import './premium.css';
-@import './mobile.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';

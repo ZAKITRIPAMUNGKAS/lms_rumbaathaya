@@ -42,43 +42,43 @@
     </div>
 
     <!-- Stats Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-3 gap-3 sm:gap-6">
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-violet-500/10 rounded-[2rem] p-6">
-            <div class="flex items-center gap-4">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-violet-500/10 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6">
+            <div class="flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-600 flex items-center justify-center text-white shadow-lg">
-                    <i class="ph-fill ph-star text-2xl"></i>
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-600 flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                    <i class="ph-fill ph-star text-lg sm:text-2xl"></i>
                 </div>
-                <div>
-                    <p class="text-sm font-bold text-slate-500 uppercase tracking-wide">Total</p>
-                    <p class="text-3xl font-black text-slate-800">{{ $this->stats['total'] }}</p>
+                <div class="min-w-0">
+                    <p class="text-[10px] sm:text-sm font-bold text-slate-500 uppercase tracking-wide leading-none">Total</p>
+                    <p class="text-xl sm:text-3xl font-black text-slate-800 mt-1 leading-none">{{ $this->stats['total'] }}</p>
                 </div>
             </div>
         </div>
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-emerald-500/10 rounded-[2rem] p-6">
-            <div class="flex items-center gap-4">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-emerald-500/10 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6">
+            <div class="flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg">
-                    <i class="ph-fill ph-check-circle text-2xl"></i>
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                    <i class="ph-fill ph-check-circle text-lg sm:text-2xl"></i>
                 </div>
-                <div>
-                    <p class="text-sm font-bold text-slate-500 uppercase tracking-wide">Dipublikasikan</p>
-                    <p class="text-3xl font-black text-slate-800">{{ $this->stats['published'] }}</p>
+                <div class="min-w-0">
+                    <p class="text-[10px] sm:text-sm font-bold text-slate-500 uppercase tracking-wide leading-none truncate">Publik</p>
+                    <p class="text-xl sm:text-3xl font-black text-slate-800 mt-1 leading-none">{{ $this->stats['published'] }}</p>
                 </div>
             </div>
         </div>
         <div
-            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-amber-500/10 rounded-[2rem] p-6">
-            <div class="flex items-center gap-4">
+            class="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl shadow-amber-500/10 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6">
+            <div class="flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white shadow-lg">
-                    <i class="ph-fill ph-clock text-2xl"></i>
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                    <i class="ph-fill ph-clock text-lg sm:text-2xl"></i>
                 </div>
-                <div>
-                    <p class="text-sm font-bold text-slate-500 uppercase tracking-wide">Draft</p>
-                    <p class="text-3xl font-black text-slate-800">{{ $this->stats['unpublished'] }}</p>
+                <div class="min-w-0">
+                    <p class="text-[10px] sm:text-sm font-bold text-slate-500 uppercase tracking-wide leading-none">Draft</p>
+                    <p class="text-xl sm:text-3xl font-black text-slate-800 mt-1 leading-none">{{ $this->stats['unpublished'] }}</p>
                 </div>
             </div>
         </div>

@@ -72,7 +72,7 @@
     </div>
 
     <!-- Stats Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         <!-- Siswa Ajar -->
         <x-glass-card hover="true" class="p-5 h-full flex items-center gap-4 bg-white/60 group">
             <div
