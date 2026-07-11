@@ -213,7 +213,9 @@
             // Check if not running inside Capacitor (native webview) already
             const isNativeApp = typeof window.Capacitor !== 'undefined' || window.location.search.includes('platform=android');
 
-            if (isMobileDevice && !isDismissed && !isNativeApp) {
+            const isDownloadPage = window.location.pathname.includes('download') || window.location.pathname.includes('unduh');
+            
+            if (isMobileDevice && !isDismissed && !isNativeApp && !isDownloadPage) {
                 setTimeout(() => {
                     const popup = document.getElementById('mobile-app-popup');
                     if (popup) {
