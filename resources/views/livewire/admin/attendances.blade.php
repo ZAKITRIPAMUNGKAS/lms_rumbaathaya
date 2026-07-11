@@ -50,8 +50,8 @@
                     class="w-full pl-11 pr-4 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-amber-400 rounded-xl transition-all font-semibold text-slate-700 placeholder-slate-400">
             </div>
             
-            <div class="flex flex-wrap gap-3 xl:w-auto w-full">
-                <div class="relative flex-1 min-w-[140px]">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full xl:w-auto">
+                <div class="relative w-full">
                     <select wire:model.live="studentFilter" class="w-full pl-4 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-amber-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
                         <option value="">👨‍🎓 Semua Siswa</option>
                         @foreach($students as $student)
@@ -61,7 +61,7 @@
                     <i class="ph-bold ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
                 </div>
 
-                <div class="relative flex-1 min-w-[140px]">
+                <div class="relative w-full">
                     <select wire:model.live="tutorFilter" class="w-full pl-4 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-amber-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
                         <option value="">👨‍🏫 Semua Tutor</option>
                         @foreach($tutors as $tutor)
@@ -71,7 +71,7 @@
                     <i class="ph-bold ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
                 </div>
 
-                <div class="relative flex-1 min-w-[140px]">
+                <div class="relative w-full">
                     <select wire:model.live="statusFilter" class="w-full pl-4 pr-10 py-3 bg-white/50 border border-white focus:bg-white focus:ring-2 focus:ring-amber-400 rounded-xl transition-all font-semibold text-slate-700 appearance-none cursor-pointer">
                          <option value="">📊 Semua Status</option>
                         <option value="present">Hadir</option>
