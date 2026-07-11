@@ -29,7 +29,8 @@
             </p>
         </div>
     @else
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Desktop Grid View (Visible on Desktop, hidden on Mobile) -->
+        <div class="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             <!-- Iterate through days of the week to maintain order -->
             @php
                 $orderedDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -105,6 +106,66 @@
                             </div>
                         @endif
                     </div>
+                </div>
+            @endforeach
+        </div>
+
+        <!-- Mobile List View (Visible on Mobile, hidden on Desktop) -->
+        <div class="md:hidden space-y-4">
+            @foreach($orderedDays as $dayEnglish)
+                @php
+                    $daySchedules = $groupedSchedules->get($dayEnglish);
+                    $isToday = $dayEnglish === $todayName;
+                    $dayIndo = $daysOfWeek[$dayEnglish];
+                @endphp
+                
+                <div class="p-4 rounded-[2rem] bg-white border border-slate-100/80 shadow-sm relative overflow-hidden {{ $isToday ? 'ring-2 ring-indigo-500/20 bg-indigo-50/5' : '' }}">
+                    @if($isToday)
+                        <span class="absolute top-4 right-4 px-2 py-0.5 bg-indigo-100 text-indigo-700 text-[9px] font-black uppercase rounded-full border border-indigo-200">Hari Ini</span>
+                    @endif
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="font-extrabold text-slate-800 text-base">{{ $dayIndo }}</span>
+                            @if($daySchedules && $daySchedules->isNotEmpty())
+                                <span class="px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 text-[10px] font-bold">{{ $daySchedules->count() }} Sesi</span>
+                            @endif
+                        </div>
+                    </div>
+                    
+                    @if($daySchedules && $daySchedules->isNotEmpty())
+                        <div class="space-y-2 mt-3">
+                            @foreach($daySchedules as $schedule)
+                                <div class="p-3 rounded-xl bg-slate-50/70 border border-slate-100/50 flex items-center justify-between gap-4">
+                                    <div class="min-w-0">
+                                        <div class="flex items-center gap-2">
+                                            <span class="px-2 py-0.5 rounded-md bg-indigo-100 text-indigo-700 text-[9px] font-black uppercase tracking-wider">
+                                                {{ $schedule->subject->name ?? 'Materi' }}
+                                            </span>
+                                            <span class="text-xs font-semibold text-slate-500 flex items-center gap-1">
+                                                <i class="ph ph-clock text-indigo-400"></i>
+                                                {{ \Carbon\Carbon::parse($schedule->time_start)->format('H:i') }}
+                                            </span>
+                                        </div>
+                                        @if($schedule->tutor)
+                                            <div class="flex items-center gap-1.5 mt-1.5 text-xs text-slate-600">
+                                                <i class="ph-fill ph-user text-slate-400"></i>
+                                                <span class="font-semibold truncate text-[11px]">{{ $schedule->tutor->name }}</span>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="text-[10px] font-bold text-slate-400 bg-slate-100/50 px-2 py-1 rounded-md shrink-0">
+                                        {{ $schedule->location ?? 'Ruang Kelas' }}
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="flex items-center gap-2 text-slate-400/80 mt-1">
+                            <i class="ph ph-coffee text-sm"></i>
+                            <span class="text-xs font-semibold">Libur — Tidak ada jadwal</span>
+                        </div>
+                    @endif
                 </div>
             @endforeach
         </div>
