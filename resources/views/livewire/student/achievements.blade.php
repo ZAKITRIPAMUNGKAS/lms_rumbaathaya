@@ -11,64 +11,64 @@
     </div>
 
     <!-- Stats Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <!-- Avg Score -->
         <div
-            class="bg-white/80 backdrop-blur-xl border border-white/60 p-6 rounded-[2rem] shadow-sm hover:shadow-lg transition-all group">
-            <div class="flex items-center gap-4">
+            class="bg-white/80 backdrop-blur-xl border border-white/60 p-4 sm:p-6 rounded-2xl sm:rounded-[2rem] shadow-sm hover:shadow-lg transition-all group">
+            <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30 group-hover:scale-110 transition-transform duration-300">
-                    <i class="ph ph-chart-line-up text-2xl"></i>
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                    <i class="ph ph-chart-line-up text-lg sm:text-2xl"></i>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-extrabold text-slate-800 tracking-tight">
+                <div class="min-w-0">
+                    <h3 class="text-xl sm:text-3xl font-extrabold text-slate-800 tracking-tight leading-none">
                         {{ number_format($stats['average'], 1) }}</h3>
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">Rata-rata Nilai</p>
+                    <p class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wide mt-1 leading-none">Rata-rata Nilai</p>
                 </div>
             </div>
         </div>
 
         <!-- Highest Score -->
         <div
-            class="bg-white/80 backdrop-blur-xl border border-white/60 p-6 rounded-[2rem] shadow-sm hover:shadow-lg transition-all group">
-            <div class="flex items-center gap-4">
+            class="bg-white/80 backdrop-blur-xl border border-white/60 p-4 sm:p-6 rounded-2xl sm:rounded-[2rem] shadow-sm hover:shadow-lg transition-all group">
+            <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-300">
-                    <i class="ph ph-crown text-2xl"></i>
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                    <i class="ph ph-crown text-lg sm:text-2xl"></i>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-extrabold text-slate-800 tracking-tight">{{ $stats['highest'] }}</h3>
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">Nilai Tertinggi</p>
+                <div class="min-w-0">
+                    <h3 class="text-xl sm:text-3xl font-extrabold text-slate-800 tracking-tight leading-none">{{ $stats['highest'] }}</h3>
+                    <p class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wide mt-1 leading-none">Nilai Tertinggi</p>
                 </div>
             </div>
         </div>
 
         <!-- Total Reports -->
         <div
-            class="bg-white/80 backdrop-blur-xl border border-white/60 p-6 rounded-[2rem] shadow-sm hover:shadow-lg transition-all group">
-            <div class="flex items-center gap-4">
+            class="bg-white/80 backdrop-blur-xl border border-white/60 p-4 sm:p-6 rounded-2xl sm:rounded-[2rem] shadow-sm hover:shadow-lg transition-all group">
+            <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/30 group-hover:scale-110 transition-transform duration-300">
-                    <i class="ph ph-check-circle text-2xl"></i>
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/30 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                    <i class="ph ph-check-circle text-lg sm:text-2xl"></i>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-extrabold text-slate-800 tracking-tight">{{ $stats['reports'] }}</h3>
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">Laporan Selesai</p>
+                <div class="min-w-0">
+                    <h3 class="text-xl sm:text-3xl font-extrabold text-slate-800 tracking-tight leading-none">{{ $stats['reports'] }}</h3>
+                    <p class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wide mt-1 leading-none">Laporan Selesai</p>
                 </div>
             </div>
         </div>
 
         <!-- Materials -->
         <div
-            class="bg-white/80 backdrop-blur-xl border border-white/60 p-6 rounded-[2rem] shadow-sm hover:shadow-lg transition-all group">
-            <div class="flex items-center gap-4">
+            class="bg-white/80 backdrop-blur-xl border border-white/60 p-4 sm:p-6 rounded-2xl sm:rounded-[2rem] shadow-sm hover:shadow-lg transition-all group">
+            <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-4">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform duration-300">
-                    <i class="ph ph-books text-2xl"></i>
+                    class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                    <i class="ph ph-books text-lg sm:text-2xl"></i>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-extrabold text-slate-800 tracking-tight">{{ $stats['materials'] }}</h3>
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">Materi Tersedia</p>
+                <div class="min-w-0">
+                    <h3 class="text-xl sm:text-3xl font-extrabold text-slate-800 tracking-tight leading-none">{{ $stats['materials'] }}</h3>
+                    <p class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wide mt-1 leading-none">Materi Tersedia</p>
                 </div>
             </div>
         </div>
