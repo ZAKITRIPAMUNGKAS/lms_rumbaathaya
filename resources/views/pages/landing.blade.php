@@ -25,7 +25,7 @@
 
 <div class="web-only-layout min-h-screen">
     <!-- Hero Section - Enhanced & Vibrant -->
-    <section id="home" class="relative pt-8 sm:pt-12 md:pt-16 pb-20 sm:pb-24 md:pb-28 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+    <section id="home" class="relative pt-20 sm:pt-24 md:pt-28 pb-20 sm:pb-24 md:pb-28 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
         <!-- Animated Background Blobs -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-300/30 to-amber-300/30 rounded-full blur-3xl animate-blob"></div>
@@ -355,7 +355,7 @@
     </section>
 
     <!-- Features Grid -->
-    <section id="features" class="py-24 px-6 relative bg-slate-50">
+    <section id="features" class="scroll-mt-20 py-24 px-6 relative bg-slate-50">
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-16">
                 <h2 class="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3">Keunggulan Kami</h2>
@@ -419,7 +419,7 @@
     </section>
 
     <!-- Programs Section -->
-    <section id="program" class="py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-50 relative">
+    <section id="program" class="scroll-mt-20 py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-50 relative">
         <div class="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[50px] fill-white">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
@@ -537,7 +537,7 @@
     </section>
 
     <!-- Sahabat RA (Posts) Section — REDESIGNED -->
-    <section id="sahabatra" class="py-16 sm:py-20 md:py-28 relative overflow-hidden">
+    <section id="sahabatra" class="scroll-mt-20 py-16 sm:py-20 md:py-28 relative overflow-hidden">
         <!-- Background Decoration -->
         <div class="absolute inset-0 bg-gradient-to-br from-slate-50 via-orange-50/40 to-amber-50/60 pointer-events-none"></div>
         <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-orange-200/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
