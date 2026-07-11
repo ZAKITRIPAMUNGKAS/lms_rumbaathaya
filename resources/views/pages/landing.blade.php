@@ -978,12 +978,12 @@
         </script>
     @else
         {{-- Welcome & Onboarding View --}}
-        <div class="relative z-10 flex flex-col min-h-screen justify-between py-12 px-6">
+        <div class="relative z-10 flex flex-col min-h-screen justify-between pt-8 pb-24 px-6">
             
             {{-- Header/Logo --}}
-            <div class="flex flex-col items-center text-center mt-6">
-                <div class="w-20 h-20 rounded-3xl bg-white shadow-xl shadow-orange-500/10 border border-slate-100 flex items-center justify-center p-2 mb-4">
-                    <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-full h-full object-contain">
+            <div class="flex flex-col items-center text-center mt-4">
+                <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-orange-500 to-amber-500 shadow-xl shadow-orange-500/20 flex items-center justify-center p-3 mb-4">
+                    <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-full h-full object-contain brightness-0 invert">
                 </div>
                 <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">Rumba Athaya</h1>
                 <p class="text-[11px] text-orange-600 font-bold uppercase tracking-widest mt-1">Learning Management System</p>
