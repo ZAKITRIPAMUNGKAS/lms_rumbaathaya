@@ -82,8 +82,8 @@
                 </div>
             </div>
 
-            <!-- Right Column: Interactive Phone Mockup (Spans 5 columns on desktop) -->
-            <div class="lg:col-span-5 flex items-center justify-center"
+            <!-- Right Column: Interactive Phone Mockup (Spans 5 columns on desktop, hidden on mobile/tablet) -->
+            <div class="lg:col-span-5 hidden lg:flex items-center justify-center"
                  x-data="{ activeScreen: 'login' }"
                  x-init="setInterval(() => { activeScreen = activeScreen === 'login' ? 'dashboard' : 'login' }, 5000)">
                 
