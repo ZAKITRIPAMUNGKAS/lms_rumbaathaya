@@ -37,6 +37,11 @@ function initSplashScreen() {
 async function initCapacitor() {
     if (!isCapacitor()) return;
 
+    // ⚡ CRITICAL: Mark as capacitor IMMEDIATELY (before any async calls)
+    // This ensures CSS hides .web-only-layout and shows .app-only-layout
+    // BEFORE the splash screen fades out. No flash possible.
+    document.documentElement.classList.add('capacitor-platform');
+
     try {
         // Initialize Status Bar
         if (window.Capacitor.Plugins?.StatusBar) {
@@ -46,14 +51,12 @@ async function initCapacitor() {
             await StatusBar.show();
         }
 
-        // Initialize Splash Screen
+        // Hide native Splash Screen manually (launchAutoHide: false in config)
         if (window.Capacitor.Plugins?.SplashScreen) {
             const { SplashScreen } = window.Capacitor.Plugins;
-            setTimeout(() => SplashScreen.hide(), 1500);
+            // Give web splash 1200ms to take over before native splash fully disappears
+            setTimeout(() => SplashScreen.hide({ fadeOutDuration: 300 }), 1200);
         }
-
-        // Mark body as capacitor platform
-        document.documentElement.classList.add('capacitor-platform');
 
         // Initialize Push Notifications
         initPushNotifications();
