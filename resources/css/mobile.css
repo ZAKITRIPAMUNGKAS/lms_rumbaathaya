@@ -403,7 +403,7 @@ textarea {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 #app-splash.hidden {

@@ -20,16 +20,18 @@ function initSplashScreen() {
     const splash = document.getElementById('app-splash');
     if (!splash) return;
 
-    // Hide splash after page loads
     const hideSplash = () => {
+        splash.style.transition = 'opacity 0.25s ease, visibility 0.25s ease';
         splash.classList.add('hidden');
-        setTimeout(() => splash.remove(), 500);
+        setTimeout(() => splash.remove(), 300);
     };
 
-    if (document.readyState === 'complete') {
-        setTimeout(hideSplash, 800);
+    // Hide quickly after DOM is ready (CSS is already loaded since it's render-blocking)
+    // No need to wait for 'load' event (images/fonts) — that adds unnecessary delay
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(hideSplash, 300);
     } else {
-        window.addEventListener('load', () => setTimeout(hideSplash, 800));
+        document.addEventListener('DOMContentLoaded', () => setTimeout(hideSplash, 300));
     }
 }
 
@@ -51,11 +53,11 @@ async function initCapacitor() {
             await StatusBar.show();
         }
 
-        // Hide native Splash Screen manually (launchAutoHide: false in config)
+        // Hide native Splash Screen quickly (launchAutoHide: false in config)
         if (window.Capacitor.Plugins?.SplashScreen) {
             const { SplashScreen } = window.Capacitor.Plugins;
-            // Give web splash 1200ms to take over before native splash fully disappears
-            setTimeout(() => SplashScreen.hide({ fadeOutDuration: 300 }), 1200);
+            // Hide almost immediately — web splash already covers the transition
+            setTimeout(() => SplashScreen.hide({ fadeOutDuration: 150 }), 100);
         }
 
         // Initialize Push Notifications
