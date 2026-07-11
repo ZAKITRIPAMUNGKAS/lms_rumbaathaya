@@ -3,6 +3,11 @@
 @section('title', 'Unduh Aplikasi Mobile')
 
 @section('content')
+{{-- Resolve APK URL: prefer APP_APK_URL from .env (public hosting), fallback to local route --}}
+@php
+    $apkUrl = env('APP_APK_URL') ?: url('/apps/rumba-athaya.apk');
+@endphp
+
 {{-- ============================================================
      DOWNLOAD PAGE — Rumba Athaya
      Layout: Split Column (Left: Copy + Cards | Right: Mockup)
@@ -66,7 +71,7 @@
 
                         {{-- CTA Button --}}
                         <div class="space-y-3">
-                            <a href="/apps/rumba-athaya.apk" download
+                            <a href="{{ $apkUrl }}" download
                                class="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl font-bold text-sm text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-500/25"
                                style="background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%)">
                                 <i class="ph ph-download-simple text-base"></i>
@@ -357,7 +362,7 @@
 @push('scripts')
 <script>
     (function () {
-        var apkUrl = '{{ url("/apps/rumba-athaya.apk") }}';
+        var apkUrl = '{{ $apkUrl }}';
 
         function generateQR() {
             var wrapper = document.getElementById('qr-canvas-wrapper');
