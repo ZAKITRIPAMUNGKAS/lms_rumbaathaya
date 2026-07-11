@@ -1,4 +1,6 @@
 import './bootstrap';
+import '../css/premium.css';
+import '../css/mobile.css';
 import './premium';
 import './mobile';
 

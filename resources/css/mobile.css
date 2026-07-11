@@ -21,10 +21,7 @@
     }
 
     body {
-        overscroll-behavior-y: none;
         -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-        user-select: none;
     }
 
     /* Prevent horizontal scroll */
