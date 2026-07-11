@@ -10,7 +10,7 @@
         <div class="absolute -top-20 -right-20 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl animate-pulse"></div>
 
-        <div class="relative z-10 w-full max-w-md px-4" x-data="{ showPassword: false }">
+        <div class="relative z-10 w-full max-w-md px-4" x-data="{ showPassword: false, loading: false }">
             <div
                 class="bg-white/80 backdrop-blur-xl rounded-[2rem] shadow-lg shadow-gray-200/50 border border-gray-100 overflow-hidden">
                 <!-- Header -->
@@ -52,7 +52,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('login') }}" class="space-y-6">
+                    <form method="POST" action="{{ route('login') }}" class="space-y-6" @submit="if ($el.checkValidity()) loading = true">
                         @csrf
 
                         <!-- Email -->
@@ -107,7 +107,7 @@
                             @endif
                         </div>
 
-                        <!-- Message for backend error handling (simulated from React logic, mainly for visual parity if needed, but Blade handles errors via $errors usually) -->
+                        <!-- Message for backend error handling -->
 
                         <button type="submit"
                             class="w-full bg-gradient-to-r from-brand-blue via-blue-600 to-brand-orange text-white py-3.5 rounded-xl font-bold text-base shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all duration-200 flex items-center justify-center gap-2 transform active:scale-95">
@@ -124,6 +124,21 @@
                         </div>
                     </form>
                 </div>
+            </div>
+
+            <!-- Full-screen Loading Overlay -->
+            <div x-show="loading" 
+                 x-transition:enter="transition ease-out duration-300" 
+                 x-transition:enter-start="opacity-0" 
+                 x-transition:enter-end="opacity-100" 
+                 class="fixed inset-0 z-[10000] bg-slate-950/80 backdrop-blur-md flex flex-col items-center justify-center text-white text-center p-6" 
+                 style="display: none;">
+                <div class="w-16 h-16 rounded-2xl bg-white shadow-xl flex items-center justify-center mb-6 border border-slate-200 animate-bounce">
+                    <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-10 h-10 object-contain">
+                </div>
+                <div class="w-10 h-10 border-4 border-orange-500/20 border-t-orange-500 rounded-full animate-spin mb-4" style="border-top-color: #F59E0B"></div>
+                <h3 class="text-lg font-bold text-white tracking-tight">Memverifikasi Akun...</h3>
+                <p class="text-xs text-slate-400 mt-1">Mohon tunggu sebentar, kami sedang menghubungkan Anda</p>
             </div>
         </div>
     </div>
