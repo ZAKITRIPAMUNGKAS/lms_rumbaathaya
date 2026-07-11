@@ -201,13 +201,6 @@
             </div>
             <span class="nav-label">Jadwal</span>
         </a>
-        <button @click="sidebarOpen = !sidebarOpen"
-            class="mobile-bottom-nav-item" :class="sidebarOpen ? 'active' : ''">
-            <div class="nav-icon">
-                <i class="ph ph-dots-three-outline-fill"></i>
-            </div>
-            <span class="nav-label">Lainnya</span>
-        </button>
     </nav>
 
     @stack('modals')
