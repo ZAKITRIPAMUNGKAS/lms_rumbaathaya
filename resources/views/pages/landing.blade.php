@@ -25,7 +25,7 @@
 
 <div class="web-only-layout min-h-screen">
     <!-- Hero Section - Enhanced & Vibrant -->
-    <section id="home" class="relative pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-24 md:pb-28 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+    <section id="home" class="relative pt-8 sm:pt-12 md:pt-16 pb-20 sm:pb-24 md:pb-28 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
         <!-- Animated Background Blobs -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-300/30 to-amber-300/30 rounded-full blur-3xl animate-blob"></div>
