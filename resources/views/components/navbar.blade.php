@@ -185,7 +185,5 @@
     </div>
 </div>
 
-<!-- Spacer untuk fixed top header navbar -->
-<div class="h-14"></div>
 <!-- Spacer untuk mobile bottom navigation bar -->
 <div class="h-16 lg:hidden"></div>

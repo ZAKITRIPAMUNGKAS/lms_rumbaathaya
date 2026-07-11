@@ -98,7 +98,7 @@
         <x-navbar />
 
         <!-- Main Content -->
-        <main>
+        <main class="{{ request()->routeIs('home') ? '' : 'pt-14' }}">
             @yield('content')
         </main>
 
