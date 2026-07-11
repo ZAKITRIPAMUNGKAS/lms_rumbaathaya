@@ -180,8 +180,8 @@
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                 <div class="p-6 rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-lg hover:shadow-xl transition-all">
+            <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                 <div class="p-3.5 sm:p-6 rounded-2xl sm:rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-lg hover:shadow-xl transition-all">
                     @include('livewire.partials.area-chart', [
                         'title' => 'Kehadiran',
                         'data' => $charts['attendances'] ?? [],
@@ -190,7 +190,7 @@
                     ])
                 </div>
                 
-                <div class="p-6 rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-lg hover:shadow-xl transition-all">
+                 <div class="p-3.5 sm:p-6 rounded-2xl sm:rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-lg hover:shadow-xl transition-all">
                     @include('livewire.partials.area-chart', [
                         'title' => 'Pendaftaran',
                         'data' => $charts['registrations'] ?? [],
@@ -199,7 +199,7 @@
                     ])
                 </div>
                 
-                <div class="p-6 rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-lg hover:shadow-xl transition-all">
+                 <div class="p-3.5 sm:p-6 rounded-2xl sm:rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-lg hover:shadow-xl transition-all">
                     @include('livewire.partials.area-chart', [
                         'title' => 'Materi Baru',
                         'data' => $charts['materials'] ?? [],
@@ -208,7 +208,7 @@
                     ])
                 </div>
                 
-                <div class="p-6 rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-lg hover:shadow-xl transition-all">
+                 <div class="p-3.5 sm:p-6 rounded-2xl sm:rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-lg hover:shadow-xl transition-all">
                     @include('livewire.partials.area-chart', [
                         'title' => 'Jadwal Kelas',
                         'data' => $charts['schedules'] ?? [],
