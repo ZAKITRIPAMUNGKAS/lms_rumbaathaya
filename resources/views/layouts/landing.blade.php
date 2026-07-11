@@ -75,6 +75,14 @@
 
 <body class="min-h-screen bg-[#F8FAFC] font-sans selection:bg-orange-100 overflow-x-hidden text-slate-900"
     style="font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;">
+    <!-- Splash Screen (shown while page loads on mobile) -->
+    <div id="app-splash" class="md:hidden">
+        <img src="{{ asset('Logo.png') }}" alt="Logo" class="splash-logo" onerror="this.style.display='none'">
+        <div class="splash-title">Rumba Athaya</div>
+        <div class="splash-subtitle">Learning Management System</div>
+        <div class="splash-spinner"></div>
+    </div>
+
     <!-- Ambient Background -->
     <x-ambient-background />
 
