@@ -32,5 +32,7 @@ error3.txt
 # Android / Capacitor — jangan commit ke GitHub
 android/
 google-services.json
+/public/apps/
+
 
 debug_output.md
