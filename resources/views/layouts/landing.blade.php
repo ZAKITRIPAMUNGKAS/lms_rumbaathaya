@@ -76,6 +76,11 @@
             display: flex !important;
             flex-direction: column !important;
         }
+
+        /* Prevent white gap from top navigation bar spacer inside Android APK */
+        .capacitor-platform main {
+            padding-top: 0 !important;
+        }
     </style>
 </head>
 
