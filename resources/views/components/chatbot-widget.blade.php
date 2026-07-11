@@ -1,4 +1,4 @@
-<div x-data="chatbotWidget()" class="fixed bottom-6 right-6 z-[9999]">
+<div x-data="chatbotWidget()" class="fixed md:bottom-6 md:right-6 bottom-24 right-4 z-[9999]">
     <!-- Chat Button -->
     <button @click="isOpen = !isOpen"
         class="w-16 h-16 bg-brand-orange rounded-full shadow-2xl hover:bg-orange-600 transition-all duration-300 flex items-center justify-center text-white text-2xl ring-4 ring-orange-200/50 relative z-[9999]"
@@ -14,7 +14,7 @@
         x-transition:leave="transition ease-in duration-200"
         x-transition:leave-start="opacity-100 scale-100 translate-y-0"
         x-transition:leave-end="opacity-0 scale-90 translate-y-5"
-        class="absolute bottom-20 right-0 w-96 h-[600px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden z-[9999]"
+        class="absolute bottom-20 right-0 w-[90vw] max-w-sm sm:w-96 h-[550px] sm:h-[600px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden z-[9999]"
         style="display: none;">
         <!-- Header -->
         <div class="bg-gradient-to-r from-brand-orange to-orange-600 text-white p-4 flex items-center justify-between">
