@@ -177,8 +177,8 @@
 
     @livewireScripts
 
-    <!-- Mobile Browser App Promo Pop-up -->
-    <div id="mobile-app-popup" class="fixed bottom-4 left-4 right-4 z-[9999] bg-slate-900 border border-slate-800 text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between gap-4 transition-all duration-300 translate-y-32 opacity-0 md:hidden">
+    <!-- Mobile Browser App Promo Pop-up (Safari/Chrome Style Smart Banner at the Top) -->
+    <div id="mobile-app-popup" class="fixed top-16 left-4 right-4 z-[99] bg-slate-900 border border-slate-800 text-white p-4 rounded-2xl shadow-2xl flex items-center justify-between gap-4 transition-all duration-300 -translate-y-32 opacity-0 md:hidden">
         <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-orange-500 flex items-center justify-center p-2 shadow-lg shadow-orange-500/20 flex-shrink-0">
                 <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
@@ -200,7 +200,7 @@
         function dismissMobileAppPopup() {
             const popup = document.getElementById('mobile-app-popup');
             if (popup) {
-                popup.style.transform = 'translateY(150px)';
+                popup.style.transform = 'translateY(-150px)';
                 popup.style.opacity = '0';
                 localStorage.setItem('mobile_app_promo_dismissed', 'true');
             }
@@ -219,7 +219,7 @@
                 setTimeout(() => {
                     const popup = document.getElementById('mobile-app-popup');
                     if (popup) {
-                        popup.classList.remove('translate-y-32', 'opacity-0');
+                        popup.classList.remove('-translate-y-32', 'opacity-0');
                         popup.classList.add('translate-y-0', 'opacity-100');
                     }
                 }, 3000);
