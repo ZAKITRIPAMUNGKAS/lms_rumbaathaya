@@ -348,10 +348,10 @@
     padding-top: var(--sat);
 }
 
-/* When running inside Capacitor native shell — NO body padding (status bar is transparent/dark) */
+/* When running inside Capacitor native shell — NO body padding (status bar is transparent/light) */
 .capacitor-platform body {
     padding-top: 0;
-    background: #0f172a;
+    background: #f8fafc;
 }
 
 /* Hide "Unduh App" download tab when inside APK — irrelevant in native context */

@@ -61,8 +61,8 @@ async function initCapacitor() {
         // Initialize Status Bar
         if (window.Capacitor.Plugins?.StatusBar) {
             const { StatusBar } = window.Capacitor.Plugins;
-            await StatusBar.setStyle({ style: 'DARK' });
-            await StatusBar.setBackgroundColor({ color: '#0f172a' });
+            await StatusBar.setStyle({ style: 'LIGHT' });
+            await StatusBar.setBackgroundColor({ color: '#f8fafc' });
             await StatusBar.show();
         }
 
