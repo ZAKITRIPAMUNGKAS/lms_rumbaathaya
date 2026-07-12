@@ -12,7 +12,7 @@
     "isDynamicEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app-BjRonjxG.css",
+    "file": "assets/app-DaWk0_4b.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -21,7 +21,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-B79MyZ-8.js",
+    "file": "assets/app-ptDZUl2Q.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -31,7 +31,7 @@
       "node_modules/@alpinejs/intersect/dist/module.esm.js"
     ],
     "css": [
-      "assets/app-CpjnESwF.css"
+      "assets/app-BRoMw84a.css"
     ]
   }
 }

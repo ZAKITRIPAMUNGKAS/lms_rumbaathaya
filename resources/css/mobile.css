@@ -348,9 +348,20 @@
     padding-top: var(--sat);
 }
 
-/* When running inside Capacitor native shell */
+/* When running inside Capacitor native shell — NO body padding (status bar is transparent/dark) */
 .capacitor-platform body {
-    padding-top: var(--sat);
+    padding-top: 0;
+    background: #0f172a;
+}
+
+/* Hide "Unduh App" download tab when inside APK — irrelevant in native context */
+.capacitor-platform .nav-download-tab {
+    display: none !important;
+}
+
+/* Expand remaining tabs evenly when download tab is hidden */
+.capacitor-platform .mobile-bottom-nav-inner {
+    justify-content: space-around;
 }
 
 /* ===== SCROLLBAR MOBILE HIDE ===== */

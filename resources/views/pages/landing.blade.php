@@ -984,108 +984,165 @@
     </section>
 </div>
 
-{{-- ── EXCLUSIVE MOBILE APP WELCOME ONBOARDING ── --}}
-<div class="app-only-layout min-h-screen bg-slate-50 relative overflow-hidden" style="display:none">
-    {{-- Animated Background Blobs --}}
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute -top-40 -left-40 w-96 h-96 bg-orange-100/50 rounded-full blur-3xl"></div>
-        <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-100/40 rounded-full blur-3xl"></div>
+{{-- ── EXCLUSIVE MOBILE APP WELCOME — PREMIUM REDESIGN ── --}}
+<div class="app-only-layout min-h-screen relative overflow-hidden" style="display:none; background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 45%, #0c0a1e 100%);">
+
+    {{-- Ambient Glow Background --}}
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-80 h-80 rounded-full opacity-30" style="background: radial-gradient(circle, #f97316 0%, transparent 70%);"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full opacity-20" style="background: radial-gradient(circle, #6366f1 0%, transparent 70%);"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full opacity-10" style="background: radial-gradient(circle, #f59e0b 0%, transparent 70%);"></div>
+        {{-- Subtle grid pattern --}}
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
     </div>
 
     @auth
-        {{-- Loader while redirecting logged-in user --}}
+        {{-- Redirect logged-in user --}}
         <div class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6">
-            <div class="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center mb-6 border border-slate-100">
-                <i class="ph ph-spinner text-3xl text-orange-500 animate-spin"></i>
+            <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-5" style="background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.3);">
+                <i class="ph ph-spinner text-3xl text-orange-400 animate-spin"></i>
             </div>
-            <h3 class="text-lg font-bold text-slate-800">Menghubungkan ke Akun...</h3>
-            <p class="text-xs text-slate-400 mt-1">Mengalihkan Anda ke Dashboard LMS</p>
+            <h3 class="text-lg font-bold text-white">Menghubungkan ke Akun...</h3>
+            <p class="text-xs text-slate-400 mt-1">Mengalihkan ke Dashboard LMS</p>
         </div>
-
         <script>
             (function() {
-                // Instantly redirect to dashboard inside the Capacitor app
                 var checkApp = setInterval(function() {
                     if (window.Capacitor || document.documentElement.classList.contains('capacitor-platform')) {
                         clearInterval(checkApp);
                         window.location.href = "{{ auth()->user()->role == 'admin' ? route('admin.dashboard') : (auth()->user()->role == 'tutor' ? route('tutor.dashboard') : route('student.dashboard')) }}";
                     }
                 }, 50);
-                // Timeout after 1.5s as fallback
                 setTimeout(function() { clearInterval(checkApp); }, 1500);
             })();
         </script>
     @else
-        {{-- Welcome & Onboarding View --}}
-        <div class="relative z-10 flex flex-col min-h-screen justify-between pt-8 pb-24 px-6">
-            
-            {{-- Header/Logo --}}
-            <div class="flex flex-col items-center text-center mt-2">
-                <div class="w-24 h-24 sm:w-32 sm:h-32 mb-1 transform hover:scale-105 transition-transform duration-300">
-                    <img src="{{ asset('maskot.png') }}" alt="Mascot Rumba" class="w-full h-full object-contain filter drop-shadow-md">
+        {{-- ── ONBOARDING WELCOME SCREEN ── --}}
+        <div class="relative z-10 flex flex-col min-h-screen pb-8" style="padding-top: env(safe-area-inset-top, 48px);">
+
+            {{-- ── TOP: Brand Header ── --}}
+            <div class="flex flex-col items-center text-center px-6 pt-6">
+                {{-- Logo Badge --}}
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #f97316, #f59e0b);">
+                        <img src="{{ asset('LogoNavbar.png') }}" alt="RA" class="w-6 h-6 object-contain brightness-0 invert">
+                    </div>
+                    <span class="text-white font-black text-base tracking-tight">Rumba Athaya</span>
+                    <span class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider" style="background: rgba(249,115,22,0.2); color: #fb923c; border: 1px solid rgba(249,115,22,0.3);">LMS</span>
                 </div>
-                <div class="flex items-center gap-2 mb-1 justify-center">
-                    <img src="{{ asset('LogoNavbar.png') }}" alt="Logo" class="h-6 w-auto">
-                    <h1 class="text-2xl font-black text-slate-900 tracking-tight">Rumba Athaya</h1>
-                </div>
-                <p class="text-[10px] text-orange-600 font-bold uppercase tracking-widest leading-none">Learning Management System</p>
             </div>
 
-            {{-- Feature Slide List --}}
-            <div class="my-8 max-w-sm mx-auto w-full space-y-4">
-                
-                {{-- Card 1 --}}
-                <div class="bg-white border border-slate-100 rounded-2xl p-4 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center text-xl flex-shrink-0">
-                        <i class="ph ph-calendar-blank"></i>
-                    </div>
-                    <div class="text-left">
-                        <h4 class="font-bold text-xs text-slate-800">Pantau Jadwal Belajar</h4>
-                        <p class="text-[10px] text-slate-400 mt-0.5 leading-relaxed">Jadwal kelas, jam les, dan tutor ter-update real-time.</p>
+            {{-- ── HERO: Mascot + Headline ── --}}
+            <div class="flex flex-col items-center text-center px-6 flex-1 justify-center">
+
+                {{-- Mascot with glow ring --}}
+                <div class="relative mb-6">
+                    <div class="absolute inset-0 rounded-full blur-2xl opacity-40" style="background: radial-gradient(circle, #f97316 0%, transparent 70%); transform: scale(1.2);"></div>
+                    <div class="relative w-36 h-36 mx-auto">
+                        <img src="{{ asset('maskot.png') }}" alt="Maskot Rumba Athaya"
+                             class="w-full h-full object-contain filter drop-shadow-2xl"
+                             style="animation: appWelcomeFloat 3s ease-in-out infinite;"
+                             onerror="this.style.display='none'">
                     </div>
                 </div>
 
-                {{-- Card 2 --}}
-                <div class="bg-white border border-slate-100 rounded-2xl p-4 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center text-xl flex-shrink-0">
-                        <i class="ph ph-book-open"></i>
-                    </div>
-                    <div class="text-left">
-                        <h4 class="font-bold text-xs text-slate-800">Materi & Modul Praktis</h4>
-                        <p class="text-[10px] text-slate-400 mt-0.5 leading-relaxed">Unduh modul belajar langsung ke handphone Anda.</p>
-                    </div>
-                </div>
+                {{-- Headline --}}
+                <h1 class="text-3xl font-black text-white leading-tight mb-3 tracking-tight">
+                    Belajar Lebih <span style="background: linear-gradient(90deg, #f97316, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Seru</span>,<br>
+                    Prestasi Lebih <span style="background: linear-gradient(90deg, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Cemerlang!</span>
+                </h1>
+                <p class="text-slate-400 text-sm leading-relaxed max-w-xs">
+                    Platform bimbingan belajar digital terbaik untuk meraih potensi akademik maksimal.
+                </p>
 
-                {{-- Card 3 --}}
-                <div class="bg-white border border-slate-100 rounded-2xl p-4 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-10 h-10 rounded-xl bg-green-50 text-green-500 flex items-center justify-center text-xl flex-shrink-0">
-                        <i class="ph ph-check-circle"></i>
+                {{-- Stats Row --}}
+                <div class="flex items-center gap-6 mt-5">
+                    <div class="text-center">
+                        <p class="text-white font-black text-xl">{{ $studentCount }}+</p>
+                        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wide">Siswa Aktif</p>
                     </div>
-                    <div class="text-left">
-                        <h4 class="font-bold text-xs text-slate-800">Absensi & Progress Nilai</h4>
-                        <p class="text-[10px] text-slate-400 mt-0.5 leading-relaxed">Pantau perkembangan belajar harian dengan transparan.</p>
+                    <div class="w-px h-8" style="background: rgba(255,255,255,0.1);"></div>
+                    <div class="text-center">
+                        <p class="text-white font-black text-xl">4.9 ⭐</p>
+                        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wide">Rating</p>
+                    </div>
+                    <div class="w-px h-8" style="background: rgba(255,255,255,0.1);"></div>
+                    <div class="text-center">
+                        <p class="text-white font-black text-xl">3+</p>
+                        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wide">Tahun Aktif</p>
                     </div>
                 </div>
 
             </div>
 
-            {{-- Action Buttons --}}
-            <div class="max-w-sm mx-auto w-full space-y-3">
-                <a href="{{ route('login') }}" 
-                   class="flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-bold text-sm text-white shadow-lg shadow-orange-500/25 active:scale-98 transition-all hover:opacity-95"
-                   style="background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%)">
-                    <i class="ph ph-sign-in text-base"></i> Masuk Ke Akun
+            {{-- ── FEATURES: 3 Horizontal Cards ── --}}
+            <div class="px-5 mt-6 space-y-3">
+
+                <div class="flex items-center gap-4 rounded-2xl px-4 py-3.5" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px);">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-xl" style="background: linear-gradient(135deg, rgba(249,115,22,0.3), rgba(245,158,11,0.3)); border: 1px solid rgba(249,115,22,0.3);">
+                        <i class="ph ph-calendar-check text-orange-400"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h4 class="text-white text-sm font-bold">Pantau Jadwal Belajar</h4>
+                        <p class="text-slate-400 text-xs mt-0.5">Jadwal kelas & jam les ter-update real-time</p>
+                    </div>
+                    <i class="ph ph-caret-right text-slate-600 text-sm flex-shrink-0"></i>
+                </div>
+
+                <div class="flex items-center gap-4 rounded-2xl px-4 py-3.5" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px);">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-xl" style="background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(139,92,246,0.3)); border: 1px solid rgba(99,102,241,0.3);">
+                        <i class="ph ph-book-open-text text-indigo-400"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h4 class="text-white text-sm font-bold">Materi & Modul Belajar</h4>
+                        <p class="text-slate-400 text-xs mt-0.5">Akses modul & materi langsung di HP</p>
+                    </div>
+                    <i class="ph ph-caret-right text-slate-600 text-sm flex-shrink-0"></i>
+                </div>
+
+                <div class="flex items-center gap-4 rounded-2xl px-4 py-3.5" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px);">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-xl" style="background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(20,184,166,0.3)); border: 1px solid rgba(16,185,129,0.3);">
+                        <i class="ph ph-chart-line-up text-emerald-400"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h4 class="text-white text-sm font-bold">Absensi & Progress Nilai</h4>
+                        <p class="text-slate-400 text-xs mt-0.5">Pantau perkembangan belajar harian</p>
+                    </div>
+                    <i class="ph ph-caret-right text-slate-600 text-sm flex-shrink-0"></i>
+                </div>
+
+            </div>
+
+            {{-- ── CTA BUTTONS ── --}}
+            <div class="px-5 mt-6 space-y-3">
+
+                <a href="{{ route('login') }}"
+                   class="flex items-center justify-center gap-2 w-full font-bold text-white rounded-2xl active:scale-95 transition-transform"
+                   style="padding: 16px; background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%); box-shadow: 0 8px 32px rgba(249,115,22,0.4);">
+                    <i class="ph ph-sign-in text-lg"></i>
+                    <span>Masuk Ke Akun</span>
                 </a>
 
-                <a href="{{ route('register') }}" 
-                   class="flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-bold text-sm text-slate-700 bg-white border border-slate-200 shadow-sm active:scale-98 transition-all hover:bg-slate-50">
-                    <i class="ph ph-user-plus text-base"></i> Pendaftaran Siswa Baru
+                <a href="{{ route('register') }}"
+                   class="flex items-center justify-center gap-2 w-full font-bold rounded-2xl active:scale-95 transition-transform"
+                   style="padding: 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">
+                    <i class="ph ph-user-plus text-lg"></i>
+                    <span>Daftar Siswa Baru</span>
                 </a>
-                
-                <p class="text-[10px] text-slate-400 text-center mt-4">Rumah Belajar Athaya © {{ date('Y') }}</p>
+
+                <p class="text-[10px] text-slate-600 text-center pt-1">Rumah Belajar Athaya &copy; {{ date('Y') }} · v1.0</p>
             </div>
 
         </div>
     @endauth
+
 </div>
+
+<style>
+@keyframes appWelcomeFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+</style>
 @endsection
+

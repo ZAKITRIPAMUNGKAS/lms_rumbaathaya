@@ -157,7 +157,7 @@
 
 <!-- Mobile Bottom Navigation Bar (Visible on mobile, replaces hamburger menu) -->
 <div class="lg:hidden fixed bottom-0 left-0 right-0 z-[99] bg-white/95 backdrop-blur-xl border-t border-gray-200/60 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
-    <div class="flex items-center justify-around h-16 px-2">
+    <div class="mobile-bottom-nav-inner flex items-center justify-around h-16 px-2">
         <a href="{{ route('home') }}" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->routeIs('home') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
             <i class="ph {{ request()->routeIs('home') ? 'ph-fill' : '' }} ph-house text-xl"></i>
             <span class="text-[10px] font-bold tracking-wide">Beranda</span>
@@ -173,7 +173,8 @@
             <span class="text-[10px] font-bold tracking-wide">Sahabat RA</span>
         </a>
 
-        <a href="{{ route('download') }}" class="flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->is('download*') || request()->is('unduh*') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
+        {{-- Hidden inside APK via .capacitor-platform .nav-download-tab { display:none } --}}
+        <a href="{{ route('download') }}" class="nav-download-tab flex flex-col items-center justify-center gap-1 flex-1 text-center py-2 transition-colors duration-200 {{ request()->is('download*') || request()->is('unduh*') ? 'text-brand-orange' : 'text-slate-500 hover:text-slate-800' }}">
             <i class="ph {{ request()->is('download*') || request()->is('unduh*') ? 'ph-fill' : '' }} ph-download-simple text-xl"></i>
             <span class="text-[10px] font-bold tracking-wide">Unduh App</span>
         </a>
@@ -186,4 +187,4 @@
 </div>
 
 <!-- Spacer untuk mobile bottom navigation bar -->
-<div class="h-16 lg:hidden"></div>
+<div class="h-16 lg:hidden"></div>
