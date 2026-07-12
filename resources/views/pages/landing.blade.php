@@ -578,7 +578,8 @@
                 </div>
 
                 <a href="{{ route('posts.index') }}"
-                   class="group flex-shrink-0 hidden lg:inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-2xl font-bold text-sm shadow-lg shadow-orange-400/30 hover:shadow-xl hover:shadow-orange-400/40 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+                   style="display: none;"
+                   class="group flex-shrink-0 lg:!inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-2xl font-bold text-sm shadow-lg shadow-orange-400/30 hover:shadow-xl hover:shadow-orange-400/40 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
                     <i class="ph ph-newspaper text-lg"></i>
                     <span>Lihat Semua Artikel</span>
                     <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform duration-200"></i>
