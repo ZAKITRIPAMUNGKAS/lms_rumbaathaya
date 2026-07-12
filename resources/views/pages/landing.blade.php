@@ -979,6 +979,11 @@
                         @endforeach
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+</div>
+
      {{-- ── EXCLUSIVE MOBILE APP WELCOME — LIGHT PREMIUM REDESIGN ── --}}
 <div class="app-only-layout min-h-screen relative overflow-hidden" style="display:none; background: radial-gradient(circle at top right, #FFF7F0 0%, #F8FAFC 50%); font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;">
 
