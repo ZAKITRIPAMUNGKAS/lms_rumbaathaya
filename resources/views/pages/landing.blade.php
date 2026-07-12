@@ -607,7 +607,7 @@
                                    class="group block relative rounded-[2rem] overflow-hidden shadow-xl shadow-slate-200/60 hover:shadow-2xl hover:shadow-orange-200/40 hover:-translate-y-2 transition-all duration-500">
 
                                     <!-- Image -->
-                                    <div class="relative h-72 sm:h-80 lg:h-[248px] overflow-hidden">
+                                    <div class="relative h-72 sm:h-80 lg:h-[328px] overflow-hidden">
                                         @if($featuredPost->thumbnail)
                                             <img src="{{ $featuredPost->thumbnail_url }}"
                                                  alt="{{ $featuredPost->title }}"
