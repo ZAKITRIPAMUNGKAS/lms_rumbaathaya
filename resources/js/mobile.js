@@ -6,12 +6,17 @@
 
 // ===== CAPACITOR PLUGIN DETECTION =====
 const isCapacitor = () => {
-    return typeof window !== 'undefined' && window.Capacitor !== undefined;
+    // Real Capacitor detection
+    if (typeof window !== 'undefined' && window.Capacitor !== undefined) return true;
+    // Dev preview: add ?preview=app to URL to simulate APK layout in browser
+    if (new URLSearchParams(window.location.search).get('preview') === 'app') return true;
+    return false;
 };
 
 const isMobile = () => {
     return window.innerWidth < 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 };
+
 
 // ===== SPLASH SCREEN MANAGEMENT =====
 function initSplashScreen() {
