@@ -528,9 +528,9 @@
                                     @endforeach
                                 </ul>
                             @endif
-                            <a href="{{ route('program.show', $program['id']) }}" class="block w-full text-center py-2 sm:py-3 rounded-lg sm:rounded-xl border-2 text-[10px] sm:text-base font-bold transition mt-auto {{ $program['buttonColor'] }}">
-                                <i class="ph ph-eye mr-1.5"></i>
-                                Lihat Program
+                            <a href="{{ route('program.show', $program['id']) }}" class="flex items-center justify-center gap-1 w-full py-2 sm:py-3 rounded-lg sm:rounded-xl border-2 text-[10px] sm:text-base font-bold transition mt-auto {{ $program['buttonColor'] }}">
+                                <i class="ph ph-eye text-xs sm:text-base"></i>
+                                <span>Lihat Program</span>
                             </a>
                         </div>
                     </div>
