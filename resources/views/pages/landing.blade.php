@@ -586,19 +586,22 @@
             </div>
 
             @if($posts->count() > 0)
-                @php $featuredPosts = $posts->take(2); $otherPosts = $posts->skip(2)->take(4); @endphp
+                @php 
+                    $postsForMading = $posts->take(6); 
+                @endphp
 
                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
 
                     <!-- ===== FEATURED POSTS (Left Column, Stacked) ===== -->
                     <div class="lg:col-span-3 flex flex-col gap-6">
-                        @foreach($featuredPosts as $index => $featuredPost)
+                        @foreach($postsForMading->take(2) as $index => $featuredPost)
                             @php
                                 $catColors = ['Kabar Rumba' => 'from-blue-500 to-indigo-500', 'Karya Siswa' => 'from-orange-500 to-rose-500', 'Info' => 'from-emerald-500 to-teal-500'];
                                 $catGrad = $catColors[$featuredPost->category] ?? 'from-slate-500 to-slate-600';
                             @endphp
                             <div x-data="{ loaded: false }" x-intersect.once="loaded = true"
                                  :class="loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
+                                 class="{{ $index === 1 ? 'hidden lg:block' : '' }}"
                                  style="transition: all 0.7s cubic-bezier(0.4,0,0.2,1); transition-delay: {{ $index * 150 }}ms;">
                                 <a href="{{ route('posts.show', $featuredPost->slug) }}"
                                    class="group block relative rounded-[2rem] overflow-hidden shadow-xl shadow-slate-200/60 hover:shadow-2xl hover:shadow-orange-200/40 hover:-translate-y-2 transition-all duration-500">
@@ -665,13 +668,21 @@
 
                     <!-- ===== SIDE POST CARDS ===== -->
                     <div class="lg:col-span-2 grid grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
-                        @foreach($otherPosts as $index => $post)
+                        @foreach($postsForMading->skip(1)->take(5) as $index => $post)
                             @php
                                 $catColorsSmall = ['Kabar Rumba' => 'bg-blue-100 text-blue-700 border-blue-200', 'Karya Siswa' => 'bg-orange-100 text-orange-700 border-orange-200', 'Info' => 'bg-emerald-100 text-emerald-700 border-emerald-200'];
                                 $catClass = $catColorsSmall[$post->category] ?? 'bg-slate-100 text-slate-600 border-slate-200';
+                                
+                                $visibilityClass = '';
+                                if ($index === 0) {
+                                    $visibilityClass = 'lg:hidden';
+                                } elseif ($index === 4) {
+                                    $visibilityClass = 'hidden lg:block';
+                                }
                             @endphp
                             <div x-data="{ loaded: false }" x-intersect.once="loaded = true"
                                  :class="loaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'"
+                                 class="{{ $visibilityClass }}"
                                  style="transition: all 0.7s cubic-bezier(0.4,0,0.2,1); transition-delay: {{ ($index + 1) * 150 }}ms;">
                                 <a href="{{ route('posts.show', $post->slug) }}"
                                    class="group flex flex-col sm:flex-row gap-3 sm:gap-5 p-3 sm:p-5 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:shadow-orange-100/50 hover:-translate-y-1 hover:border-orange-200/60 transition-all duration-300 h-full">
