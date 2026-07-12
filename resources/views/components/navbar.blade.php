@@ -3,7 +3,7 @@
     isProductsOpen: false, 
     isRegisterOpen: false
 }"
-    class="fixed top-0 left-0 right-0 w-full z-[100] bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg transition-premium">
+    class="hidden lg:block fixed top-0 left-0 right-0 w-full z-[100] bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg transition-premium">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-14 items-center gap-4">
             <!-- Logo & Brand -->

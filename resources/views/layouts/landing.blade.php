@@ -108,7 +108,7 @@
         <x-navbar />
 
         <!-- Main Content -->
-        <main class="{{ request()->routeIs('home') ? '' : 'pt-14' }}">
+        <main class="{{ request()->routeIs('home') ? '' : 'pt-0 lg:pt-14' }}">
             @yield('content')
         </main>
         <!-- Footer -->
