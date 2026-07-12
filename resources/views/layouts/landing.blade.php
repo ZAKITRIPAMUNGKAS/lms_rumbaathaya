@@ -106,12 +106,11 @@
         <main class="{{ request()->routeIs('home') ? '' : 'pt-14' }}">
             @yield('content')
         </main>
-
         <!-- Footer -->
-        <footer class="bg-slate-900 text-white pt-12 sm:pt-16 pb-6 sm:pb-8 border-t-4 border-brand-orange">
+        <footer class="bg-slate-900 text-white pt-8 sm:pt-16 pb-24 sm:pb-8 border-t-4 border-brand-orange">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div
-                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
+                <!-- Desktop Footer Grid (Hidden on Mobile, Visible on Desktop) -->
+                <div class="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
                     <div class="col-span-1 md:col-span-2">
                         <h2 class="text-2xl font-bold mb-4">Rumba Athaya</h2>
                         <p class="text-gray-400 leading-relaxed max-w-sm">
@@ -123,57 +122,36 @@
                     <div>
                         <h4 class="font-bold text-lg mb-4 text-brand-orange">Program</h4>
                         <ul class="space-y-2 text-gray-400">
-                            <li>
-                                <a href="{{ route('home') }}#calistung-tk" class="hover:text-white transition">
-                                    Calistung TK
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('home') }}#calistung-sd" class="hover:text-white transition">
-                                    SD Juara
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('home') }}#kelas-7-9-smp" class="hover:text-white transition">
-                                    SMP Favorit
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('home') }}#tahfidz" class="hover:text-white transition">
-                                    Kelas Tahfidz
-                                </a>
-                            </li>
+                            <li><a href="{{ route('home') }}#calistung-tk" class="hover:text-white transition">Calistung TK</a></li>
+                            <li><a href="{{ route('home') }}#calistung-sd" class="hover:text-white transition">SD Juara</a></li>
+                            <li><a href="{{ route('home') }}#kelas-7-9-smp" class="hover:text-white transition">SMP Favorit</a></li>
+                            <li><a href="{{ route('home') }}#tahfidz" class="hover:text-white transition">Kelas Tahfidz</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 class="font-bold text-lg mb-4 text-brand-orange">Kontak</h4>
                         <ul class="space-y-2 text-gray-400">
-                            <li class="flex items-center gap-2">
-                                <i class="ph ph-whatsapp-logo"></i>
-                                <a href="https://wa.me/6282313509532" target="_blank" rel="noopener noreferrer"
-                                    class="hover:text-white transition">
-                                    +6282-3135-09532
-                                </a>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="ph ph-instagram-logo"></i>
-                                <a href="https://linktr.ee/RumbaAthaya" target="_blank" rel="noopener noreferrer"
-                                    class="hover:text-white transition">
-                                    @hidayah.irfan
-                                </a>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <i class="ph ph-map-pin"></i>
-                                <a href="/kontak" class="hover:text-white transition">
-                                    Lihat Alamat
-                                </a>
-                            </li>
+                            <li class="flex items-center gap-2"><i class="ph ph-whatsapp-logo"></i><a href="https://wa.me/6282313509532" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">+6282-3135-09532</a></li>
+                            <li class="flex items-center gap-2"><i class="ph ph-instagram-logo"></i><a href="https://linktr.ee/RumbaAthaya" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">@hidayah.irfan</a></li>
+                            <li class="flex items-center gap-2"><i class="ph ph-map-pin"></i><a href="/kontak" class="hover:text-white transition">Lihat Alamat</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <!-- Mobile Minimalist Footer (Visible on Mobile, Hidden on Desktop) -->
+                <div class="sm:hidden flex flex-col items-center text-center gap-4 mb-6">
+                    <h2 class="text-xl font-black tracking-tight text-white">Rumba Athaya</h2>
+                    
+                    <!-- Quick Social Row -->
+                    <div class="flex items-center justify-center gap-6 text-gray-400 text-xl">
+                        <a href="https://wa.me/6282313509532" target="_blank" rel="noopener noreferrer" class="hover:text-white active:scale-90 transition-all"><i class="ph-fill ph-whatsapp-logo"></i></a>
+                        <a href="https://linktr.ee/RumbaAthaya" target="_blank" rel="noopener noreferrer" class="hover:text-white active:scale-90 transition-all"><i class="ph-fill ph-instagram-logo"></i></a>
+                        <a href="/kontak" class="hover:text-white active:scale-90 transition-all"><i class="ph-fill ph-map-pin"></i></a>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-xs sm:text-sm">
                     &copy; {{ date('Y') }} Rumba Athaya. Developed by TEPE.GRAFI
                 </div>
             </div>

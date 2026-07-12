@@ -742,22 +742,21 @@
 
 
     <!-- Tutors Section -->
-
     @if($tutors->count() > 0)
-    <section class="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+    <section class="py-16 sm:py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12 md:mb-16">
                 <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3 sm:mb-4">
-                        Tutor Rumba Athaya
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+                        Tutor <span class="text-indigo-600">Rumba Athaya</span>
                     </h2>
-                    <p class="text-gray-600 text-sm sm:text-base">
+                    <p class="text-slate-500 text-base sm:text-lg font-medium leading-relaxed">
                         Tutor berpengalaman dari berbagai PTN yang memotivasi dan memantau perkembangan Sahabat Rumba dengan pemantauan yang akan disampaikan ke orang tua setiap bulannya.
                     </p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 @foreach($tutors->take(6) as $index => $tutor)
                     @php
                         $initials = '';
@@ -773,8 +772,8 @@
                          x-intersect.once="loaded = true"
                          :class="loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
                          style="transition-delay: {{ $index * 100 }}ms"
-                         class="bg-white rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 text-center hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-2 hover:scale-[1.02] transition-all duration-700 transform">
-                        <div class="w-20 h-20 bg-gradient-to-br from-brand-orange to-yellow-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 overflow-hidden"
+                         class="bg-white rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 text-center hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-2 hover:scale-[1.02] transition-all duration-700 transform">
+                        <div class="w-14 h-14 sm:w-20 sm:h-20 bg-gradient-to-br from-brand-orange to-yellow-500 rounded-full flex items-center justify-center text-white text-lg sm:text-2xl font-bold mx-auto mb-3 sm:mb-4 overflow-hidden"
                              x-data="{ hovered: false }"
                              @mouseenter="hovered = true"
                              @mouseleave="hovered = false"
@@ -782,18 +781,18 @@
                              style="transition: transform 0.3s;">
                             @if($avatarUrl)
                                 <img src="{{ $avatarUrl }}" alt="{{ $tutor->name }}" class="w-full h-full rounded-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="w-full h-full rounded-full bg-gradient-to-br from-orange-500 to-yellow-500 flex items-center justify-center text-white text-2xl font-bold" style="display: none;">
+                                <div class="w-full h-full rounded-full bg-gradient-to-br from-orange-500 to-yellow-500 flex items-center justify-center text-white text-lg sm:text-2xl font-bold" style="display: none;">
                                     {{ $initials }}
                                 </div>
                             @else
                                 {{ $initials }}
                             @endif
                         </div>
-                        <h3 class="font-bold text-slate-900 mb-2">{{ $tutor->name }}</h3>
+                        <h3 class="font-extrabold text-slate-900 text-sm sm:text-lg mb-1 sm:mb-2 truncate">{{ $tutor->name }}</h3>
                         @if($tutor->bio)
-                            <p class="text-sm text-slate-600">{{ Str::limit($tutor->bio, 50) }}</p>
+                            <p class="text-xs sm:text-sm text-slate-500 line-clamp-2">{{ $tutor->bio }}</p>
                         @else
-                            <p class="text-sm text-slate-500">Tutor Berpengalaman</p>
+                            <p class="text-xs sm:text-sm text-slate-400">Tutor Berpengalaman</p>
                         @endif
                     </div>
                 @endforeach
@@ -902,41 +901,38 @@
     @endif
 
     <!-- CTA Section -->
-    <section class="py-16 sm:py-20 md:py-24 px-6">
+    <section class="py-12 sm:py-20 md:py-24 px-4 sm:px-6">
         <div class="max-w-6xl mx-auto relative">
-            <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500 rounded-[3rem] rotate-1 opacity-60 blur-2xl transform scale-95 translate-y-4"></div>
-            <div class="relative bg-gradient-to-br from-orange-500 via-orange-600 to-amber-500 rounded-[3rem] p-12 md:p-24 text-center overflow-hidden shadow-2xl">
+            <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500 rounded-[2rem] sm:rounded-[3rem] rotate-1 opacity-60 blur-2xl transform scale-95 translate-y-4"></div>
+            <div class="relative bg-gradient-to-br from-orange-500 via-orange-600 to-amber-500 rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-12 md:p-24 text-center overflow-hidden shadow-2xl">
                 <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px"></div>
                 
                 <div class="relative z-10">
-                    <h2 class="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+                    <h2 class="text-2xl sm:text-4xl md:text-6xl font-black text-white mb-4 sm:mb-6 leading-tight tracking-tight">
                         Bergabunglah dengan Sahabat Rumba Lainnya!
                     </h2>
-                    <p class="text-lg sm:text-xl text-white/90 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
+                    <p class="text-xs sm:text-xl text-white/90 mb-6 sm:mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
                         Dapatkan pengalaman belajar yang menyenangkan dan raih prestasi terbaik bersama Rumba Athaya
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-                        <a href="{{ route('register') }}" class="group px-8 sm:px-12 py-4 sm:py-5 bg-white text-orange-600 rounded-full font-bold text-base sm:text-xl hover:bg-gray-50 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center active:scale-95">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center">
+                        <a href="{{ route('register') }}" class="group px-6 sm:px-12 py-3.5 sm:py-5 bg-white text-orange-600 rounded-full font-bold text-sm sm:text-xl hover:bg-gray-50 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2 w-full sm:w-auto justify-center active:scale-95">
                             <span>Daftar Sekarang</span>
                         </a>
                         
-                        <a href="{{ route('contact') }}" class="group px-8 sm:px-12 py-4 sm:py-5 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-full font-bold text-base sm:text-xl hover:bg-white/20 hover:border-white/50 transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                        <a href="{{ route('contact') }}" class="group px-6 sm:px-12 py-3.5 sm:py-5 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 rounded-full font-bold text-sm sm:text-xl hover:bg-white/20 hover:border-white/50 transition-all duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
                             <span>Hubungi Kami</span>
                         </a>
                     </div>
                     
-                    <div class="mt-8 sm:mt-10 flex items-center justify-center gap-2 text-white/80 text-sm sm:text-base flex-wrap">
-                        @foreach(['Konsultasi Gratis', 'Tanpa Biaya Pendaftaran', 'Fleksibel & Terpercaya'] as $index => $item)
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                    <div class="mt-6 sm:mt-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/80 text-[10px] sm:text-base">
+                        @foreach(['Konsultasi Gratis', 'Tanpa Biaya Pendaftaran', 'Fleksibel & Terpercaya'] as $item)
+                            <div class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-300 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                                 </svg>
-                                <span>{{ $item }}</span>
+                                <span class="font-semibold">{{ $item }}</span>
                             </div>
-                            @if($index < 2)
-                                <span class="mx-2">•</span>
-                            @endif
                         @endforeach
                     </div>
                 </div>
