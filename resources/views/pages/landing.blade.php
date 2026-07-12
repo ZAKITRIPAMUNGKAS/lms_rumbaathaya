@@ -365,7 +365,7 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 @php
                     $features = [
                         ['icon' => 'target', 'title' => 'Kurikulum Terstruktur', 'description' => 'Materi disusun sistematis sesuai kurikulum nasional terbaru untuk memastikan pemahaman menyeluruh.', 'color' => 'bg-indigo-500'],
@@ -380,38 +380,38 @@
                     <div x-data="{ loaded: false }"
                          x-intersect.once="loaded = true"
                          :class="loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
-                         class="p-8 rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-700 transform group cursor-pointer hover:-translate-y-2 hover:scale-[1.02]"
+                         class="p-4 sm:p-8 rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-700 transform group cursor-pointer hover:-translate-y-2 hover:scale-[1.02]"
                          style="transition-delay: {{ ($index + 1) * 100 }}ms">
-                        <div class="w-14 h-14 {{ $feature['color'] }} text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 {{ $feature['color'] }} text-white rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                             @if($feature['icon'] == 'target')
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                                 </svg>
                             @elseif($feature['icon'] == 'users')
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                                 </svg>
                             @elseif($feature['icon'] == 'rocket')
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             @elseif($feature['icon'] == 'book')
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                                 </svg>
                             @elseif($feature['icon'] == 'graduation')
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                                 </svg>
                             @else
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                                 </svg>
                             @endif
                         </div>
-                        <h3 class="text-xl font-extrabold text-slate-800 mb-3 tracking-tight">{{ $feature['title'] }}</h3>
-                        <p class="text-slate-600 leading-relaxed font-medium text-sm">{{ $feature['description'] }}</p>
+                        <h3 class="text-xs sm:text-xl font-extrabold text-slate-800 mb-2 sm:mb-3 tracking-tight">{{ $feature['title'] }}</h3>
+                        <p class="text-slate-500 leading-relaxed font-medium text-[10px] sm:text-sm">{{ $feature['description'] }}</p>
                     </div>
                 @endforeach
             </div>
@@ -437,7 +437,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 @php
                     $programs = [
                         [
@@ -497,26 +497,26 @@
                          x-intersect.once="loaded = true"
                          :class="loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
                          style="transition-delay: {{ $index * 100 }}ms"
-                         class="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 overflow-hidden group hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-2 hover:scale-[1.02] transition-all duration-700 transform flex flex-col relative">
+                         class="bg-white rounded-2xl sm:rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 overflow-hidden group hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-2 hover:scale-[1.02] transition-all duration-700 transform flex flex-col relative">
                         @if($program['featured'])
-                            <div class="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg z-20">
+                            <div class="absolute top-0 right-0 bg-emerald-500 text-white text-[9px] sm:text-xs font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-bl-lg z-20">
                                 Unggulan
                             </div>
                         @endif
-                        <div class="h-32 relative p-6 flex flex-col justify-between overflow-hidden">
+                        <div class="h-24 sm:h-32 relative p-4 sm:p-6 flex flex-col justify-between overflow-hidden">
                             <img src="{{ asset('gambar herosection.png') }}" alt="{{ $program['title'] }}" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent"></div>
-                            <span class="{{ $program['badgeColor'] }} px-3 py-1 rounded-full text-xs font-bold w-fit shadow-sm relative z-10">
+                            <span class="{{ $program['badgeColor'] }} px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-xs font-black w-fit shadow-sm relative z-10">
                                 {{ $program['badge'] }}
                             </span>
                         </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">{{ $program['title'] }}</h3>
-                            <p class="text-slate-500 text-sm mb-4 leading-relaxed flex-1">
+                        <div class="p-4 sm:p-8 flex flex-col flex-1">
+                            <h3 class="text-sm sm:text-xl font-extrabold text-slate-900 mb-1 sm:mb-2">{{ $program['title'] }}</h3>
+                            <p class="text-slate-500 text-[10px] sm:text-sm mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-none leading-relaxed flex-1">
                                 {{ $program['description'] }}
                             </p>
                             @if($program['features'])
-                                <ul class="space-y-2 mb-6">
+                                <ul class="space-y-1.5 mb-4 hidden sm:block">
                                     @foreach($program['features'] as $feature)
                                         <li class="flex items-center gap-2 text-sm text-gray-600">
                                             <i class="ph ph-check-circle text-green-500"></i>
@@ -525,8 +525,8 @@
                                     @endforeach
                                 </ul>
                             @endif
-                            <a href="{{ route('program.show', $program['id']) }}" class="block w-full text-center py-3 rounded-xl border-2 font-bold transition mt-auto {{ $program['buttonColor'] }}">
-                                <i class="ph ph-eye mr-2"></i>
+                            <a href="{{ route('program.show', $program['id']) }}" class="block w-full text-center py-2 sm:py-3 rounded-lg sm:rounded-xl border-2 text-[10px] sm:text-base font-bold transition mt-auto {{ $program['buttonColor'] }}">
+                                <i class="ph ph-eye mr-1.5"></i>
                                 Lihat Program
                             </a>
                         </div>
