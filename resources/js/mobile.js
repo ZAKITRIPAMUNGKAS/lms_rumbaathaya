@@ -20,9 +20,17 @@ function initSplashScreen() {
     const splash = document.getElementById('app-splash');
     if (!splash) return;
 
+    // Check if splash was already shown in this session
+    if (sessionStorage.getItem('lms_splash_shown')) {
+        splash.style.display = 'none';
+        splash.remove();
+        return;
+    }
+
     const hideSplash = () => {
         splash.style.transition = 'opacity 0.25s ease, visibility 0.25s ease';
         splash.classList.add('hidden');
+        sessionStorage.setItem('lms_splash_shown', 'true');
         setTimeout(() => splash.remove(), 300);
     };
 

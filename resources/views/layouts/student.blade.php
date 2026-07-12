@@ -32,6 +32,11 @@
 <body class="font-sans antialiased text-slate-900 bg-[#F8FAFC]">
     <!-- Splash Screen (shown while page loads on mobile) -->
     <div id="app-splash" class="md:hidden">
+        <script>
+            if (sessionStorage.getItem('lms_splash_shown')) {
+                document.getElementById('app-splash').style.display = 'none';
+            }
+        </script>
         <img src="{{ asset('Logo.png') }}" alt="Logo" class="splash-logo" onerror="this.style.display='none'">
         <div class="splash-title">Rumba Athaya</div>
         <div class="splash-subtitle">Learning Management System</div>

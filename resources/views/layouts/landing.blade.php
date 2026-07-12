@@ -88,6 +88,11 @@
     style="font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;">
     <!-- Splash Screen (shown while page loads on mobile) -->
     <div id="app-splash" class="md:hidden">
+        <script>
+            if (sessionStorage.getItem('lms_splash_shown')) {
+                document.getElementById('app-splash').style.display = 'none';
+            }
+        </script>
         <img src="{{ asset('Logo.png') }}" alt="Logo" class="splash-logo" onerror="this.style.display='none'">
         <div class="splash-title">Rumba Athaya</div>
         <div class="splash-subtitle">Learning Management System</div>
