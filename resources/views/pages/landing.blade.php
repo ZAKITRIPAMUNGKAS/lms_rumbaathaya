@@ -148,8 +148,11 @@
                                 <p class="text-yellow-300 text-sm sm:text-base font-bold">4.9/5 Rating</p>
                             </div>
                         </div>
-                    </div>
+                <!-- Floating Mascot -->
+                <div class="absolute -bottom-10 -left-10 w-28 h-28 z-20 hidden lg:block transform hover:scale-110 transition-transform duration-300">
+                    <img src="{{ asset('maskot.png') }}" alt="Mascot Rumba" class="w-full h-full object-contain filter drop-shadow-xl animate-float">
                 </div>
+            </div>
 
                 <!-- Floating Achievement Cards - More Vibrant -->
                 <div class="absolute -top-6 -left-6 sm:-top-8 sm:-left-8 bg-gradient-to-br from-blue-500 to-indigo-600 p-4 sm:p-5 rounded-2xl shadow-2xl z-20 hidden sm:block transform hover:scale-110 transition-transform animate-bounce-slow">
@@ -981,12 +984,15 @@
         <div class="relative z-10 flex flex-col min-h-screen justify-between pt-8 pb-24 px-6">
             
             {{-- Header/Logo --}}
-            <div class="flex flex-col items-center text-center mt-4">
-                <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-orange-500 to-amber-500 shadow-xl shadow-orange-500/20 flex items-center justify-center p-3 mb-4">
-                    <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-full h-full object-contain brightness-0 invert">
+            <div class="flex flex-col items-center text-center mt-2">
+                <div class="w-24 h-24 sm:w-32 sm:h-32 mb-1 transform hover:scale-105 transition-transform duration-300">
+                    <img src="{{ asset('maskot.png') }}" alt="Mascot Rumba" class="w-full h-full object-contain filter drop-shadow-md">
                 </div>
-                <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight">Rumba Athaya</h1>
-                <p class="text-[11px] text-orange-600 font-bold uppercase tracking-widest mt-1">Learning Management System</p>
+                <div class="flex items-center gap-2 mb-1 justify-center">
+                    <img src="{{ asset('LogoNavbar.png') }}" alt="Logo" class="h-6 w-auto">
+                    <h1 class="text-2xl font-black text-slate-900 tracking-tight">Rumba Athaya</h1>
+                </div>
+                <p class="text-[10px] text-orange-600 font-bold uppercase tracking-widest leading-none">Learning Management System</p>
             </div>
 
             {{-- Feature Slide List --}}

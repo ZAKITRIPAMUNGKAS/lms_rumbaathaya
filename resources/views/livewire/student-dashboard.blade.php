@@ -342,9 +342,8 @@
                     </div>
                 @else
                     <div class="text-center py-12 flex-1 flex flex-col justify-center items-center">
-                        <div
-                            class="w-24 h-24 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full flex items-center justify-center mb-6 shadow-sm animate-bounce-slow">
-                            <span class="text-5xl">☕</span>
+                        <div class="w-24 h-24 mb-4 transform hover:scale-105 transition-transform duration-300">
+                            <img src="{{ asset('maskot.png') }}" alt="Mascot Rumba" class="w-full h-full object-contain filter drop-shadow-sm animate-bounce-slow">
                         </div>
                         <h4 class="font-bold text-slate-800 text-lg mb-1">Wah, Kosong!</h4>
                         <p class="text-slate-500 font-medium text-sm px-6">Tidak ada jadwal kelas untuk hari ini. Waktunya

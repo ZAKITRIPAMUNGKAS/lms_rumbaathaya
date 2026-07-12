@@ -22,8 +22,8 @@
 
     @if($schedules->isEmpty())
         <div class="flex flex-col items-center justify-center py-20 text-center">
-            <div class="w-24 h-24 bg-slate-50 rounded-full flex items-center justify-center mb-6">
-                <i class="ph ph-calendar-slash text-4xl text-slate-300"></i>
+            <div class="w-28 h-28 mb-4 transform hover:scale-105 transition-transform duration-300">
+                <img src="{{ asset('maskot.png') }}" alt="Mascot Rumba" class="w-full h-full object-contain opacity-75 filter drop-shadow-sm">
             </div>
             <h3 class="text-xl font-bold text-slate-800 mb-2">Belum Ada Jadwal</h3>
             <p class="text-slate-500 max-w-sm mx-auto">
