@@ -668,7 +668,11 @@
                                         @if($post->thumbnail)
                                             <img src="{{ $post->thumbnail_url }}"
                                                  alt="{{ $post->title }}"
-                                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                            <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-100 to-amber-100 text-orange-300" style="display: none;">
+                                                <i class="ph ph-image text-3xl"></i>
+                                            </div>
                                         @else
                                             <div class="w-full h-full flex items-center justify-center">
                                                 <i class="ph ph-image text-3xl text-orange-300"></i>
