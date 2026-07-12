@@ -979,30 +979,20 @@
                         @endforeach
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-</div>
+     {{-- ── EXCLUSIVE MOBILE APP WELCOME — LIGHT PREMIUM REDESIGN ── --}}
+<div class="app-only-layout min-h-screen relative overflow-hidden" style="display:none; background: radial-gradient(circle at top right, #FFF7F0 0%, #F8FAFC 50%); font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;">
 
-{{-- ── EXCLUSIVE MOBILE APP WELCOME — PREMIUM REDESIGN ── --}}
-<div class="app-only-layout min-h-screen relative overflow-hidden" style="display:none; background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 45%, #0c0a1e 100%);">
-
-    {{-- Ambient Glow Background --}}
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-        <div class="absolute -top-32 -left-32 w-80 h-80 rounded-full opacity-30" style="background: radial-gradient(circle, #f97316 0%, transparent 70%);"></div>
-        <div class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full opacity-20" style="background: radial-gradient(circle, #6366f1 0%, transparent 70%);"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full opacity-10" style="background: radial-gradient(circle, #f59e0b 0%, transparent 70%);"></div>
-        {{-- Subtle grid pattern --}}
-        <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
-    </div>
+    {{-- Decorative Background Gradients --}}
+    <div class="absolute right-0 top-10 w-32 h-32 bg-orange-200/30 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute left-0 bottom-0 w-24 h-24 bg-blue-200/30 rounded-full blur-2xl -z-10"></div>
 
     @auth
         {{-- Redirect logged-in user --}}
         <div class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6">
-            <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-5" style="background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.3);">
-                <i class="ph ph-spinner text-3xl text-orange-400 animate-spin"></i>
+            <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-5" style="background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2);">
+                <i class="ph ph-spinner text-3xl text-orange-500 animate-spin"></i>
             </div>
-            <h3 class="text-lg font-bold text-white">Menghubungkan ke Akun...</h3>
+            <h3 class="text-lg font-bold text-slate-800">Menghubungkan ke Akun...</h3>
             <p class="text-xs text-slate-400 mt-1">Mengalihkan ke Dashboard LMS</p>
         </div>
         <script>
@@ -1018,126 +1008,127 @@
         </script>
     @else
         {{-- ── ONBOARDING WELCOME SCREEN ── --}}
-        <div class="relative z-10 flex flex-col px-5" style="min-height: 100dvh; padding-top: max(env(safe-area-inset-top, 20px), 20px); padding-bottom: calc(76px + env(safe-area-inset-bottom, 24px)); gap: 0;">
+        <div class="relative z-10 flex flex-col px-6" style="min-height: 100dvh; padding-top: max(env(safe-area-inset-top, 20px), 20px); padding-bottom: calc(90px + env(safe-area-inset-bottom, 24px)); gap: 0;">
 
-            {{-- ── 1. Brand Header (compact) ── --}}
-            <div class="flex items-center justify-center gap-2 py-3">
-                <div class="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #f97316, #f59e0b);">
-                    <img src="{{ asset('LogoNavbar.png') }}" alt="RA" class="w-5 h-5 object-contain brightness-0 invert">
+            {{-- ── 1. Brand Header ── --}}
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center text-white font-black text-[15px] shadow-sm">
+                        RA
+                    </div>
+                    <span class="text-slate-900 font-extrabold text-[16px] tracking-tight">Rumba Athaya</span>
+                    <span class="bg-orange-100 text-orange-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md ml-1">LMS</span>
                 </div>
-                <span class="text-white font-black text-[15px] tracking-tight">Rumba Athaya</span>
-                <span class="px-2 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider" style="background: rgba(249,115,22,0.2); color: #fb923c; border: 1px solid rgba(249,115,22,0.3);">LMS</span>
             </div>
 
-            {{-- ── 2. Hero Area (mascot + headline + stats) ── --}}
-            <div class="flex flex-col items-center text-center flex-1 justify-center py-2">
-
-                {{-- Mascot --}}
-                <div class="relative mb-4">
-                    <div class="absolute inset-0 rounded-full blur-2xl opacity-50" style="background: radial-gradient(circle, #f97316 0%, transparent 65%); transform: scale(1.3);"></div>
-                    <img src="{{ asset('maskot.png') }}" alt="Maskot"
-                         class="relative w-28 h-28 object-contain drop-shadow-2xl"
-                         style="animation: appWelcomeFloat 3s ease-in-out infinite;"
-                         onerror="this.style.display='none'">
-                </div>
-
-                {{-- Headline --}}
-                <h1 class="text-[26px] font-black text-white leading-tight mb-2 tracking-tight">
-                    Belajar Lebih <span style="background: linear-gradient(90deg, #f97316, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Seru</span>,<br>
-                    Prestasi Lebih <span style="background: linear-gradient(90deg, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Cemerlang!</span>
-                </h1>
-                <p class="text-slate-400 text-xs leading-relaxed max-w-[260px]">
-                    Bimbingan belajar digital untuk meraih potensi akademik terbaik.
+            {{-- ── 2. Hero & Headline ── --}}
+            <div class="text-center mt-4 mb-6">
+                <h2 class="text-2xl font-black text-slate-950 leading-tight mb-2.5">
+                    Belajar Lebih <span class="text-orange-500 relative whitespace-nowrap">
+                        Seru
+                        <svg class="absolute -bottom-1 left-0 w-full h-2 text-orange-500/20" viewBox="0 0 100 10" preserveAspectRatio="none">
+                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="transparent"/>
+                        </svg>
+                    </span>,<br>
+                    Prestasi Cemerlang!
+                </h2>
+                <p class="text-xs text-slate-500 leading-relaxed px-2">
+                    Bimbingan belajar digital terpadu untuk meraih potensi akademik terbaikmu langsung dari HP.
                 </p>
+            </div>
 
-                {{-- Stats Row --}}
-                <div class="flex items-center gap-5 mt-4 px-4 py-3 rounded-2xl" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
-                    <div class="text-center">
-                        <p class="text-white font-black text-lg leading-none">{{ $studentCount }}+</p>
-                        <p class="text-slate-500 text-[9px] font-semibold uppercase tracking-wide mt-0.5">Siswa Aktif</p>
+            {{-- ── 3. Illustration Area ── --}}
+            <div class="relative w-full h-44 mb-6 flex justify-center items-center">
+                {{-- Mascot --}}
+                <img src="{{ asset('maskot.png') }}" alt="Ilustrasi Belajar" class="w-28 h-auto object-contain drop-shadow-xl z-10" style="animation: appWelcomeFloat 3s ease-in-out infinite;">
+                
+                {{-- Decorative Icons --}}
+                <div class="absolute top-2 right-12 w-10 h-10 bg-white rounded-xl shadow-md flex items-center justify-center text-orange-500 animate-bounce" style="animation-duration: 3.5s;">
+                    <i class="ph-fill ph-graduation-cap text-lg"></i>
+                </div>
+                <div class="absolute bottom-2 left-12 w-9 h-9 bg-white rounded-xl shadow-md flex items-center justify-center text-blue-500 animate-bounce" style="animation-duration: 4.5s; animation-delay: 1s;">
+                    <i class="ph-fill ph-book-open text-lg"></i>
+                </div>
+            </div>
+
+            {{-- ── 4. Stats Row ── --}}
+            <div class="bg-white rounded-2xl border border-slate-100 p-4 flex justify-between items-center divide-x divide-slate-100 shadow-sm mb-6">
+                <div class="flex-1 text-center px-1">
+                    <h3 class="font-extrabold text-slate-900 text-lg leading-none">{{ $studentCount }}+</h3>
+                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider mt-1">Siswa Aktif</p>
+                </div>
+                <div class="flex-1 text-center px-1">
+                    <div class="flex items-center justify-center gap-0.5 leading-none">
+                        <h3 class="font-extrabold text-slate-900 text-lg">4.9</h3>
+                        <i class="ph-fill ph-star text-yellow-400 text-xs"></i>
                     </div>
-                    <div class="w-px h-6" style="background: rgba(255,255,255,0.1);"></div>
-                    <div class="text-center">
-                        <p class="text-white font-black text-lg leading-none">4.9 ⭐</p>
-                        <p class="text-slate-500 text-[9px] font-semibold uppercase tracking-wide mt-0.5">Rating</p>
+                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider mt-1">Rating</p>
+                </div>
+                <div class="flex-1 text-center px-1">
+                    <h3 class="font-extrabold text-slate-900 text-lg leading-none">3+</h3>
+                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider mt-1">Thn Aktif</p>
+                </div>
+            </div>
+
+            {{-- ── 5. Features List ── --}}
+            <div class="space-y-3 mb-6">
+                
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 flex items-center gap-4 hover:border-orange-500/50 transition-colors shadow-sm cursor-pointer">
+                    <div class="w-11 h-11 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center text-xl shrink-0">
+                        <i class="ph ph-calendar-check"></i>
                     </div>
-                    <div class="w-px h-6" style="background: rgba(255,255,255,0.1);"></div>
-                    <div class="text-center">
-                        <p class="text-white font-black text-lg leading-none">3+</p>
-                        <p class="text-slate-500 text-[9px] font-semibold uppercase tracking-wide mt-0.5">Tahun Aktif</p>
+                    <div class="flex-1 text-left">
+                        <h4 class="font-bold text-slate-900 text-xs mb-0.5">Pantau Jadwal Belajar</h4>
+                        <p class="text-[10px] text-slate-500 truncate">Jadwal kelas & jam les ter-update real-time</p>
                     </div>
+                    <i class="ph ph-caret-right text-slate-300 text-xs"></i>
+                </div>
+
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 flex items-center gap-4 hover:border-indigo-500/50 transition-colors shadow-sm cursor-pointer">
+                    <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl shrink-0">
+                        <i class="ph ph-book-open-text"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h4 class="font-bold text-slate-900 text-xs mb-0.5">Materi & Modul Belajar</h4>
+                        <p class="text-[10px] text-slate-500 truncate">Akses modul & materi langsung di HP</p>
+                    </div>
+                    <i class="ph ph-caret-right text-slate-300 text-xs"></i>
+                </div>
+
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 flex items-center gap-4 hover:border-teal-500/50 transition-colors shadow-sm cursor-pointer">
+                    <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl shrink-0">
+                        <i class="ph ph-chart-line-up"></i>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <h4 class="font-bold text-slate-900 text-xs mb-0.5">Absensi & Progress Nilai</h4>
+                        <p class="text-[10px] text-slate-500 truncate">Pantau perkembangan belajar harian</p>
+                    </div>
+                    <i class="ph ph-caret-right text-slate-300 text-xs"></i>
                 </div>
 
             </div>
 
-            {{-- ── 3. Feature Cards ── --}}
-            <div class="space-y-2.5 mb-4">
-
-                <div class="flex items-center gap-3 rounded-2xl px-4 py-3" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-lg" style="background: linear-gradient(135deg, rgba(249,115,22,0.25), rgba(245,158,11,0.25)); border: 1px solid rgba(249,115,22,0.3);">
-                        <i class="ph ph-calendar-check text-orange-400"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <h4 class="text-white text-[13px] font-bold leading-none">Pantau Jadwal Belajar</h4>
-                        <p class="text-slate-400 text-[11px] mt-0.5">Jadwal kelas & jam les ter-update real-time</p>
-                    </div>
-                    <i class="ph ph-caret-right text-slate-600 text-xs flex-shrink-0"></i>
-                </div>
-
-                <div class="flex items-center gap-3 rounded-2xl px-4 py-3" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-lg" style="background: linear-gradient(135deg, rgba(99,102,241,0.25), rgba(139,92,246,0.25)); border: 1px solid rgba(99,102,241,0.3);">
-                        <i class="ph ph-book-open-text text-indigo-400"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <h4 class="text-white text-[13px] font-bold leading-none">Materi & Modul Belajar</h4>
-                        <p class="text-slate-400 text-[11px] mt-0.5">Akses modul & materi langsung di HP</p>
-                    </div>
-                    <i class="ph ph-caret-right text-slate-600 text-xs flex-shrink-0"></i>
-                </div>
-
-                <div class="flex items-center gap-3 rounded-2xl px-4 py-3" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-lg" style="background: linear-gradient(135deg, rgba(16,185,129,0.25), rgba(20,184,166,0.25)); border: 1px solid rgba(16,185,129,0.3);">
-                        <i class="ph ph-chart-line-up text-emerald-400"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <h4 class="text-white text-[13px] font-bold leading-none">Absensi & Progress Nilai</h4>
-                        <p class="text-slate-400 text-[11px] mt-0.5">Pantau perkembangan belajar harian</p>
-                    </div>
-                    <i class="ph ph-caret-right text-slate-600 text-xs flex-shrink-0"></i>
-                </div>
-
-            </div>
-
-            {{-- ── 4. CTA Buttons ── --}}
-            <div class="space-y-2.5">
-
-                <a href="{{ route('login') }}"
-                   class="flex items-center justify-center gap-2 w-full font-bold text-white rounded-2xl active:scale-95 transition-transform text-[15px]"
-                   style="padding: 15px; background: linear-gradient(135deg, #f97316 0%, #ea8c0a 100%); box-shadow: 0 6px 24px rgba(249,115,22,0.45);">
-                    <i class="ph ph-sign-in text-lg"></i>
-                    <span>Masuk Ke Akun</span>
+            {{-- ── 6. Bottom CTA Button Container ── --}}
+            <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-slate-100 z-30 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.06)] px-6 py-5 flex flex-col gap-3">
+                <a href="{{ route('login') }}" 
+                   class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm py-3.5 rounded-xl transition-colors shadow-md shadow-orange-500/20 flex justify-center items-center gap-2">
+                    <i class="ph ph-sign-in text-base"></i> Masuk Ke Akun
                 </a>
-
-                <a href="{{ route('register') }}"
-                   class="flex items-center justify-center gap-2 w-full font-bold rounded-2xl active:scale-95 transition-transform text-[14px]"
-                   style="padding: 14px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.85);">
-                    <i class="ph ph-user-plus"></i>
-                    <span>Daftar Siswa Baru</span>
+                <a href="{{ route('register') }}" 
+                   class="w-full bg-white border-2 border-slate-200 hover:bg-slate-50 text-slate-900 font-bold text-sm py-3 rounded-xl transition-colors flex justify-center items-center gap-2">
+                    <i class="ph ph-user-plus text-base"></i> Daftar Siswa Baru
                 </a>
-
-                <p class="text-[10px] text-slate-600 text-center pt-1">Rumah Belajar Athaya &copy; {{ date('Y') }}</p>
             </div>
 
         </div>
     @endauth
-
 
 </div>
 
 <style>
 @keyframes appWelcomeFloat {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-8px); }
 }
 
 /* Hide floating chatbot widget on the mobile onboarding welcome page to avoid overlaying buttons */
