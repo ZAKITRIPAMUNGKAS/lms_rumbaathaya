@@ -578,8 +578,7 @@
                 </div>
 
                 <a href="{{ route('posts.index') }}"
-                   style="display: none;"
-                   class="group flex-shrink-0 lg:!inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-2xl font-bold text-sm shadow-lg shadow-orange-400/30 hover:shadow-xl hover:shadow-orange-400/40 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+                   class="group hidden lg:flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-2xl font-bold text-sm shadow-lg shadow-orange-400/30 hover:shadow-xl hover:shadow-orange-400/40 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
                     <i class="ph ph-newspaper text-lg"></i>
                     <span>Lihat Semua Artikel</span>
                     <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform duration-200"></i>
@@ -587,27 +586,24 @@
             </div>
 
             @if($posts->count() > 0)
-                @php 
-                    $postsForMading = $posts->take(6); 
+                @php
+                    $postsForMading = $posts->take(6);
                 @endphp
 
                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
 
-                    <!-- ===== FEATURED POSTS (Left Column, Stacked) ===== -->
+                    <!-- ===== FEATURED POST - Mobile: post #1 only, Desktop: post #1 & #2 ===== -->
                     <div class="lg:col-span-3 flex flex-col gap-6">
                         @foreach($postsForMading->take(2) as $index => $featuredPost)
                             @php
                                 $catColors = ['Kabar Rumba' => 'from-blue-500 to-indigo-500', 'Karya Siswa' => 'from-orange-500 to-rose-500', 'Info' => 'from-emerald-500 to-teal-500'];
                                 $catGrad = $catColors[$featuredPost->category] ?? 'from-slate-500 to-slate-600';
                             @endphp
-                            <div x-data="{ loaded: false }" x-intersect.once="loaded = true"
-                                 :class="loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
-                                 class="{{ $index === 1 ? 'hidden lg:block' : '' }}"
-                                 style="transition: all 0.7s cubic-bezier(0.4,0,0.2,1); transition-delay: {{ $index * 150 }}ms;">
+                            {{-- Post #2 hidden on mobile, visible on desktop --}}
+                            <div style="{{ $index === 1 ? 'display:none;' : '' }}"
+                                 class="{{ $index === 1 ? 'lg:!block' : '' }}">
                                 <a href="{{ route('posts.show', $featuredPost->slug) }}"
                                    class="group block relative rounded-[2rem] overflow-hidden shadow-xl shadow-slate-200/60 hover:shadow-2xl hover:shadow-orange-200/40 hover:-translate-y-2 transition-all duration-500">
-
-                                    <!-- Image -->
                                     <div class="relative h-72 sm:h-80 lg:h-[328px] overflow-hidden">
                                         @if($featuredPost->thumbnail)
                                             <img src="{{ $featuredPost->thumbnail_url }}"
@@ -622,19 +618,13 @@
                                                 <i class="ph ph-newspaper text-8xl text-white/30"></i>
                                             </div>
                                         @endif
-
-                                        <!-- Gradient Overlay -->
                                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
-
-                                        <!-- Category Badge -->
                                         <div class="absolute top-5 left-5">
                                             <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-gradient-to-r {{ $catGrad }} text-white text-xs font-bold rounded-full shadow-lg backdrop-blur-sm">
                                                 <i class="ph ph-tag-simple"></i>
                                                 {{ $featuredPost->category ?? 'Artikel' }}
                                             </span>
                                         </div>
-
-                                        <!-- Featured Label -->
                                         @if($loop->first)
                                             <div class="absolute top-5 right-5">
                                                 <span class="inline-flex items-center gap-1 px-3 py-1.5 bg-white/20 backdrop-blur-md text-white text-xs font-bold rounded-full border border-white/30">
@@ -642,8 +632,6 @@
                                                 </span>
                                             </div>
                                         @endif
-
-                                        <!-- Content Overlay -->
                                         <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                                             <h3 class="text-xl lg:text-2xl font-extrabold text-white mb-2 leading-tight group-hover:text-amber-300 transition-colors duration-300 line-clamp-2">
                                                 {{ $featuredPost->title }}
@@ -656,8 +644,7 @@
                                                     @endif
                                                 </div>
                                                 <span class="flex items-center gap-2 text-amber-300 font-bold text-sm group-hover:gap-3 transition-all duration-300">
-                                                    Baca Artikel
-                                                    <i class="ph ph-arrow-right"></i>
+                                                    Baca Artikel <i class="ph ph-arrow-right"></i>
                                                 </span>
                                             </div>
                                         </div>
@@ -667,74 +654,109 @@
                         @endforeach
                     </div>
 
-                    <!-- ===== SIDE POST CARDS ===== -->
-                    <div class="lg:col-span-2 grid grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
-                        @foreach($postsForMading->skip(1)->take(5) as $index => $post)
+                    <!-- ===== SIDE CARDS ===== -->
+                    {{--
+                        Mobile : grid-cols-2, shows posts #2–#5 (skip 1, take 4)
+                        Desktop: grid-cols-1, shows posts #3–#6 (skip 2, take 4)
+                        Completely separate loops — no index confusion, no duplicates.
+                    --}}
+
+                    {{-- MOBILE side cards: posts #2–#5, 2-column grid --}}
+                    <div class="grid grid-cols-2 gap-4 lg:hidden">
+                        @foreach($postsForMading->skip(1)->take(4) as $post)
                             @php
                                 $catColorsSmall = ['Kabar Rumba' => 'bg-blue-100 text-blue-700 border-blue-200', 'Karya Siswa' => 'bg-orange-100 text-orange-700 border-orange-200', 'Info' => 'bg-emerald-100 text-emerald-700 border-emerald-200'];
                                 $catClass = $catColorsSmall[$post->category] ?? 'bg-slate-100 text-slate-600 border-slate-200';
-                                
-                                $visibilityClass = '';
-                                if ($index === 0) {
-                                    $visibilityClass = 'lg:hidden';
-                                } elseif ($index === 4) {
-                                    $visibilityClass = 'hidden lg:block';
-                                }
                             @endphp
-                            <div x-data="{ loaded: false }" x-intersect.once="loaded = true"
-                                 :class="loaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'"
-                                 class="{{ $visibilityClass }}"
-                                 style="transition: all 0.7s cubic-bezier(0.4,0,0.2,1); transition-delay: {{ ($index + 1) * 150 }}ms;">
-                                <a href="{{ route('posts.show', $post->slug) }}"
-                                   class="group flex flex-col sm:flex-row gap-3 sm:gap-5 p-3 sm:p-5 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:shadow-orange-100/50 hover:-translate-y-1 hover:border-orange-200/60 transition-all duration-300 h-full">
-                                    <!-- Thumbnail -->
-                                    <div class="w-full h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-orange-100 to-amber-100 relative">
-                                        @if($post->thumbnail)
-                                            <img src="{{ $post->thumbnail_url }}"
-                                                 alt="{{ $post->title }}"
-                                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                            <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-100 to-amber-100 text-orange-300" style="display: none;">
-                                                <i class="ph ph-image text-3xl"></i>
-                                            </div>
-                                        @else
-                                            <div class="w-full h-full flex items-center justify-center">
-                                                <i class="ph ph-image text-3xl text-orange-300"></i>
-                                            </div>
+                            <a href="{{ route('posts.show', $post->slug) }}"
+                               class="group flex flex-col gap-2 p-3 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:shadow-orange-100/50 transition-all duration-300">
+                                <div class="w-full h-24 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-orange-100 to-amber-100 relative">
+                                    @if($post->thumbnail)
+                                        <img src="{{ $post->thumbnail_url }}"
+                                             alt="{{ $post->title }}"
+                                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-100 to-amber-100 text-orange-300" style="display: none;">
+                                            <i class="ph ph-image text-3xl"></i>
+                                        </div>
+                                    @else
+                                        <div class="w-full h-full flex items-center justify-center">
+                                            <i class="ph ph-image text-3xl text-orange-300"></i>
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold border {{ $catClass }} mb-1">
+                                        {{ $post->category ?? 'Artikel' }}
+                                    </span>
+                                    <h3 class="font-bold text-slate-800 text-xs leading-snug line-clamp-2 group-hover:text-orange-500 transition-colors duration-200">
+                                        {{ $post->title }}
+                                    </h3>
+                                    @if($post->published_at)
+                                        <span class="text-[9px] text-slate-400 flex items-center gap-1 mt-1">
+                                            <i class="ph ph-calendar"></i>
+                                            {{ $post->published_at->format('d M Y') }}
+                                        </span>
+                                    @endif
+                                </div>
+                            </a>
+                        @endforeach
+                    </div>
+
+                    {{-- DESKTOP side cards: posts #3–#6, single-column list --}}
+                    <div class="hidden lg:flex lg:col-span-2 flex-col gap-6">
+                        @foreach($postsForMading->skip(2)->take(4) as $index => $post)
+                            @php
+                                $catColorsSmall = ['Kabar Rumba' => 'bg-blue-100 text-blue-700 border-blue-200', 'Karya Siswa' => 'bg-orange-100 text-orange-700 border-orange-200', 'Info' => 'bg-emerald-100 text-emerald-700 border-emerald-200'];
+                                $catClass = $catColorsSmall[$post->category] ?? 'bg-slate-100 text-slate-600 border-slate-200';
+                            @endphp
+                            <a href="{{ route('posts.show', $post->slug) }}"
+                               class="group flex flex-row gap-4 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:shadow-orange-100/50 hover:-translate-y-1 hover:border-orange-200/60 transition-all duration-300">
+                                <div class="w-28 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-orange-100 to-amber-100 relative">
+                                    @if($post->thumbnail)
+                                        <img src="{{ $post->thumbnail_url }}"
+                                             alt="{{ $post->title }}"
+                                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-100 to-amber-100 text-orange-300" style="display: none;">
+                                            <i class="ph ph-image text-3xl"></i>
+                                        </div>
+                                    @else
+                                        <div class="w-full h-full flex items-center justify-center">
+                                            <i class="ph ph-image text-3xl text-orange-300"></i>
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+                                    <div>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold border {{ $catClass }} mb-2">
+                                            {{ $post->category ?? 'Artikel' }}
+                                        </span>
+                                        <h3 class="font-bold text-slate-800 text-sm leading-snug line-clamp-2 group-hover:text-orange-500 transition-colors duration-200">
+                                            {{ $post->title }}
+                                        </h3>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-2">
+                                        @if($post->published_at)
+                                            <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                                                <i class="ph ph-calendar"></i>
+                                                {{ $post->published_at->format('d M Y') }}
+                                            </span>
                                         @endif
+                                        <span class="text-[11px] font-bold text-orange-500 flex items-center gap-0.5 group-hover:gap-1.5 transition-all">
+                                            Baca <i class="ph ph-arrow-right"></i>
+                                        </span>
                                     </div>
-                                    <!-- Text Content -->
-                                    <div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
-                                        <div>
-                                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] sm:text-[11px] font-bold border {{ $catClass }} mb-1 sm:mb-2">
-                                                {{ $post->category ?? 'Artikel' }}
-                                            </span>
-                                            <h3 class="font-bold text-slate-800 text-xs sm:text-sm leading-snug line-clamp-2 group-hover:text-orange-500 transition-colors duration-200">
-                                                {{ $post->title }}
-                                            </h3>
-                                        </div>
-                                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-0 mt-2">
-                                            @if($post->published_at)
-                                                <span class="text-[9px] sm:text-[11px] text-slate-400 flex items-center gap-1">
-                                                    <i class="ph ph-calendar"></i>
-                                                    {{ $post->published_at->format('d M Y') }}
-                                                </span>
-                                            @endif
-                                            <span class="text-[9px] sm:text-[11px] font-bold text-orange-500 flex items-center gap-0.5 group-hover:gap-1.5 transition-all">
-                                                Baca <i class="ph ph-arrow-right"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         @endforeach
                     </div>
                 </div>
 
-                <!-- Jelajahi Semua Button (Mobile Only, Full-Width below grid) -->
-                <div class="mt-6 text-center lg:hidden">
+                <!-- Lihat Semua Artikel — Mobile only, full-width, below grid -->
+                <div class="mt-6 lg:hidden">
                     <a href="{{ route('posts.index') }}"
-                       class="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-bold text-sm shadow-md shadow-orange-300/30 hover:shadow-lg transition-all duration-300 w-full justify-center active:scale-98">
+                       class="flex items-center justify-center gap-2 w-full py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-bold text-sm shadow-md shadow-orange-300/30 hover:shadow-lg transition-all duration-300 active:scale-95">
                         <i class="ph ph-newspaper text-lg"></i>
                         <span>Lihat Semua Artikel</span>
                     </a>
