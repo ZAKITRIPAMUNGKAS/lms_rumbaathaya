@@ -295,7 +295,7 @@
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+            <div class="grid grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-8 md:gap-10">
                 @php
                     $formulas = [
                         [
@@ -331,10 +331,10 @@
                     <div x-data="{ loaded: false }"
                          x-intersect.once="loaded = true"
                          :class="loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
-                         class="group p-8 rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-700 transform relative overflow-hidden cursor-pointer hover:-translate-y-2 hover:scale-[1.02]"
+                         class="group p-3 sm:p-8 rounded-2xl sm:rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-700 transform relative overflow-hidden cursor-pointer hover:-translate-y-2 hover:scale-[1.02]"
                          style="transition-delay: {{ $index * 100 }}ms">
-                        <div class="absolute top-0 right-0 w-32 h-32 {{ $formula['bgColor'] }} rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                        <div class="w-16 h-16 {{ $formula['iconBg'] }} text-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg {{ $formula['shadowColor'] }} relative z-10"
+                        <div class="absolute top-0 right-0 w-16 h-16 sm:w-32 sm:h-32 {{ $formula['bgColor'] }} rounded-bl-[2rem] sm:rounded-bl-[4rem] -mr-4 -mt-4 sm:-mr-8 sm:-mt-8 transition-transform group-hover:scale-110"></div>
+                        <div class="w-10 h-10 sm:w-16 sm:h-16 {{ $formula['iconBg'] }} text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-3xl mb-4 sm:mb-6 shadow-lg {{ $formula['shadowColor'] }} relative z-10"
                              x-data="{ hovered: false }"
                              @mouseenter="hovered = true"
                              @mouseleave="hovered = false"
@@ -342,10 +342,10 @@
                              style="transition: transform 0.2s;">
                             <i class="ph {{ $formula['icon'] }}"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-3 relative z-10">
+                        <h3 class="text-xs sm:text-2xl font-extrabold text-slate-900 mb-2 sm:mb-3 relative z-10">
                             {{ $formula['number'] }}. {{ $formula['title'] }}
                         </h3>
-                        <p class="text-gray-600 leading-relaxed relative z-10">
+                        <p class="text-[10px] sm:text-base text-gray-500 leading-relaxed font-medium relative z-10">
                             {{ $formula['description'] }}
                         </p>
                     </div>
