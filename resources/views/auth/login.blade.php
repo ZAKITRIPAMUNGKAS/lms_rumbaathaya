@@ -52,6 +52,19 @@
                         </div>
                     @endif
 
+                    <!-- Validation Error Warning Box -->
+                    @if ($errors->any())
+                        <div class="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-xl flex items-start gap-3 animate-shake">
+                            <i class="ph ph-warning-circle text-red-500 text-xl shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-red-800 text-sm">Gagal Masuk</h4>
+                                <p class="text-xs text-red-600 mt-1">
+                                    {{ $errors->first() }}
+                                </p>
+                            </div>
+                        </div>
+                    @endif
+
                     <form method="POST" action="{{ route('login') }}" class="space-y-6" @submit="if ($el.checkValidity()) loading = true">
                         @csrf
 
@@ -63,10 +76,10 @@
                             </label>
                             <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
                                 autocomplete="username"
-                                class="w-full px-4 py-3 border-2 border-gray-200/60 rounded-xl focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition-all duration-200 bg-white/80 backdrop-blur-sm font-medium text-slate-700 placeholder:text-slate-400"
+                                class="w-full px-4 py-3 border-2 {{ $errors->has('email') ? 'border-red-300 bg-red-50/10' : 'border-gray-200/60 bg-white/80' }} rounded-xl focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition-all duration-200 backdrop-blur-sm font-medium text-slate-700 placeholder:text-slate-400"
                                 placeholder="nama@example.com">
                             @if ($errors->has('email'))
-                                <p class="mt-2 text-sm text-red-600">{{ $errors->first('email') }}</p>
+                                <p class="mt-2 text-sm text-red-600 font-medium">{{ $errors->first('email') }}</p>
                             @endif
                         </div>
 
@@ -79,7 +92,7 @@
                             <div class="relative">
                                 <input :type="showPassword ? 'text' : 'password'" id="password" name="password" required
                                     autocomplete="current-password"
-                                    class="w-full px-4 py-3 border-2 border-gray-200/60 rounded-xl focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition-all duration-200 pr-12 bg-white/80 backdrop-blur-sm font-medium text-slate-700 placeholder:text-slate-400"
+                                    class="w-full px-4 py-3 border-2 {{ $errors->has('password') || $errors->has('email') ? 'border-red-300 bg-red-50/10' : 'border-gray-200/60 bg-white/80' }} rounded-xl focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition-all duration-200 pr-12 backdrop-blur-sm font-medium text-slate-700 placeholder:text-slate-400"
                                     placeholder="Masukkan password">
                                 <button type="button" @click="showPassword = !showPassword"
                                     class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-brand-orange transition-colors">
@@ -87,7 +100,7 @@
                                 </button>
                             </div>
                             @if ($errors->has('password'))
-                                <p class="mt-2 text-sm text-red-600">{{ $errors->first('password') }}</p>
+                                <p class="mt-2 text-sm text-red-600 font-medium">{{ $errors->first('password') }}</p>
                             @endif
                         </div>
 
