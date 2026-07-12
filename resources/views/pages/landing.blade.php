@@ -1018,123 +1018,119 @@
         </script>
     @else
         {{-- ── ONBOARDING WELCOME SCREEN ── --}}
-        <div class="relative z-10 flex flex-col min-h-screen pb-8" style="padding-top: env(safe-area-inset-top, 48px);">
+        <div class="relative z-10 flex flex-col px-5" style="min-height: 100dvh; padding-top: max(env(safe-area-inset-top, 20px), 20px); padding-bottom: max(env(safe-area-inset-bottom, 24px), 24px); gap: 0;">
 
-            {{-- ── TOP: Brand Header ── --}}
-            <div class="flex flex-col items-center text-center px-6 pt-6">
-                {{-- Logo Badge --}}
-                <div class="flex items-center gap-2 mb-6">
-                    <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #f97316, #f59e0b);">
-                        <img src="{{ asset('LogoNavbar.png') }}" alt="RA" class="w-6 h-6 object-contain brightness-0 invert">
-                    </div>
-                    <span class="text-white font-black text-base tracking-tight">Rumba Athaya</span>
-                    <span class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider" style="background: rgba(249,115,22,0.2); color: #fb923c; border: 1px solid rgba(249,115,22,0.3);">LMS</span>
+            {{-- ── 1. Brand Header (compact) ── --}}
+            <div class="flex items-center justify-center gap-2 py-3">
+                <div class="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #f97316, #f59e0b);">
+                    <img src="{{ asset('LogoNavbar.png') }}" alt="RA" class="w-5 h-5 object-contain brightness-0 invert">
                 </div>
+                <span class="text-white font-black text-[15px] tracking-tight">Rumba Athaya</span>
+                <span class="px-2 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider" style="background: rgba(249,115,22,0.2); color: #fb923c; border: 1px solid rgba(249,115,22,0.3);">LMS</span>
             </div>
 
-            {{-- ── HERO: Mascot + Headline ── --}}
-            <div class="flex flex-col items-center text-center px-6 flex-1 justify-center">
+            {{-- ── 2. Hero Area (mascot + headline + stats) ── --}}
+            <div class="flex flex-col items-center text-center flex-1 justify-center py-2">
 
-                {{-- Mascot with glow ring --}}
-                <div class="relative mb-6">
-                    <div class="absolute inset-0 rounded-full blur-2xl opacity-40" style="background: radial-gradient(circle, #f97316 0%, transparent 70%); transform: scale(1.2);"></div>
-                    <div class="relative w-36 h-36 mx-auto">
-                        <img src="{{ asset('maskot.png') }}" alt="Maskot Rumba Athaya"
-                             class="w-full h-full object-contain filter drop-shadow-2xl"
-                             style="animation: appWelcomeFloat 3s ease-in-out infinite;"
-                             onerror="this.style.display='none'">
-                    </div>
+                {{-- Mascot --}}
+                <div class="relative mb-4">
+                    <div class="absolute inset-0 rounded-full blur-2xl opacity-50" style="background: radial-gradient(circle, #f97316 0%, transparent 65%); transform: scale(1.3);"></div>
+                    <img src="{{ asset('maskot.png') }}" alt="Maskot"
+                         class="relative w-28 h-28 object-contain drop-shadow-2xl"
+                         style="animation: appWelcomeFloat 3s ease-in-out infinite;"
+                         onerror="this.style.display='none'">
                 </div>
 
                 {{-- Headline --}}
-                <h1 class="text-3xl font-black text-white leading-tight mb-3 tracking-tight">
+                <h1 class="text-[26px] font-black text-white leading-tight mb-2 tracking-tight">
                     Belajar Lebih <span style="background: linear-gradient(90deg, #f97316, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Seru</span>,<br>
                     Prestasi Lebih <span style="background: linear-gradient(90deg, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Cemerlang!</span>
                 </h1>
-                <p class="text-slate-400 text-sm leading-relaxed max-w-xs">
-                    Platform bimbingan belajar digital terbaik untuk meraih potensi akademik maksimal.
+                <p class="text-slate-400 text-xs leading-relaxed max-w-[260px]">
+                    Bimbingan belajar digital untuk meraih potensi akademik terbaik.
                 </p>
 
                 {{-- Stats Row --}}
-                <div class="flex items-center gap-6 mt-5">
+                <div class="flex items-center gap-5 mt-4 px-4 py-3 rounded-2xl" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
                     <div class="text-center">
-                        <p class="text-white font-black text-xl">{{ $studentCount }}+</p>
-                        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wide">Siswa Aktif</p>
+                        <p class="text-white font-black text-lg leading-none">{{ $studentCount }}+</p>
+                        <p class="text-slate-500 text-[9px] font-semibold uppercase tracking-wide mt-0.5">Siswa Aktif</p>
                     </div>
-                    <div class="w-px h-8" style="background: rgba(255,255,255,0.1);"></div>
+                    <div class="w-px h-6" style="background: rgba(255,255,255,0.1);"></div>
                     <div class="text-center">
-                        <p class="text-white font-black text-xl">4.9 ⭐</p>
-                        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wide">Rating</p>
+                        <p class="text-white font-black text-lg leading-none">4.9 ⭐</p>
+                        <p class="text-slate-500 text-[9px] font-semibold uppercase tracking-wide mt-0.5">Rating</p>
                     </div>
-                    <div class="w-px h-8" style="background: rgba(255,255,255,0.1);"></div>
+                    <div class="w-px h-6" style="background: rgba(255,255,255,0.1);"></div>
                     <div class="text-center">
-                        <p class="text-white font-black text-xl">3+</p>
-                        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wide">Tahun Aktif</p>
+                        <p class="text-white font-black text-lg leading-none">3+</p>
+                        <p class="text-slate-500 text-[9px] font-semibold uppercase tracking-wide mt-0.5">Tahun Aktif</p>
                     </div>
                 </div>
 
             </div>
 
-            {{-- ── FEATURES: 3 Horizontal Cards ── --}}
-            <div class="px-5 mt-6 space-y-3">
+            {{-- ── 3. Feature Cards ── --}}
+            <div class="space-y-2.5 mb-4">
 
-                <div class="flex items-center gap-4 rounded-2xl px-4 py-3.5" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px);">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-xl" style="background: linear-gradient(135deg, rgba(249,115,22,0.3), rgba(245,158,11,0.3)); border: 1px solid rgba(249,115,22,0.3);">
+                <div class="flex items-center gap-3 rounded-2xl px-4 py-3" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-lg" style="background: linear-gradient(135deg, rgba(249,115,22,0.25), rgba(245,158,11,0.25)); border: 1px solid rgba(249,115,22,0.3);">
                         <i class="ph ph-calendar-check text-orange-400"></i>
                     </div>
                     <div class="flex-1 text-left">
-                        <h4 class="text-white text-sm font-bold">Pantau Jadwal Belajar</h4>
-                        <p class="text-slate-400 text-xs mt-0.5">Jadwal kelas & jam les ter-update real-time</p>
+                        <h4 class="text-white text-[13px] font-bold leading-none">Pantau Jadwal Belajar</h4>
+                        <p class="text-slate-400 text-[11px] mt-0.5">Jadwal kelas & jam les ter-update real-time</p>
                     </div>
-                    <i class="ph ph-caret-right text-slate-600 text-sm flex-shrink-0"></i>
+                    <i class="ph ph-caret-right text-slate-600 text-xs flex-shrink-0"></i>
                 </div>
 
-                <div class="flex items-center gap-4 rounded-2xl px-4 py-3.5" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px);">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-xl" style="background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(139,92,246,0.3)); border: 1px solid rgba(99,102,241,0.3);">
+                <div class="flex items-center gap-3 rounded-2xl px-4 py-3" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-lg" style="background: linear-gradient(135deg, rgba(99,102,241,0.25), rgba(139,92,246,0.25)); border: 1px solid rgba(99,102,241,0.3);">
                         <i class="ph ph-book-open-text text-indigo-400"></i>
                     </div>
                     <div class="flex-1 text-left">
-                        <h4 class="text-white text-sm font-bold">Materi & Modul Belajar</h4>
-                        <p class="text-slate-400 text-xs mt-0.5">Akses modul & materi langsung di HP</p>
+                        <h4 class="text-white text-[13px] font-bold leading-none">Materi & Modul Belajar</h4>
+                        <p class="text-slate-400 text-[11px] mt-0.5">Akses modul & materi langsung di HP</p>
                     </div>
-                    <i class="ph ph-caret-right text-slate-600 text-sm flex-shrink-0"></i>
+                    <i class="ph ph-caret-right text-slate-600 text-xs flex-shrink-0"></i>
                 </div>
 
-                <div class="flex items-center gap-4 rounded-2xl px-4 py-3.5" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px);">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-xl" style="background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(20,184,166,0.3)); border: 1px solid rgba(16,185,129,0.3);">
+                <div class="flex items-center gap-3 rounded-2xl px-4 py-3" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-lg" style="background: linear-gradient(135deg, rgba(16,185,129,0.25), rgba(20,184,166,0.25)); border: 1px solid rgba(16,185,129,0.3);">
                         <i class="ph ph-chart-line-up text-emerald-400"></i>
                     </div>
                     <div class="flex-1 text-left">
-                        <h4 class="text-white text-sm font-bold">Absensi & Progress Nilai</h4>
-                        <p class="text-slate-400 text-xs mt-0.5">Pantau perkembangan belajar harian</p>
+                        <h4 class="text-white text-[13px] font-bold leading-none">Absensi & Progress Nilai</h4>
+                        <p class="text-slate-400 text-[11px] mt-0.5">Pantau perkembangan belajar harian</p>
                     </div>
-                    <i class="ph ph-caret-right text-slate-600 text-sm flex-shrink-0"></i>
+                    <i class="ph ph-caret-right text-slate-600 text-xs flex-shrink-0"></i>
                 </div>
 
             </div>
 
-            {{-- ── CTA BUTTONS ── --}}
-            <div class="px-5 mt-6 space-y-3">
+            {{-- ── 4. CTA Buttons ── --}}
+            <div class="space-y-2.5">
 
                 <a href="{{ route('login') }}"
-                   class="flex items-center justify-center gap-2 w-full font-bold text-white rounded-2xl active:scale-95 transition-transform"
-                   style="padding: 16px; background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%); box-shadow: 0 8px 32px rgba(249,115,22,0.4);">
+                   class="flex items-center justify-center gap-2 w-full font-bold text-white rounded-2xl active:scale-95 transition-transform text-[15px]"
+                   style="padding: 15px; background: linear-gradient(135deg, #f97316 0%, #ea8c0a 100%); box-shadow: 0 6px 24px rgba(249,115,22,0.45);">
                     <i class="ph ph-sign-in text-lg"></i>
                     <span>Masuk Ke Akun</span>
                 </a>
 
                 <a href="{{ route('register') }}"
-                   class="flex items-center justify-center gap-2 w-full font-bold rounded-2xl active:scale-95 transition-transform"
-                   style="padding: 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">
-                    <i class="ph ph-user-plus text-lg"></i>
+                   class="flex items-center justify-center gap-2 w-full font-bold rounded-2xl active:scale-95 transition-transform text-[14px]"
+                   style="padding: 14px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.85);">
+                    <i class="ph ph-user-plus"></i>
                     <span>Daftar Siswa Baru</span>
                 </a>
 
-                <p class="text-[10px] text-slate-600 text-center pt-1">Rumah Belajar Athaya &copy; {{ date('Y') }} · v1.0</p>
+                <p class="text-[10px] text-slate-600 text-center pt-1">Rumah Belajar Athaya &copy; {{ date('Y') }}</p>
             </div>
 
         </div>
     @endauth
+
 
 </div>
 

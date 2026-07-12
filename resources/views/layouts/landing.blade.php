@@ -197,7 +197,9 @@
             const isDismissed = localStorage.getItem('mobile_app_promo_dismissed') === 'true';
             
             // Check if not running inside Capacitor (native webview) already
-            const isNativeApp = typeof window.Capacitor !== 'undefined' || window.location.search.includes('platform=android');
+            const isNativeApp = typeof window.Capacitor !== 'undefined' 
+                || window.location.search.includes('platform=android')
+                || window.location.search.includes('preview=app');
 
             const isDownloadPage = window.location.pathname.includes('download') || window.location.pathname.includes('unduh');
             
