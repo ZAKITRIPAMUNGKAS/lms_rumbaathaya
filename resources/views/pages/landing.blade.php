@@ -1018,7 +1018,7 @@
         </script>
     @else
         {{-- ── ONBOARDING WELCOME SCREEN ── --}}
-        <div class="relative z-10 flex flex-col px-5" style="min-height: 100dvh; padding-top: max(env(safe-area-inset-top, 20px), 20px); padding-bottom: max(env(safe-area-inset-bottom, 24px), 24px); gap: 0;">
+        <div class="relative z-10 flex flex-col px-5" style="min-height: 100dvh; padding-top: max(env(safe-area-inset-top, 20px), 20px); padding-bottom: calc(76px + env(safe-area-inset-bottom, 24px)); gap: 0;">
 
             {{-- ── 1. Brand Header (compact) ── --}}
             <div class="flex items-center justify-center gap-2 py-3">
@@ -1138,6 +1138,12 @@
 @keyframes appWelcomeFloat {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
+}
+
+/* Hide floating chatbot widget on the mobile onboarding welcome page to avoid overlaying buttons */
+.capacitor-platform #chatbot-widget-container,
+.capacitor-platform #chatbot-trigger-btn {
+    display: none !important;
 }
 </style>
 @endsection
