@@ -33,12 +33,11 @@
             <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-br from-purple-300/30 to-pink-300/30 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
         </div>
 
-        <!-- Floating Decorative Elements -->
+        <!-- Floating Decorative Elements (Clean Geometric Patterns instead of Emojis) -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-20 left-10 text-6xl opacity-20 animate-float">📚</div>
-            <div class="absolute top-40 right-20 text-5xl opacity-20 animate-float animation-delay-1000">✨</div>
-            <div class="absolute bottom-40 left-20 text-5xl opacity-20 animate-float animation-delay-2000">🎯</div>
-            <div class="absolute bottom-20 right-40 text-6xl opacity-20 animate-float animation-delay-3000">🚀</div>
+            <div class="absolute top-20 left-10 w-8 h-8 rounded-full border-2 border-indigo-200/40 animate-float"></div>
+            <div class="absolute top-40 right-20 w-6 h-6 rounded-lg bg-orange-200/20 rotate-45 animate-float animation-delay-1000"></div>
+            <div class="absolute bottom-40 left-20 w-10 h-10 border border-amber-200/30 rounded-lg animate-float animation-delay-2000"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -46,50 +45,51 @@
             <div class="relative z-10 text-center lg:text-left">
                 <div>
                     
-                    <!-- Badge: Bimbel Terbaik - More Vibrant -->
+                    <!-- Badge: Bimbel Terbaik - Minimalist & Premium -->
                     <div x-show="showed" 
-                         x-transition:enter="transition ease-out duration-700"
-                         x-transition:enter-start="opacity-0 translate-y-10 scale-95"
-                         x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                         class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full shadow-lg shadow-orange-500/30 mb-3 sm:mb-4 animate-pulse-slow">
-                        <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
-                        <span class="text-xs font-bold tracking-wide uppercase">🏆 Bimbel Terbaik Sejak 2023</span>
+                          x-transition:enter="transition ease-out duration-700"
+                          x-transition:enter-start="opacity-0 translate-y-10 scale-95"
+                          x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                          class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-orange-50 border border-orange-200 text-brand-orange rounded-full mb-4 sm:mb-5 shadow-sm">
+                        <i class="ph ph-trophy text-sm"></i>
+                        <span class="text-[10px] sm:text-xs font-bold tracking-wider uppercase">Bimbel Terbaik Sejak 2023</span>
                     </div>
                     
-                    <!-- Main Heading - Cleaner -->
+                    <!-- Main Heading - Clean Typographical Contrast -->
                     <h1 x-show="showed" 
                         x-transition:enter="transition ease-out duration-700 delay-100"
                         x-transition:enter-start="opacity-0 translate-y-10 scale-95"
                         x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-3 sm:mb-4 tracking-tight">
-                        Belajar Lebih <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">Seru</span>, <br/>
-                        Prestasi Lebih <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500">Cemerlang</span>! 🌟
+                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-tight mb-3 sm:mb-4 tracking-tight">
+                        Belajar Lebih <span class="text-indigo-600">Seru</span>, <br/>
+                        Prestasi Lebih <span class="text-brand-orange">Cemerlang</span>!
                     </h1>
                     
-                    <!-- Description -->
+                    <!-- Description - Clean & Human-Crafted -->
                     <p x-show="showed" 
                        x-transition:enter="transition ease-out duration-700 delay-200"
                        x-transition:enter-start="opacity-0 translate-y-10"
                        x-transition:enter-end="opacity-100 translate-y-0"
-                       class="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium mb-4 sm:mb-6">
-                        Platform bimbingan belajar <span class="font-bold text-orange-600">premium</span> yang mengubah cara belajar menjadi pengalaman yang <span class="font-bold text-indigo-600">menyenangkan</span> dan <span class="font-bold text-purple-600">efektif</span>! 🎓
+                       class="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium mb-5 sm:mb-8">
+                        Platform bimbingan belajar premium yang berfokus membangun suasana belajar aktif, menyenangkan, dan efektif untuk meraih potensi akademik terbaik.
                     </p>
                     
-                    <!-- CTA Buttons - Cleaner -->
+                    <!-- CTA Buttons - Professional & Human -->
                     <div x-show="showed" 
-                         x-transition:enter="transition ease-out duration-700 delay-300"
-                         x-transition:enter-start="opacity-0 translate-y-10"
-                         x-transition:enter-end="opacity-100 translate-y-0"
-                         class="flex flex-wrap gap-3 sm:gap-4 pt-2 justify-center lg:justify-start">
-                        <a href="{{ route('register') }}" class="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-xl font-extrabold text-sm sm:text-base hover:shadow-xl hover:shadow-orange-500/40 transition-all duration-300 flex items-center gap-2 overflow-hidden transform hover:scale-105">
+                          x-transition:enter="transition ease-out duration-700 delay-300"
+                          x-transition:enter-start="opacity-0 translate-y-10"
+                          x-transition:enter-end="opacity-100 translate-y-0"
+                          class="flex flex-wrap gap-3 sm:gap-4 pt-2 justify-center lg:justify-start">
+                        <a href="{{ route('register') }}" class="group relative px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-xl font-bold text-sm sm:text-base hover:shadow-xl hover:shadow-orange-500/30 transition-all duration-300 flex items-center gap-2 overflow-hidden transform hover:scale-[1.02]">
                             <span class="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-700 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                            <span class="relative z-10 flex items-center gap-2">
-                                <span>🚀 Daftar Sekarang GRATIS!</span>
-                                <span class="group-hover:translate-x-1 transition-transform">→</span>
+                            <span class="relative z-10 flex items-center gap-1.5">
+                                <span>Daftar Sekarang</span>
+                                <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </span>
                         </a>
-                        <a href="#program" class="px-6 sm:px-8 py-3 sm:py-4 bg-white text-slate-700 border-2 border-orange-200 rounded-xl font-bold hover:border-orange-400 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 text-sm sm:text-base flex items-center gap-2 shadow-lg transform hover:scale-105">
-                            <span>📖 Lihat Program</span>
+                        <a href="#program" class="group px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-slate-700 border-2 border-slate-200 rounded-xl font-bold hover:border-brand-orange hover:text-brand-orange hover:bg-orange-50/50 transition-all duration-300 text-sm sm:text-base flex items-center gap-1.5 shadow-sm transform hover:scale-[1.02]">
+                            <i class="ph ph-book-open text-base sm:text-lg"></i>
+                            <span>Lihat Program</span>
                         </a>
                     </div>
                     
