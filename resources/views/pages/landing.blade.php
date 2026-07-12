@@ -652,7 +652,7 @@
                     </div>
 
                     <!-- ===== SIDE POST CARDS ===== -->
-                    <div class="lg:col-span-2 flex flex-col gap-6">
+                    <div class="lg:col-span-2 grid grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
                         @foreach($otherPosts as $index => $post)
                             @php
                                 $catColorsSmall = ['Kabar Rumba' => 'bg-blue-100 text-blue-700 border-blue-200', 'Karya Siswa' => 'bg-orange-100 text-orange-700 border-orange-200', 'Info' => 'bg-emerald-100 text-emerald-700 border-emerald-200'];
@@ -662,9 +662,9 @@
                                  :class="loaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'"
                                  style="transition: all 0.7s cubic-bezier(0.4,0,0.2,1); transition-delay: {{ ($index + 1) * 150 }}ms;">
                                 <a href="{{ route('posts.show', $post->slug) }}"
-                                   class="group flex gap-5 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:shadow-orange-100/50 hover:-translate-y-1 hover:border-orange-200/60 transition-all duration-300">
+                                   class="group flex flex-col sm:flex-row gap-3 sm:gap-5 p-3 sm:p-5 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:shadow-orange-100/50 hover:-translate-y-1 hover:border-orange-200/60 transition-all duration-300 h-full">
                                     <!-- Thumbnail -->
-                                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-orange-100 to-amber-100">
+                                    <div class="w-full h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-orange-100 to-amber-100 relative">
                                         @if($post->thumbnail)
                                             <img src="{{ $post->thumbnail_url }}"
                                                  alt="{{ $post->title }}"
@@ -678,21 +678,21 @@
                                     <!-- Text Content -->
                                     <div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
                                         <div>
-                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border {{ $catClass }} mb-2">
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] sm:text-[11px] font-bold border {{ $catClass }} mb-1 sm:mb-2">
                                                 {{ $post->category ?? 'Artikel' }}
                                             </span>
-                                            <h3 class="font-bold text-slate-800 text-sm leading-snug line-clamp-2 group-hover:text-orange-500 transition-colors duration-200">
+                                            <h3 class="font-bold text-slate-800 text-xs sm:text-sm leading-snug line-clamp-2 group-hover:text-orange-500 transition-colors duration-200">
                                                 {{ $post->title }}
                                             </h3>
                                         </div>
-                                        <div class="flex items-center justify-between mt-2">
+                                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-0 mt-2">
                                             @if($post->published_at)
-                                                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                                                <span class="text-[9px] sm:text-[11px] text-slate-400 flex items-center gap-1">
                                                     <i class="ph ph-calendar"></i>
                                                     {{ $post->published_at->format('d M Y') }}
                                                 </span>
                                             @endif
-                                            <span class="text-[11px] font-bold text-orange-500 flex items-center gap-0.5 group-hover:gap-1.5 transition-all">
+                                            <span class="text-[9px] sm:text-[11px] font-bold text-orange-500 flex items-center gap-0.5 group-hover:gap-1.5 transition-all">
                                                 Baca <i class="ph ph-arrow-right"></i>
                                             </span>
                                         </div>
