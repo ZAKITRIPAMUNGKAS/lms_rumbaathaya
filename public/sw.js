@@ -3,8 +3,8 @@
  * International Standards - Offline Support & Performance
  */
 
-const CACHE_NAME = 'rumba-athaya-v2';
-const RUNTIME_CACHE = 'rumba-athaya-runtime-v2';
+const CACHE_NAME = 'rumba-athaya-v3';
+const RUNTIME_CACHE = 'rumba-athaya-runtime-v3';
 
 // Assets to cache on install
 const PRECACHE_ASSETS = [
