@@ -578,7 +578,7 @@
                 </div>
 
                 <a href="{{ route('posts.index') }}"
-                   class="group flex-shrink-0 inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-2xl font-bold text-sm shadow-lg shadow-orange-400/30 hover:shadow-xl hover:shadow-orange-400/40 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+                   class="group flex-shrink-0 hidden md:inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-2xl font-bold text-sm shadow-lg shadow-orange-400/30 hover:shadow-xl hover:shadow-orange-400/40 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
                     <i class="ph ph-newspaper text-lg"></i>
                     <span>Lihat Semua Artikel</span>
                     <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform duration-200"></i>
@@ -586,7 +586,7 @@
             </div>
 
             @if($posts->count() > 0)
-                @php $featuredPosts = $posts->take(2); $otherPosts = $posts->skip(2); @endphp
+                @php $featuredPosts = $posts->take(2); $otherPosts = $posts->skip(2)->take(4); @endphp
 
                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
 
@@ -716,23 +716,16 @@
                                 </a>
                             </div>
                         @endforeach
-
-                        <!-- CTA Mini Card -->
-                        <div x-data="{ loaded: false }" x-intersect.once="loaded = true"
-                             :class="loaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'"
-                             style="transition: all 0.7s cubic-bezier(0.4,0,0.2,1); transition-delay: 450ms;">
-                            <a href="{{ route('posts.index') }}"
-                               class="group flex items-center justify-between gap-4 p-5 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl shadow-lg shadow-orange-300/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                <div>
-                                    <p class="text-white/70 text-xs font-semibold uppercase tracking-widest">Mading Online</p>
-                                    <p class="text-white font-extrabold text-base leading-tight mt-0.5">Jelajahi Semua Artikel →</p>
-                                </div>
-                                <div class="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 group-hover:scale-110 transition-all duration-300">
-                                    <i class="ph ph-newspaper text-white text-2xl"></i>
-                                </div>
-                            </a>
-                        </div>
                     </div>
+                </div>
+
+                <!-- Jelajahi Semua Button (Mobile Only, Full-Width below grid) -->
+                <div class="mt-6 text-center lg:hidden">
+                    <a href="{{ route('posts.index') }}"
+                       class="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-bold text-sm shadow-md shadow-orange-300/30 hover:shadow-lg transition-all duration-300 w-full justify-center active:scale-98">
+                        <i class="ph ph-newspaper text-lg"></i>
+                        <span>Lihat Semua Artikel</span>
+                    </a>
                 </div>
 
             @else
