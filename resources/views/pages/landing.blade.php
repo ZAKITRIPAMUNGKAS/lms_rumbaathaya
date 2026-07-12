@@ -1018,7 +1018,9 @@
             {{-- ── 1. Brand Header ── --}}
             <div class="flex items-center justify-between py-4">
                 <div class="flex items-center gap-2">
-                    <img src="{{ asset('LogoNavbar.png') }}" alt="Logo Rumba Athaya" class="h-7 w-auto object-contain">
+                    <div class="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center p-1.5 shadow-sm">
+                        <img src="{{ asset('Logo.png') }}" alt="Logo" class="w-full h-full object-contain brightness-0 invert">
+                    </div>
                     <span class="text-slate-900 font-extrabold text-[16px] tracking-tight">Rumba Athaya</span>
                     <span class="bg-orange-100 text-orange-600 text-[9px] font-bold px-1.5 py-0.5 rounded-md ml-0.5">LMS</span>
                 </div>
