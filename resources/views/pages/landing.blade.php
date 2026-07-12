@@ -207,47 +207,47 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
                 <!-- Feature 1 -->
-                <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 text-white flex items-center justify-center text-3xl mb-6 shadow-lg shadow-orange-500/20 group-hover:scale-110 transition-transform duration-300">
+                <div class="group p-4 sm:p-8 rounded-3xl bg-white border border-slate-100/80 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 text-white flex items-center justify-center text-xl sm:text-3xl mb-4 sm:mb-6 shadow-lg shadow-orange-500/20 group-hover:scale-110 transition-transform duration-300">
                         <i class="ph-duotone ph-book-open-text"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Akses Materi 24/7</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
+                    <h3 class="text-sm sm:text-xl font-extrabold text-slate-900 mb-2 sm:mb-3">Akses Materi 24/7</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
                         Modul belajar, video pembahasan, dan bank soal yang bisa diakses kapanpun siswa mau belajar.
                     </p>
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 text-white flex items-center justify-center text-3xl mb-6 shadow-lg shadow-indigo-500/20 group-hover:scale-110 transition-transform duration-300">
+                <div class="group p-4 sm:p-8 rounded-3xl bg-white border border-slate-100/80 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 text-white flex items-center justify-center text-xl sm:text-3xl mb-4 sm:mb-6 shadow-lg shadow-indigo-500/20 group-hover:scale-110 transition-transform duration-300">
                         <i class="ph-duotone ph-monitor-play"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Ujian Berbasis CBT</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
+                    <h3 class="text-sm sm:text-xl font-extrabold text-slate-900 mb-2 sm:mb-3">Ujian Berbasis CBT</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
                         Simulasi ujian mirip UNBK/ANBK untuk melatih kesiapan mental dan skill manajemen waktu.
                     </p>
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 text-white flex items-center justify-center text-3xl mb-6 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
+                <div class="group p-4 sm:p-8 rounded-3xl bg-white border border-slate-100/80 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 text-white flex items-center justify-center text-xl sm:text-3xl mb-4 sm:mb-6 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
                         <i class="ph-duotone ph-chart-line-up"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Rapor Progress</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
+                    <h3 class="text-sm sm:text-xl font-extrabold text-slate-900 mb-2 sm:mb-3">Rapor Progress</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
                         Pantau grafik perkembangan nilai dan absensi siswa secara real-time melalui dashboard.
                     </p>
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 text-white flex items-center justify-center text-3xl mb-6 shadow-lg shadow-emerald-500/20 group-hover:scale-110 transition-transform duration-300">
+                <div class="group p-4 sm:p-8 rounded-3xl bg-white border border-slate-100/80 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 text-white flex items-center justify-center text-xl sm:text-3xl mb-4 sm:mb-6 shadow-lg shadow-emerald-500/20 group-hover:scale-110 transition-transform duration-300">
                         <i class="ph-duotone ph-images"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Galeri Kegiatan</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
+                    <h3 class="text-sm sm:text-xl font-extrabold text-slate-900 mb-2 sm:mb-3">Galeri Kegiatan</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
                         Dokumentasi lengkap kegiatan belajar seru, outbond, dan momen prestasi siswa.
                     </p>
                 </div>
