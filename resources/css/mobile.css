@@ -13,33 +13,38 @@
     --header-height: 60px;
 }
 
-/* ===== BODY MOBILE RESET ===== */
+/* ===== BODY MOBILE RESET & SPEEDUP ===== */
 @media (max-width: 767px) {
     html {
         font-size: 15px;
         -webkit-text-size-adjust: 100%;
+        touch-action: manipulation; /* Removes 300ms double-tap delay globally */
     }
 
     body {
         -webkit-tap-highlight-color: transparent;
-    }
-
-    /* Prevent horizontal scroll */
-    body {
         overflow-x: hidden;
         max-width: 100vw;
+        user-select: none; /* Prevents accidental text selection highlights during scrolling */
+        -webkit-user-select: none;
     }
 
-    /* Smooth momentum scrolling on iOS/Android */
-    .overflow-y-auto, .overflow-y-scroll, main {
+    /* Force hardware GPU acceleration on scrolls & interactive pages */
+    .overflow-y-auto, .overflow-y-scroll, main, .app-only-layout {
         -webkit-overflow-scrolling: touch;
+        transform: translateZ(0);
+        will-change: scroll-position;
+        backface-visibility: hidden;
+        perspective: 1000px;
     }
 
-    /* Make buttons and links easier to tap */
-    button, a, [role="button"] {
+    /* Make buttons and links instantly responsive */
+    button, a, [role="button"], .mobile-bottom-nav-inner a {
         min-height: 44px;
         display: inline-flex;
         align-items: center;
+        touch-action: manipulation; /* Ensures instant click response */
+        cursor: pointer;
     }
 
     /* Better focus states for mobile */
