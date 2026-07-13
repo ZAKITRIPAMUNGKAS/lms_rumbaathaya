@@ -985,7 +985,7 @@
 </div>
 
      {{-- ── EXCLUSIVE MOBILE APP WELCOME — LIGHT PREMIUM REDESIGN ── --}}
-<div class="app-only-layout min-h-screen relative overflow-hidden" style="display:none; background: radial-gradient(circle at top right, #FFF7F0 0%, #F8FAFC 50%); font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;">
+<div class="app-only-layout min-h-screen relative overflow-y-auto" style="display:none; background: radial-gradient(circle at top right, #FFF7F0 0%, #F8FAFC 50%); font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;">
 
     {{-- Decorative Background Gradients --}}
     <div class="absolute right-0 top-10 w-32 h-32 bg-orange-200/30 rounded-full blur-3xl -z-10"></div>
@@ -1013,7 +1013,7 @@
         </script>
     @else
         {{-- ── ONBOARDING WELCOME SCREEN ── --}}
-        <div class="relative z-10 flex flex-col px-6" style="min-height: 100dvh; padding-top: max(env(safe-area-inset-top, 20px), 20px); padding-bottom: calc(90px + env(safe-area-inset-bottom, 24px)); gap: 0;">
+        <div class="relative z-10 flex flex-col px-6" style="min-height: 100dvh; padding-top: max(env(safe-area-inset-top, 20px), 20px); padding-bottom: calc(30px + env(safe-area-inset-bottom, 24px)); gap: 0;">
 
             {{-- ── 1. Brand Header ── --}}
             <div class="flex items-center justify-between py-4">
@@ -1113,10 +1113,10 @@
 
             </div>
 
-            {{-- ── 6. Bottom CTA Button Container ── --}}
-            <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-slate-100 z-30 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.06)] px-6 py-5 flex flex-col gap-3">
+            {{-- ── 6. Bottom CTA Button Container (Moved up to standard flow with safe margin) ── --}}
+            <div class="mt-6 mb-8 w-full bg-white border border-slate-100/80 rounded-2xl shadow-sm px-5 py-5 flex flex-col gap-3">
                 <a href="{{ route('login') }}" 
-                   class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm py-3.5 rounded-xl transition-colors shadow-md shadow-orange-500/20 flex justify-center items-center gap-2">
+                   class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm py-3.5 rounded-xl transition-colors shadow-md shadow-orange-500/10 flex justify-center items-center gap-2">
                     <i class="ph ph-sign-in text-base"></i> Masuk Ke Akun
                 </a>
                 <a href="{{ route('register') }}" 
