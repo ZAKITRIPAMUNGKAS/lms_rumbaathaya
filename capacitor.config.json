@@ -12,7 +12,7 @@
     "SplashScreen": {
       "launchShowDuration": 0,
       "launchAutoHide": false,
-      "backgroundColor": "#0f172a",
+      "backgroundColor": "#f8fafc",
       "androidSplashResourceName": "splash",
       "androidScaleType": "CENTER",
       "showSpinner": false,
@@ -20,8 +20,8 @@
       "splashImmersive": true
     },
     "StatusBar": {
-      "style": "DARK",
-      "backgroundColor": "#0f172a",
+      "style": "LIGHT",
+      "backgroundColor": "#f8fafc",
       "overlaysWebView": false
     },
     "PushNotifications": {
@@ -37,7 +37,7 @@
     "loggingBehavior": "none",
     "useLegacyBridge": false,
     "webContentsDebuggingEnabled": false,
-    "backgroundColor": "#0f172a",
+    "backgroundColor": "#f8fafc",
     "allowMixedContent": false,
     "captureInput": true,
     "webViewFontSize": 16
