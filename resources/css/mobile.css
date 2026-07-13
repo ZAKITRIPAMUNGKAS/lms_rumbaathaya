@@ -354,6 +354,16 @@
     background: #f8fafc;
 }
 
+/* Global mobile spacer fix to prevent white top line gaps under the status bar */
+.capacitor-platform main {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.capacitor-platform .h-16.lg\:hidden {
+    display: none !important;
+}
+
 /* Hide "Unduh App" download tab when inside APK — irrelevant in native context */
 .capacitor-platform .nav-download-tab {
     display: none !important;
