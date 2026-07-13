@@ -74,6 +74,19 @@
                 'buttonColor' => 'bg-brand-orange hover:bg-amber-600',
                 'shadowColor' => 'shadow-orange-500/30',
             ],
+            [
+                'id' => 'rumba-edulive-online',
+                'slug' => 'rumba-edulive-online',
+                'title' => 'Rumba Edulive Kelas Online',
+                'description' => 'Kelas belajar interaktif secara online dari rumah bersama tutor pilihan. Memudahkan Sahabat Rumba di seluruh penjuru wilayah untuk mendapatkan bimbingan belajar berkualitas.',
+                'icon' => 'ph-video-camera',
+                'color' => 'indigo',
+                'borderColor' => 'border-indigo-200 hover:border-brand-blue',
+                'bgColor' => 'bg-indigo-50',
+                'iconColor' => 'text-indigo-600',
+                'buttonColor' => 'bg-indigo-600 hover:bg-indigo-700',
+                'shadowColor' => 'shadow-indigo-500/30',
+            ],
         ];
     @endphp
 

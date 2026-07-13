@@ -81,6 +81,21 @@ class ProgramController extends Controller
                 ],
                 'image' => asset('heaedr produk.png'),
                 'color' => 'green',
+                'featured' => false,
+            ],
+            'rumba-edulive-online' => [
+                'slug' => 'rumba-edulive-online',
+                'title' => 'Rumba Edulive Kelas Online',
+                'badge' => 'Kelas Online',
+                'badge_color' => 'indigo',
+                'description' => 'Kelas belajar interaktif secara online dari rumah bersama tutor pilihan. Memudahkan Sahabat Rumba di seluruh penjuru wilayah untuk mendapatkan bimbingan belajar berkualitas.',
+                'benefits' => [
+                    'Sesi Interaktif Live Video',
+                    'Akses Rekaman Kelas & E-Book',
+                    'Grup Diskusi & Tanya PR Online',
+                ],
+                'image' => asset('heaedr produk.png'),
+                'color' => 'indigo',
                 'featured' => true,
             ],
         ];

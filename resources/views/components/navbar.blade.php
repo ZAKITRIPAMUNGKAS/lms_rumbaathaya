@@ -54,6 +54,7 @@
                                     ['href' => route('program.show', 'sd-kelas-4-6'), 'title' => 'SD Kelas 4-6', 'desc' => 'Persiapan SMP', 'icon' => 'ph-trophy'],
                                     ['href' => route('program.show', 'smp-kelas-7-9'), 'title' => 'SMP Kelas 7-9', 'desc' => 'Persiapan SMA', 'icon' => 'ph-student'],
                                     ['href' => route('program.show', 'kelas-tahfidz'), 'title' => 'Kelas Tahfidz', 'desc' => 'Hafalan & Tahsin', 'icon' => 'ph-book'],
+                                    ['href' => route('program.show', 'rumba-edulive-online'), 'title' => 'Rumba Edulive', 'desc' => 'Kelas Online', 'icon' => 'ph-video-camera'],
                                 ];
                             @endphp
                             @foreach($products as $index => $product)

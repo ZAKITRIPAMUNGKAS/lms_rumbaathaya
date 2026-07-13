@@ -48,6 +48,7 @@ class RegistrationWizard extends Component
         'sd-kelas-4-6' => ['name' => 'SD Kelas 4-6', 'icon' => '🏆', 'description' => 'Persiapan SMP'],
         'smp-kelas-7-9' => ['name' => 'SMP Kelas 7-9', 'icon' => '📖', 'description' => 'Siap SMA Favorit'],
         'kelas-tahfidz' => ['name' => 'Kelas Tahfidz', 'icon' => '📿', 'description' => 'Hafalan & Tahsin'],
+        'rumba-edulive-online' => ['name' => 'Rumba Edulive Kelas Online', 'icon' => '💻', 'description' => 'Kelas Online Interaktif'],
     ];
 
     public const STEPS = [
@@ -188,6 +189,7 @@ class RegistrationWizard extends Component
                 'SD Kelas 4-6' => 'MAPEL SD',
                 'SMP Kelas 7-9' => 'MAPEL SMP',
                 'Kelas Tahfidz' => 'Tahfidz',
+                'Rumba Edulive Kelas Online' => 'Yang lain',
             ];
             
             $dbProgram = $programMapping[$selectedProgramName] ?? 'Yang lain';
@@ -198,6 +200,7 @@ class RegistrationWizard extends Component
                 'MAPEL SMP' => 'Mapel SMP',
                 'MAPEL SMA' => 'Mapel SMA',
                 'Tahfidz' => 'Tahfidz',
+                'Yang lain' => 'Mapel Online',
             ];
             
             $dbProgramInterest = $programInterestMapping[$dbProgram] ?? 'Calistung';

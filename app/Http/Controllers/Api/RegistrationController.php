@@ -28,6 +28,7 @@ class RegistrationController extends Controller
             'SD Kelas 4-6' => 'MAPEL SD',
             'SMP Kelas 7-9' => 'MAPEL SMP',
             'Kelas Tahfidz' => 'Tahfidz',
+            'Rumba Edulive Kelas Online' => 'Yang lain',
         ];
 
         $validated = $request->validate([

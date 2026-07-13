@@ -491,6 +491,16 @@
                             'badgeColor' => 'bg-white/90 backdrop-blur text-green-600',
                             'buttonColor' => 'border-green-100 text-green-600 hover:bg-green-500 hover:text-white',
                             'features' => ['Hafalan Al-Qur\'an', 'Tahsin & Tajwid'],
+                            'featured' => false
+                        ],
+                        [
+                            'id' => 'rumba-edulive-online',
+                            'title' => 'Rumba Edulive Kelas Online',
+                            'description' => 'Kelas belajar interaktif secara online dari rumah bersama tutor pilihan. Memudahkan Sahabat Rumba di seluruh penjuru wilayah untuk mendapatkan bimbingan belajar berkualitas.',
+                            'badge' => 'Online',
+                            'badgeColor' => 'bg-white/90 backdrop-blur text-indigo-600',
+                            'buttonColor' => 'border-indigo-100 text-indigo-500 hover:bg-indigo-500 hover:text-white',
+                            'features' => ['Sesi Live Video', 'Akses Rekaman Kelas'],
                             'featured' => true
                         ],
                     ];
