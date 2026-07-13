@@ -80,6 +80,11 @@
         /* Prevent white gap from top navigation bar spacer inside Android APK */
         .capacitor-platform main {
             padding-top: 0 !important;
+            margin-top: 0 !important;
+        }
+
+        .capacitor-platform .h-16.lg\:hidden {
+            display: none !important;
         }
     </style>
 </head>
