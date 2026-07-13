@@ -59,7 +59,7 @@ async function initCapacitor() {
 
     try {
         // Initialize Status Bar
-        if (window.Capacitor.Plugins?.StatusBar) {
+        if (window.Capacitor?.Plugins?.StatusBar) {
             const { StatusBar } = window.Capacitor.Plugins;
             await StatusBar.setStyle({ style: 'LIGHT' });
             await StatusBar.setBackgroundColor({ color: '#f8fafc' });
@@ -67,7 +67,7 @@ async function initCapacitor() {
         }
 
         // Hide native Splash Screen quickly (launchAutoHide: false in config)
-        if (window.Capacitor.Plugins?.SplashScreen) {
+        if (window.Capacitor?.Plugins?.SplashScreen) {
             const { SplashScreen } = window.Capacitor.Plugins;
             // Hide almost immediately — web splash already covers the transition
             setTimeout(() => SplashScreen.hide({ fadeOutDuration: 150 }), 100);
@@ -84,7 +84,7 @@ async function initCapacitor() {
 
 // ===== PUSH NOTIFICATIONS =====
 async function initPushNotifications() {
-    if (!isCapacitor() || !window.Capacitor.Plugins?.PushNotifications) return;
+    if (!isCapacitor() || !window.Capacitor?.Plugins?.PushNotifications) return;
 
     const { PushNotifications } = window.Capacitor.Plugins;
 
@@ -216,7 +216,7 @@ function initBottomNav() {
 
 // ===== HAPTIC FEEDBACK =====
 async function hapticFeedback(style = 'light') {
-    if (!isCapacitor() || !window.Capacitor.Plugins?.Haptics) return;
+    if (!isCapacitor() || !window.Capacitor?.Plugins?.Haptics) return;
 
     try {
         const { Haptics, ImpactStyle } = window.Capacitor.Plugins;
