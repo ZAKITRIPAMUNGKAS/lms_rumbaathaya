@@ -1059,7 +1059,7 @@
             {{-- ── 4. Stats Row ── --}}
             <div class="bg-white rounded-2xl border border-slate-100 p-4 flex justify-between items-center divide-x divide-slate-100 shadow-sm mb-6">
                 <div class="flex-1 text-center px-1">
-                    <h3 class="font-extrabold text-slate-900 text-lg leading-none">{{ $studentCount }}+</h3>
+                    <h3 class="font-extrabold text-slate-900 text-lg leading-none">7K+</h3>
                     <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider mt-1">Siswa Aktif</p>
                 </div>
                 <div class="flex-1 text-center px-1">
