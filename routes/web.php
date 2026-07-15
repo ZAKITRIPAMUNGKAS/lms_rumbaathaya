@@ -69,16 +69,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:tutor')->prefix('tutor')->name('tutor.')->group(function () {
         Route::get('/dashboard', \App\Livewire\TutorDashboard::class)->name('dashboard');
 
-        // Materials Management
-        Route::get('/materials', function () {
-            return view('pages.tutor.materials.index');
-        })->name('materials.index');
-        Route::get('/materials/create', function () {
-            return view('pages.tutor.materials.create');
-        })->name('materials.create');
-        Route::get('/materials/{id}/edit', function ($id) {
-            return view('pages.tutor.materials.edit', ['id' => $id]);
-        })->name('materials.edit');
+        Route::get('/materials', \App\Livewire\Tutor\Materials::class)->name('materials.index');
 
         // Schedules Management
         Route::get('/schedules', \App\Livewire\Tutor\Schedules::class)->name('schedules.index');
@@ -93,9 +84,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/journals', \App\Livewire\Tutor\Journals::class)->name('journals.index');
 
         // Reports
-        Route::get('/reports', function () {
-            return view('pages.tutor.reports');
-        })->name('reports.index');
+        Route::get('/reports', \App\Livewire\Tutor\Reports::class)->name('reports.index');
 
         // Settings
         Route::get('/settings', \App\Livewire\Tutor\Settings::class)->name('settings');
