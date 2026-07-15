@@ -90,9 +90,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/attendance', \App\Livewire\Tutor\Attendance::class)->name('attendance.index');
 
         // Journals
-        Route::get('/journals', function () {
-            return view('pages.tutor.journals');
-        })->name('journals.index');
+        Route::get('/journals', \App\Livewire\Tutor\Journals::class)->name('journals.index');
 
         // Reports
         Route::get('/reports', function () {
@@ -118,7 +116,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/attendances', function () {
             $frontendUrl = env('NEXT_PUBLIC_APP_URL', 'http://localhost:3002');
-            return redirect($frontendUrl . '/attendance');
+            return redirect()->away($frontendUrl . '/attendance');
         })->name('attendances.index');
 
         Route::get('/tasks', function () {
