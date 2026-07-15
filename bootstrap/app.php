@@ -75,4 +75,18 @@ return Application::configure(basePath: dirname(__DIR__))
                 ], 401);
             }
         });
+
+        // 🛡️ Handle CSRF Token Mismatch Exception (Error 419)
+        $exceptions->render(function (\Illuminate\Session\TokenMismatchException $e, \Illuminate\Http\Request $request) {
+            if ($request->is('api/*') || $request->expectsJson()) {
+                return response()->json([
+                    'message' => 'CSRF token mismatch. Please refresh your token.',
+                ], 419);
+            }
+            
+            // Redirect back to login with a friendly warning message
+            return redirect()
+                ->route('login')
+                ->with('status', 'Sesi login Anda telah berakhir demi keamanan. Silakan coba masuk kembali.');
+        });
     })->create();

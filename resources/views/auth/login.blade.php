@@ -47,9 +47,19 @@
                 <div class="p-8 bg-white/60 backdrop-blur-sm">
                     <!-- Session Status -->
                     @if (session('status'))
-                        <div class="mb-4 font-medium text-sm text-green-600">
-                            {{ session('status') }}
-                        </div>
+                        @if (str_contains(session('status'), 'berakhir') || str_contains(session('status'), 'keamanan'))
+                            <div class="mb-6 p-4 bg-orange-50 border-l-4 border-orange-500 rounded-xl flex items-start gap-3">
+                                <i class="ph ph-shield-warning text-orange-500 text-xl shrink-0 mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-orange-800 text-sm">Sesi Berakhir</h4>
+                                    <p class="text-xs text-orange-600 mt-0.5">{{ session('status') }}</p>
+                                </div>
+                            </div>
+                        @else
+                            <div class="mb-4 p-3 bg-green-50 border border-green-200 text-green-700 text-sm rounded-xl">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                     @endif
 
                     <!-- Validation Error Warning Box -->
